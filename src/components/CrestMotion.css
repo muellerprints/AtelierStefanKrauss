@@ -1,0 +1,272 @@
+:root{
+  --c1: #f5f4ef;
+  --c2: #e9e6e1;
+  --accent: #b89b6b;
+  --text: #222;
+  --crest-max-y: clamp(120px, 18vw, 600px);
+  /* horizontal shift for background crest marks (negative moves left) */
+  --crest-shift-x: -6vw;
+}
+.crest-motion{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 16px;
+  background: linear-gradient(90deg,var(--c1),var(--c2));
+  background-size:200% 200%;
+  animation: bgShift 14s ease-in-out infinite;
+}
+.crest-inner{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  max-width:900px;
+  width:100%;
+}
+.crest-graphic{ 
+  width:160px;
+  height:160px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.crest-img{
+  width:120px;
+  height:120px;
+  object-fit:contain;
+  transform-origin:center;
+  animation: crestFloat 8s ease-in-out infinite alternate;
+}
+.crest-text h2{
+  margin:0;
+  color:var(--text);
+  font-weight:500;
+  font-size:20px;
+  letter-spacing:0.04em;
+}
+.crest-sub{
+  margin:6px 0 0 0;
+  color:rgba(0,0,0,0.6);
+  font-size:13px;
+}
+
+@keyframes bgShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes crestFloat{
+  0%{transform:translateY(0) rotate(-1deg)}
+  100%{transform:translateY(-6px) rotate(1deg)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .crest-motion, .crest-img{animation:none}
+}
+
+/* Background variant: absolute, decorative but visible */
+.crest-motion--bg{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  z-index:0;
+  opacity:0.9;
+  background: linear-gradient(90deg, rgba(245,244,239,0.8), rgba(233,230,225,0.8));
+}
+.crest-main{ position:relative }
+/* ensure page content stacks above the decorative crest */
+.crest-main > *:not(.crest-motion){ position:relative; z-index:50 }
+/* place the decorative crest as a fixed background layer so it cannot cover content
+  due to stacking-context quirks inside `main` */
+.crest-motion--bg{ position:fixed; inset:0; overflow:hidden; z-index:0; background: transparent; pointer-events:none }
+.crest-motion--bg .crest-inner{ max-width:1400px; justify-content:flex-start; padding-left:48px }
+/* Large decorative crest placed behind content. Visible but subtle. */
+.crest-motion--bg .crest-graphic{
+  position:absolute;
+  left:50%;
+  top:48%;
+  transform:translate(-50%,-50%);
+  width:60vw;
+  max-width:720px;
+  height:auto;
+  display:block;
+  pointer-events:none;
+}
+.crest-motion--bg .crest-graphic{ animation: crestWrapperDrift 22s ease-in-out infinite alternate }
+.crest-motion--bg .crest-graphic{ will-change: transform }
+.crest-motion--bg .crest-text{ display:none }
+.crest-motion--bg .crest-img{ width:100%; height:auto; opacity:0.10; filter:grayscale(1) saturate(0.6) blur(0.2px); transform-origin:center; animation: crestDrift 20s ease-in-out infinite alternate; mix-blend-mode:multiply }
+
+/* soft decorative lighting layer to mimic subtle moving highlights */
+.crest-motion--bg::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: radial-gradient(40% 30% at 20% 30%, rgba(255,255,255,0.06), transparent 20%),
+              radial-gradient(30% 25% at 80% 70%, rgba(255,255,255,0.045), transparent 25%);
+  mix-blend-mode:soft-light;
+  animation: lightDrift 20s ease-in-out infinite;
+  z-index:0;
+}
+
+@keyframes lightDrift{
+  0%{transform:translateY(0) translateX(0) scale(1)}
+  50%{transform:translateY(-18px) translateX(8px) scale(1.02)}
+  100%{transform:translateY(0) translateX(0) scale(1)}
+}
+
+@keyframes crestDrift{
+  0%{transform:translate(-50%,-50%) translateY(0px) rotate(-0.8deg) scale(0.99)}
+  20%{transform:translate(-50%,-50%) translateY(calc(var(--crest-max-y) * -0.06)) rotate(0.4deg) scale(1.03)}
+  45%{transform:translate(-50%,-50%) translateY(calc(var(--crest-max-y) * -0.22)) rotate(1.1deg) scale(1.12)}
+  70%{transform:translate(-50%,-50%) translateY(calc(var(--crest-max-y) * -0.12)) rotate(0.5deg) scale(1.06)}
+  100%{transform:translate(-50%,-50%) translateY(0px) rotate(-0.8deg) scale(0.99)}
+}
+
+@keyframes crestWrapperDrift{
+  0%{transform:translate(-50%,-50%) translateY(0px) rotate(-0.3deg) scale(0.995)}
+  40%{transform:translate(-50%,-50%) translateY(calc(var(--crest-max-y) * -0.18)) rotate(0.8deg) scale(1.06)}
+  100%{transform:translate(-50%,-50%) translateY(0px) rotate(-0.3deg) scale(0.995)}
+}
+
+/* Typographic mark for background: large, subtle, drifting text */
+/* More elegant, slower, and slightly stronger typographic crest like the reference */
+.crest-motion--bg .crest-mark{
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight:700;
+  font-size: var(--mark-size, clamp(110px, 18vw, 420px));
+  letter-spacing: -0.02em;
+  text-transform:uppercase;
+  display:inline-block;
+  position:absolute;
+  left:50%;
+  top:48%;
+  transform: translate(calc(-50% + var(--ox, 0px) + var(--crest-shift-x, 0px)), calc(-50% + var(--oy, 0px))) scale(var(--scale, 1));
+  transform-origin:center;
+  mix-blend-mode:overlay;
+  filter:grayscale(0.08) saturate(1) blur(0.1px);
+  mask-image: radial-gradient(closest-side, rgba(0,0,0,1), rgba(0,0,0,0.85) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(closest-side, rgba(0,0,0,1), rgba(0,0,0,0.85) 60%, rgba(0,0,0,0) 100%);
+  animation: crestTextDrift 18s cubic-bezier(.22,.7,.15,1) infinite;
+  animation-delay: var(--delay, 0s);
+  z-index:0;
+}
+
+/* Floating mark styling mirrors background mark so overlay/base line up */
+.crest-mark--floating{
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight:700;
+  font-size: var(--mark-size, clamp(140px, 20vw, 360px));
+  letter-spacing: -0.02em;
+  text-transform:uppercase;
+  display:inline-block;
+  transform-origin:center;
+  mix-blend-mode:overlay;
+  filter:grayscale(0.08) saturate(1) blur(0.1px);
+  mask-image: radial-gradient(closest-side, rgba(0,0,0,1), rgba(0,0,0,0.85) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: radial-gradient(closest-side, rgba(0,0,0,1), rgba(0,0,0,0.85) 60%, rgba(0,0,0,0) 100%);
+  pointer-events:none;
+}
+
+.crest-mark--floating .crest-mark__base,
+.crest-mark--floating .crest-mark__overlay{
+  display:block;
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+}
+.crest-mark--floating .crest-mark__base{
+  color: var(--mark-color-a, var(--neutral));
+  opacity: 0.22;
+  mix-blend-mode:normal;
+  transform: translateZ(0);
+}
+.crest-mark--floating .crest-mark__overlay{
+  position:absolute;
+  left:0; top:0;
+  color: var(--mark-color-b, var(--pantone-1));
+  opacity: 0.28;
+  mix-blend-mode:overlay;
+  transform: translate(6px, -4px) scale(1);
+  filter: blur(0.2px) saturate(1.06);
+}
+
+/* Floating variant (appended to body) should sit above content */
+.crest-mark--floating{
+  position:fixed !important;
+  transform-origin:center !important;
+  z-index:130 !important;
+  pointer-events:none !important;
+}
+
+/* Two-layer text: base (gray) + overlay (orange) to mirror header/footer styles */
+.crest-motion--bg .crest-mark__base,
+.crest-motion--bg .crest-mark__overlay{
+  display:block;
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+}
+.crest-motion--bg .crest-mark__base{
+  color: var(--mark-color-a, var(--neutral));
+  opacity: 0.22;
+  mix-blend-mode:normal;
+  transform: translateZ(0);
+}
+.crest-motion--bg .crest-mark__overlay{
+  position:absolute;
+  left:0; top:0;
+  color: var(--mark-color-b, var(--pantone-1));
+  opacity: 0.28;
+  mix-blend-mode:overlay;
+  transform: translate(6px, -4px) scale(1);
+  filter: blur(0.2px) saturate(1.06);
+}
+
+/* subtle float + opacity animation for the SK inner element */
+.crest-motion--bg .crest-mark__inner{
+  transition: transform .9s ease-in-out, opacity .9s ease-in-out;
+  opacity: 0.24;
+  animation: crestMarkFloat 10s ease-in-out infinite alternate;
+}
+
+@keyframes crestMarkFloat{
+  0%{transform:translateY(0px); opacity:0.20}
+  50%{transform:translateY(-8px); opacity:0.34}
+  100%{transform:translateY(-4px); opacity:0.28}
+}
+
+.crest-motion--bg .crest-mark{ will-change: transform, opacity }
+
+
+@keyframes crestTextDrift{
+  0%{transform:translate3d(-2px,0,0) rotate(-0.8deg) scale(0.99); opacity:0.12}
+  18%{transform:translate3d(calc(var(--crest-max-y) * -0.12), calc(var(--crest-max-y) * -0.08), 0) rotate(0.8deg) scale(1.06); opacity:0.22}
+  38%{transform:translate3d(calc(var(--crest-max-y) * 0.12), calc(var(--crest-max-y) * -0.22), 0) rotate(1.4deg) scale(1.18); opacity:0.32}
+  60%{transform:translate3d(calc(var(--crest-max-y) * -0.05), calc(var(--crest-max-y) * -0.28), 0) rotate(1.6deg) scale(1.20); opacity:0.30}
+  82%{transform:translate3d(calc(var(--crest-max-y) * 0.08), calc(var(--crest-max-y) * -0.16), 0) rotate(0.9deg) scale(1.08); opacity:0.24}
+  100%{transform:translate3d(-2px,0,0) rotate(-0.8deg) scale(0.99); opacity:0.12}
+}
+
+/* Force animations even when prefers-reduced-motion applies (opt-in via prop) */
+@media (prefers-reduced-motion: reduce){
+  .crest-motion--force-animate .crest-mark,
+  .crest-motion--force-animate .crest-img,
+  .crest-motion--force-animate .crest-graphic{
+    animation-play-state:running !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .crest-motion--bg .crest-mark{animation:none}
+}
+
+/* Ensure the page main using this pattern is transparent so the animated
+  crest can be visible as a decorative background. Use important to
+  override earlier global background rules like `body` or `.container`. */
+.crest-main{ background: transparent !important; background-color: transparent !important }
