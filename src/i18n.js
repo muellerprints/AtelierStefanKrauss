@@ -27,14 +27,18 @@ const resources = {
       },
       about: {
         title: 'Stefan Krauss',
-        intro1: 'Ich bin Stefan Krauss. Ich arbeite mit Ruhe und Präzision. Material und Form sind mein Maßstab. Meine Herkunft aus dem Juwelierhandwerk prägt mich, doch ich arbeite eigenständig: Haltung vor Effekthascherei.',
+        intro1: 'Seit über vier Jahrzehnten arbeite ich als Goldschmiedemeister. Meine Wurzeln liegen im Juwelierhaus Günter Krauss Schmuck. Mein beruflicher Weg führte mich durch unterschiedliche Bereiche des Handwerks und der Branche - von der Leitung einer Werkstatt mit Schwerpunkt auf Perlen über Tätigkeiten im Einkauf und Vertrieb bis hin zum direkten Austausch mit Kundinnen und Kunden im Ladengeschäft. So entwickelte sich ein breites Verständnis für das Handwerk und die vielschichtigen Anforderungen dieser besonderen Welt. Diese unterschiedlichen Erfahrungen prägen meinen Blick bis heute. Zugleich wird mit dem Goldschmiedeatelier Krauss ein neues Kapitel aufgeschlagen: eigenständig, verbunden mit der Vergangenheit und mit klarem Blick für das Heute.',
         portraitCaption: 'Porträt — Stefan Krauss',
-        vitaTitle: 'Vita (Beispiel)',
+        vitaTitle: 'Vita – Stefan Krauss',
         vita: [
-          { year: '1998–2002', text: 'Ausbildung zum Goldschmied im Juwelierhaus GK Schmuck' },
-          { year: '2003–2010', text: 'Gesellenjahre, Spezialisiert auf Restaurationen und Unikate' },
-          { year: '2011–2020', text: 'Meisterprüfung und Leitung der Werkstatt bei GK Schmuck' },
-          { year: '2021–heute', text: 'Gründung des eigenen Goldschmiedeatelier Krauss; Fokus auf handwerkliche Präzision' }
+          { year: '1982–1986', text: 'Ausbildung an der Goldschmiedeschule Pforzheim' },
+          { year: '1987–1990', text: 'Goldschmied bei Günter Krauss Schmuck GmbH' },
+          { year: '1991', text: 'Meisterprüfung zum Goldschmiedemeister' },
+          { year: '1991–2000', text: 'Werkstattleiter bei Günter Krauss Schmuck GmbH' },
+          { year: '2001–2019', text: 'Gellner Schmuckmanufaktur GmbH & Co. KG – Tätigkeiten in Produktion, Vertrieb und Einkauf; internationale Messeteilnahmen (u. a. Hongkong, Kobe)' },
+          { year: '2019–2022', text: 'Werkstatt- und Shopleiter Colleen B. Rosenblatt' },
+          { year: '2022–2026', text: 'Geschäftsführer Günter Krauss Schmuck GmbH' },
+          { year: 'seit 2026', text: 'Gründung Goldschmiedeatelier Krauss' }
         ]
       }
       ,
@@ -112,7 +116,9 @@ const resources = {
         },
         atelier: {
           title: 'Atelier & Arbeitsweise',
-          description: 'Ich fertige Schmuck mit ruhiger, präziser Hand. Der Arbeitsablauf ist klar: Skizze, Prüfung, Anfertigung. Der Umgang mit Kundinnen und Kunden ist respektvoll, verbindlich und auf Vertrauen ausgerichtet.'
+          description: 'Gute Arbeit beginnt mit genauem Hinsehen.\n\nHandwerkliche Präzision, Hingabe zum Material und jahrzehntelange Erfahrung leiten mein Arbeiten. Jedes Stück entsteht mit Sorgfalt, persönlicher Verantwortung und dem Anspruch, Lösungen zu schaffen, die langfristig Bestand haben. Ich konzentriere mich auf Arbeiten, die handwerklich überzeugen und Wert erhalten — sei es in der Neuanfertigung oder in der Weiterführung bestehender Schmuckstücke.\n\nMeine Arbeitsweise ist geprägt von Ruhe, Klarheit und Verlässlichkeit. Absprachen erfolgen auf Augenhöhe, Entscheidungen mit einem realistischen Blick für Machbarkeit und Qualität. Seriosität entsteht für mich durch Erfahrung, Verantwortung und eine ruhige Präsenz — nicht durch Lautstärke.\n\nQualität zeigt sich im Detail.',
+          positioningTitle: 'Positionierung',
+          positioning: '(für Max: Hier brauchen wir dann eine 2. Seite … rechts zum Rausscrollen …)\n\nEin starkes Netzwerk erweitert die Möglichkeiten. Über viele Jahre hinweg ist ein tragfähiges Netzwerk gewachsen, das kurze Wege und unmittelbare Nähe zur Branche ermöglicht. Es erweitert die handwerklichen Möglichkeiten und schafft Zugriff auf spezialisierte Techniken — immer mit dem Ziel, für jede Aufgabe die bestmögliche Lösung zu realisieren.\n\nQualität zeigt sich im Detail.'
         },
       impressum: {
         title: 'Impressum',
