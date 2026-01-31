@@ -25,6 +25,22 @@ const resources = {
           { title: 'Werkstatt & Arbeitsweise', lead: 'Klare Prozesse, durchdachte Materialwahl und zeitlose Gestaltung.' }
         ]
       },
+      about: {
+        title: 'Stefan Krauss',
+        intro1: 'Seit über vier Jahrzehnten arbeite ich als Goldschmiedemeister. Meine Wurzeln liegen im Juwelierhaus Günter Krauss Schmuck. Mein beruflicher Weg führte mich durch unterschiedliche Bereiche des Handwerks und der Branche - von der Leitung einer Werkstatt mit Schwerpunkt auf Perlen über Tätigkeiten im Einkauf und Vertrieb bis hin zum direkten Austausch mit Kundinnen und Kunden im Ladengeschäft. So entwickelte sich ein breites Verständnis für das Handwerk und die vielschichtigen Anforderungen dieser besonderen Welt. Diese unterschiedlichen Erfahrungen prägen meinen Blick bis heute. Zugleich wird mit dem Goldschmiedeatelier Krauss ein neues Kapitel aufgeschlagen: eigenständig, verbunden mit der Vergangenheit und mit klarem Blick für das Heute.',
+        portraitCaption: 'Porträt — Stefan Krauss',
+        vitaTitle: 'Vita – Stefan Krauss',
+        vita: [
+          { year: '1982–1986', text: 'Ausbildung an der Goldschmiedeschule Pforzheim' },
+          { year: '1987–1990', text: 'Goldschmied bei Günter Krauss Schmuck GmbH' },
+          { year: '1991', text: 'Meisterprüfung zum Goldschmiedemeister' },
+          { year: '1991–2000', text: 'Werkstattleiter bei Günter Krauss Schmuck GmbH' },
+          { year: '2001–2019', text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — Tätigkeiten in Produktion, Vertrieb und Einkauf; internationale Messeteilnahmen (u. a. Hongkong, Kobe)' },
+          { year: '2019–2022', text: 'Werkstatt- und Shopleiter Colleen B. Rosenblatt' },
+          { year: '2022–2026', text: 'Geschäftsführer Günter Krauss Schmuck GmbH' },
+          { year: 'seit 2026', text: 'Gründung Goldschmiedeatelier Krauss' }
+        ]
+      },
         services: {
           title: 'Service Spectrum',
           headings: ['Core Services', 'Extended Capabilities'],
