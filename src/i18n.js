@@ -25,30 +25,30 @@ const resources = {
           { title: 'Werkstatt & Arbeitsweise', lead: 'Klare Prozesse, durchdachte Materialwahl und zeitlose Gestaltung.' }
         ]
       },
-      about: {
-        title: 'Stefan Krauss',
-        intro1: 'Seit über vier Jahrzehnten arbeite ich als Goldschmiedemeister. Meine Wurzeln liegen im Juwelierhaus Günter Krauss Schmuck. Mein beruflicher Weg führte mich durch unterschiedliche Bereiche des Handwerks und der Branche - von der Leitung einer Werkstatt mit Schwerpunkt auf Perlen über Tätigkeiten im Einkauf und Vertrieb bis hin zum direkten Austausch mit Kundinnen und Kunden im Ladengeschäft. So entwickelte sich ein breites Verständnis für das Handwerk und die vielschichtigen Anforderungen dieser besonderen Welt. Diese unterschiedlichen Erfahrungen prägen meinen Blick bis heute. Zugleich wird mit dem Goldschmiedeatelier Krauss ein neues Kapitel aufgeschlagen: eigenständig, verbunden mit der Vergangenheit und mit klarem Blick für das Heute.',
-        portraitCaption: 'Porträt — Stefan Krauss',
-        vitaTitle: 'Vita – Stefan Krauss',
-        vita: [
-          { year: '1982–1986', text: 'Ausbildung an der Goldschmiedeschule Pforzheim' },
-          { year: '1987–1990', text: 'Goldschmied bei Günter Krauss Schmuck GmbH' },
-          { year: '1991', text: 'Meisterprüfung zum Goldschmiedemeister' },
-          { year: '1991–2000', text: 'Werkstattleiter bei Günter Krauss Schmuck GmbH' },
-          { year: '2001–2019', text: 'Gellner Schmuckmanufaktur GmbH & Co. KG – Tätigkeiten in Produktion, Vertrieb und Einkauf; internationale Messeteilnahmen (u. a. Hongkong, Kobe)' },
-          { year: '2019–2022', text: 'Werkstatt- und Shopleiter Colleen B. Rosenblatt' },
-          { year: '2022–2026', text: 'Geschäftsführer Günter Krauss Schmuck GmbH' },
-          { year: 'seit 2026', text: 'Gründung Goldschmiedeatelier Krauss' }
-        ]
-      }
-      ,
-      privacy: {
-        title: 'Datenschutzerklärung',
-        intro: 'Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Diese Kurzfassung informiert über Art, Umfang und Zweck der Erhebung und Verwendung personenbezogener Daten.',
-        responsibleTitle: 'Verantwortlicher',
-        responsible: 'Goldschmiedeatelier — Inhaber: Stefan Krauss — Neuberg 11, 75210 Keltern — info@goldschmiedeatelier-krauss.de',
-        collectedTitle: 'Erhobene Daten',
-        collected: 'Wir verarbeiten z.B. Kontaktdaten, Bestell‑ und Abrechnungsdaten sowie Informationen, die Sie uns freiwillig mitteilen.',
+        services: {
+          title: 'Service Spectrum',
+          headings: ['Core Services', 'Extended Capabilities'],
+          list: [
+            'Core Services',
+            'Custom commissions — from design to the finished piece',
+            'Wedding and partner rings — individually crafted',
+            'Preserving value means shaping the future',
+            'Remodelling — rethinking existing pieces and continuing craftsmanship',
+            'Repair and refurbishment of jewellery',
+            'Ring sizing adjustments',
+            'Lengthening and shortening necklaces, including pearl and gemstone strands',
+            'Certificates — gemstone and diamond reports',
+            'Extended Capabilities',
+            'Gem setting by specialised partners',
+            'Turning and milling work',
+            'Laser work',
+            'CAD design',
+            'CNC technology',
+            'Electroplating processes',
+            'Sintering processes',
+            'Collaboration with a silversmith for small series and special commissions'
+          ]
+        }
         purposesTitle: 'Zwecke',
         purposes: 'Datenverarbeitung dient zur Bearbeitung von Anfragen, zur Auftragsabwicklung und zur Erfüllung gesetzlicher Pflichten.',
         rightsTitle: 'Rechte',
@@ -228,14 +228,18 @@ const resources = {
       },
       about: {
         title: 'Stefan Krauss',
-        intro1: 'The goldsmith originally worked at the GK Schmuck jeweller. This background should be present subtly, not dominate — a new independent chapter begins: proud of the past and clear in the present.',
+        intro1: 'For over four decades I have worked as a master goldsmith. My roots lie with the jeweller Günter Krauss Schmuck. My professional path has led me through different areas of the craft and the trade — from managing a workshop focused on pearls to roles in purchasing and sales and to direct customer interaction in the retail shop. This has given me a broad understanding of the craft and the complex demands of this special world. These varied experiences continue to shape my perspective. At the same time, Goldschmiedeatelier Krauss opens a new chapter: independent, connected to the past and with a clear view of the present.',
         portraitCaption: 'Portrait — Stefan Krauss',
-        vitaTitle: 'Vita (example)',
+        vitaTitle: 'Vita – Stefan Krauss',
         vita: [
-          { year: '1998–2002', text: 'Training as a goldsmith at GK Schmuck' },
-          { year: '2003–2010', text: 'Journeyman years, specialized in restorations and unique pieces' },
-          { year: '2011–2020', text: 'Master craftsman and workshop lead at GK Schmuck' },
-          { year: '2021–present', text: 'Founded Goldsmith Atelier Krauss; focus on craft precision' }
+          { year: '1982–1986', text: 'Training at the Pforzheim School of Goldsmithing' },
+          { year: '1987–1990', text: 'Goldsmith at Günter Krauss Schmuck GmbH' },
+          { year: '1991', text: 'Master craftsman (Goldsmith)' },
+          { year: '1991–2000', text: 'Workshop manager at Günter Krauss Schmuck GmbH' },
+          { year: '2001–2019', text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — roles in production, sales and purchasing; international trade fair participation (e.g. Hong Kong, Kobe)' },
+          { year: '2019–2022', text: 'Workshop and shop manager at Colleen B. Rosenblatt' },
+          { year: '2022–2026', text: 'Managing Director, Günter Krauss Schmuck GmbH' },
+          { year: 'since 2026', text: 'Founder, Goldschmiedeatelier Krauss' }
         ]
       }
       ,
@@ -321,7 +325,9 @@ const resources = {
         },
         atelier: {
           title: 'Atelier & Practice',
-          description: 'Description of the working approach, image logic and methodology. Posture over action, calm visual language.'
+          description: 'Good work starts with careful observation.\n\nCraft precision, dedication to material and decades of experience guide my work. Each piece is created with care, personal responsibility and the aim of producing solutions that endure. I focus on work that convinces on a craft level and preserves value — whether in new commissions or in continuing existing jewellery.\n\nMy working approach is characterised by calm, clarity and reliability. Agreements are made on equal terms and decisions are taken with a realistic view of feasibility and quality. Seriousness for me arises from experience, responsibility and a calm presence — not from volume.\n\nQuality shows in the detail.',
+          positioningHeading: 'A strong network',
+          positioning: 'A strong network expands possibilities. Over many years a resilient network has grown, providing short channels and close ties to the trade. It extends the craft capabilities and grants access to specialised techniques — always with the aim of realising the best possible solution for each task.\n\nQuality shows in the detail.'
         },
       footer: {
         aboutTitle: 'About us',

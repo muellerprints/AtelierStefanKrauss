@@ -5,8 +5,8 @@ export default function Services(){
   const { t } = useTranslation()
   const items = t('services.list', { returnObjects: true })
 
-  // Treat specific list entries as section headings
-  const headingKeys = new Set(['Kernleistungen', 'Erweiterte Möglichkeiten'])
+  // Get localized heading keys from translations (e.g. 'Kernleistungen' / 'Core Services')
+  const headingKeys = new Set(t('services.headings', { returnObjects: true }) || [])
 
   // Build groups: { title?: string, items: string[] }
   const groups = []
