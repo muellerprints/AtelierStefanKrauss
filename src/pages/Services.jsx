@@ -5,12 +5,36 @@ export default function Services(){
   const { t } = useTranslation()
   const items = t('services.list', { returnObjects: true })
 
+  // Treat specific list entries as section headings
+  const headingKeys = new Set(['Kernleistungen', 'Erweiterte Möglichkeiten'])
+
+  // Build groups: { title?: string, items: string[] }
+  const groups = []
+  let current = { items: [] }
+  items.forEach(it => {
+    if (headingKeys.has(it)) {
+      // start a new group with title
+      if (current.items.length || current.title) groups.push(current)
+      current = { title: it, items: [] }
+    } else {
+      current.items.push(it)
+    }
+  })
+  if (current.items.length || current.title) groups.push(current)
+
   return (
     <main className="container">
       <h2>{t('services.title')}</h2>
-      <ul>
-        {items.map((it, i) => <li key={i}>{it}</li>)}
-      </ul>
+      {groups.map((g, gi) => (
+        <section key={gi}>
+          {g.title && <h3>{g.title}</h3>}
+          {g.items.length > 0 && (
+            <ul>
+              {g.items.map((it, i) => <li key={i}>{it}</li>)}
+            </ul>
+          )}
+        </section>
+      ))}
     </main>
   )
 }
