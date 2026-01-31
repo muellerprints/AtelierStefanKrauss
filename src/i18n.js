@@ -48,7 +48,8 @@ const resources = {
             'Sintering processes',
             'Collaboration with a silversmith for small series and special commissions'
           ]
-        }
+        },
+      privacy: {
         purposesTitle: 'Zwecke',
         purposes: 'Datenverarbeitung dient zur Bearbeitung von Anfragen, zur Auftragsabwicklung und zur Erfüllung gesetzlicher Pflichten.',
         rightsTitle: 'Rechte',
