@@ -111,8 +111,27 @@ const resources = {
           openInMaps: 'In Google Maps öffnen'
         },
         services: {
-          title: 'Leistungen',
-          list: ['Unikate', 'Reparaturen & Restauration', 'Umarbeitungen', 'Beratung & Anfertigung']
+          title: 'Leistungsspektrum',
+          list: [
+            'Kernleistungen',
+            'Einzelanfertigungen — vom Entwurf bis zum fertigen Schmuckstück',
+            'Trauringe und Partnerringe — individuell gefertigt',
+            'Werte erhalten heißt Zukunft gestalten',
+            'Umarbeitungen — Bestehendes neu gedacht und handwerklich weitergeführt',
+            'Instandsetzung und Aufarbeitung von Schmuck',
+            'Ringgrößenanpassungen',
+            'Verlängerung und Verkürzung von Colliers sowie Perlen- und Edelsteinketten',
+            'Zertifikate — Edelstein- und Diamantgutachten',
+            'Erweiterte Möglichkeiten',
+            'Edelsteinfassen durch spezialisierte Partner',
+            'Dreh- und Fräsarbeiten',
+            'Laserarbeiten',
+            'CAD-Konstruktion',
+            'CNC‑Technologie',
+            'Galvanische Verfahren',
+            'Sinterverfahren',
+            'Zusammenarbeit mit einer Silberschmiede für Kleinserien und Sonderanfertigungen'
+          ]
         },
         atelier: {
           title: 'Atelier & Arbeitsweise',
