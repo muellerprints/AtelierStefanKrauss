@@ -16,6 +16,7 @@ export default function Atelier(){
       ))}
 
       {t('atelier.positioningTitle') && <h3>{t('atelier.positioningTitle')}</h3>}
+      {t('atelier.positioningHeading') && <h4>{t('atelier.positioningHeading')}</h4>}
       {t('atelier.positioning') && t('atelier.positioning').split(/\n{2,}/).map((para, i) => (
         <p key={`pos-${i}`}>{para}</p>
       ))}
