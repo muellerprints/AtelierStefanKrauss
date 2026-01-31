@@ -41,30 +41,7 @@ const resources = {
           { year: 'seit 2026', text: 'Gründung Goldschmiedeatelier Krauss' }
         ]
       },
-        services: {
-          title: 'Service Spectrum',
-          headings: ['Core Services', 'Extended Capabilities'],
-          list: [
-            'Core Services',
-            'Custom commissions — from design to the finished piece',
-            'Wedding and partner rings — individually crafted',
-            'Preserving value means shaping the future',
-            'Remodelling — rethinking existing pieces and continuing craftsmanship',
-            'Repair and refurbishment of jewellery',
-            'Ring sizing adjustments',
-            'Lengthening and shortening necklaces, including pearl and gemstone strands',
-            'Certificates — gemstone and diamond reports',
-            'Extended Capabilities',
-            'Gem setting by specialised partners',
-            'Turning and milling work',
-            'Laser work',
-            'CAD design',
-            'CNC technology',
-            'Electroplating processes',
-            'Sintering processes',
-            'Collaboration with a silversmith for small series and special commissions'
-          ]
-        },
+        
       privacy: {
         purposesTitle: 'Zwecke',
         purposes: 'Datenverarbeitung dient zur Bearbeitung von Anfragen, zur Auftragsabwicklung und zur Erfüllung gesetzlicher Pflichten.',
@@ -129,6 +106,7 @@ const resources = {
         },
         services: {
           title: 'Leistungsspektrum',
+          headings: ['Kernleistungen', 'Erweiterte Möglichkeiten'],
           list: [
             'Kernleistungen',
             'Einzelanfertigungen — vom Entwurf bis zum fertigen Schmuckstück',
@@ -338,7 +316,27 @@ const resources = {
         },
         services: {
           title: 'Services',
-          list: ['Unique pieces', 'Repairs & restoration', 'Remodelling', 'Consultation & custom work']
+          headings: ['Core Services', 'Extended Capabilities'],
+          list: [
+            'Core Services',
+            'Custom commissions — from design to the finished piece',
+            'Wedding and partner rings — individually crafted',
+            'Preserving value means shaping the future',
+            'Remodelling — rethinking existing pieces and continuing craftsmanship',
+            'Repair and refurbishment of jewellery',
+            'Ring sizing adjustments',
+            'Lengthening and shortening necklaces, including pearl and gemstone strands',
+            'Certificates — gemstone and diamond reports',
+            'Extended Capabilities',
+            'Gem setting by specialised partners',
+            'Turning and milling work',
+            'Laser work',
+            'CAD design',
+            'CNC technology',
+            'Electroplating processes',
+            'Sintering processes',
+            'Collaboration with a silversmith for small series and special commissions'
+          ]
         },
         atelier: {
           title: 'Atelier & Practice',
