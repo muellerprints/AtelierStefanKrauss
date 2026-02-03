@@ -1,0 +1,7 @@
+Mail server listening on 4000
+[API] POST /api/send-email content-type=application/json body={"name":"ccbnm","email":"muellerprints@t-online.de","message":"fghjkl","attachments":[{"filename":"Wappen outline.png","content":"iVBORw0KGgoAAAANSUhEUgAAEKsAABkACAIAAAC54Qe1AAAACXBIWXMAAC4jAAAuIwF4pT…
+Sending mail via SMTP to=info@goldschmiedeatelier-krauss.de from=info@goldschmiedeatelier-krauss.de attachments=1
+Mail sent, nodemailer info: <8bde5944-5867-5ca9-f2a2-538e6a9b2e89@goldschmiedeatelier-krauss.de>
+[API] POST /api/send-email content-type=application/json body={"name":"asdfghj","email":"muellerprints@t-online.de","message":"ggggggggg","attachments":[{"filename":"Wappen.png","content":"iVBORw0KGgoAAAANSUhEUgAABAAAAAYACAIAAABn4K39AAAACXBIWXMAAAsTAAALEwEAmpwYA…
+Sending mail via SMTP to=info@goldschmiedeatelier-krauss.de from=info@goldschmiedeatelier-krauss.de attachments=1
+Mail sent, nodemailer info: <8ec677ff-2bbe-7e82-cf94-7416e8ee379a@goldschmiedeatelier-krauss.de>

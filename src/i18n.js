@@ -203,6 +203,8 @@ const resources = {
           { title: 'Unikat in Arbeit', text: 'Ein Unikat im Entstehungsprozess: von der Skizze zur Form, sichtbar in jeder Linie.' },
           { title: 'Restauration & Erhalt', text: 'Sorgsame Restauration: alte Stücke werden mit Respekt und handwerklicher Expertise wiederbelebt.' }
         ]
+        ,
+        photoLabel: 'Schmuckfoto {{n}}'
       }
     }
   },
@@ -376,6 +378,8 @@ const resources = {
           { title: 'Bespoke Piece in Progress', text: 'A bespoke piece in progress — from sketch to form, craftsmanship made visible.' },
           { title: 'Restoration & Conservation', text: 'Careful restoration: bringing older pieces back to life with respect and expert skill.' }
         ]
+        ,
+        photoLabel: 'Jewellery photo {{n}}'
       }
     }
   }

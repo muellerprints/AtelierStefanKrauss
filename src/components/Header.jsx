@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-// wordmark SVGs intentionally not used for the wordmark text to ensure webfont rendering
-import mono from '../assets/logo-monogram.svg'
+// Use the site monogram from the public icons folder
 
 export default function Header(){
   const { t, i18n } = useTranslation()
@@ -34,7 +33,7 @@ export default function Header(){
       <div className="container">
         <div className="brand">
           <Link to="/" className="brand-link">
-            <img src={mono} alt="SK" className="brand-mono" />
+            <img src="/assets/icons/wappen-outline.png" alt="SK" className="brand-mono" />
             <span className="brand-wordmark logo">{t('siteTitle')}</span>
           </Link>
         </div>

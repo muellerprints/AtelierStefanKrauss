@@ -1,19 +1,19 @@
 :root{
-  /* Neue Farbpalette: Pantone Warm Gray 10, Warm Gray 5 (hell), Pantone Orange */
-  --neutral: #6B655F; /* Pantone Warm Gray 10 (ungefähre Hex-Annäherung) */
-  --neutral-light: #EAE8EE; /* Pantone 5305 (ungefähre Hex-Näherung) */
+  /* Mittelton-Palette: leicht Richtung warmes Blau verschoben */
+  --neutral: #62676A; /* leicht in Richtung neutraler Mittelton verschoben */
+  --neutral-light: #EFF3F4; /* minimal angepasst, heller Mittelton */
   /* Pantone mark colors (mapped to header/footer usage) */
   --pantone-1: var(--accent); /* primary accent (Pantone Orange approx.) */
   --pantone-2: var(--accent-2); /* secondary accent (used in header/footer) */
   --pantone-3: var(--accent-3); /* tertiary accent */
-  --bg: #F4F2F7; /* test: helles Violettgrau als Seitenhintergrund */
-  --text: #3F2F4F; /* Pantone 5285 Näherung (dunkles, violettgraues Grau) */
-  --neutral-rgb: 107,101,95;
-  --neutral-light-rgb: 234,232,238;
-  --text-rgb: 63,47,79;
-  --shadow-rgb: 58,50,44;
+  --bg: #F7F7F6; /* sehr heller, dezenter Mittelton */
+  --text: #333030; /* minimal wärmeres Textgrau */
+  --neutral-rgb: 98,103,106;
+  --neutral-light-rgb: 239,243,244;
+  --text-rgb: 51,48,48;
+  --shadow-rgb: 48,48,49;
   --accent-rgb: 255,106,0;
-  --muted: #D8D4D1; /* dezenter, warmer Hintergrund-Ton */
+  --muted: #F0F0EF; /* sehr leichte Anhebung in Richtung Wärme */
   --accent: #FF6A00; /* Pantone Orange (ungefähre Hex-Annäherung) */
   --accent-2: #5F3B66; /* sekundärer Akzent (belassen) */
   --accent-3: #D85A00; /* dunklere Pantone-orientierte Orange-Variante */
@@ -34,10 +34,10 @@ a:hover,a:focus{color:var(--accent)}
 h2{font-weight:700;letter-spacing:0.015em}
 
 .site-header{background:transparent;padding:18px 0}
-.site-header .container{display:flex;align-items:center;gap:16px}
-.brand-link{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand-mono{width:44px;height:44px;display:block}
-.brand-wordmark{display:inline-block;height:auto;font-family:'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:22px;line-height:1;letter-spacing:0.01em;color:var(--text);font-weight:700}
+.site-header .container{display:flex;align-items:center;gap:20px}
+.brand-link{display:flex;align-items:center;gap:18px;text-decoration:none}
+.brand-mono{width:64px;height:64px;display:block}
+.brand-wordmark{display:inline-block;height:auto;font-family:'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:24px;line-height:1;letter-spacing:0.01em;color:var(--text);font-weight:700}
 .brand-link img{display:block}
 .logo{font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; font-weight:700;color:var(--text);text-decoration:none}
 .main-nav{margin-left:auto;display:flex;gap:18px;align-items:center}
@@ -212,7 +212,50 @@ h2{font-weight:700;letter-spacing:0.015em}
   .photo-item:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(var(--shadow-rgb),0.10);filter:brightness(0.97)}
 
 /* Ensure images inside .photo-item render reliably */
-.photo-item img{display:block;width:100%;height:100%;object-fit:cover;border-radius:8px}
+.photo-item img{display:block;width:100%;height:100%;object-fit:cover;border-radius:8px;transition:transform .36s cubic-bezier(.2,.9,.2,1);transform-origin:center center}
+
+/* Hover zoom only on devices that support hover (avoids touch jumpiness) */
+@media (hover: hover) {
+  .photo-item:hover img,
+  .photo-item:focus-within img,
+  .photo-item:focus img {
+    transform: scale(1.06);
+  }
+}
+
+/* Hover overlay for photo items: white panel with centered content */
+.photo-item{position:relative;overflow:hidden}
+.photo-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;background:transparent;opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease;pointer-events:none}
+.photo-overlay-content{padding:10px 12px;border-radius:0;color:#fff;text-align:center;max-width:88%;background:transparent;box-shadow:none;text-shadow:0 6px 18px rgba(0,0,0,0.6);display:flex;flex-direction:column;align-items:center}
+.photo-item:hover .photo-overlay,.photo-item:focus-within .photo-overlay,.photo-item:focus .photo-overlay{opacity:1;transform:none;pointer-events:auto}
+.photo-overlay .overlay-title{display:block;font-weight:700;margin-top:36px;margin-bottom:0}
+
+/* Wappen above overlay text */
+.photo-overlay .overlay-wappen{
+  position:absolute;
+  left:0;
+  right:0;
+  top:28%;
+  display:block;
+  /* larger for strong emphasis */
+  width:130px;
+  height:auto;
+  margin-left:auto;
+  margin-right:auto;
+  transform:translateY(-50%);
+  pointer-events:none;
+  z-index:3;
+  /* invert to make the outline light on top of photos, add subtle shadow */
+  filter: invert(1) drop-shadow(0 10px 24px rgba(0,0,0,0.5));
+}
+
+@media (max-width:900px){
+  .photo-overlay .overlay-wappen{width:120px;top:26%;transform:translateY(-50%)}
+}
+
+@media (max-width:600px){
+  .photo-overlay .overlay-wappen{width:96px;top:24%;transform:translateY(-50%)}
+}
 
 /* Small screens: make photo grid horizontally scrollable and swipeable */
 @media (max-width:800px){
@@ -238,10 +281,12 @@ h2{font-weight:700;letter-spacing:0.015em}
   .lead{font-size:18px}
 }
 
+
 @media (max-width:700px){
   .hero-content h1{font-size:24px}
   .lead{font-size:16px}
-  .brand-mono{width:36px;height:36px}
+  .brand-mono{width:48px;height:48px}
+  .brand-wordmark{font-size:20px}
 }
 
 /* About page: stack columns on small screens */
@@ -338,6 +383,21 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(255,106,0,0.0
 /* Small helpers for logo/moodboard previews */
 .asset-preview{display:flex;gap:18px;align-items:center}
 .asset-preview img, .asset-preview svg{width:220px;height:auto;border-radius:6px}
+
+/* When used as a single figure, allow vertical layout so the caption
+  appears underneath the image. Add `.column` to switch layout. */
+.asset-preview.column{flex-direction:column;align-items:center}
+.asset-preview.column img, .asset-preview.column svg{width:360px;max-width:60%;height:auto;border-radius:6px}
+.asset-preview .caption{font-size:13px;color:var(--text);margin-top:8px;text-align:center;max-width:360px}
+
+/* Mobile adjustments: make the atelier image narrower and centered */
+@media (max-width:900px){
+  .asset-preview.column img, .asset-preview.column svg{width:260px;max-width:72%}
+  .asset-preview.column{margin-left:auto;margin-right:auto;margin-top:18px;margin-bottom:18px}
+}
+@media (max-width:480px){
+  .asset-preview.column img, .asset-preview.column svg{width:200px;max-width:86%}
+}
 
 /* Large photos section below carousel */
 .large-photos{padding:36px 0}

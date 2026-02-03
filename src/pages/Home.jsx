@@ -463,8 +463,14 @@ export default function Home(){
         </button>
         <section id="photoGrid" ref={photoGridRef} className="photo-grid" role="list" aria-label={t('home.photos', 'Gallery')} tabIndex={0}>
           {remotePhotos.map((src,i) => (
-            <div className="photo-item" key={i} role="listitem" tabIndex={0} aria-label={`Photo ${i+1}`}>
-              <img src={src} alt={`Schmuckfoto ${i+1}`} />
+            <div className="photo-item" key={i} role="listitem" tabIndex={0} aria-label={t('home.photoLabel', { n: i+1 })}>
+              <img src={src} alt={t('home.photoLabel', { n: i+1 })} />
+              <div className="photo-overlay" aria-hidden="true">
+                <div className="photo-overlay-content">
+                  <img src="/assets/icons/wappen-outline.png" alt="Wappen" className="overlay-wappen" />
+                  <span className="overlay-title">{t('home.photoLabel', { n: i+1 })}</span>
+                </div>
+              </div>
             </div>
           ))}
         </section>
