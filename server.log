@@ -5,3 +5,9 @@ Mail sent, nodemailer info: <8bde5944-5867-5ca9-f2a2-538e6a9b2e89@goldschmiedeat
 [API] POST /api/send-email content-type=application/json body={"name":"asdfghj","email":"muellerprints@t-online.de","message":"ggggggggg","attachments":[{"filename":"Wappen.png","content":"iVBORw0KGgoAAAANSUhEUgAABAAAAAYACAIAAABn4K39AAAACXBIWXMAAAsTAAALEwEAmpwYA…
 Sending mail via SMTP to=info@goldschmiedeatelier-krauss.de from=info@goldschmiedeatelier-krauss.de attachments=1
 Mail sent, nodemailer info: <8ec677ff-2bbe-7e82-cf94-7416e8ee379a@goldschmiedeatelier-krauss.de>
+[API] POST /api/send-email content-type=application/json body={"name":"max","email":"muellerprints@t-online.de","message":"hallo","attachments":[{"filename":"Wappen.png","content":"iVBORw0KGgoAAAANSUhEUgAABAAAAAYACAIAAABn4K39AAAACXBIWXMAAAsTAAALEwEAmpwYAAAE9WlUW…
+Sending mail via SMTP to=info@goldschmiedeatelier-krauss.de from=info@goldschmiedeatelier-krauss.de attachments=1
+Mail sent, nodemailer info: <dfa4b4cb-4dac-793f-ab7d-7fedfc3ce01a@goldschmiedeatelier-krauss.de>
+[API] POST /api/send-email content-type=application/json body={"name":"sdfghjkl","email":"muellerprints@t-online.de","message":"asdfghjkl","attachments":[{"filename":"SKWappen.png","content":"iVBORw0KGgoAAAANSUhEUgAAAIEAAADFCAYAAABzaZEqAAAKOmlDQ1BzUkdCIElFQzYxOT…
+Sending mail via SMTP to=info@goldschmiedeatelier-krauss.de from=info@goldschmiedeatelier-krauss.de attachments=1
+Mail sent, nodemailer info: <76b74d2b-20bc-8531-f1e6-83a042a3dbb7@goldschmiedeatelier-krauss.de>
