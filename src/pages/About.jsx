@@ -9,10 +9,6 @@ export default function About(){
   return (
     <main className="container about-page">
       <div className="about-grid">
-        <aside className="about-portrait">
-          <img src={portrait} alt={t('about.portraitCaption')} />
-          <p className="caption">{t('about.portraitCaption')}</p>
-        </aside>
         <div className="about-text">
           <h2>{t('about.title')}</h2>
           <p>{t('about.intro1')}</p>
@@ -23,6 +19,10 @@ export default function About(){
             ))}
           </ul>
         </div>
+        <aside className="about-portrait">
+          <img src={portrait} alt={t('about.portraitCaption')} />
+          <p className="caption">{t('about.portraitCaption')}</p>
+        </aside>
       </div>
     </main>
   )
