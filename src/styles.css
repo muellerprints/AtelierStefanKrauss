@@ -289,6 +289,22 @@ h2{font-weight:700;letter-spacing:0.015em}
   .brand-wordmark{font-size:20px}
 }
 
+/* Make brand responsive: allow stacking and smaller font on very small screens */
+.brand-link{flex-shrink:0}
+.brand-wordmark{max-width:calc(100% - 84px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+@media (max-width:520px){
+  .brand-link{flex-direction:row;gap:10px}
+  .brand-mono{width:44px;height:44px}
+  .brand-wordmark{font-size:18px;max-width:calc(100% - 64px)}
+}
+
+@media (max-width:380px){
+  .brand-link{flex-direction:column;align-items:flex-start;gap:6px}
+  .brand-mono{width:40px;height:40px}
+  .brand-wordmark{font-size:16px;white-space:normal}
+}
+
 /* About page: stack columns on small screens */
 @media (max-width:900px){
   .about-page .about-grid{grid-template-columns:1fr;gap:20px}
