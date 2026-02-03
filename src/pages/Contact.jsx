@@ -11,6 +11,9 @@ export default function Contact(){
   const [sent, setSent] = useState(null)
   const btnRef = useRef(null)
   const [btnWidth, setBtnWidth] = useState(null)
+  const [attachments, setAttachments] = useState([])
+  const [readingFiles, setReadingFiles] = useState(false)
+  const fileInputRef = useRef(null)
 
   useEffect(() => {
     if (location.hash) {
@@ -43,6 +46,46 @@ export default function Contact(){
     return () => window.removeEventListener('resize', measure)
   }, [])
 
+  // Read dropped/selected files as base64 and store in attachments
+  const readFileAsBase64 = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => {
+      const result = reader.result || ''
+      // result is like 'data:<type>;base64,<base64data>' for readAsDataURL
+      if (typeof result === 'string') {
+        const comma = result.indexOf(',')
+        const base64 = comma >= 0 ? result.slice(comma + 1) : result
+        resolve(base64)
+      } else {
+        // fallback: convert ArrayBuffer
+        const arr = new Uint8Array(result)
+        let binary = ''
+        for (let i = 0; i < arr.length; i++) binary += String.fromCharCode(arr[i])
+        resolve(btoa(binary))
+      }
+    }
+    reader.onerror = reject
+    reader.readAsDataURL(file)
+  })
+
+  const handleFiles = async (fileList) => {
+    if (!fileList || fileList.length === 0) return
+    setReadingFiles(true)
+    const files = Array.from(fileList)
+    const readPromises = files.map(async (f) => {
+      const base64 = await readFileAsBase64(f)
+      return { filename: f.name, content: base64, contentType: f.type }
+    })
+    try {
+      const newFiles = await Promise.all(readPromises)
+      setAttachments(prev => [...prev, ...newFiles])
+    } catch (err) {
+      console.error('Failed reading files', err)
+    } finally {
+      setReadingFiles(false)
+    }
+  }
+
   return (
     <main className="container contact-page">
       <h2>{t('contactPage.title')}</h2>
@@ -57,10 +100,13 @@ export default function Contact(){
             e.preventDefault()
             setSent('sending')
             try {
+              const payload = { name, email, message }
+              if (attachments && attachments.length) payload.attachments = attachments.map(a => ({ filename: a.filename, content: a.content, contentType: a.contentType }))
+
               const res = await fetch('/api/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, message })
+                body: JSON.stringify(payload)
               })
 
               // Be defensive: some error responses (proxies, servers) may return
@@ -90,7 +136,31 @@ export default function Contact(){
             <label>{t('contactPage.form.name')}<input value={name} onChange={e => setName(e.target.value)} required /></label>
             <label>{t('contactPage.form.email')}<input value={email} onChange={e => setEmail(e.target.value)} type="email" required /></label>
             <label>{t('contactPage.form.message')}<textarea value={message} onChange={e => setMessage(e.target.value)} required /></label>
-            <button ref={btnRef} type="submit" disabled={sent === 'sending'}>{sent === 'sending' ? 'Sende...' : t('contactPage.form.submit')}</button>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:8}}>
+              <div
+                onDrop={async (ev) => {
+                  ev.preventDefault();
+                  if (!ev.dataTransfer) return
+                  await handleFiles(ev.dataTransfer.files)
+                }}
+                onDragOver={(ev) => ev.preventDefault()}
+                style={{width:'100%',padding:12,border:'2px dashed #ddd',borderRadius:6,textAlign:'center',background:'#fafafa'}}
+              >
+                Ziehe Dateien hierher (PDF, JPG, PNG) oder <button type="button" onClick={() => fileInputRef.current && fileInputRef.current.click()} style={{border:'none',background:'transparent',color:'#007bff',cursor:'pointer'}}>durchsuchen</button>
+                <input ref={fileInputRef} type="file" multiple style={{display:'none'}} onChange={e => handleFiles(e.target.files)} />
+              </div>
+              {attachments.length > 0 && (
+                <ul style={{listStyle:'none',padding:8,margin:0,width:btnWidth || undefined}}>
+                  {attachments.map((f, i) => (
+                    <li key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'6px 8px',background:'#fff',borderRadius:4,marginTop:6,border:'1px solid #eee'}}>
+                      <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',maxWidth:360}}>{f.filename}</span>
+                      <button type="button" onClick={() => setAttachments(prev => prev.filter((_, idx) => idx !== i))} style={{marginLeft:8}}>Entfernen</button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <button ref={btnRef} type="submit" disabled={sent === 'sending' || readingFiles}>{sent === 'sending' ? 'Sende...' : t('contactPage.form.submit')}</button>
+            </div>
           </form>
           {sent === 'ok' && (
             <div
