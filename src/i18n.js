@@ -5,6 +5,7 @@ const resources = {
   de: {
     translation: {
       siteTitle: 'Goldschmiedeatelier Krauss',
+      brandWordmark: 'Goldschmiedeatelier',
       tagline: 'Handwerkliche Präzision · Mit Hingabe gearbeitet · Aus jahrzehntelanger Erfahrung',
       nav: { home: 'Startseite', about: 'Stefan Krauss', atelier: 'Atelier & Arbeitsweise', services: 'Leistungen', contact: 'Kontakt' },
       contactCta: 'Kontakt aufnehmen',
@@ -211,6 +212,7 @@ const resources = {
   en: {
     translation: {
       siteTitle: 'Goldsmith Atelier',
+      brandWordmark: 'Goldsmith Atelier',
       tagline: 'Craft precision · Made with dedication · From decades of experience',
       nav: { home: 'Home', about: 'Stefan Krauss', atelier: 'Atelier & Practice', services: 'Services', contact: 'Contact' },
       contactCta: 'Get in touch',
