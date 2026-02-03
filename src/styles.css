@@ -315,7 +315,8 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 /* About page: stack columns on small screens */
 @media (max-width:900px){
-  .about-page .about-grid{grid-template-columns:1fr;gap:20px}
+  /* Stack about grid on small screens and show portrait first */
+  .about-page .about-grid{display:flex;flex-direction:column-reverse;gap:20px}
 }
 
 /* Asset preview images scale down on small viewports */
