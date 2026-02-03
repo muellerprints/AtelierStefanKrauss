@@ -14,6 +14,8 @@ export default function Contact(){
   const [attachments, setAttachments] = useState([])
   const [readingFiles, setReadingFiles] = useState(false)
   const fileInputRef = useRef(null)
+  const [fileError, setFileError] = useState(null)
+  const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5 MB per file
 
   useEffect(() => {
     if (location.hash) {
@@ -72,10 +74,19 @@ export default function Contact(){
     if (!fileList || fileList.length === 0) return
     setReadingFiles(true)
     const files = Array.from(fileList)
-    const readPromises = files.map(async (f) => {
-      const base64 = await readFileAsBase64(f)
-      return { filename: f.name, content: base64, contentType: f.type }
-    })
+    const oversized = files.filter(f => f.size > MAX_FILE_SIZE)
+    if (oversized.length) {
+      setFileError(`Die Datei ${oversized[0].name} ist zu groß. Maximal ${Math.round(MAX_FILE_SIZE/1024/1024)} MB.`)
+    } else {
+      setFileError(null)
+    }
+
+    const readPromises = files
+      .filter(f => f.size <= MAX_FILE_SIZE)
+      .map(async (f) => {
+        const base64 = await readFileAsBase64(f)
+        return { filename: f.name, content: base64, contentType: f.type }
+      })
     try {
       const newFiles = await Promise.all(readPromises)
       setAttachments(prev => [...prev, ...newFiles])
