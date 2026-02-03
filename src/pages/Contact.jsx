@@ -190,7 +190,7 @@ export default function Contact(){
                 border: '1px solid #c7f0d1',
                 borderRadius: 6,
                 display: 'inline-block',
-                width: btnWidth || undefined
+                width: controlWidth || undefined
               }}
             >
               Vielen Dank — Ihre Nachricht wurde versendet.
