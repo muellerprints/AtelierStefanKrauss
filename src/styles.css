@@ -308,6 +308,24 @@ h2{font-weight:700;letter-spacing:0.015em}
   .photo-grid{grid-template-columns:repeat(5,1fr)}
   .photo-item{min-height:180px}
 }
+/* Contact page responsive tweaks */
+.contact-grid{display:grid;grid-template-columns:1fr 360px !important;gap:24px;align-items:start}
+.contact-form{max-width:500px;width:100%}
+.submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
+.file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa}
+.file-list{width:100%;max-width:100%;box-sizing:border-box;padding:0;margin:8px 0 0}
+.file-list li{background:#fff}
+
+@media (max-width:900px){
+  .contact-grid{grid-template-columns:1fr !important;padding:0 12px}
+  .submit-btn{max-width:520px}
+  .file-drop{padding:10px}
+}
+
+@media (max-width:480px){
+  .contact-form{padding:0 8px}
+  .submit-btn{padding:10px;border-radius:6px}
+}
 /* Feature photo sections layout */
 .feature-photos .feature-photo-section{display:flex;align-items:center;gap:32px;margin:64px 0;position:relative}
 .feature-photos .feature-photo{flex:1 1 55%;min-height:320px;display:flex;align-items:center;justify-content:center}

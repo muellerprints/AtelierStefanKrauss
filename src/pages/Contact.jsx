@@ -150,7 +150,7 @@ export default function Contact(){
             <label>{t('contactPage.form.email')}<input value={email} onChange={e => setEmail(e.target.value)} type="email" required /></label>
             <label>{t('contactPage.form.message')}<textarea ref={messageRef} value={message} onChange={e => setMessage(e.target.value)} required /></label>
             <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:8}}>
-              <button ref={btnRef} type="submit" disabled={sent === 'sending' || readingFiles} style={{width: controlWidth || undefined}}>{sent === 'sending' ? 'Sende...' : t('contactPage.form.submit')}</button>
+              <button ref={btnRef} className="submit-btn" type="submit" disabled={sent === 'sending' || readingFiles}>{sent === 'sending' ? 'Sende...' : t('contactPage.form.submit')}</button>
 
               <div
                 onDrop={async (ev) => {
@@ -159,7 +159,8 @@ export default function Contact(){
                   await handleFiles(ev.dataTransfer.files)
                 }}
                 onDragOver={(ev) => ev.preventDefault()}
-                style={{width:'100%',padding:12,border:'2px dashed #ddd',borderRadius:6,textAlign:'center',background:'#fafafa',marginTop:8}}
+                className="file-drop"
+                style={{marginTop:8}}
               >
                 Ziehe Dateien hierher (PDF, JPG, PNG) oder <button type="button" onClick={() => fileInputRef.current && fileInputRef.current.click()} style={{border:'none',background:'transparent',color:'#007bff',cursor:'pointer'}}>durchsuchen</button>
                 <input ref={fileInputRef} type="file" multiple style={{display:'none'}} onChange={e => handleFiles(e.target.files)} />
@@ -168,7 +169,7 @@ export default function Contact(){
               {fileError && <div style={{color:'crimson',marginTop:8}}>{fileError}</div>}
 
               {attachments.length > 0 && (
-                <ul style={{listStyle:'none',padding:8,margin:0,width:controlWidth || undefined}}>
+                <ul className="file-list" style={{listStyle:'none',padding:8,margin:0}}>
                   {attachments.map((f, i) => (
                     <li key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'6px 8px',background:'#fff',borderRadius:4,marginTop:6,border:'1px solid #eee'}}>
                       <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',maxWidth:360}}>{f.filename}</span>
