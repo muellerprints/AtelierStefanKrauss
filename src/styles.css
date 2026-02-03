@@ -37,9 +37,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 .site-header .container{display:flex;align-items:center;gap:20px}
 .brand-link{display:flex;align-items:center;gap:18px;text-decoration:none}
 .brand-mono{width:64px;height:64px;display:block}
-.brand-wordmark{display:flex;flex-direction:column;align-items:flex-start;height:auto;font-family:'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial;color:var(--text);text-decoration:none}
-.brand-main{font-size:24px;line-height:1;font-weight:700;letter-spacing:0.01em}
-.brand-sub{font-size:12px;line-height:1;color:rgba(var(--neutral-rgb),0.7);font-weight:400;margin-top:2px}
+.brand-wordmark{display:inline-block;height:auto;font-family:'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:24px;line-height:1;letter-spacing:0.01em;color:var(--text);font-weight:700}
 .brand-link img{display:block}
 .logo{font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; font-weight:700;color:var(--text);text-decoration:none}
 .main-nav{margin-left:auto;display:flex;gap:18px;align-items:center}
@@ -293,7 +291,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 /* Make brand responsive: allow stacking and smaller font on very small screens */
 .brand-link{flex-shrink:0}
-.brand-wordmark{max-width:calc(100% - 84px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brand-wordmark{max-width:none;overflow:visible;text-overflow:unset;white-space:nowrap}
 
 @media (max-width:520px){
   .brand-link{flex-direction:row;gap:10px}
@@ -649,21 +647,11 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(255,106,0,0.0
   .map-container{margin-top:24px;border-radius:8px;overflow:hidden;box-shadow:0 10px 30px rgba(var(--shadow-rgb),0.08)}
 .map-container iframe{display:block;width:100%;height:420px;border:0}
 @media (max-width:900px){
-  .brand-main{font-size:20px}
-  .brand-sub{font-size:11px}
+  .brand-wordmark{font-size:20px}
 }
 @media (max-width:600px){
   .map-container iframe{height:260px}
-  .brand-main{font-size:18px}
-  .brand-sub{font-size:12px}
-  .brand-mono{width:48px;height:48px}
-}
-
-/* Additional responsive tweaks for very small screens */
-@media (max-width:380px){
-  .brand-main{font-size:16px}
-  .brand-sub{font-size:11px}
-  .brand-mono{width:40px;height:40px}
+  .brand-wordmark{font-size:18px}
 }
 
 /* About page layout */
