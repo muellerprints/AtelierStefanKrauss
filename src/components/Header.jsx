@@ -34,10 +34,7 @@ export default function Header(){
         <div className="brand">
           <Link to="/" className="brand-link">
             <img src="/assets/icons/wappen-outline.png" alt="SK" className="brand-mono" />
-            <span className="brand-wordmark logo" aria-label="Goldschmiedeatelier Stefan Krauss">
-              <span className="brand-main">Goldschmiedeatelier</span>
-              <span className="brand-sub">Stefan Krauss</span>
-            </span>
+            <span className="brand-wordmark logo">goldschmiedeatelier</span>
           </Link>
         </div>
         <nav className="main-nav">
