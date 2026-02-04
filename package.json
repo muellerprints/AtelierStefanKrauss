@@ -7,6 +7,7 @@
     "start": "vite --open --port 5174",
     "dev": "vite --port 5174",
     "server": "node server/index.js",
+    "prepare-dist": "sh scripts/prepare-dist.sh",
     "build": "vite build",
     "preview": "vite preview --port 5174",
     "generate-favicons": "node scripts/generate-favicons.js"
@@ -16,6 +17,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.18.2",
     "nodemailer": "^6.9.3",
+    "multer": "^1.4.5",
     "i18next": "^23.0.1",
     "potrace": "^1.1.0",
     "react": "^18.2.0",

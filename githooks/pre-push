@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Git hook template to run prepare-dist before pushing.
+# Enable with: git config core.hooksPath githooks
+
+echo "Running prepare-dist before push"
+sh scripts/prepare-dist.sh

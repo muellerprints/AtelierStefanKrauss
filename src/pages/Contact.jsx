@@ -13,6 +13,7 @@ export default function Contact(){
   const [btnWidth, setBtnWidth] = useState(null)
   const messageRef = useRef(null)
   const [controlWidth, setControlWidth] = useState(null)
+  // attachments will hold File objects
   const [attachments, setAttachments] = useState([])
   const [readingFiles, setReadingFiles] = useState(false)
   const fileInputRef = useRef(null)
@@ -50,28 +51,7 @@ export default function Contact(){
     return () => window.removeEventListener('resize', measure)
   }, [])
 
-  // Read dropped/selected files as base64 and store in attachments
-  const readFileAsBase64 = (file) => new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = () => {
-      const result = reader.result || ''
-      // result is like 'data:<type>;base64,<base64data>' for readAsDataURL
-      if (typeof result === 'string') {
-        const comma = result.indexOf(',')
-        const base64 = comma >= 0 ? result.slice(comma + 1) : result
-        resolve(base64)
-      } else {
-        // fallback: convert ArrayBuffer
-        const arr = new Uint8Array(result)
-        let binary = ''
-        for (let i = 0; i < arr.length; i++) binary += String.fromCharCode(arr[i])
-        resolve(btoa(binary))
-      }
-    }
-    reader.onerror = reject
-    reader.readAsDataURL(file)
-  })
-
+  // Handle dropped/selected File objects and store them directly.
   const handleFiles = async (fileList) => {
     if (!fileList || fileList.length === 0) return
     setReadingFiles(true)
@@ -79,24 +59,14 @@ export default function Contact(){
     const oversized = files.filter(f => f.size > MAX_FILE_SIZE)
     if (oversized.length) {
       setFileError(`Die Datei ${oversized[0].name} ist zu groß. Maximal ${Math.round(MAX_FILE_SIZE/1024/1024)} MB.`)
-    } else {
-      setFileError(null)
-    }
-
-    const readPromises = files
-      .filter(f => f.size <= MAX_FILE_SIZE)
-      .map(async (f) => {
-        const base64 = await readFileAsBase64(f)
-        return { filename: f.name, content: base64, contentType: f.type }
-      })
-    try {
-      const newFiles = await Promise.all(readPromises)
-      setAttachments(prev => [...prev, ...newFiles])
-    } catch (err) {
-      console.error('Failed reading files', err)
-    } finally {
       setReadingFiles(false)
+      return
     }
+    setFileError(null)
+
+    // store raw File objects for multipart upload
+    setAttachments(prev => [...prev, ...files])
+    setReadingFiles(false)
   }
 
   return (
@@ -113,14 +83,24 @@ export default function Contact(){
             e.preventDefault()
             setSent('sending')
             try {
-              const payload = { name, email, message }
-              if (attachments && attachments.length) payload.attachments = attachments.map(a => ({ filename: a.filename, content: a.content, contentType: a.contentType }))
-
-              const res = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-              })
+              let res
+              // If we have File objects, send multipart/form-data so files are uploaded directly
+              if (attachments && attachments.length && attachments[0] instanceof File) {
+                const fd = new FormData()
+                fd.append('name', name)
+                fd.append('email', email)
+                fd.append('message', message)
+                attachments.forEach((f) => fd.append('attachments[]', f, f.name))
+                res = await fetch('/api/send-email', { method: 'POST', body: fd })
+              } else {
+                const payload = { name, email, message }
+                if (attachments && attachments.length) payload.attachments = attachments.map(a => ({ filename: a.filename || a.name, content: a.content, contentType: a.contentType || a.type }))
+                res = await fetch('/api/send-email', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(payload)
+                })
+              }
 
               // Be defensive: some error responses (proxies, servers) may return
               // non-JSON bodies which would make `res.json()` throw a SyntaxError.
@@ -172,7 +152,7 @@ export default function Contact(){
                 <ul className="file-list" style={{listStyle:'none',padding:8,margin:0}}>
                   {attachments.map((f, i) => (
                     <li key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'6px 8px',background:'#fff',borderRadius:4,marginTop:6,border:'1px solid #eee'}}>
-                      <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',maxWidth:360}}>{f.filename}</span>
+                      <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',maxWidth:360}}>{(f && (f.name || f.filename)) || 'attachment'}</span>
                       <button type="button" onClick={() => setAttachments(prev => prev.filter((_, idx) => idx !== i))} style={{marginLeft:8}}>Entfernen</button>
                     </li>
                   ))}

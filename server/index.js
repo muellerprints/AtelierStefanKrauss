@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import nodemailer from 'nodemailer'
+import multer from 'multer'
 
 dotenv.config()
 
@@ -48,7 +49,10 @@ function getTransport() {
   })
 }
 
-app.post('/api/send-email', async (req, res) => {
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: parseInt(process.env.MAX_UPLOAD_BYTES || '10485760', 10) } })
+
+// Shared handler for send-email endpoint (used for two routes to support built builds)
+async function handleSendEmail(req, res) {
   try {
     // Ensure we always respond with JSON
     res.type('application/json')
@@ -76,19 +80,31 @@ app.post('/api/send-email', async (req, res) => {
       }
     }
 
-    // Prepare attachments if any (client sends base64 strings)
-    const rawAttachments = (req.body && req.body.attachments) || []
-    const mailAttachments = rawAttachments.map(a => {
-      try {
-        return {
-          filename: a.filename,
-          content: Buffer.from(a.content || '', 'base64'),
-          contentType: a.contentType || undefined
+    // Support attachments sent either as JSON base64 parts or multipart/form-data files
+    let mailAttachments = []
+
+    // If multer parsed files (multipart/form-data), use those
+    if (req.files && Array.isArray(req.files) && req.files.length) {
+      mailAttachments = req.files.map(f => ({
+        filename: f.originalname,
+        content: f.buffer,
+        contentType: f.mimetype || undefined
+      }))
+    } else {
+      // Otherwise fall back to JSON body attachments (base64 strings)
+      const rawAttachments = (req.body && req.body.attachments) || []
+      mailAttachments = rawAttachments.map(a => {
+        try {
+          return {
+            filename: a.filename,
+            content: Buffer.from(a.content || '', 'base64'),
+            contentType: a.contentType || undefined
+          }
+        } catch (_) {
+          return null
         }
-      } catch (_) {
-        return null
-      }
-    }).filter(Boolean)
+      }).filter(Boolean)
+    }
 
     // log attempt
     console.log(`Sending mail via SMTP to=${to} from=${process.env.FROM_EMAIL || process.env.SMTP_USER} attachments=${mailAttachments.length}`)
@@ -131,7 +147,11 @@ app.post('/api/send-email', async (req, res) => {
     // respond with a concise error message (no HTML)
     return res.status(500).json({ ok: false, error: String(e) })
   }
-})
+}
+
+// Register both routes so built assets that post to /api/send-email/index.php still work
+app.post('/api/send-email', upload.any(), handleSendEmail)
+app.post('/api/send-email/index.php', upload.any(), handleSendEmail)
 
 // Global error handler for API routes — logs details and returns JSON
 app.use('/api', async (err, req, res, next) => {
