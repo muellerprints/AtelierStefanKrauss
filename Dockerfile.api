@@ -1,0 +1,18 @@
+FROM node:18-alpine
+
+WORKDIR /srv/app
+
+# Install production dependencies
+COPY package.json package-lock.json* ./
+RUN if [ -f package-lock.json ]; then npm ci --production; else npm install --production; fi
+
+# Copy server sources
+COPY server ./server
+
+# Copy .env if present (optional, compose will mount env_file)
+ARG COPY_ENV=false
+COPY .env ./
+
+EXPOSE 4000
+
+CMD ["node", "server/index.js"]
