@@ -499,6 +499,13 @@ async function translateMissingToEn() {
 
 // Trigger translation when language switches to 'en'
 i18n.on && i18n.on('languageChanged', (lng) => {
+  // update document language for screen readers and UA heuristics
+  try {
+    if (typeof document !== 'undefined' && document.documentElement) document.documentElement.lang = lng
+  } catch (e) {
+    // ignore — server-side rendering or test environments may not have document
+  }
+
   if (lng === 'en') {
     // run in background
     translateMissingToEn()
