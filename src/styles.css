@@ -22,6 +22,16 @@
 .body-reset{margin:0}
 body{margin:0;font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; background:var(--neutral-light); color:var(--text)}
 
+/* Skip-link visible on focus for keyboard users */
+.skip-link{position:fixed;left:12px;top:12px;padding:8px 12px;background:var(--accent);color:#fff;border-radius:6px;z-index:9999;transform:translateY(-160%);transition:transform .16s ease,opacity .12s ease;opacity:0}
+.skip-link:focus{transform:translateY(0);opacity:1}
+
+/* Visible focus indicator for interactive elements */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
 /* Headline color: use accent for all headings */
 h1,h2,h3,h4,h5,h6{color:var(--accent) !important}
 
@@ -40,6 +50,10 @@ h2{font-weight:700;letter-spacing:0.015em}
 .brand-wordmark{display:inline-block;height:auto;font-family:'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:24px;line-height:1;letter-spacing:0.01em;color:var(--text);font-weight:700}
 .brand-link img{display:block}
 .logo{font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; font-weight:700;color:var(--text);text-decoration:none}
+
+/* Brand wordmark wrapper and subtitle */
+.brand-wordmark-wrap{display:flex;flex-direction:column}
+.brand-subtitle{font-size:24px;color:var(--accent);margin-top:2px;font-weight:700;line-height:1;letter-spacing:0.01em}
 .main-nav{margin-left:auto;display:flex;gap:18px;align-items:center}
 .main-nav a{color:var(--text);text-decoration:none;transition:color .14s ease,transform .14s ease}
 .main-nav .cta{color:white;background:var(--accent);padding:8px 14px;border-radius:6px;box-shadow:0 8px 22px rgba(255,106,0,0.14);font-weight:700}
@@ -287,6 +301,7 @@ h2{font-weight:700;letter-spacing:0.015em}
   .lead{font-size:16px}
   .brand-mono{width:64px;height:64px}
   .brand-wordmark{font-size:20px}
+  .brand-subtitle{font-size:20px}
 }
 
 /* Make brand responsive: allow stacking and smaller font on very small screens */
@@ -297,12 +312,14 @@ h2{font-weight:700;letter-spacing:0.015em}
   .brand-link{flex-direction:row;gap:10px}
   .brand-mono{width:60px;height:60px}
   .brand-wordmark{font-size:18px;max-width:calc(100% - 64px)}
+  .brand-subtitle{font-size:18px}
 }
 
 @media (max-width:380px){
   .brand-link{flex-direction:column;align-items:flex-start;gap:6px}
   .brand-mono{width:56px;height:56px}
   .brand-wordmark{font-size:16px;white-space:normal}
+  .brand-subtitle{font-size:16px}
 }
 
 /* Additional mobile header tweaks to avoid crowding */
@@ -311,6 +328,7 @@ h2{font-weight:700;letter-spacing:0.015em}
   .brand-link{gap:8px}
   .brand-mono{width:48px;height:48px}
   .brand-wordmark{font-size:15px;line-height:1}
+  .brand-subtitle{font-size:15px;line-height:1}
 }
 
 /* About page: stack columns on small screens */

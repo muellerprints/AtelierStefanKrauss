@@ -20,7 +20,8 @@ export default function App(){
   return (
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Header />
-      <Routes>
+      <main id="content" tabIndex="-1" role="main">
+        <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/atelier" element={<Atelier/>} />
@@ -33,7 +34,8 @@ export default function App(){
         <Route path="/terms" element={<Terms/>} />
         <Route path="/payment" element={<Payment/>} />
         <Route path="/shipping" element={<Shipping/>} />
-      </Routes>
+        </Routes>
+      </main>
       <Footer />
     </BrowserRouter>
   )
