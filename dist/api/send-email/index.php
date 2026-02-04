@@ -81,8 +81,8 @@ if ($message === '' || $email === '') {
     exit;
 }
 
-// Configure recipient here — prefer environment variable `TO_EMAIL`
-$TO_EMAIL = getenv('TO_EMAIL') ?: 'info@goldschmiedeatelier-krauss.de'; // <-- change to your desired recipient or set TO_EMAIL in .env
+// Configure recipient here
+$TO_EMAIL = 'info@goldschmiedeatelier-krauss.de';
 
 // Ensure multibyte functions use UTF-8
 if (function_exists('mb_internal_encoding')) mb_internal_encoding('UTF-8');
@@ -132,8 +132,8 @@ $subject = 'Website Anfrage — ' . ($name !== '' ? $name : 'Anonyme Anfrage');
 $subject_encoded = encode_mime_header($subject);
 
 $fromDomain = $_SERVER['SERVER_NAME'] ?? 'goldschmiedeatelier-krauss.de';
-$fromEmail = getenv('FROM_EMAIL') ?: ('noreply@' . $fromDomain);
-$fromName = getenv('FROM_NAME') ?: 'Webseite-Anfrage';
+$fromEmail = 'noreply@goldschmiedeatelier-krauss.de';
+$fromName = 'Webseite-Anfrage';
 
 $replyTo = filter_var($email, FILTER_VALIDATE_EMAIL) ? $email : null;
 
@@ -180,14 +180,14 @@ $body .= "--{$boundary}--\r\n";
 
 $headers_str = implode("\r\n", $headers) . "\r\n";
 
-// Optional: try PHPMailer with SMTP if configured and available.
-$smtp_host = getenv('SMTP_HOST') ?: '';
-$smtp_port = getenv('SMTP_PORT') ?: '';
-$smtp_user = getenv('SMTP_USER') ?: '';
-$smtp_pass = getenv('SMTP_PASS') ?: '';
-$smtp_secure = getenv('SMTP_SECURE') ?: ''; // tls or ssl
-$smtp_from = getenv('SMTP_FROM') ?: $fromEmail;
-$smtp_from_name = getenv('SMTP_FROM_NAME') ?: $fromName;
+// SMTP configuration
+$smtp_host = 'smtp.ionos.de';
+$smtp_port = 587;
+$smtp_user = 'info@goldschmiedeatelier-krauss.de';
+$smtp_pass = 'juzcev-xlzryv-nygxu0';
+$smtp_secure = 'tls';
+$smtp_from = $fromEmail;
+$smtp_from_name = $fromName;
 
 $ok = false;
 if ($smtp_host !== '' && class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
