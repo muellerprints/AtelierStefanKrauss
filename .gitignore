@@ -2,33 +2,16 @@
 node_modules/
 vendor/
 
-# Build outputs
-dist/
-
-# Environment files
-.env
+# Environment files with secrets
 secrets/
 
-# IDE files
-.vscode/
-.idea/
+# Composer executable
+composer.phar
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Dreamweaver sync files
-_notes/
-dwsync.xml
-
-# Composer
-composer.phar
-
 # Logs
 *.log
 npm-debug.log*
-
-# Backup files
-*~
-*.bak
-scripts/image-backups/
