@@ -91,11 +91,11 @@ export default function Contact(){
                 fd.append('email', email)
                 fd.append('message', message)
                 attachments.forEach((f) => fd.append('attachments[]', f, f.name))
-                res = await fetch('/api/send-email', { method: 'POST', body: fd })
+                res = await fetch('/api/send-email/index.php', { method: 'POST', body: fd })
               } else {
                 const payload = { name, email, message }
                 if (attachments && attachments.length) payload.attachments = attachments.map(a => ({ filename: a.filename || a.name, content: a.content, contentType: a.contentType || a.type }))
-                res = await fetch('/api/send-email', {
+                res = await fetch('/api/send-email/index.php', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify(payload)
