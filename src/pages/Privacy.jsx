@@ -29,8 +29,7 @@ export default function Privacy(){
           Personenbezogene Daten sind hierbei alle Daten, mit denen Sie persönlich identifiziert werden können.
           <br/>
           <b>1.2</b> Verantwortlicher für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung
-          (DSGVO) ist Max Müller, Rotenbergstraße 39, 70190 Stuttgart, Deutschland, Tel.: + 49 (0)711 / 262 49 64, Fax: + 49
-          (0)711 / 262 48 60, E-Mail: muellerprints@t-online.de. Der für die Verarbeitung von personenbezogenen Daten
+          (DSGVO) ist {t('impressum.name')}{t('impressum.owner') ? `, ${t('impressum.owner')}` : ''}, {t('impressum.street')}, {t('impressum.cityzip')}, Tel.: {t('contact.phone')}, E‑Mail: {t('contact.email')}. Der für die Verarbeitung von personenbezogenen Daten
           Verantwortliche ist diejenige natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die
           Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.
           <br/>

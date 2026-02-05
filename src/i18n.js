@@ -263,7 +263,7 @@ const resources = {
 
           <b>1.1</b> We appreciate your visit to our website and thank you for your interest. Below we inform you about how we handle your personal data when you use our website. Personal data means any data that can be used to personally identify you.
           <br/>
-          <b>1.2</b> The controller for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is Max Müller, Rotenbergstraße 39, 70190 Stuttgart, Germany, Tel.: +49 (0)711 / 262 49 64, Fax: +49 (0)711 / 262 48 60, E‑Mail: muellerprints@t-online.de. The controller is the natural or legal person who, alone or jointly with others, determines the purposes and means of processing personal data.
+          <b>1.2</b> The controller for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is Goldsmith Atelier — Owner: Karla Krauss — Neuberg 11, 75210 Keltern — info@goldschmiedeatelier-krauss.de, Tel.: +49 151 52662000. The controller is the natural or legal person who, alone or jointly with others, determines the purposes and means of processing personal data.
           <br/>
           <b>1.3</b> For security reasons and to protect the transmission of personal data and other confidential content (e.g. orders or enquiries to the controller), this website uses SSL/TLS encryption. You can recognize a secure connection by the string "https://" and the lock icon in your browser address bar.
           <br/><br/>
