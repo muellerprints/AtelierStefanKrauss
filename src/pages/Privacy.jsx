@@ -141,16 +141,6 @@ export default function Privacy(){
             Wiedererkennung des Internet-Browsers. Die mit der Matomo-Technologie erhobenen Daten (einschließlich Ihrer
             pseudonymisierten IP-Adresse) werden auf unseren Servern verarbeitet.</p>
           <br/>
-          <div className="row">
-            <br/>
-            <div className="col-md-6">
-              <a href="//picasso.uber.space/matomos/index.php?module=CoreAdminHome&action=optOut&language=de">
-                <h5 style={{border: 'solid 1px', padding: '5px', textAlign: 'center'}}>Webanalysedienste konfigurieren, bzw.
-                  widersprechen</h5>
-              </a>
-              <br/>
-            </div>
-          </div>
           <h4>8) Rechte des Betroffenen</h4>
 
           <b>8.1</b> Das geltende Datenschutzrecht gewährt Ihnen gegenüber dem Verantwortlichen hinsichtlich der Verarbeitung

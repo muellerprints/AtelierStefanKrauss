@@ -314,12 +314,7 @@ const resources = {
           <p>This website uses the web analytics software Matomo (www.matomo.org) provided by InnoCraft Ltd., 150 Willis St, 6011 Wellington, New Zealand, on the basis of our legitimate interest in statistical analysis of user behaviour for optimisation and marketing purposes pursuant to Art. 6(1)(f) GDPR. Pseudonymised usage profiles may be generated and analysed. Cookies may be used to this end. The Matomo‑related data (including your pseudonymised IP address) are processed on our servers.</p>
           <p>The information stored in the pseudonymous user profile is not used to identify the visitor personally and is not merged with personal data about the bearer of the pseudonym.</p>
           <p>If you do not agree with the storage and analysis of data from your visit, you can object at any time by clicking the opt‑out link below. An opt‑out cookie will be stored in your browser to prevent Matomo from collecting any session data. Please note that deleting all cookies will also remove the opt‑out cookie and it may need to be reactivated.</p>
-          <div class="row"><br/><div class="col-md-6">
-            <a href="//picasso.uber.space/matomos/index.php?module=CoreAdminHome&action=optOut&language=en">
-              <h5 style="border: solid 1px; padding: 5px; text-align: center">Configure or opt out of web analytics</h5>
-            </a>
-            <br/>
-          </div></div>
+          <br/>
           <h4>8) Data subject rights</h4>
           <b>8.1</b> Under applicable data protection law you have extensive rights with respect to the processing of your personal data by the controller (rights of access and intervention). These include:
           <ul>
