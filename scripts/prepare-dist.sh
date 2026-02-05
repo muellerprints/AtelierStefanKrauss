@@ -14,6 +14,12 @@ mkdir -p "$DIST"
 # Default paths to include in dist (space-separated)
 INCLUDE=".env.example index.html package.json public server"
 
+# If an IonOS/PHP send-email endpoint exists in deploy/, include it so that
+# prepared `dist/` uploads contain the server-side handler at /api/send-email.
+if [ -d "$ROOT/deploy/ionos/api/send-email" ]; then
+  INCLUDE="$INCLUDE deploy/ionos/api/send-email"
+fi
+
 # If caller supplied extra paths, append them
 if [ "$#" -gt 0 ]; then
   for p in "$@"; do
