@@ -12,6 +12,9 @@ export default function Impressum(){
         {t('impressum.street')}<br/>
         {t('impressum.cityzip')}
       </p>
+      {t('impressum.vatId') && (
+        <p>{t('impressum.vatId')}</p>
+      )}
       <p>
         {t('impressum.contactLabel')}<br/>
         <a href={`mailto:${t('contact.email')}`}>{t('contact.email')}</a><br/>
@@ -20,6 +23,9 @@ export default function Impressum(){
       <h3>{t('impressum.registryTitle')}</h3>
       <p>{t('impressum.registry')}</p>
       <p><em>{t('impressum.note')}</em></p>
+      {t('impressum.odr') && (
+        <div dangerouslySetInnerHTML={{ __html: t('impressum.odr').replace(/\n/g, '<br/>') }} />
+      )}
     </main>
   )
 }
