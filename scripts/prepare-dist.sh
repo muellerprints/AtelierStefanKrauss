@@ -12,7 +12,10 @@ echo "Preparing $DIST"
 mkdir -p "$DIST"
 
 # Default paths to include in dist (space-separated)
-INCLUDE=".env.example index.html package.json public server"
+# Note: do NOT copy the project's top-level `index.html` into `dist/` because
+# the build step produces a processed `dist/index.html` with correct asset
+# links. Copying the source `index.html` would break the built site.
+INCLUDE=".env.example package.json public server"
 
 # We'll copy the IONOS PHP send-email endpoint explicitly into dist/api/send-email
 # so the prepared site exposes the handler at /api/send-email on the target.
