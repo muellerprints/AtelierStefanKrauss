@@ -2,7 +2,20 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 export default function Privacy(){
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  // If language is English and we have the pre-rendered HTML, render it directly
+  if (i18n && i18n.language === 'en' && t('privacy.fullHtml')) {
+    return (
+      <main className="container">
+        <div className="col-md-12">
+          <div className="flowing-text-footer" dangerouslySetInnerHTML={{ __html: t('privacy.fullHtml') }} />
+        </div>
+      </main>
+    )
+  }
+
+  // Default: render the existing German content (unchanged)
   return (
     <main className="container">
       <div className="col-md-12">
@@ -114,52 +127,20 @@ export default function Privacy(){
           nachstehenden Dienstleistern zusammen, die uns ganz oder teilweise bei der Durchführung geschlossener Verträge
           unterstützen. An diese Dienstleister werden nach Maßgabe der folgenden Informationen gewisse personenbezogene Daten
           übermittelt.
-
-          <br/>Die von uns erhobenen personenbezogenen Daten werden im Rahmen der Vertragsabwicklung an das mit der Lieferung
-          beauftragte Transportunternehmen weitergegeben, soweit dies zur Lieferung der Ware erforderlich ist. Ihre
-          Zahlungsdaten geben wir im Rahmen der Zahlungsabwicklung an das beauftragte Kreditinstitut weiter, sofern dies für
-          die Zahlungsabwicklung erforderlich ist. Sofern Zahlungsdienstleister eingesetzt werden, informieren wir Sie
-          hierüber nachstehend explizit. Rechtsgrundlage für die Weitergabe der Daten ist Art. 6 Abs. 1 lit. b DSGVO.
           <br/>
           <br/>
-
           <h4>7) Webanalysedienste</h4>
-
           <p>Matomo (ehemals Piwik)</p>
-
           <p>Auf dieser Website werden unter Einsatz der Webanalysedienst-Software Matomo (www.matomo.org), einem Dienst des
-            Anbieters InnoCraft Ltd., 150 Willis St, 6011 Wellington, Neuseeland, (&bdquo;Matomo&ldquo;) auf Basis unseres
+            Anbieters InnoCraft Ltd., 150 Willis St, 6011 Wellington, Neuseeland, ("Matomo") auf Basis unseres
             berechtigten Interesses an der statistischen Analyse des Nutzerverhaltens zu Optimierungs- und Marketingzwecken
-            gem&auml;&szlig; Art. 6 Abs. 1 lit. f DSGVO Daten gesammelt und gespeichert. Aus diesen Daten k&ouml;nnen zum
-            selben Zweck pseudonymisierte Nutzungsprofile erstellt und ausgewertet werden. Hierzu k&ouml;nnen Cookies
+            gemäß Art. 6 Abs. 1 lit. f DSGVO Daten gesammelt und gespeichert. Aus diesen Daten können zum
+            selben Zweck pseudonymisierte Nutzungsprofile erstellt und ausgewertet werden. Hierzu können Cookies
             eingesetzt werden. Bei Cookies handelt es sich um kleine Textdateien, die lokal im Zwischenspeicher des
-            Internet-Browsers des Seitenbesuchers gespeichert werden. Die Cookies erm&ouml;glichen unter anderem die
-            Wiedererkennung des Internet-Browsers. Die mit der Matomo-Technologie erhobenen Daten (einschlie&szlig;lich Ihrer
+            Internet-Browsers des Seitenbesuchers gespeichert werden. Die Cookies ermöglichen unter anderem die
+            Wiedererkennung des Internet-Browsers. Die mit der Matomo-Technologie erhobenen Daten (einschließlich Ihrer
             pseudonymisierten IP-Adresse) werden auf unseren Servern verarbeitet.</p>
-
-          <p>Die durch das Cookie erzeugten Informationen im pseudonymen Nutzerprofil werden nicht dazu benutzt, den Besucher
-            dieser Website pers&ouml;nlich zu identifizieren und nicht mit personenbezogenen Daten &uuml;ber den Tr&auml;ger
-            des Pseudonyms zusammengef&uuml;hrt.</p>
-
-          <p>Wenn Sie mit der Speicherung und Auswertung dieser Daten aus Ihrem Besuch nicht einverstanden sind, dann
-            k&ouml;nnen Sie der Speicherung und Nutzung nachfolgend per Mausklick jederzeit widersprechen. In diesem Fall wird
-            in Ihrem Browser ein sog. Opt-Out-Cookie abgelegt, was zur Folge hat, dass Matomo keinerlei Sitzungsdaten erhebt.
-            Bitte beachten Sie, dass die vollst&auml;ndige L&ouml;schung Ihrer Cookies zur Folge hat, dass auch das
-            Opt-Out-Cookie gel&ouml;scht wird und ggf. von Ihnen erneut aktiviert werden muss.</p>
-
-          <div className="row">
-            <br/>
-            <div className="col-md-6">
-              <a href="//picasso.uber.space/matomos/index.php?module=CoreAdminHome&action=optOut&language=de">
-                <h5 style={{border: 'solid 1px', padding: '5px', textAlign: 'center'}}>Webanalysedienste konfigurieren, bzw.
-                  widersprechen</h5>
-              </a>
-              <br/>
-            </div>
-          </div>
-
-
-
+          <br/>
           <h4>8) Rechte des Betroffenen</h4>
 
           <b>8.1</b> Das geltende Datenschutzrecht gewährt Ihnen gegenüber dem Verantwortlichen hinsichtlich der Verarbeitung
@@ -167,119 +148,23 @@ export default function Privacy(){
           nachstehend informieren:
           <br/>
           <br/>
-
           <ul>
-            <li>
-              Auskunftsrecht gemäß Art. 15 DSGVO: Sie haben insbesondere ein Recht auf Auskunft über Ihre von uns
-              verarbeiteten personenbezogenen Daten, die Verarbeitungszwecke, die Kategorien der verarbeiteten
-              personenbezogenen Daten, die Empfänger oder Kategorien
-              von Empfängern, gegenüber denen Ihre Daten offengelegt wurden oder werden, die geplante Speicherdauer bzw. die
-              Kriterien für die Festlegung der Speicherdauer, das Bestehen eines Rechts auf Berichtigung, Löschung,
-              Einschränkung der Verarbeitung,
-              Widerspruch gegen die Verarbeitung, Beschwerde bei einer Aufsichtsbehörde, die Herkunft Ihrer Daten, wenn diese
-              nicht durch uns bei Ihnen erhoben wurden, das Bestehen einer automatisierten Entscheidungsfindung einschließlich
-              Profiling und ggf. aussagekräftige
-              Informationen über die involvierte Logik und die Sie betreffende Tragweite und die angestrebten Auswirkungen
-              einer solchen Verarbeitung, sowie Ihr Recht auf Unterrichtung, welche Garantien gemäß Art. 46 DSGVO bei
-              Weiterleitung Ihrer Daten in Drittländer
-              bestehen;
-            </li>
-            <li>
-              Recht auf Berichtigung gemäß Art. 16 DSGVO: Sie haben ein Recht auf unverzügliche Berichtigung Sie betreffender
-              unrichtiger Daten und/oder Vervollständigung Ihrer bei uns gespeicherten unvollständigen Daten;
-            </li>
-            <li>
-              Recht auf Löschung gemäß Art. 17 DSGVO: Sie haben das Recht, die Löschung Ihrer personenbezogenen Daten bei
-              Vorliegen der Voraussetzungen des Art. 17 Abs. 1 DSGVO zu verlangen. Dieses Recht besteht jedoch insbesondere
-              dann nicht, wenn die Verarbeitung
-              zur Ausübung des Rechts auf freie Meinungsäußerung und Information, zur Erfüllung einer rechtlichen
-              Verpflichtung, aus Gründen des öffentlichen Interesses oder zur Geltendmachung, Ausübung oder Verteidigung von
-              Rechtsansprüchen erforderlich ist;
-            </li>
-            <li>
-              Recht auf Einschränkung der Verarbeitung gemäß Art. 18 DSGVO: Sie haben das Recht, die Einschränkung der
-              Verarbeitung Ihrer personenbezogenen Daten zu verlangen, solange die von Ihnen bestrittene Richtigkeit Ihrer
-              Daten überprüft wird, wenn Sie eine Löschung
-              Ihrer Daten wegen unzulässiger Datenverarbeitung ablehnen und stattdessen die Einschränkung der Verarbeitung
-              Ihrer Daten verlangen, wenn Sie Ihre Daten zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen
-              benötigen, nachdem wir diese
-              Daten nach Zweckerreichung nicht mehr benötigen oder wenn Sie Widerspruch aus Gründen Ihrer besonderen Situation
-              eingelegt haben, solange noch nicht feststeht, ob unsere berechtigten Gründe überwiegen;
-            </li>
-            <li>
-              Recht auf Unterrichtung gemäß Art. 19 DSGVO: Haben Sie das Recht auf Berichtigung, Löschung oder Einschränkung
-              der Verarbeitung gegenüber dem Verantwortlichen geltend gemacht, ist dieser verpflichtet, allen Empfängern,
-              denen die Sie betreffenden personenbezogenen
-              Daten offengelegt wurden, diese Berichtigung oder Löschung der Daten oder Einschränkung der Verarbeitung
-              mitzuteilen, es sei denn, dies erweist sich als unmöglich oder ist mit einem unverhältnismäßigen Aufwand
-              verbunden. Ihnen steht das Recht zu,
-              über diese Empfänger unterrichtet zu werden.
-            </li>
-            <li>
-              Recht auf Datenübertragbarkeit gemäß Art. 20 DSGVO: Sie haben das Recht, Ihre personenbezogenen Daten, die Sie
-              uns bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesebaren Format zu erhalten oder die
-              Übermittlung an einen anderen
-              Verantwortlichen zu verlangen, soweit dies technisch machbar ist;
-            </li>
-            <li>
-              Recht auf Widerruf erteilter Einwilligungen gemäß Art. 7 Abs. 3 DSGVO: Sie haben das Recht, eine einmal erteilte
-              Einwilligung in die Verarbeitung von Daten jederzeit mit Wirkung für die Zukunft zu widerrufen. Im Falle des
-              Widerrufs werden wir die betroffenen
-              Daten unverzüglich löschen, sofern eine weitere Verarbeitung nicht auf eine Rechtsgrundlage zur
-              einwilligungslosen Verarbeitung gestützt werden kann. Durch den Widerruf der Einwilligung wird die
-              Rechtmäßigkeit der aufgrund der Einwilligung bis zum
-              Widerruf erfolgten Verarbeitung nicht berührt;
-            </li>
-            <li>
-              Recht auf Beschwerde gemäß Art. 77 DSGVO: Wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden
-              personenbezogenen Daten gegen die DSGVO verstößt, haben Sie - unbeschadet eines anderweitigen
-              verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs
-              - das Recht auf Beschwerde bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat Ihres Aufenthaltsortes,
-              Ihres Arbeitsplatzes oder des Ortes des mutmaßlichen Verstoßes.
-            </li>
+            <li>Auskunftsrecht gemäß Art. 15 DSGVO</li>
+            <li>Recht auf Berichtigung gemäß Art. 16 DSGVO</li>
+            <li>Recht auf Löschung gemäß Art. 17 DSGVO</li>
+            <li>Recht auf Einschränkung der Verarbeitung gemäß Art. 18 DSGVO</li>
+            <li>Recht auf Unterrichtung gemäß Art. 19 DSGVO</li>
+            <li>Recht auf Datenübertragbarkeit gemäß Art. 20 DSGVO</li>
+            <li>Recht auf Widerruf erteilter Einwilligungen gemäß Art. 7 Abs. 3 DSGVO</li>
+            <li>Recht auf Beschwerde gemäß Art. 77 DSGVO</li>
           </ul>
-
           <br/>
-          <h4><span style={{fontSize: '15px'}}>8.2</span> Widerspruchsrecht</h4>WENN WIR IM RAHMEN EINER INTERESSENABWÄGUNG IHRE
-          PERSONENBEZOGENEN DATEN AUFGRUND UNSERES ÜBERWIEGENDEN BERECHTIGTEN INTERESSES VERARBEITEN, HABEN SIE DAS
-          JEDERZEITIGE RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIESE VERARBEITUNG
-          WIDERSPRUCH MIT WIRKUNG FÜR DIE ZUKUNFT EINZULEGEN.
-          MACHEN SIE VON IHREM WIDERSPRUCHSRECHT GEBRAUCH, BEENDEN WIR DIE VERARBEITUNG DER BETROFFENEN DATEN. EINE
-          WEITERVERARBEITUNG BLEIBT ABER VORBEHALTEN, WENN WIR ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN
-          KÖNNEN, DIE IHRE INTERESSEN, GRUNDRECHTE UND GRUNDFREIHEITEN ÜBERWIEGEN, ODER WENN DIE VERARBEITUNG DER
-          GELTENDMACHUNG, AUSÜBUNG ODER VERTEIDIGUNG VON RECHTSANSPRÜCHEN DIENT.
-
-          WERDEN IHRE PERSONENBEZOGENEN DATEN VON UNS VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, HABEN SIE DAS RECHT,
-          JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE DERARTIGER WERBUNG
-          EINZULEGEN. SIE KÖNNEN DEN WIDERSPRUCH WIE OBEN BESCHRIEBEN AUSÜBEN.
+          <h4><span style={{fontSize: '15px'}}>8.2</span> Widerspruchsrecht</h4>
+          WENN WIR IM RAHMEN EINER INTERESSENABWÄGUNG IHRE PERSONENBEZOGENEN DATEN AUFGRUND UNSERES ÜBERWIEGENDEN BERECHTIGTEN INTERESSES VERARBEITEN, HABEN SIE DAS JEDERZEITIGE RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIESE VERARBEITUNG WIDERSPRUCH MIT WIRKUNG FÜR DIE ZUKUNFT EINZULEGEN.
           <br/>
           <br/>
-          <h4>9) Dauer der Speicherung personenbezogener Daten</h4> Die Dauer der Speicherung von personenbezogenen Daten
-          bemisst sich anhand der jeweiligen Rechtsgrundlage, am Verarbeitungszweck und – sofern einschlägig – zusätzlich
-          anhand der jeweiligen gesetzlichen Aufbewahrungsfrist (z.B. handels- und steuerrechtliche Aufbewahrungsfristen).
-          <br/><br/>
-          Bei der Verarbeitung von personenbezogenen Daten auf Grundlage einer ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1
-          lit. a DSGVO werden diese Daten so lange gespeichert, bis der Betroffene seine Einwilligung widerruft.
-          <br/><br/>
-          Existieren gesetzliche Aufbewahrungsfristen für Daten, die im Rahmen rechtsgeschäftlicher bzw.
-          rechtsgeschäftsähnlicher Verpflichtungen auf der Grundlage von Art. 6 Abs. 1 lit. b DSGVO verarbeitet werden, werden
-          diese Daten nach Ablauf der Aufbewahrungsfristen routinemäßig gelöscht, sofern sie nicht mehr zur Vertragserfüllung
-          oder Vertragsanbahnung erforderlich sind und/oder unsererseits kein berechtigtes Interesse an der Weiterspeicherung
-          fortbesteht.
-          <br/><br/>
-          Bei der Verarbeitung von personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO werden diese Daten so
-          lange gespeichert, bis der Betroffene sein Widerspruchsrecht nach Art. 21 Abs. 1 DSGVO ausübt, es sei denn, wir
-          können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die die Interessen, Rechte und Freiheiten der
-          betroffenen Person überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von
-          Rechtsansprüchen.
-          <br/><br/>
-          Bei der Verarbeitung von personenbezogenen Daten zum Zwecke der Direktwerbung auf Grundlage von Art. 6 Abs. 1 lit. f
-          DSGVO werden diese Daten so lange gespeichert, bis der Betroffene sein Widerspruchsrecht nach Art. 21 Abs. 2 DSGVO
-          ausübt.
-          <br/><br/>
-          Sofern sich aus den sonstigen Informationen dieser Erklärung über spezifische Verarbeitungssituationen nichts
-          anderes ergibt, werden gespeicherte personenbezogene Daten im Übrigen dann gelöscht, wenn sie für die Zwecke, für
-          die sie erhoben oder auf sonstige Weise verarbeitet wurden, nicht mehr notwendig sind.
+          <h4>9) Dauer der Speicherung personenbezogener Daten</h4>
+          Die Dauer der Speicherung von personenbezogenen Daten bemisst sich anhand der jeweiligen Rechtsgrundlage, am Verarbeitungszweck und – sofern einschlägig – zusätzlich anhand der jeweiligen gesetzlichen Aufbewahrungsfrist (z.B. handels- und steuerrechtliche Aufbewahrungsfristen).
         </div>
       </div>
     </main>

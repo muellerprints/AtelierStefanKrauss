@@ -254,6 +254,97 @@ const resources = {
         rightsTitle: 'Your Rights',
         rights: 'You have the right to access, correct, delete and object. To exercise your rights, please contact us by email.',
         note: 'This page contains sample text. A full privacy policy should be tailored to your business and legally reviewed.'
+      ,
+        // Full English HTML version of the Datenschutzerklärung (shows on the privacy page when language is 'en')
+        fullHtml: `
+          <h2>Privacy Policy</h2>
+          <br/>
+          <h4>1) Information about the collection of personal data and contact details of the controller</h4>
+
+          <b>1.1</b> We appreciate your visit to our website and thank you for your interest. Below we inform you about how we handle your personal data when you use our website. Personal data means any data that can be used to personally identify you.
+          <br/>
+          <b>1.2</b> The controller for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is Max Müller, Rotenbergstraße 39, 70190 Stuttgart, Germany, Tel.: +49 (0)711 / 262 49 64, Fax: +49 (0)711 / 262 48 60, E‑Mail: muellerprints@t-online.de. The controller is the natural or legal person who, alone or jointly with others, determines the purposes and means of processing personal data.
+          <br/>
+          <b>1.3</b> For security reasons and to protect the transmission of personal data and other confidential content (e.g. orders or enquiries to the controller), this website uses SSL/TLS encryption. You can recognize a secure connection by the string "https://" and the lock icon in your browser address bar.
+          <br/><br/>
+          <h4>2) Data collected when visiting our website</h4>
+          When using our website for informational purposes only — i.e. if you do not register or transmit other information to us — we only collect the data that your browser transmits to our server (so-called "server log files"). When you access our website, we collect the following data that is technically necessary for us to display the website:
+          <br/><br/>
+          <ul>
+            <li>The website you visited</li>
+            <li>Date and time of access</li>
+            <li>Amount of data transferred in bytes</li>
+            <li>Referrer URL</li>
+            <li>Browser used</li>
+            <li>Operating system used</li>
+            <li>IP address used (possibly in anonymised form)</li>
+          </ul>
+          The processing is carried out pursuant to Art. 6(1)(f) GDPR on the basis of our legitimate interest in improving the stability and functionality of our website. The data will not be passed on or used otherwise. However, we reserve the right to retrospectively check server log files if there are concrete indications of unlawful use.
+          <br/><br/>
+          <h4>3) Cookies</h4>
+          To make your visit to our website attractive and to enable the use of certain functions, we use so-called cookies on various pages. These are small text files that are stored on your device. Some of the cookies we use are deleted after the end of your browser session (session cookies). Other cookies remain on your device and enable us or our partner companies (third‑party cookies) to recognise your browser on your next visit (persistent cookies). Cookies may store information such as browser and location data and IP address values. Persistent cookies are deleted automatically after a predefined period, which depends on the individual cookie.
+          <br/>
+          Some cookies are used to simplify the ordering process by saving settings (e.g. remembering the contents of a virtual shopping cart for a later visit). If cookies used by us also process personal data, the processing is based either on Art. 6(1)(b) GDPR for contract performance or Art. 6(1)(f) GDPR for our legitimate interest in a well‑functioning and customer‑friendly website.
+          <br/>
+          We may work with advertising partners who help make our online offering more interesting. In such cases, cookies from partner companies may be stored on your device. If we work with such partners, we inform you individually below about the use of these cookies and the information collected.
+          <br/>
+          You can set your browser to inform you about cookies and to accept or reject them individually or in general. Each browser handles cookie settings differently; please consult your browser's help menu for instructions. Links for common browsers:
+          <br/>
+          <br/>Internet Explorer: <a href="https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies">https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies</a>
+          <br/>Firefox: <a href="https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen">https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen</a>
+          <br/>Chrome: <a href="https://support.google.com/chrome/answer/95647?hl=de&hlrm=en">https://support.google.com/chrome/answer/95647?hl=de&hlrm=en</a>
+          <br/>Safari: <a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac">https://support.apple.com/de-de/guide/safari/sfri11471/mac</a>
+          <br/>Opera: <a href="https://help.opera.com/en/latest/web-preferences/#cookies">https://help.opera.com/en/latest/web-preferences/#cookies</a>
+          <br/><br/>
+          Please note that disabling cookies may restrict the functionality of our website.
+          <br/><br/>
+          <h4>4) Contact</h4>
+          When you contact us (e.g. by contact form or e‑mail), personal data is collected. Which data is collected in a contact form is evident from the form itself. These data are stored and used exclusively for the purpose of answering your request and for the associated technical administration. The legal basis for processing is our legitimate interest in answering your enquiry pursuant to Art. 6(1)(f) GDPR. If your contact aims at concluding a contract, Art. 6(1)(b) GDPR additionally applies. Your data will be deleted after completion of processing, insofar as no statutory retention obligations prevent deletion.
+          <br/><br/>
+          <h4>5) Data processing for account creation and contract processing</h4>
+          Pursuant to Art. 6(1)(b) GDPR, personal data is also collected and processed if you provide it for the purpose of performing a contract or opening a customer account. Which data are collected is evident from the respective input forms. You may request deletion of your account at any time by notifying the controller at the address above. We store and use the data provided by you for contract processing. After full performance of the contract or deletion of the account, data will be blocked and deleted in accordance with tax and commercial retention periods unless you have consented to further use or another lawful processing is permitted.
+          <br/><br/>
+          <h4>6) Data processing for order handling</h4>
+          For the fulfilment of your order we work with the service providers named below who support us in whole or in part. Certain personal data required for contract performance will be passed on to these service providers.
+          <br/>
+          Personal data collected in the course of contract processing will be passed on to the carrier commissioned to deliver the goods insofar as this is necessary for delivery. Payment data will be transmitted to the financial institution commissioned to process payments, if required. Where payment service providers are used, we will inform you explicitly below. The legal basis for disclosure is Art. 6(1)(b) GDPR.
+          <br/><br/>
+          <h4>7) Web analytics services</h4>
+          <p>Matomo (formerly Piwik)</p>
+          <p>This website uses the web analytics software Matomo (www.matomo.org) provided by InnoCraft Ltd., 150 Willis St, 6011 Wellington, New Zealand, on the basis of our legitimate interest in statistical analysis of user behaviour for optimisation and marketing purposes pursuant to Art. 6(1)(f) GDPR. Pseudonymised usage profiles may be generated and analysed. Cookies may be used to this end. The Matomo‑related data (including your pseudonymised IP address) are processed on our servers.</p>
+          <p>The information stored in the pseudonymous user profile is not used to identify the visitor personally and is not merged with personal data about the bearer of the pseudonym.</p>
+          <p>If you do not agree with the storage and analysis of data from your visit, you can object at any time by clicking the opt‑out link below. An opt‑out cookie will be stored in your browser to prevent Matomo from collecting any session data. Please note that deleting all cookies will also remove the opt‑out cookie and it may need to be reactivated.</p>
+          <div class="row"><br/><div class="col-md-6">
+            <a href="//picasso.uber.space/matomos/index.php?module=CoreAdminHome&action=optOut&language=en">
+              <h5 style="border: solid 1px; padding: 5px; text-align: center">Configure or opt out of web analytics</h5>
+            </a>
+            <br/>
+          </div></div>
+          <h4>8) Data subject rights</h4>
+          <b>8.1</b> Under applicable data protection law you have extensive rights with respect to the processing of your personal data by the controller (rights of access and intervention). These include:
+          <ul>
+            <li>Right of access pursuant to Art. 15 GDPR</li>
+            <li>Right to rectification pursuant to Art. 16 GDPR</li>
+            <li>Right to erasure pursuant to Art. 17 GDPR</li>
+            <li>Right to restriction of processing pursuant to Art. 18 GDPR</li>
+            <li>Right to be informed pursuant to Art. 19 GDPR</li>
+            <li>Right to data portability pursuant to Art. 20 GDPR</li>
+            <li>Right to withdraw consent pursuant to Art. 7(3) GDPR</li>
+            <li>Right to lodge a complaint pursuant to Art. 77 GDPR</li>
+          </ul>
+          <br/>
+          <h4><span style="font-size:15px">8.2</span> Right to object</h4>
+          If we process your personal data on the basis of a balancing of interests for our overriding legitimate interests, you have the right to object to this processing at any time for reasons arising from your particular situation. If you object, we will stop processing the data unless we can demonstrate compelling legitimate grounds for the processing which override your interests, rights and freedoms, or the processing is for the assertion, exercise or defence of legal claims.
+          <br/><br/>
+          If your personal data are processed by us for direct marketing purposes, you have the right to object to the processing of your personal data for such marketing at any time.
+          <br/><br/>
+          <h4>9) Retention periods for personal data</h4>
+          The length of time personal data are stored depends on the legal basis, the purpose of processing and, where applicable, statutory retention periods (e.g. commercial and tax retention periods).
+          <br/><br/>
+          Where processing is based on consent (Art. 6(1)(a) GDPR), data are retained until consent is revoked. Where statutory retention periods apply for data processed in connection with contractual obligations, data will be deleted after expiry of those retention periods unless required for contract fulfilment or a legitimate interest in continued storage exists. For data processed on the basis of Art. 6(1)(f) GDPR, data are stored until you exercise your right to object unless we can demonstrate overriding legitimate grounds or the processing serves the assertion, exercise or defence of legal claims.
+          <br/><br/>
+          Unless otherwise specified in this statement for specific processing operations, personal data will otherwise be deleted when they are no longer needed for the purposes for which they were collected or otherwise processed.
+        `
       }
       ,
       contact: {
