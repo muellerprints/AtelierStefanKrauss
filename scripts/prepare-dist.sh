@@ -14,11 +14,8 @@ mkdir -p "$DIST"
 # Default paths to include in dist (space-separated)
 INCLUDE=".env.example index.html package.json public server"
 
-# If an IonOS/PHP send-email endpoint exists in deploy/, include it so that
-# prepared `dist/` uploads contain the server-side handler at /api/send-email.
-if [ -d "$ROOT/deploy/ionos/api/send-email" ]; then
-  INCLUDE="$INCLUDE deploy/ionos/api/send-email"
-fi
+# We'll copy the IONOS PHP send-email endpoint explicitly into dist/api/send-email
+# so the prepared site exposes the handler at /api/send-email on the target.
 
 # If caller supplied extra paths, append them
 if [ "$#" -gt 0 ]; then
@@ -38,6 +35,13 @@ for path in $INCLUDE; do
     echo "Warning: $path not found, skipping"
   fi
 done
+
+# If the IONOS PHP handler exists, copy it into dist/api/send-email (not under deploy/)
+if [ -d "$ROOT/deploy/ionos/api/send-email" ]; then
+  echo "Syncing deploy/ionos/api/send-email -> dist/api/send-email"
+  mkdir -p "$DIST/api"
+  rsync -av --delete --exclude='_notes' "$ROOT/deploy/ionos/api/send-email/" "$DIST/api/send-email/"
+fi
 
 # Remove any remaining editor metadata folders named _notes from dist
 echo "Removing _notes folders from dist (if any)"
