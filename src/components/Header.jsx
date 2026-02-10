@@ -34,7 +34,7 @@ export default function Header(){
       <div className="container">
         <div className="brand">
           <Link to="/" className="brand-link" aria-label="Goldschmiedeatelier Stefan Krauss — Startseite">
-            <img src="/assets/icons/wappen-outline.png" alt="" aria-hidden="true" className="brand-mono" />
+            <div aria-hidden="true" className="brand-mono" />
             <div className="brand-wordmark-wrap">
               <span className="brand-wordmark logo">{t('brandWordmark')}</span>
               <span className="brand-subtitle">Krauss</span>

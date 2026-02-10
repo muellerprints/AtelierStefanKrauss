@@ -46,7 +46,16 @@ h2{font-weight:700;letter-spacing:0.015em}
 .site-header{background:transparent;padding:18px 0}
 .site-header .container{display:flex;align-items:center;gap:20px}
 .brand-link{display:flex;align-items:center;gap:18px;text-decoration:none}
-.brand-mono{width:96px;height:96px;display:block;border-radius:8px}
+.brand-mono{width:96px;height:96px;display:block;border-radius:8px;background-color:var(--accent);
+  -webkit-mask-image: url('/assets/icons/wappen-outline.png');
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-image: url('/assets/icons/wappen-outline.png');
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
 .brand-wordmark{display:inline-block;height:auto;font-family:'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:24px;line-height:1;letter-spacing:0.01em;color:var(--text);font-weight:700}
 .brand-link img{display:block}
 .logo{font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; font-weight:700;color:var(--text);text-decoration:none}
