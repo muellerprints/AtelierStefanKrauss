@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://goldschmiedeatelier-krauss.de/sitemap.xml
