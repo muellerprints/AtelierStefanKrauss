@@ -22,9 +22,7 @@
 .body-reset{margin:0}
 body{margin:0;font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; background:var(--neutral-light); color:var(--text)}
 
-/* Skip-link visible on focus for keyboard users */
-.skip-link{position:fixed;left:12px;top:12px;padding:8px 12px;background:var(--accent);color:#fff;border-radius:6px;z-index:9999;transform:translateY(-160%);transition:transform .16s ease,opacity .12s ease;opacity:0}
-.skip-link:focus{transform:translateY(0);opacity:1}
+/* Skip-link removed (was used for keyboard users) */
 
 /* Visible focus indicator for interactive elements */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
