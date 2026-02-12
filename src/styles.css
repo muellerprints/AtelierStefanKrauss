@@ -55,7 +55,7 @@ a:hover,a:focus{color:var(--accent)}
 .site-root main{position:relative;overflow:visible}
 .site-root main::before{
   content: "";
-  position: absolute;
+  position: fixed; /* span full viewport vertically */
   top: 0;
   bottom: 0;
   right: -6%;
