@@ -48,68 +48,6 @@ export default function Home(){
   const getRect = (el) => (el && typeof el.getBoundingClientRect === 'function') ? el.getBoundingClientRect() : { top: 0, left: 0, width: 0, height: 0, bottom: 0, right: 0 }
 
   useEffect(() => {
-    // Analyse each photo in the photo grid and mark its container as dark/light
-    let mounted = true
-    const analysePhotos = () => {
-      const grid = photoGridRef.current
-      if (!grid) return
-      const imgs = Array.from(grid.querySelectorAll('.photo-item img'))
-      imgs.forEach((el) => {
-        const parent = el.closest('.photo-item')
-        if (!parent) return
-        const img = new Image()
-        img.src = el.src
-        img.onload = () => {
-          if (!mounted) return
-          try {
-            const w = img.naturalWidth
-            const h = img.naturalHeight
-            const canvas = document.createElement('canvas')
-            const cw = Math.min(24, w)
-            const ch = Math.min(24, h)
-            canvas.width = cw
-            canvas.height = ch
-            const ctx = canvas.getContext('2d')
-            // sample from center region to avoid edges
-            const sx = Math.max(0, Math.floor((w - cw) / 2))
-            const sy = Math.max(0, Math.floor((h - ch) / 2))
-            ctx.drawImage(img, sx, sy, cw, ch, 0, 0, cw, ch)
-            const data = ctx.getImageData(0, 0, cw, ch).data
-            let total = 0
-            for (let i = 0; i < data.length; i += 4) {
-              const r = data[i], g = data[i+1], b = data[i+2]
-              // luminance (relative)
-              const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
-              total += lum
-            }
-            const avg = total / ((data.length / 4) * 255)
-            // threshold: < 0.55 considered dark
-            if (avg < 0.55) {
-              parent.classList.add('dark')
-              parent.classList.remove('light')
-            } else {
-              parent.classList.add('light')
-              parent.classList.remove('dark')
-            }
-          } catch (e) {
-            parent.classList.remove('dark')
-            parent.classList.remove('light')
-          }
-        }
-        img.onerror = () => {
-          parent.classList.remove('dark')
-          parent.classList.remove('light')
-        }
-      })
-    }
-
-    // run analysis after remotePhotos change and when images load
-    analysePhotos()
-    const obs = new MutationObserver(analysePhotos)
-    if (photoGridRef.current) obs.observe(photoGridRef.current, { childList: true, subtree: true })
-    window.addEventListener('resize', analysePhotos)
-    return () => { mounted = false; obs.disconnect(); window.removeEventListener('resize', analysePhotos) }
-  }, [remotePhotos])
     // Parallax + reveal for feature sections
     const sections = Array.from(document.querySelectorAll('.feature-photo-section'))
     const io = new IntersectionObserver((entries) => {
