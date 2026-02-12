@@ -41,6 +41,31 @@ a:hover,a:focus{color:var(--accent)}
 .container{max-width:1100px;margin:0 auto;padding:24px}
 .site-root h1{font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; font-size:24px;font-weight:700;letter-spacing:0.02em}
 
+/* Large page-height decorative wappen that spans from header to footer
+   Rendered as a masked ::before on .site-root so it reaches header/footer */
+.site-root{position:relative}
+.site-root::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -6%;
+  width: 36vw; /* adjust to taste */
+  background-color: #ffffff;
+  -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center right;
+  -webkit-mask-size: contain;
+  mask-image: url('/assets/icons/wappen-outline.svg');
+  mask-repeat: no-repeat;
+  mask-position: center right;
+  mask-size: 120%;
+  opacity: 0.20;
+  pointer-events: none;
+  z-index: 0; /* behind header/footer which already use higher z-index */
+  transform: translateX(0) rotate(-9deg);
+}
+
 h2{font-weight:700;letter-spacing:0.015em}
 
 .site-header{background:transparent;padding:18px 0}
