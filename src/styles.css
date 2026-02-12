@@ -387,6 +387,7 @@ h2{font-weight:700;letter-spacing:0.015em}
   /* place large emblem partially off-canvas (angeschnitten) but constrain to page height */
   top: -24%;
   right: -40%; /* push further to the right, more off-canvas */
+  left: auto;
   bottom: 0; /* keep the emblem from extending past the bottom of the page section */
   width: 140vw; /* larger, more oversized */
   max-width: none;
@@ -394,13 +395,15 @@ h2{font-weight:700;letter-spacing:0.015em}
   /* use the SVG as a mask so we can color it white */
   background-color: #ffffff;
   -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
-  -webkit-mask-position: center;
+  -webkit-mask-position: right center;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
   mask-image: url('/assets/icons/wappen-outline.svg');
-  mask-position: center;
+  mask-position: right center;
   mask-repeat: no-repeat;
   mask-size: contain;
+  background-position: right center;
+  transform: translateX(0);
   opacity: 0.12; /* subtle white */
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
   pointer-events: none;
@@ -410,11 +413,11 @@ h2{font-weight:700;letter-spacing:0.015em}
 .atelier-page > *{position:relative;z-index:1}
 
 @media (max-width:900px){
-  .atelier-page::before{width:140vw;top:-18%;right:-30%;bottom:0;opacity:0.14}
+  .atelier-page::before{width:140vw;top:-18%;right:-30%;left:auto;bottom:0;opacity:0.14}
 }
 
 @media (max-width:480px){
-  .atelier-page::before{width:320px;top:-6%;right:-12%;bottom:0;opacity:0.18}
+  .atelier-page::before{width:320px;top:-6%;right:-12%;left:auto;bottom:0;opacity:0.18}
 }
 .submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
 .file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa}
