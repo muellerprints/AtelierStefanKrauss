@@ -44,13 +44,22 @@ a:hover,a:focus{color:var(--accent)}
 /* Large page-height decorative wappen that spans from header to footer
    Rendered as a masked ::before on .site-root so it reaches header/footer */
 .site-root{position:relative}
-.site-root::before{
+/* site-wide pseudo removed — replaced by a main-scoped emblem below */
+.site-root::before{display:none}
+
+/* Make header/footer sit above decorative emblems */
+.site-header{position:relative;z-index:90}
+.site-footer{position:relative;z-index:80}
+
+/* Decorative wappen bound to the main element so it runs exactly over the main area */
+.site-root main{position:relative;overflow:visible}
+.site-root main::before{
   content: "";
-  position: fixed; /* span the full viewport height */
+  position: absolute;
   top: 0;
   bottom: 0;
   right: -6%;
-  width: 36vw; /* adjust to taste */
+  width: 36vw;
   background-color: #ffffff;
   -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
   -webkit-mask-repeat: no-repeat;
@@ -62,9 +71,10 @@ a:hover,a:focus{color:var(--accent)}
   mask-size: 120%;
   opacity: 0.20;
   pointer-events: none;
-  z-index: 0; /* behind header/footer which already use higher z-index */
+  z-index: 0;
   transform: translateX(0) rotate(-9deg);
 }
+.site-root main > *{position:relative;z-index:1}
 
 h2{font-weight:700;letter-spacing:0.015em}
 
