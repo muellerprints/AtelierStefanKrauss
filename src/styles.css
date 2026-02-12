@@ -45,6 +45,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 .site-header{background:transparent;padding:18px 0}
 .site-header .container{display:flex;align-items:center;gap:20px}
+.site-header{position:relative;z-index:60}
 .brand-link{display:flex;align-items:center;gap:18px;text-decoration:none}
 .brand-mono{width:115px;height:115px;display:block;border-radius:12px;background-color:var(--accent);color:#ffffff;
   -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
@@ -193,7 +194,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 .site-footer{padding:18px 0;border-top:1px solid var(--muted);text-align:center;margin-top:36px}
 /* Footer layout adapted to site design */
-.site-footer{background:var(--text);color:var(--bg);padding:20px 0;border-top:0;margin-top:36px}
+.site-footer{background:var(--text);color:var(--bg);padding:20px 0;border-top:0;margin-top:36px;position:relative;z-index:50}
 .site-footer .footer-grid{display:flex;gap:48px;align-items:flex-start;justify-content:space-between;text-align:left}
 .site-footer .footer-col{min-width:180px}
 .site-footer h4{color:var(--bg);margin:0 0 12px;font-weight:700;text-transform:uppercase;font-size:13px}
