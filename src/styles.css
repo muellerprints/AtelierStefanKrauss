@@ -56,6 +56,13 @@ h2{font-weight:700;letter-spacing:0.015em}
   mask-repeat: no-repeat;
   mask-size: contain;
 }
+/* Make the header monogram (SVG mask) visually stronger */
+.brand-mono{
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+  filter: contrast(1.12) saturate(1.08);
+  -webkit-mask-size: 72% !important;
+  mask-size: 72% !important;
+}
 .brand-wordmark{display:inline-block;height:auto;font-family:'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:24px;line-height:1;letter-spacing:0.01em;color:var(--text);font-weight:700}
 .brand-link img{display:block}
 .logo{font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; font-weight:700;color:var(--text);text-decoration:none}
@@ -278,7 +285,8 @@ h2{font-weight:700;letter-spacing:0.015em}
   pointer-events:none;
   z-index:3;
   /* invert to make the outline light on top of photos, add subtle shadow */
-  filter: invert(1) drop-shadow(0 10px 24px rgba(0,0,0,0.5));
+  filter: invert(1) drop-shadow(0 12px 28px rgba(0,0,0,0.55)) contrast(1.08) saturate(1.05);
+  width: 140px;
 }
 
 @media (max-width:900px){
