@@ -56,26 +56,28 @@ a:hover,a:focus{color:var(--accent)}
 .site-root main::before{
   content: "";
   position: fixed; /* span full viewport vertically */
-  top: 0;
-  bottom: 0;
-  right: -6%;
-  height: 100vh; /* ensure full viewport height */
-  width: auto;
-  min-width: 17vw; /* reduced by ~40% */
+    /* extend beyond the viewport vertically to avoid gaps when rotated */
+    top: -10vh;
+    bottom: -10vh;
+    right: -6%;
+    height: 120vh; /* 100vh + 20vh buffer to cover rotation */
+    width: auto;
+    /* shrink baseline by ~30% (previously 17vw) */
+    min-width: 12vw;
   background-color: #ffffff;
   -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center right;
   /* scale the SVG mask to fill 100% of the element height */
-  -webkit-mask-size: auto 100%;
+    -webkit-mask-size: auto 120%;
   mask-image: url('/assets/icons/wappen-outline.svg');
   mask-repeat: no-repeat;
   mask-position: center right;
   mask-size: auto 100%;
   /* ensure background (for non-mask fallback) also fills height */
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: auto 100%;
+    background-position: right center;
+    background-size: auto 120%;
   opacity: 0.20;
   pointer-events: none;
   z-index: 0;
@@ -316,7 +318,7 @@ h2{font-weight:700;letter-spacing:0.015em}
   top:20%; /* etwas höher und einheitlich */
   display:block;
   /* slightly smaller for a subtler overlay (reduced by 10%) */
-  width:60px; /* reduced ~30% from 86px */
+  width:86px;
   height:auto;
   margin-left:auto;
   margin-right:auto;
@@ -329,11 +331,11 @@ h2{font-weight:700;letter-spacing:0.015em}
 }
 
 @media (max-width:900px){
-  .photo-overlay .overlay-wappen{width:55px;top:20%;transform:translateY(-50%)}
+  .photo-overlay .overlay-wappen{width:79px;top:20%;transform:translateY(-50%)}
 }
 
 @media (max-width:600px){
-  .photo-overlay .overlay-wappen{width:46px;top:20%;transform:translateY(-50%)}
+  .photo-overlay .overlay-wappen{width:65px;top:20%;transform:translateY(-50%)}
 }
 
 /* Small screens: make photo grid horizontally scrollable and swipeable */
