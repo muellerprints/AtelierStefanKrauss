@@ -1,19 +1,19 @@
 :root{
   /* Mittelton-Palette: leicht Richtung warmes Blau verschoben */
   --neutral: #62676A; /* leicht in Richtung neutraler Mittelton verschoben */
-  --neutral-light: #E6EAED; /* etwas dunkleres, kühles Hellgrau */
+  --neutral-light: #D7DBDC; /* etwas dunkleres, kühles Hellgrau (10% abgedunkelt) */
   /* Pantone mark colors (mapped to header/footer usage) */
   --pantone-1: var(--accent); /* primary accent (schönes Blau) */
   --pantone-2: var(--accent-2); /* secondary accent (used in header/footer) */
   --pantone-3: var(--accent-3); /* tertiary accent */
-  --bg: #F7F7F6; /* sehr heller, dezenter Mittelton */
-  --text: #333030; /* minimal wärmeres Textgrau */
-  --neutral-rgb: 98,103,106;
-  --neutral-light-rgb: 239,243,244;
-  --text-rgb: 51,48,48;
+  --bg: #DEDEDD; /* sehr heller, dezenter Mittelton (10% abgedunkelt) */
+  --text: #474545; /* minimal wärmeres Textgrau (10% aufgehellt) */
+  --neutral-rgb: 114,118,121;
+  --neutral-light-rgb: 215,219,220;
+  --text-rgb: 71,69,69;
   --shadow-rgb: 48,48,49;
   --accent-rgb: 0,102,204;
-  --muted: #E8E9EA; /* dunkleres dezentes Grau für Flächen */
+  --muted: #D1D2D3; /* dunkleres dezentes Grau für Flächen (10% abgedunkelt) */
   --accent: #0066CC; /* kräftigeres Blau */
   --accent-2: #5F3B66; /* sekundärer Akzent (belassen) */
   --accent-3: #004C99; /* dunklere Blau-Variante */
@@ -46,7 +46,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 .site-header{background:transparent;padding:18px 0}
 .site-header .container{display:flex;align-items:center;gap:20px}
 .brand-link{display:flex;align-items:center;gap:18px;text-decoration:none}
-.brand-mono{width:96px;height:96px;display:block;border-radius:8px;background-color:var(--accent);
+.brand-mono{width:96px;height:96px;display:block;border-radius:8px;background-color:var(--accent);color:var(--accent);
   -webkit-mask-image: url('/assets/icons/wappen-outline.png');
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -70,6 +70,9 @@ h2{font-weight:700;letter-spacing:0.015em}
 .main-nav .cta{color:white;background:var(--accent);padding:8px 14px;border-radius:6px;box-shadow:0 8px 22px rgba(0,102,204,0.14);font-weight:700}
 .main-nav .cta:hover{filter:brightness(0.95)}
 .main-nav .cta:hover{color:#fff}
+.site-header .cta{background:transparent;color:var(--accent);padding:8px 14px;border-radius:6px;box-shadow:none;font-weight:700;border:0}
+.site-header .cta:hover{filter:none}
+.site-header .cta:hover{color:var(--accent-3)}
 .main-nav a:hover{color:var(--accent);transform:translateY(-2px)}
 .lang-switch button{background:transparent;border:1px solid var(--muted);margin-left:8px;padding:6px 8px;border-radius:4px;cursor:pointer;transition:background .18s ease,color .18s ease,transform .12s ease,box-shadow .18s ease}
 .lang-switch button:hover{background:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,102,204,0.12);border-color:transparent}
