@@ -113,9 +113,11 @@ h2{font-weight:700;letter-spacing:0.015em}
   .hero-slideshow::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(var(--neutral-light-rgb),0.24), rgba(var(--shadow-rgb),0.14));pointer-events:none}
 .hero-slideshow .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease, transform .9s ease;will-change:opacity,transform}
 .hero-slideshow .slide.active{opacity:1;z-index:1}
-.hero-content{position:relative;padding:48px 24px;color:var(--text);z-index:2}
+.hero-content{position:relative;padding:48px 24px;color:var(--text);z-index:2;overflow:visible}
 .hero-content h1{color:var(--accent);font-size:48px;line-height:1.05;margin:0 0 10px;font-weight:700;letter-spacing:0.02em}
   .lead{max-width:720px;font-family:'Source Sans 3',system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:22px;color:rgba(var(--text-rgb),0.9);margin:0;transition:color .18s ease,text-shadow .18s ease}
+  /* Hero subtitle: force single line and allow it to overflow (no clipping) */
+  .hero-content .lead{white-space:nowrap;overflow:visible;text-overflow:clip;display:inline-block}
 
 /* Default: use the site text grey */
 .hero-content .lead{color:var(--text)}
@@ -309,6 +311,8 @@ h2{font-weight:700;letter-spacing:0.015em}
 @media (max-width:900px){
   .hero-content h1{font-size:28px}
   .lead{font-size:18px}
+  /* Allow hero subtitle to wrap on smaller viewports */
+  .hero-content .lead{white-space:normal;overflow:visible;text-overflow:clip;max-width:none}
 }
 
 
