@@ -46,7 +46,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 .site-header{background:transparent;padding:18px 0}
 .site-header .container{display:flex;align-items:center;gap:20px}
 .brand-link{display:flex;align-items:center;gap:18px;text-decoration:none}
-.brand-mono{width:128px;height:128px;display:block;border-radius:12px;background-color:var(--accent);color:#ffffff;
+.brand-mono{width:115px;height:115px;display:block;border-radius:12px;background-color:var(--accent);color:#ffffff;
   -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -272,8 +272,8 @@ h2{font-weight:700;letter-spacing:0.015em}
   right:0;
   top:20%; /* etwas höher und einheitlich */
   display:block;
-  /* slightly smaller for a subtler overlay */
-  width:96px;
+  /* slightly smaller for a subtler overlay (reduced by 10%) */
+  width:86px;
   height:auto;
   margin-left:auto;
   margin-right:auto;
@@ -286,11 +286,11 @@ h2{font-weight:700;letter-spacing:0.015em}
 }
 
 @media (max-width:900px){
-  .photo-overlay .overlay-wappen{width:88px;top:20%;transform:translateY(-50%)}
+  .photo-overlay .overlay-wappen{width:79px;top:20%;transform:translateY(-50%)}
 }
 
 @media (max-width:600px){
-  .photo-overlay .overlay-wappen{width:72px;top:20%;transform:translateY(-50%)}
+  .photo-overlay .overlay-wappen{width:65px;top:20%;transform:translateY(-50%)}
 }
 
 /* Small screens: make photo grid horizontally scrollable and swipeable */
@@ -323,7 +323,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 @media (max-width:700px){
   .hero-content h1{font-size:24px}
   .lead{font-size:16px}
-  .brand-mono{width:64px;height:64px}
+  .brand-mono{width:58px;height:58px}
   .brand-wordmark{font-size:20px}
   .brand-subtitle{font-size:20px}
 }
@@ -334,14 +334,14 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 @media (max-width:520px){
   .brand-link{flex-direction:row;gap:10px}
-  .brand-mono{width:60px;height:60px}
+  .brand-mono{width:54px;height:54px}
   .brand-wordmark{font-size:18px;max-width:calc(100% - 64px)}
   .brand-subtitle{font-size:18px}
 }
 
 @media (max-width:380px){
   .brand-link{flex-direction:column;align-items:flex-start;gap:6px}
-  .brand-mono{width:56px;height:56px}
+  .brand-mono{width:50px;height:50px}
   .brand-wordmark{font-size:16px;white-space:normal}
   .brand-subtitle{font-size:16px}
 }
@@ -350,7 +350,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 @media (max-width:420px){
   .site-header .container{justify-content:space-between}
   .brand-link{gap:8px}
-  .brand-mono{width:48px;height:48px}
+  .brand-mono{width:43px;height:43px}
   .brand-wordmark{font-size:15px;line-height:1}
   .brand-subtitle{font-size:15px;line-height:1}
 }
