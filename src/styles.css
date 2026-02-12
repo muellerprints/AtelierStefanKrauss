@@ -59,16 +59,23 @@ a:hover,a:focus{color:var(--accent)}
   top: 0;
   bottom: 0;
   right: -6%;
-  width: 36vw;
+  height: 100vh; /* ensure full viewport height */
+  width: auto;
+  min-width: 28vw; /* keep a sensible width baseline */
   background-color: #ffffff;
   -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center right;
-  -webkit-mask-size: contain;
+  /* scale the SVG mask to fill 100% of the element height */
+  -webkit-mask-size: auto 100%;
   mask-image: url('/assets/icons/wappen-outline.svg');
   mask-repeat: no-repeat;
   mask-position: center right;
-  mask-size: 120%;
+  mask-size: auto 100%;
+  /* ensure background (for non-mask fallback) also fills height */
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
   opacity: 0.20;
   pointer-events: none;
   z-index: 0;
