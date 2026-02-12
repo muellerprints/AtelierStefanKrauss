@@ -382,31 +382,38 @@ h2{font-weight:700;letter-spacing:0.015em}
 /* Atelier page: overdimensioned decorative wappen top-right */
 .atelier-page{position:relative;overflow:visible}
 .atelier-page::before{
-  content:"";
-  position:absolute;
-  top:-8%;
-  right:-6%;
-  width:48vw; /* very large, scales with viewport */
-  max-width:920px;
-  aspect-ratio:1/1;
-  background-image: url('/assets/icons/wappen-outline.svg');
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:contain;
-  opacity:0.08; /* subtle */
+  content: "";
+  position: absolute;
+  /* place large emblem partially off-canvas (angeschnitten) */
+  top: -20%;
+  right: -20%;
+  width: 110vw; /* very large, intentionally oversized */
+  max-width: none;
+  aspect-ratio: 1/1;
+  /* use the SVG as a mask so we can color it white */
+  background-color: #ffffff;
+  -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-image: url('/assets/icons/wappen-outline.svg');
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  opacity: 0.12; /* subtle white */
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
-  pointer-events:none;
-  z-index:0;
+  pointer-events: none;
+  z-index: 0;
 }
 /* ensure page content sits above the decorative emblem */
 .atelier-page > *{position:relative;z-index:1}
 
 @media (max-width:900px){
-  .atelier-page::before{width:36vw;top:-6%;right:-8%;opacity:0.10}
+  .atelier-page::before{width:120vw;top:-18%;right:-18%;opacity:0.14}
 }
 
 @media (max-width:480px){
-  .atelier-page::before{width:180px;top:-4%;right:-4%;opacity:0.12}
+  .atelier-page::before{width:260px;top:-8%;right:-8%;opacity:0.16}
 }
 .submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
 .file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa}
