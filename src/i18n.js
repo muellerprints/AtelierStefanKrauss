@@ -207,7 +207,7 @@ const resources = {
           { title: 'Restauration & Erhalt', text: 'Sorgsame Restauration: alte Stücke werden mit Respekt und handwerklicher Expertise wiederbelebt.' }
         ]
         ,
-        photoLabel: 'Schmuckfoto {{n}}'
+        photoLabel: 'Beispielfoto {{n}}'
       }
     }
   },
@@ -471,7 +471,7 @@ const resources = {
           { title: 'Restoration & Conservation', text: 'Careful restoration: bringing older pieces back to life with respect and expert skill.' }
         ]
         ,
-        photoLabel: 'Jewellery photo {{n}}'
+        photoLabel: 'Example photo {{n}}'
       }
     }
   }

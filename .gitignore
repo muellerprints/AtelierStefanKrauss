@@ -18,3 +18,12 @@ npm-debug.log*
 
 # Build output
 dist/
+dist.zip
+upload-ready/
+
+# Dreamweaver sync files
+_notes/
+dwsync.xml
+
+# Backups
+**/image-backups/
