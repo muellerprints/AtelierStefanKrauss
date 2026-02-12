@@ -5,7 +5,7 @@ export default function Atelier(){
   const { t } = useTranslation()
 
   return (
-    <main className="container">
+    <main className="container atelier-page">
       <figure className="asset-preview column" style={{marginTop:20}}>
         <img src="/assets/icons/werkzeuge.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} />
       </figure>
