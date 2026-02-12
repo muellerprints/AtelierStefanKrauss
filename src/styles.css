@@ -401,11 +401,16 @@ h2{font-weight:700;letter-spacing:0.015em}
   mask-image: url('/assets/icons/wappen-outline.svg');
   mask-position: right center;
   mask-repeat: no-repeat;
-  mask-size: contain;
-  background-position: right center;
-  transform: translateX(0);
-  opacity: 0.12; /* subtle white */
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+  mask-size: 130%;
+  background-position: right top;
+  /* stronger white + slightly brighter */
+  opacity: 0.22;
+  filter: brightness(1.08) drop-shadow(0 26px 44px rgba(0,0,0,0.12));
+  /* tilt and translate to create a non-symmetrical crop */
+  transform: translate(8vw, -6vh) rotate(-9deg);
+  transform-origin: right top;
+  /* give an irregular 'random' crop silhouette */
+  clip-path: polygon(5% 6%, 100% 0%, 100% 72%, 92% 88%, 64% 98%, 34% 88%, 10% 74%);
   pointer-events: none;
   z-index: 0;
 }
@@ -413,11 +418,11 @@ h2{font-weight:700;letter-spacing:0.015em}
 .atelier-page > *{position:relative;z-index:1}
 
 @media (max-width:900px){
-  .atelier-page::before{width:140vw;top:-18%;right:-30%;left:auto;bottom:0;opacity:0.14}
+  .atelier-page::before{width:140vw;top:-18%;right:-30%;left:auto;bottom:0;opacity:0.24;transform: translate(6vw,-5vh) rotate(-8deg);clip-path: polygon(8% 6%,100% 0%,100% 74%,90% 88%,66% 98%,36% 88%,12% 74%)}
 }
 
 @media (max-width:480px){
-  .atelier-page::before{width:320px;top:-6%;right:-12%;left:auto;bottom:0;opacity:0.18}
+  .atelier-page::before{width:360px;top:-6%;right:-12%;left:auto;bottom:0;opacity:0.26;transform: translate(4vw,-3vh) rotate(-6deg);clip-path: polygon(0% 6%,100% 0%,100% 78%,88% 92%,60% 98%,30% 86%,6% 72%)}
 }
 .submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
 .file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa}
