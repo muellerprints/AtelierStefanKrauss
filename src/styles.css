@@ -385,10 +385,10 @@ h2{font-weight:700;letter-spacing:0.015em}
   content: "";
   position: absolute;
   /* place large emblem partially off-canvas (angeschnitten) but constrain to page height */
-  top: -20%;
-  right: -20%;
+  top: -24%;
+  right: -40%; /* push further to the right, more off-canvas */
   bottom: 0; /* keep the emblem from extending past the bottom of the page section */
-  width: 110vw; /* very large, intentionally oversized */
+  width: 140vw; /* larger, more oversized */
   max-width: none;
   height: auto;
   /* use the SVG as a mask so we can color it white */
@@ -410,11 +410,11 @@ h2{font-weight:700;letter-spacing:0.015em}
 .atelier-page > *{position:relative;z-index:1}
 
 @media (max-width:900px){
-  .atelier-page::before{width:120vw;top:-18%;right:-18%;bottom:0;opacity:0.14}
+  .atelier-page::before{width:140vw;top:-18%;right:-30%;bottom:0;opacity:0.14}
 }
 
 @media (max-width:480px){
-  .atelier-page::before{width:260px;top:-8%;right:-8%;opacity:0.16}
+  .atelier-page::before{width:320px;top:-6%;right:-12%;bottom:0;opacity:0.18}
 }
 .submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
 .file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa}
