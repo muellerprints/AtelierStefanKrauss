@@ -45,7 +45,6 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 .site-header{background:transparent;padding:18px 0}
 .site-header .container{display:flex;align-items:center;gap:20px}
-.site-header{position:relative;z-index:60}
 .brand-link{display:flex;align-items:center;gap:18px;text-decoration:none}
 .brand-mono{width:115px;height:115px;display:block;border-radius:12px;background-color:var(--accent);color:#ffffff;
   -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
