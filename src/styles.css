@@ -384,12 +384,13 @@ h2{font-weight:700;letter-spacing:0.015em}
 .atelier-page::before{
   content: "";
   position: absolute;
-  /* place large emblem partially off-canvas (angeschnitten) */
+  /* place large emblem partially off-canvas (angeschnitten) but constrain to page height */
   top: -20%;
   right: -20%;
+  bottom: 0; /* keep the emblem from extending past the bottom of the page section */
   width: 110vw; /* very large, intentionally oversized */
   max-width: none;
-  aspect-ratio: 1/1;
+  height: auto;
   /* use the SVG as a mask so we can color it white */
   background-color: #ffffff;
   -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
@@ -409,7 +410,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 .atelier-page > *{position:relative;z-index:1}
 
 @media (max-width:900px){
-  .atelier-page::before{width:120vw;top:-18%;right:-18%;opacity:0.14}
+  .atelier-page::before{width:120vw;top:-18%;right:-18%;bottom:0;opacity:0.14}
 }
 
 @media (max-width:480px){
