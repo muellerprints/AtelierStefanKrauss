@@ -46,7 +46,7 @@ a:hover,a:focus{color:var(--accent)}
 .site-root{position:relative}
 .site-root::before{
   content: "";
-  position: absolute;
+  position: fixed; /* span the full viewport height */
   top: 0;
   bottom: 0;
   right: -6%;
