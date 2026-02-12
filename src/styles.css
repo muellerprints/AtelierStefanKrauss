@@ -316,7 +316,7 @@ h2{font-weight:700;letter-spacing:0.015em}
   top:20%; /* etwas höher und einheitlich */
   display:block;
   /* slightly smaller for a subtler overlay (reduced by 10%) */
-  width:86px;
+  width:60px; /* reduced ~30% from 86px */
   height:auto;
   margin-left:auto;
   margin-right:auto;
@@ -329,11 +329,11 @@ h2{font-weight:700;letter-spacing:0.015em}
 }
 
 @media (max-width:900px){
-  .photo-overlay .overlay-wappen{width:79px;top:20%;transform:translateY(-50%)}
+  .photo-overlay .overlay-wappen{width:55px;top:20%;transform:translateY(-50%)}
 }
 
 @media (max-width:600px){
-  .photo-overlay .overlay-wappen{width:65px;top:20%;transform:translateY(-50%)}
+  .photo-overlay .overlay-wappen{width:46px;top:20%;transform:translateY(-50%)}
 }
 
 /* Small screens: make photo grid horizontally scrollable and swipeable */
