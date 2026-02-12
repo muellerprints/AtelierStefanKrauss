@@ -47,11 +47,11 @@ h2{font-weight:700;letter-spacing:0.015em}
 .site-header .container{display:flex;align-items:center;gap:20px}
 .brand-link{display:flex;align-items:center;gap:18px;text-decoration:none}
 .brand-mono{width:96px;height:96px;display:block;border-radius:8px;background-color:var(--accent);color:var(--accent);
-  -webkit-mask-image: url('/assets/icons/wappen-outline.png');
+  -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
   -webkit-mask-position: center;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
-  mask-image: url('/assets/icons/wappen-outline.png');
+  mask-image: url('/assets/icons/wappen-outline.svg');
   mask-position: center;
   mask-repeat: no-repeat;
   mask-size: contain;

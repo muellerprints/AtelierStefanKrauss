@@ -467,7 +467,7 @@ export default function Home(){
               <img src={src} alt={t('home.photoLabel', { n: i+1 })} />
               <div className="photo-overlay" aria-hidden="true">
                 <div className="photo-overlay-content">
-                  <img src={`${import.meta.env.BASE_URL}assets/icons/wappen-outline.png`} alt="Wappen" className="overlay-wappen" />
+                  <img src={`${import.meta.env.BASE_URL}assets/icons/wappen-outline.svg`} alt="Wappen" className="overlay-wappen" />
                   <span className="overlay-title">{t('home.photoLabel', { n: i+1 })}</span>
                 </div>
               </div>
