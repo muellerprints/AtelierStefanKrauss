@@ -287,18 +287,22 @@ h2{font-weight:700;letter-spacing:0.015em}
   width: 96px; /* base size, adjusted by parent classes */
 }
 
-/* Default: show overlay wappen as dark (on light photos) */
-.photo-item .overlay-wappen{filter:none}
-
-/* On dark photos, invert to white and add stronger shadow/contrast */
-.photo-item.dark .overlay-wappen{
-  filter: invert(1) drop-shadow(0 14px 32px rgba(0,0,0,0.62)) contrast(1.15) saturate(1.12);
+/* Default: show overlay wappen as light (white) so it stands out on dark images
+   If we can detect the photo brightness we override to dark for light photos. */
+.photo-item .overlay-wappen{
+  filter: invert(1) drop-shadow(0 12px 28px rgba(0,0,0,0.6)) contrast(1.08) saturate(1.05);
   width:96px;
 }
 
-/* On light photos ensure it remains crisp and dark */
+/* If photo is detected as light, show dark wappen */
 .photo-item.light .overlay-wappen{
   filter: none;
+  width:96px;
+}
+
+/* If photo is detected as dark, ensure white wappen (explicit) */
+.photo-item.dark .overlay-wappen{
+  filter: invert(1) drop-shadow(0 14px 32px rgba(0,0,0,0.62)) contrast(1.15) saturate(1.12);
   width:96px;
 }
 

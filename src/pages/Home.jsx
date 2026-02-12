@@ -58,7 +58,6 @@ export default function Home(){
         const parent = el.closest('.photo-item')
         if (!parent) return
         const img = new Image()
-        img.crossOrigin = 'anonymous'
         img.src = el.src
         img.onload = () => {
           if (!mounted) return
