@@ -22,7 +22,9 @@
 .body-reset{margin:0}
 body{margin:0;font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; background:var(--neutral-light); color:var(--text)}
 
-/* Skip-link removed (was used for keyboard users) */
+/* Skip-link visible on focus for keyboard users */
+.skip-link{position:fixed;left:12px;top:12px;padding:8px 12px;background:var(--accent);color:#fff;border-radius:6px;z-index:9999;transform:translateY(-160%);transition:transform .16s ease,opacity .12s ease;opacity:0}
+.skip-link:focus{transform:translateY(0);opacity:1}
 
 /* Visible focus indicator for interactive elements */
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
@@ -53,13 +55,6 @@ h2{font-weight:700;letter-spacing:0.015em}
   mask-position: center;
   mask-repeat: no-repeat;
   mask-size: contain;
-}
-/* Make the header monogram (SVG mask) visually stronger */
-.brand-mono{
-  box-shadow: 0 12px 34px rgba(0,0,0,0.16);
-  filter: contrast(1.18) saturate(1.12);
-  -webkit-mask-size: 66% !important;
-  mask-size: 66% !important;
 }
 .brand-wordmark{display:inline-block;height:auto;font-family:'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:24px;line-height:1;letter-spacing:0.01em;color:var(--text);font-weight:700}
 .brand-link img{display:block}
@@ -282,26 +277,8 @@ h2{font-weight:700;letter-spacing:0.015em}
   transform:translateY(-50%);
   pointer-events:none;
   z-index:3;
-  width: 96px; /* base size, adjusted by parent classes */
-}
-
-/* Default: show overlay wappen as light (white) so it stands out on dark images
-   If we can detect the photo brightness we override to dark for light photos. */
-.photo-item .overlay-wappen{
-  filter: invert(1) drop-shadow(0 12px 28px rgba(0,0,0,0.6)) contrast(1.08) saturate(1.05);
-  width:96px;
-}
-
-/* If photo is detected as light, show dark wappen */
-.photo-item.light .overlay-wappen{
-  filter: none;
-  width:96px;
-}
-
-/* If photo is detected as dark, ensure white wappen (explicit) */
-.photo-item.dark .overlay-wappen{
-  filter: invert(1) drop-shadow(0 14px 32px rgba(0,0,0,0.62)) contrast(1.15) saturate(1.12);
-  width:96px;
+  /* invert to make the outline light on top of photos, add subtle shadow */
+  filter: invert(1) drop-shadow(0 10px 24px rgba(0,0,0,0.5));
 }
 
 @media (max-width:900px){
