@@ -44,40 +44,13 @@ a:hover,a:focus{color:var(--accent)}
 /* Large page-height decorative wappen that spans from header to footer
    Rendered as a masked ::before on .site-root so it reaches header/footer */
 .site-root{position:relative}
-/* site-wide pseudo removed — replaced by a main-scoped emblem below */
-.site-root::before{display:none}
 
 /* Make header/footer sit above decorative emblems */
 .site-header{position:relative;z-index:90}
 .site-footer{position:relative;z-index:80}
 
 /* Decorative wappen bound to the main element so it runs exactly over the main area */
-.site-root main{position:relative;overflow:hidden}
-.site-root main::before{
-  content: "";
-  position: absolute; /* bound to the main element only */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center bottom;
-  -webkit-mask-size: auto 100%; /* fill element height */
-  mask-image: url('/assets/icons/wappen-outline.svg');
-  mask-repeat: no-repeat;
-  mask-position: center bottom;
-  mask-size: auto 100%;
-  background-size: auto 100%;
-  opacity: 0.22;
-  pointer-events: none;
-  z-index: 0;
-  transform: scale(0.8);
-  transform-origin: center bottom;
-}
+.site-root main{position:relative;overflow:visible}
 .site-root main > *{position:relative;z-index:1}
 
 h2{font-weight:700;letter-spacing:0.015em}
@@ -420,50 +393,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 .contact-form{max-width:500px;width:100%}
 
 /* Atelier page: overdimensioned decorative wappen top-right */
-.atelier-page{position:relative;overflow:hidden}
-.atelier-page::before{
-  content: "";
-  position: absolute;
-  /* place large emblem relative to the main container (percent-based) */
-  top: -6%;
-  right: -10%;
-  left: auto;
-  bottom: 0; /* keep the emblem from extending past the bottom of the page section */
-  width: 120%; /* scale relative to the container width */
-  max-width: none;
-  height: auto;
-  /* use the SVG as a mask so we can color it white */
-  background-color: #ffffff;
-  -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
-  -webkit-mask-position: right center;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-image: url('/assets/icons/wappen-outline.svg');
-  mask-position: right center;
-  mask-repeat: no-repeat;
-  mask-size: 130%;
-  background-position: right top;
-  /* stronger white + slightly brighter */
-  opacity: 0.22;
-  filter: brightness(1.08) drop-shadow(0 26px 44px rgba(0,0,0,0.12));
-  /* tilt and translate to create a non-symmetrical crop; use percent for X offset */
-  transform: translate(8%, -6vh) rotate(-9deg);
-  transform-origin: right top;
-  /* give an irregular 'random' crop silhouette */
-  clip-path: polygon(5% 6%, 100% 0%, 100% 72%, 92% 88%, 64% 98%, 34% 88%, 10% 74%);
-  pointer-events: none;
-  z-index: 0;
-}
-/* ensure page content sits above the decorative emblem */
-.atelier-page > *{position:relative;z-index:1}
-
-@media (max-width:900px){
-  .atelier-page::before{width:120%;top:-10%;right:-12%;left:auto;bottom:0;opacity:0.24;transform: translate(6%, -5vh) rotate(-8deg);clip-path: polygon(8% 6%,100% 0%,100% 74%,90% 88%,66% 98%,36% 88%,12% 74%)}
-}
-
-@media (max-width:480px){
-  .atelier-page::before{width:140%;top:-6%;right:-8%;left:auto;bottom:0;opacity:0.26;transform: translate(4%, -3vh) rotate(-6deg);clip-path: polygon(0% 6%,100% 0%,100% 78%,88% 92%,60% 98%,30% 86%,6% 72%)}
-}
+.atelier-page{position:relative;overflow:visible}
 .submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
 .file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa}
 .file-list{width:100%;max-width:100%;box-sizing:border-box;padding:0;margin:8px 0 0}
