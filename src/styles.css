@@ -284,9 +284,22 @@ h2{font-weight:700;letter-spacing:0.015em}
   transform:translateY(-50%);
   pointer-events:none;
   z-index:3;
-  /* invert to make the outline light on top of photos, add subtle shadow */
+  width: 96px; /* base size, adjusted by parent classes */
+}
+
+/* Default: show overlay wappen as dark (on light photos) */
+.photo-item .overlay-wappen{filter:none}
+
+/* On dark photos, invert to white and add stronger shadow/contrast */
+.photo-item.dark .overlay-wappen{
   filter: invert(1) drop-shadow(0 14px 32px rgba(0,0,0,0.62)) contrast(1.15) saturate(1.12);
-  width: 96px;
+  width:96px;
+}
+
+/* On light photos ensure it remains crisp and dark */
+.photo-item.light .overlay-wappen{
+  filter: none;
+  width:96px;
 }
 
 @media (max-width:900px){
