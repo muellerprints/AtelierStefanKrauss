@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 export default function Shipping(){
   const { t } = useTranslation()
   return (
-    <main className="container">
+    <div className="container">
       <h2>{t('shipping.title')}</h2>
       <p>{t('shipping.intro')}</p>
       <ul>
@@ -12,6 +12,6 @@ export default function Shipping(){
         <li>{t('shipping.methods.1')}</li>
       </ul>
       <p>{t('shipping.note')}</p>
-    </main>
+    </div>
   )
 }

@@ -70,11 +70,36 @@ export default function Contact(){
   }
 
   return (
-    <main className="container contact-page">
-      <h2>{t('contactPage.title')}</h2>
-      <div className="contact-grid" style={{display:'grid',gridTemplateColumns:'1fr 360px',gap:24,alignItems:'start'}}>
-        <div>
-          <p>{t('contact.name')}</p>
+    <div style={{ position: 'relative', overflow: 'hidden', minHeight: 'calc(100vh - 160px)' }}>
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        pointerEvents: 'none',
+        zIndex: 0
+      }}>
+        <img
+          src="/assets/icons/wappen-outline.svg"
+          alt=""
+          style={{
+            position: 'absolute',
+            width: '1000px',
+            height: 'auto',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%) rotate(30deg)',
+            opacity: 0.05,
+            filter: 'grayscale(100%)'
+          }}
+        />
+      </div>
+      <div className="container contact-page" style={{ position: 'relative', zIndex: 1 }}>
+        <h2>{t('contactPage.title')}</h2>
+        <div className="contact-grid" style={{display:'grid',gridTemplateColumns:'1fr 360px',gap:24,alignItems:'start'}}>
+          <div>
+            <p>{t('contact.name')}</p>
           <p>{t('contact.street')}<br/>{t('contact.zipcity')}</p>
           <p><a href={`mailto:${t('contact.email')}`}>{t('contact.email')}</a></p>
           <p>{t('contactCta')}: <a href={`tel:${t('contact.phoneRaw')}`}>{t('contact.phone')}</a></p>
@@ -184,12 +209,13 @@ export default function Contact(){
           )}
         </div>
         <aside>
-          <div id="opening-hours" style={{padding:18,background:'var(--muted)',borderRadius:8}}>
+          <div id="opening-hours" style={{padding:18,background:'#ffffff',borderRadius:8}}>
             <strong>{t('contactPage.openingHoursTitle')}</strong>
             <p style={{whiteSpace:'pre-line'}}>{t('contactPage.openingHoursText')}</p>
           </div>
         </aside>
+        </div>
       </div>
-    </main>
+    </div>
   )
 }

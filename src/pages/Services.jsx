@@ -39,7 +39,7 @@ export default function Services(){
         zIndex: 0,
         transform: 'rotate(-45deg)'
       }} />
-      <main className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <h2>{t('services.title')}</h2>
         {groups.map((g, gi) => (
           <section key={gi}>
@@ -51,7 +51,7 @@ export default function Services(){
             )}
           </section>
         ))}
-      </main>
+      </div>
     </div>
   )
 }

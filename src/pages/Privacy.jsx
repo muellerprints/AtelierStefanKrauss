@@ -7,17 +7,17 @@ export default function Privacy(){
   // If language is English and we have the pre-rendered HTML, render it directly
   if (i18n && i18n.language === 'en' && t('privacy.fullHtml')) {
     return (
-      <main className="container">
+      <div className="container">
         <div className="col-md-12">
           <div className="flowing-text-footer" dangerouslySetInnerHTML={{ __html: t('privacy.fullHtml') }} />
         </div>
-      </main>
+      </div>
     )
   }
 
   // Default: render the existing German content (unchanged)
   return (
-    <main className="container">
+    <div className="container">
       <div className="col-md-12">
         <div className="flowing-text-footer">
           <h2>Datenschutzerklärung</h2>
@@ -166,6 +166,6 @@ export default function Privacy(){
           Die Dauer der Speicherung von personenbezogenen Daten bemisst sich anhand der jeweiligen Rechtsgrundlage, am Verarbeitungszweck und – sofern einschlägig – zusätzlich anhand der jeweiligen gesetzlichen Aufbewahrungsfrist (z.B. handels- und steuerrechtliche Aufbewahrungsfristen).
         </div>
       </div>
-    </main>
+    </div>
   )
 }

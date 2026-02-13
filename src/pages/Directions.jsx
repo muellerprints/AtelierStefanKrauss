@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 export default function Directions(){
   const { t } = useTranslation()
   return (
-    <main className="container">
+    <div className="container">
       <h2>{t('directions.title')}</h2>
       <div style={{maxWidth:720}}>
         <p style={{whiteSpace:'pre-line'}}>{t('directions.text')}</p>
@@ -23,6 +23,6 @@ export default function Directions(){
         />
         <p style={{marginTop:12}}><a href="https://www.google.com/maps/search/?api=1&query=Neuberg+11+75210+Keltern" target="_blank" rel="noreferrer">{t('directions.openInMaps') || 'In Google Maps öffnen'}</a></p>
       </div>
-    </main>
+    </div>
   )
 }

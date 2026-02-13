@@ -455,7 +455,7 @@ export default function Home(){
   }
 
   return (
-    <main className="crest-main">
+    <div className="crest-main">
       <Hero />
       <div className="photo-carousel container">
         <button className="carousel-button prev" onClick={scrollPrev} aria-label="Vorherige Fotos">
@@ -511,6 +511,6 @@ export default function Home(){
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

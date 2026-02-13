@@ -431,14 +431,14 @@ h2{font-weight:700;letter-spacing:0.015em}
 /* Atelier page: overdimensioned decorative wappen top-right */
 .atelier-page{position:relative;overflow:visible;padding:24px 24px 24px 88px}
 .submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
-.file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa}
+.file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa;box-sizing:border-box}
 .file-list{width:100%;max-width:100%;box-sizing:border-box;padding:0;margin:8px 0 0}
 .file-list li{background:#fff}
 
 @media (max-width:900px){
   .contact-grid{grid-template-columns:1fr !important;padding:0 12px}
   .submit-btn{max-width:520px}
-  .file-drop{padding:10px}
+  .file-drop{padding:10px;max-width:520px}
 }
 
 @media (max-width:480px){

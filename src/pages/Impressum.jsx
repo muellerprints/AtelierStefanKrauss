@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 export default function Impressum(){
   const { t } = useTranslation()
   return (
-    <main className="container">
+    <div className="container">
       <h2>{t('impressum.title')}</h2>
       <p>
         {t('impressum.name')}<br/>
@@ -26,6 +26,6 @@ export default function Impressum(){
       {t('impressum.odr') && (
         <div dangerouslySetInnerHTML={{ __html: t('impressum.odr').replace(/\n/g, '<br/>') }} />
       )}
-    </main>
+    </div>
   )
 }

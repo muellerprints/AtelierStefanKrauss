@@ -7,7 +7,7 @@ export default function About(){
   const vita = t('about.vita', { returnObjects: true }) || []
 
   return (
-    <main className="container about-page">
+    <div className="container about-page">
       <div className="about-grid">
         <div className="about-text">
           <h2>{t('about.title')}</h2>
@@ -24,6 +24,6 @@ export default function About(){
           <p className="caption">{t('about.portraitCaption')}</p>
         </aside>
       </div>
-    </main>
+    </div>
   )
 }

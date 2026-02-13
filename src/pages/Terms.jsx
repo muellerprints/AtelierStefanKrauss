@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 export default function Terms(){
   const { t } = useTranslation()
   return (
-    <main className="container">
+    <div className="container">
       <h2>{t('terms.title')}</h2>
       <p>{t('terms.intro')}</p>
       <h3>{t('terms.contractTitle')}</h3>
@@ -16,6 +16,6 @@ export default function Terms(){
       <h3>{t('terms.warrantyTitle')}</h3>
       <p>{t('terms.warranty')}</p>
       <p><em>{t('terms.note')}</em></p>
-    </main>
+    </div>
   )
 }
