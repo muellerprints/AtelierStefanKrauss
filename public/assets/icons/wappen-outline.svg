@@ -5,6 +5,8 @@
     <style>
       .st0 {
         fill: #1d1d1b;
+        stroke: #1d1d1b;
+        stroke-width: 1px;
       }
 
       .st1 {
@@ -13,7 +15,7 @@
         stroke-miterlimit: 10;
         stroke-linecap: round;
         stroke-linejoin: round;
-        stroke-width: 10px;
+        stroke-width: 11px;
       }
     </style>
   </defs>
