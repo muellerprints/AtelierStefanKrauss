@@ -30,7 +30,7 @@ export default function Services(){
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundImage: 'url(/assets/icons/wappen-outline.svg)',
+        backgroundImage: 'url(/assets/icons/wappen-outline-weiss.png)',
         backgroundSize: '800px',
         backgroundPosition: '75% 25%',
         backgroundRepeat: 'no-repeat',

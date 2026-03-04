@@ -81,7 +81,7 @@ export default function Contact(){
         zIndex: 0
       }}>
         <img
-          src="/assets/icons/wappen-outline.svg"
+          src="/assets/icons/wappen-outline-weiss.png"
           alt=""
           style={{
             position: 'absolute',

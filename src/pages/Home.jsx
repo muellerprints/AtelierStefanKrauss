@@ -470,7 +470,7 @@ export default function Home(){
               <img src={src} alt={label} />
               <div className="photo-overlay" aria-hidden="true">
                 <div className="photo-overlay-content">
-                  <img src={`${import.meta.env.BASE_URL}assets/icons/wappen-outline.svg`} alt="Wappen" className="overlay-wappen" />
+                  <img src={`${import.meta.env.BASE_URL}assets/icons/wappen-outline-weiss.png`} alt="Wappen" className="overlay-wappen" />
                   <span className="overlay-title">{label}</span>
                 </div>
               </div>

@@ -65,7 +65,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 .site-header .container{max-width:var(--content-width);margin:0 auto;padding:24px 24px 24px 0;display:flex;align-items:center;gap:40px}
 .site-header{position:relative;z-index:70}
 .brand{margin-left:0}
-.brand-link{display:flex;align-items:center;gap:18px;text-decoration:none;margin-left:0;position:relative}
+.brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;margin-left:0;position:relative}
 .brand-link::before{
   content: '';
   position: absolute;
@@ -74,23 +74,14 @@ h2{font-weight:700;letter-spacing:0.015em}
   transform: translate(-50%, -50%);
   width: 82px;
   height: 108px;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
-.brand-mono{width:88px;height:88px;display:block;border-radius:12px;background-color:var(--accent);color:#ffffff;
-  -webkit-mask-image: url('/assets/icons/wappen-outline.svg');
-  -webkit-mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 86%;
-  mask-image: url('/assets/icons/wappen-outline.svg');
-  mask-position: center;
-  mask-repeat: no-repeat;
-  mask-size: 86%;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.20), inset 0 3px 0 rgba(255,255,255,0.12);
+.brand-mono{width:121px;height:121px;display:block;border-radius:0;background-color:transparent;color:#ffffff;
+  background-image: url('/assets/icons/wappen-outline-blau.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 86%;
   filter: drop-shadow(0 8px 16px rgba(0,0,0,0.16));
-  border: 2px solid rgba(255,255,255,0.04);
   position: relative;
   z-index: 2;
 }
@@ -329,7 +320,7 @@ h2{font-weight:700;letter-spacing:0.015em}
   max-height:113px;
   object-fit:contain;
   pointer-events:none;
-  filter: invert(1) brightness(1.35) contrast(1.1) drop-shadow(0 8px 18px rgba(0,0,0,0.45));
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.45));
   opacity:0.98;
   margin:0 auto 16px auto;
 }
@@ -390,15 +381,13 @@ h2{font-weight:700;letter-spacing:0.015em}
   .hero-content h1{font-size:24px}
   .lead{font-size:16px}
   .brand-mono{
-    width:45px;
-    height:45px;
-    border-radius:10px;
-    -webkit-mask-size: 90%;
-    mask-size: 90%;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.16), inset 0 2px 0 rgba(255,255,255,0.10);
+    width:62px;
+    height:62px;
+    border-radius:0;
+    background-size: 90%;
   }
   .brand-link{
-    gap:12px;
+    gap:10px;
   }
   .brand-wordmark{font-size:20px}
   .brand-subtitle{font-size:20px}
@@ -413,18 +402,14 @@ h2{font-weight:700;letter-spacing:0.015em}
   .brand-link{flex-direction:row;gap:8px;padding-left:12px}
   .brand-link::before{display:none}
   .brand-mono{
-    width:72px;
-    height:72px;
-    border-radius:12px;
+    width:99px;
+    height:99px;
+    border-radius:0;
     position:relative;
     left:auto;
     top:auto;
     transform:none;
-    -webkit-mask-size: 90%;
-    mask-size: 90%;
-    -webkit-mask-position: 50% 50%;
-    mask-position: 50% 50%;
-    box-shadow: 0 10px 22px rgba(0,0,0,0.18), inset 0 2px 0 rgba(255,255,255,0.10);
+    background-size: 90%;
     z-index:3;
   }
   .brand-wordmark{font-size:18px;max-width:calc(100% - 96px)}
@@ -443,12 +428,10 @@ h2{font-weight:700;letter-spacing:0.015em}
 @media (max-width:380px){
   .brand-link{flex-direction:column;align-items:flex-start;gap:4px}
   .brand-mono{
-    width:36px;
-    height:36px;
-    border-radius:7px;
-    -webkit-mask-size: 94%;
-    mask-size: 94%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.07);
+    width:49px;
+    height:49px;
+    border-radius:0;
+    background-size: 94%;
   }
   .brand-wordmark{font-size:16px;white-space:normal}
   .brand-subtitle{font-size:16px}
@@ -461,18 +444,14 @@ h2{font-weight:700;letter-spacing:0.015em}
   .brand-link{gap:6px;padding-left:12px}
   .brand-link::before{display:none}
   .brand-mono{
-    width:64px;
-    height:64px;
-    border-radius:10px;
+    width:87px;
+    height:87px;
+    border-radius:0;
     position:relative;
     left:auto;
     top:auto;
     transform:none;
-    -webkit-mask-size: 88%;
-    mask-size: 88%;
-    -webkit-mask-position: 50% 50%;
-    mask-position: 50% 50%;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.08);
+    background-size: 88%;
     z-index:3;
   }
   .brand-wordmark{font-size:15px;line-height:1}
