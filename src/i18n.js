@@ -207,7 +207,24 @@ const resources = {
           { title: 'Restauration & Erhalt', text: 'Sorgsame Restauration: alte Stücke werden mit Respekt und handwerklicher Expertise wiederbelebt.' }
         ]
         ,
-        photoLabel: 'Beispielfoto {{n}}'
+        photoLabels: [
+          'Siegelring in Silber',
+          'Handgefertigter Ring',
+          'Werkzeug & Handwerk',
+          'Unikat in Entstehung',
+          'Edles Material',
+          'Detailarbeit',
+          'Traditionelle Technik',
+          'Meisterliche Verarbeitung',
+          'Feine Gravur',
+          'Zeitloses Design',
+          'Handwerkliche Präzision',
+          'Original & Restauration',
+          'Kostbare Materialien',
+          'Individuelle Anfertigung',
+          'Sorgfältige Fassung',
+          'Einzigartiges Schmuckstück'
+        ]
       }
     }
   },
@@ -471,7 +488,24 @@ const resources = {
           { title: 'Restoration & Conservation', text: 'Careful restoration: bringing older pieces back to life with respect and expert skill.' }
         ]
         ,
-        photoLabel: 'Example photo {{n}}'
+        photoLabels: [
+          'Silver Signet Ring',
+          'Handcrafted Ring',
+          'Tools & Craft',
+          'Bespoke Piece in Progress',
+          'Noble Materials',
+          'Detail Work',
+          'Traditional Technique',
+          'Master Craftsmanship',
+          'Fine Engraving',
+          'Timeless Design',
+          'Precision Craftsmanship',
+          'Original & Restoration',
+          'Precious Materials',
+          'Custom Made',
+          'Careful Setting',
+          'Unique Piece of Jewelry'
+        ]
       }
     }
   }

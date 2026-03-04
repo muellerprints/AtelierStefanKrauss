@@ -8,6 +8,7 @@ export default function Home(){
   const { t } = useTranslation()
   const tiles = t('home.tiles', { returnObjects: true })
   const featurePhotoMeta = t('home.featurePhotos', { returnObjects: true })
+  const photoLabels = t('home.photoLabels', { returnObjects: true })
   const FEATURE_PHOTO_SRCS = [
     '/assets/photos/feature-7.jpg',
     '/assets/photos/feature-8.jpg',
@@ -462,17 +463,20 @@ export default function Home(){
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
         </button>
         <section id="photoGrid" ref={photoGridRef} className="photo-grid" role="list" aria-label={t('home.photos', 'Gallery')} tabIndex={0}>
-          {remotePhotos.map((src,i) => (
-            <div className="photo-item" key={i} role="listitem" tabIndex={0} aria-label={t('home.photoLabel', { n: i+1 })}>
-              <img src={src} alt={t('home.photoLabel', { n: i+1 })} />
+          {remotePhotos.map((src,i) => {
+            const label = photoLabels[i] || `Foto ${i+1}`
+            return (
+            <div className="photo-item" key={i} role="listitem" tabIndex={0} aria-label={label}>
+              <img src={src} alt={label} />
               <div className="photo-overlay" aria-hidden="true">
                 <div className="photo-overlay-content">
                   <img src={`${import.meta.env.BASE_URL}assets/icons/wappen-outline.svg`} alt="Wappen" className="overlay-wappen" />
-                  <span className="overlay-title">{t('home.photoLabel', { n: i+1 })}</span>
+                  <span className="overlay-title">{label}</span>
                 </div>
               </div>
             </div>
-          ))}
+            )
+          })}
         </section>
         <button className="carousel-button next" onClick={scrollNext} aria-label="Nächste Fotos">
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
@@ -492,7 +496,7 @@ export default function Home(){
                   <p>{item.text}</p>
                 </div>
                       <Link to={linkTarget} className="feature-link" aria-label={item.title}>
-                        <div className={`feature-photo ${i === 1 ? 'feature-photo--large' : ''}`}>
+                        <div className={`feature-photo ${ (i === 1 || i === 2) ? 'feature-photo--large' : '' }`}>
                           <div className="feature-parallax" data-index={i}>
                             <img src={item.src} alt={item.title} className="feature-photo-img" />
                             <div className="feature-overlay" aria-hidden />

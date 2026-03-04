@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import portrait from '../assets/photos/Portrait.png'
+import portrait from '../assets/photos/Portrait.jpg'
 
 export default function About(){
   const { t } = useTranslation()

@@ -258,6 +258,22 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 /* Carousel controls & drag state */
 .photo-carousel{position:relative;max-width:1100px;margin:0 auto;padding-top:18px;z-index:120}
+/* Ensure container padding doesn't visually offset the centered carousel */
+.photo-carousel.container{padding-left:24px;padding-right:24px}
+
+/* Make carousel images larger on wide screens: show 3 bigger items */
+.photo-carousel.container .photo-grid{gap:14px}
+@media (min-width:1100px){
+  .photo-carousel.container .photo-grid .photo-item{
+    /* subtract 2 gaps (2 * 14px = 28px) then split remaining width into 3 items */
+    flex: 0 0 calc((100% - 28px) / 3);
+    min-width: 0; /* allow shrink to exact calc value */
+    min-height: 280px; /* increase visible image height on desktop */
+  }
+  /* ensure contained img fills the new height
+     and preserve rounded corners */
+  .photo-carousel.container .photo-grid .photo-item img{height:100%;border-radius:8px}
+}
 .carousel-button{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.9);box-shadow:0 6px 18px rgba(0,0,0,0.08);cursor:pointer;z-index:5;color:var(--text);font-size:20px}
 /* place buttons outside the image area (shifted horizontally) */
 .carousel-button.prev{left:-56px}
@@ -300,37 +316,47 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 /* Hover overlay for photo items: white panel with centered content */
 .photo-item{position:relative;overflow:hidden}
-.photo-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;background:transparent;opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease;pointer-events:none}
-.photo-overlay-content{padding:10px 12px;border-radius:0;color:#fff;text-align:center;max-width:88%;background:transparent;box-shadow:none;text-shadow:0 6px 18px rgba(0,0,0,0.6);display:flex;flex-direction:column;align-items:center}
+.photo-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:transparent;opacity:0;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease;pointer-events:none}
+.photo-overlay-content{padding:10px 12px;border-radius:0;color:#fff;text-align:center;width:100%;background:transparent;box-shadow:none;text-shadow:0 6px 18px rgba(0,0,0,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center}
 .photo-item:hover .photo-overlay,.photo-item:focus-within .photo-overlay,.photo-item:focus .photo-overlay{opacity:1;transform:none;pointer-events:auto}
-.photo-overlay .overlay-title{display:block;font-weight:700;margin-top:36px;margin-bottom:0}
 
-/* Wappen above overlay text */
+/* Wappen: centered in the image */
 .photo-overlay .overlay-wappen{
-  position:absolute;
-  left:0;
-  right:0;
-  top:20%; /* etwas höher und einheitlich */
   display:block;
-  /* slightly smaller for a subtler overlay (reduced by 10%) */
-  width:86px;
-  height:auto;
-  margin-left:auto;
-  margin-right:auto;
-  transform:translateY(-50%);
+  width:auto;
+  height:62px;
+  max-width:113px;
+  max-height:113px;
+  object-fit:contain;
   pointer-events:none;
-  z-index:3;
-  /* invert to make the outline light on top of photos, boost brightness/contrast for stronger white, add subtle shadow */
   filter: invert(1) brightness(1.35) contrast(1.1) drop-shadow(0 8px 18px rgba(0,0,0,0.45));
   opacity:0.98;
+  margin:0 auto 16px auto;
+}
+
+/* Title: below the wappen */
+.photo-overlay .overlay-title{
+  display:block;
+  font-weight:700;
+  margin:0;
+  white-space:nowrap;
+  text-align:center;
+}
+
+@media (min-width:1100px){
+  /* Desktop: wappen centered in image on hover */
+  .photo-overlay .overlay-wappen{height:90px;max-height:124px;max-width:146px}
+  .photo-overlay .overlay-title{bottom:28px}
 }
 
 @media (max-width:900px){
-  .photo-overlay .overlay-wappen{width:79px;top:20%;transform:translateY(-50%)}
+  .photo-overlay .overlay-wappen{height:51px;max-height:62px}
+  .photo-overlay .overlay-title{bottom:20px}
 }
 
 @media (max-width:600px){
-  .photo-overlay .overlay-wappen{width:65px;top:20%;transform:translateY(-50%)}
+  .photo-overlay .overlay-wappen{height:41px;max-height:51px}
+  .photo-overlay .overlay-title{bottom:18px}
 }
 
 /* Small screens: make photo grid horizontally scrollable and swipeable */
@@ -363,7 +389,17 @@ h2{font-weight:700;letter-spacing:0.015em}
 @media (max-width:700px){
   .hero-content h1{font-size:24px}
   .lead{font-size:16px}
-  .brand-mono{width:45px;height:45px}
+  .brand-mono{
+    width:45px;
+    height:45px;
+    border-radius:10px;
+    -webkit-mask-size: 90%;
+    mask-size: 90%;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.16), inset 0 2px 0 rgba(255,255,255,0.10);
+  }
+  .brand-link{
+    gap:12px;
+  }
   .brand-wordmark{font-size:20px}
   .brand-subtitle{font-size:20px}
 }
@@ -373,9 +409,25 @@ h2{font-weight:700;letter-spacing:0.015em}
 .brand-wordmark{max-width:none;overflow:visible;text-overflow:unset;white-space:nowrap}
 
 @media (max-width:520px){
-  .brand-link{flex-direction:row;gap:10px}
-  .brand-mono{width:41px;height:41px}
-  .brand-wordmark{font-size:18px;max-width:calc(100% - 64px)}
+  /* Mobile: remove decorative ring and increase mono size */
+  .brand-link{flex-direction:row;gap:8px;padding-left:12px}
+  .brand-link::before{display:none}
+  .brand-mono{
+    width:72px;
+    height:72px;
+    border-radius:12px;
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    -webkit-mask-size: 90%;
+    mask-size: 90%;
+    -webkit-mask-position: 50% 50%;
+    mask-position: 50% 50%;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18), inset 0 2px 0 rgba(255,255,255,0.10);
+    z-index:3;
+  }
+  .brand-wordmark{font-size:18px;max-width:calc(100% - 96px)}
   .brand-subtitle{font-size:18px}
 }
 
@@ -389,17 +441,40 @@ h2{font-weight:700;letter-spacing:0.015em}
 }
 
 @media (max-width:380px){
-  .brand-link{flex-direction:column;align-items:flex-start;gap:6px}
-  .brand-mono{width:38px;height:38px}
+  .brand-link{flex-direction:column;align-items:flex-start;gap:4px}
+  .brand-mono{
+    width:36px;
+    height:36px;
+    border-radius:7px;
+    -webkit-mask-size: 94%;
+    mask-size: 94%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.07);
+  }
   .brand-wordmark{font-size:16px;white-space:normal}
   .brand-subtitle{font-size:16px}
 }
 
 /* Additional mobile header tweaks to avoid crowding */
 @media (max-width:420px){
+  /* Mobile small: remove decorative ring and slightly smaller monogram */
   .site-header .container{justify-content:space-between}
-  .brand-link{gap:8px}
-  .brand-mono{width:33px;height:33px}
+  .brand-link{gap:6px;padding-left:12px}
+  .brand-link::before{display:none}
+  .brand-mono{
+    width:64px;
+    height:64px;
+    border-radius:10px;
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    -webkit-mask-size: 88%;
+    mask-size: 88%;
+    -webkit-mask-position: 50% 50%;
+    mask-position: 50% 50%;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.08);
+    z-index:3;
+  }
   .brand-wordmark{font-size:15px;line-height:1}
   .brand-subtitle{font-size:15px;line-height:1}
 }

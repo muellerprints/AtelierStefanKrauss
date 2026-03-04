@@ -142,6 +142,8 @@ export default function Contact(){
                 setName('')
                 setEmail('')
                 setMessage('')
+                setAttachments([])
+                if (fileInputRef.current) fileInputRef.current.value = ''
               } else {
                 setSent('error')
                 console.warn('Send failed', { status: res.status, body: json || txt })
