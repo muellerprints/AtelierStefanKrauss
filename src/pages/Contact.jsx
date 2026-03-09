@@ -160,7 +160,7 @@ export default function Contact(){
                 className="file-drop"
                 style={{marginTop:8}}
               >
-                Ziehe Dateien hierher (PDF, JPG, PNG) oder <button type="button" onClick={() => fileInputRef.current && fileInputRef.current.click()} style={{border:'none',background:'transparent',color:'#007bff',cursor:'pointer'}}>durchsuchen</button>
+                Ziehe Dateien hierher (PDF, JPG, PNG) oder <button type="button" onClick={() => fileInputRef.current && fileInputRef.current.click()} style={{border:'none',background:'transparent',color:'var(--accent)',cursor:'pointer'}}>durchsuchen</button>
                 <input ref={fileInputRef} type="file" multiple style={{display:'none'}} onChange={e => handleFiles(e.target.files)} />
               </div>
 
