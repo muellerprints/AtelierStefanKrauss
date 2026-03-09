@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Hero from '../components/Hero'
+import Lightbox from '../components/Lightbox'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 // grid images are stored in public/assets/photos as grid-1.jpg .. grid-N.jpg
@@ -15,6 +16,7 @@ export default function Home(){
     '/assets/photos/feature-9.jpg'
   ]
   const [remotePhotos, setRemotePhotos] = useState([])
+  const [lightboxSrc, setLightboxSrc] = useState(null)
 
   useEffect(() => {
     // detect grid-N.jpg files in public/assets/photos by probing a small range
@@ -87,7 +89,7 @@ export default function Home(){
                 const secCenter = secRect.top + secRect.height / 2
                 const imgCenter = imgRect.top + imgRect.height / 2
                 const delta = imgCenter - secCenter
-                const startScale = 0.38 // reduce initial alignment amplitude
+                const startScale = 0.20 // reduce initial alignment amplitude (moved higher to avoid overlap)
                 content.style.transform = `translate3d(0, ${delta * startScale}px, 0)`
               } else {
                 content.style.transform = 'translate3d(0, 0, 0)'
@@ -185,6 +187,12 @@ export default function Home(){
 
       let x = side + pointerX + scrollX // include the side shift when present
       let y = verticalBase + pointerY + scrollY
+      // For pushed-down content, nudge it upward so it doesn't overlap the image
+      if (content.classList && content.classList.contains('push-down')) {
+        let pushUp = Math.min(rect.height * 0.20, 160) // up to 160px upward nudge on large screens
+        if (window.innerWidth < 900) pushUp = Math.min(pushUp, 80) // reduce on mobile
+        y -= pushUp
+      }
       // invert vertical direction for reversed sections
       if (sec.classList.contains('reverse')) y = -y
       content.style.transform = `translate3d(${x}px, ${y}px, 0)`
@@ -254,7 +262,11 @@ export default function Home(){
       // apply immediate visual transform to the image for responsive feel
       if (raf) cancelAnimationFrame(raf)
       raf = requestAnimationFrame(() => {
-        if (img) img.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) scale(1.03)`
+        if (img) {
+          const baseScale = parseFloat((sec.dataset.baseScale) || '1') || 1
+          const scale = (baseScale * 1.03).toFixed(3)
+          img.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) scale(${scale})`
+        }
         // start smoothing loop
         raf = requestAnimationFrame(smoothLoop)
       })
@@ -274,7 +286,10 @@ export default function Home(){
           const offset = (rect.top + rect.height / 2 - viewCenter) / window.innerHeight
           const moveY = offset * 12
           if (img) {
-            img.style.transform = `translate3d(0px, ${moveY}px, 0) scale(1.02)`
+            const par = sec.querySelector('.feature-parallax')
+            const baseScale = parseFloat((par?.dataset.baseScale) || '1') || 1
+            const scale = (baseScale * 1.02).toFixed(3)
+            img.style.transform = `translate3d(0px, ${moveY}px, 0) scale(${scale})`
           }
           if (content) {
             const reverse = sec.classList.contains('reverse')
@@ -495,9 +510,9 @@ export default function Home(){
                   </h2>
                   <p>{item.text}</p>
                 </div>
-                      <Link to={linkTarget} className="feature-link" aria-label={item.title}>
+                      <Link to={linkTarget} className="feature-link" aria-label={item.title} onClick={(e) => { e.preventDefault(); setLightboxSrc(item.src) }}>
                         <div className={`feature-photo ${ (i === 1 || i === 2) ? 'feature-photo--large' : '' }`}>
-                          <div className="feature-parallax" data-index={i}>
+                          <div className="feature-parallax" data-index={i} data-base-scale={i === 2 ? '1.10' : '1'}>
                             <img src={item.src} alt={item.title} className="feature-photo-img" />
                             <div className="feature-overlay" aria-hidden />
                           </div>
@@ -515,6 +530,7 @@ export default function Home(){
           </Link>
         ))}
       </section>
+      <Lightbox src={lightboxSrc} onClose={() => setLightboxSrc(null)} />
     </div>
   )
 }

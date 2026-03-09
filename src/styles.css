@@ -193,8 +193,8 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 /* push-down feature content: semi-transparent white background */
 .feature-content.hero-content.container.push-down{
-  background: rgba(255,255,255,0.9) !important;
-  background-color: rgba(255,255,255,0.9) !important;
+  background: rgba(255,255,255,0.82) !important;
+  background-color: rgba(255,255,255,0.82) !important;
   box-shadow: none !important;
 }
 
@@ -552,8 +552,8 @@ h2{font-weight:700;letter-spacing:0.015em}
    even inside reversed sections (e.g. Schmuckfoto 8). Increases z-index
    so the card sits above the image. */
 .feature-photos .feature-photo-section.reverse .feature-content.hero-content.container.push-down{
-  background: rgba(255,255,255,0.9) !important;
-  background-color: rgba(255,255,255,0.9) !important;
+  background: rgba(255,255,255,0.82) !important;
+  background-color: rgba(255,255,255,0.82) !important;
   box-shadow: none !important;
   z-index: 6 !important;
 }
@@ -798,6 +798,43 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(0,102,204,0.0
   .feature-photo-section.in-view .feature-content.push-down.align-right .photo-number{
     transform:translateX(-56px);
   }
+
+/* Lightbox for enlarged feature photos */
+.lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.78);display:flex;align-items:center;justify-content:center;z-index:99999;padding:24px}
+.lightbox-inner{max-width:calc(100% - 48px);max-height:calc(100% - 48px);display:flex;align-items:center;justify-content:center}
+.lightbox-image{max-width:100%;max-height:100%;height:auto;width:auto;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,0.6);transition:transform .28s ease}
+.lightbox-inner.zoomed .lightbox-image{transform:scale(1.6)}
+.lightbox-close{position:fixed;top:16px;right:64px;background:transparent;border:0;color:#fff;font-size:24px;padding:8px 10px;border-radius:8px;cursor:pointer;z-index:100000;transform:translateX(-8px)}
+.lightbox-close:focus{outline:3px solid rgba(255,255,255,0.12)}
+
+.lightbox-close{display:flex;align-items:center;gap:8px}
+.lightbox-close-text{font-size:15px;font-weight:600;color:#fff}
+
+.lightbox-close-icon{color:var(--accent);font-size:28px;line-height:1;display:inline-block}
+
+@media (max-width:900px){
+  .lightbox-close-icon{font-size:22px}
+}
+
+/* Hover and focus polish for accessibility and feedback */
+.lightbox-close{transition:background .12s ease,transform .12s ease,box-shadow .12s ease}
+.lightbox-close-icon{transition:color .12s ease,transform .12s ease}
+.lightbox-close-text{transition:color .12s ease,opacity .12s ease}
+.lightbox-close:hover{background:rgba(255,255,255,0.04);transform:translateX(-10px)}
+.lightbox-close:hover .lightbox-close-icon{color:var(--accent-3);transform:scale(1.08)}
+.lightbox-close:focus{outline:none;box-shadow:0 0 0 6px rgba(var(--accent-rgb),0.12);border-radius:8px}
+
+
+@media (max-width:900px){
+  /* keep close button near the right edge on small screens but not outside image */
+  .lightbox-close{right:20px;top:12px;transform:none}
+  .lightbox-close-text{font-size:13px}
+}
+
+@media (max-width:800px){
+  .lightbox-inner.zoomed .lightbox-image{transform:scale(1.2)}
+}
+
 }
 
 /* Google Maps embed styling */

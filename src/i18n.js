@@ -208,8 +208,8 @@ const resources = {
         ]
         ,
         photoLabels: [
-          'Siegelring in Silber',
           'Handgefertigter Ring',
+          'Siegelring in Silber',
           'Werkzeug & Handwerk',
           'Unikat in Entstehung',
           'Edles Material',
@@ -489,8 +489,8 @@ const resources = {
         ]
         ,
         photoLabels: [
-          'Silver Signet Ring',
           'Handcrafted Ring',
+          'Silver Signet Ring',
           'Tools & Craft',
           'Bespoke Piece in Progress',
           'Noble Materials',
