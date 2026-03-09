@@ -1,28 +1,60 @@
 import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
+import { spawnSync } from 'child_process'
 
 const root = process.cwd()
 const input = path.join(root, 'src', 'assets', 'logo-monogram.svg')
 const out = path.join(root, 'public')
-if (!fs.existsSync(input)) {
-  console.error('Input SVG not found:', input)
-  process.exit(2)
+const svgExists = fs.existsSync(input)
+if (!svgExists) {
+  console.warn('Input SVG not found, will use existing PNGs in public/ if available:', input)
 }
 fs.mkdirSync(out, { recursive: true })
 
+const baseSizes = [16, 32, 128, 256, 512]
+
 async function makePng(size){
-  const outPath = path.join(out, `favicon-${size}.png`)
+  const name = `favicon-${size}x${size}.png`
+  const outPath = path.join(out, name)
   await sharp(input).resize(size, size).png().toFile(outPath)
   console.log('Wrote', outPath)
   return outPath
 }
 
-// Note: ICO generation via third-party packages is omitted to avoid incompatible native deps.
-// We write PNG favicons and an apple-touch-icon which are widely supported.
+async function makePng2x(size){
+  const name = `favicon-${size}x${size}@2x.png`
+  const outPath = path.join(out, name)
+  await sharp(input).resize(size * 2, size * 2).png().toFile(outPath)
+  console.log('Wrote', outPath)
+  return outPath
+}
+
+function makeIcoWithConvert(){
+  const which = spawnSync('which', ['convert'])
+  if (which.status !== 0) return false
+  // Prefer SVG-generated PNGs in public/, otherwise use any existing favicon-*.png
+  let imgs = baseSizes.map(s => path.join(out, `favicon-${s}x${s}.png`)).filter(p => fs.existsSync(p))
+  if (imgs.length === 0){
+    imgs = fs.readdirSync(out).filter(f => f.match(/^favicon-.*x.*\.png$/)).map(f => path.join(out,f))
+  }
+  if (imgs.length === 0) return false
+  const args = [...imgs, path.join(out, 'favicon.ico')]
+  const res = spawnSync('convert', args, { stdio: 'inherit' })
+  return res.status === 0
+}
+
 async function makeIco(){
-  // create a 32x32 PNG and duplicate as favicon.ico (best-effort)
-  const src32 = path.join(out, 'favicon-32.png')
+  try{
+    const ok = makeIcoWithConvert()
+    if (ok){
+      console.log('Wrote multi-size favicon.ico using ImageMagick')
+      return
+    }
+  }catch(e){
+    // fallthrough to png copy
+  }
+  const src32 = path.join(out, 'favicon-32x32.png')
   const outIco = path.join(out, 'favicon.ico')
   if (fs.existsSync(src32)){
     fs.copyFileSync(src32, outIco)
@@ -32,10 +64,26 @@ async function makeIco(){
 
 async function main(){
   try{
-    await Promise.all([16,32,48,180].map(s => makePng(s)))
-    await makeIco()
-    // also create apple-touch-icon
-    await sharp(input).resize(180,180).png().toFile(path.join(out, 'apple-touch-icon.png'))
+    if (svgExists){
+      await Promise.all(baseSizes.flatMap(s => [makePng(s), makePng2x(s)]))
+      await makeIco()
+      await sharp(input).resize(180,180).png().toFile(path.join(out, 'apple-touch-icon.png'))
+    }else{
+      // No SVG: try to create ICO from existing PNGs and generate apple-touch from largest PNG
+      const icoOk = makeIcoWithConvert()
+      if (!icoOk){
+        const src32 = path.join(out, 'favicon-32x32.png')
+        if (fs.existsSync(src32)) fs.copyFileSync(src32, path.join(out, 'favicon.ico'))
+      }
+      // create apple-touch from largest available PNG
+      const pngs = fs.readdirSync(out).filter(f => f.endsWith('.png')).map(f => path.join(out,f))
+      if (pngs.length){
+        pngs.sort((a,b)=> fs.statSync(b).size - fs.statSync(a).size)
+        const largest = pngs[0]
+        await sharp(largest).resize(180,180).png().toFile(path.join(out, 'apple-touch-icon.png'))
+        console.log('Wrote apple-touch-icon.png from', largest)
+      }
+    }
     console.log('Favicons generation complete.')
   }catch(err){
     console.error('Error generating favicons:', err)

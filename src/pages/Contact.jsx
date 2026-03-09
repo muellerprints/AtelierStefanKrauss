@@ -21,6 +21,21 @@ export default function Contact(){
   const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5 MB per file
 
   useEffect(() => {
+    const main = document.getElementById('content')
+    if (!main) return undefined
+    main.setAttribute('data-bg-wappen', 'true')
+    main.style.setProperty('--wappen-rotate', '-45deg')
+    main.style.setProperty('--wappen-size', '64vw')
+    main.style.setProperty('--wappen-pos-x', '35%')
+    return () => {
+      main.removeAttribute('data-bg-wappen')
+      main.style.removeProperty('--wappen-rotate')
+      main.style.removeProperty('--wappen-size')
+      main.style.removeProperty('--wappen-pos-x')
+    }
+  }, [])
+
+  useEffect(() => {
     if (location.hash) {
       const id = location.hash.replace('#', '')
       const el = document.getElementById(id)
@@ -71,30 +86,6 @@ export default function Contact(){
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden', minHeight: 'calc(100vh - 160px)' }}>
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        pointerEvents: 'none',
-        zIndex: 0
-      }}>
-        <img
-          src="/assets/icons/wappen-outline-weiss.png"
-          alt=""
-          style={{
-            position: 'absolute',
-            width: '1000px',
-            height: 'auto',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%) rotate(30deg)',
-            opacity: 0.05,
-            filter: 'grayscale(100%)'
-          }}
-        />
-      </div>
       <div className="container contact-page" style={{ position: 'relative', zIndex: 1 }}>
         <h2>{t('contactPage.title')}</h2>
         <div className="contact-grid" style={{display:'grid',gridTemplateColumns:'1fr 360px',gap:24,alignItems:'start'}}>

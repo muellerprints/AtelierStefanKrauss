@@ -29,7 +29,7 @@ const resources = {
       about: {
         title: 'Stefan Krauss',
         intro1: 'Seit über vier Jahrzehnten arbeite ich als Goldschmiedemeister. Meine Wurzeln liegen im Juwelierhaus Günter Krauss Schmuck. Mein beruflicher Weg führte mich durch unterschiedliche Bereiche des Handwerks und der Branche - von der Leitung einer Werkstatt mit Schwerpunkt auf Perlen über Tätigkeiten im Einkauf und Vertrieb bis hin zum direkten Austausch mit Kundinnen und Kunden im Ladengeschäft. So entwickelte sich ein breites Verständnis für das Handwerk und die vielschichtigen Anforderungen dieser besonderen Welt. Diese unterschiedlichen Erfahrungen prägen meinen Blick bis heute. Zugleich wird mit dem Goldschmiedeatelier Krauss ein neues Kapitel aufgeschlagen: eigenständig, verbunden mit der Vergangenheit und mit klarem Blick für das Heute.',
-        portraitCaption: 'Porträt — Stefan Krauss',
+        portraitCaption: 'Stefan Krauss',
         vitaTitle: 'Vita – Stefan Krauss',
         vita: [
           { year: '1982–1986', text: 'Ausbildung an der Goldschmiedeschule Pforzheim' },
@@ -247,7 +247,7 @@ const resources = {
       about: {
         title: 'Stefan Krauss',
         intro1: 'For over four decades I have worked as a master goldsmith. My roots lie with the jeweller Günter Krauss Schmuck. My professional path has led me through different areas of the craft and the trade — from managing a workshop focused on pearls to roles in purchasing and sales and to direct customer interaction in the retail shop. This has given me a broad understanding of the craft and the complex demands of this special world. These varied experiences continue to shape my perspective. At the same time, Goldschmiedeatelier Krauss opens a new chapter: independent, connected to the past and with a clear view of the present.',
-        portraitCaption: 'Portrait — Stefan Krauss',
+        portraitCaption: 'Stefan Krauss',
         vitaTitle: 'Vita – Stefan Krauss',
         vita: [
           { year: '1982–1986', text: 'Training at the Pforzheim School of Goldsmithing' },

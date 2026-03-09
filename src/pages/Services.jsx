@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export default function Services(){
@@ -22,23 +22,23 @@ export default function Services(){
   })
   if (current.items.length || current.title) groups.push(current)
 
+  useEffect(() => {
+    const main = document.getElementById('content')
+    if (!main) return undefined
+    main.setAttribute('data-bg-wappen', 'true')
+    main.style.setProperty('--wappen-rotate', '30deg')
+    main.style.setProperty('--wappen-size', '64vw')
+    main.style.setProperty('--wappen-pos-x', '35%')
+    return () => {
+      main.removeAttribute('data-bg-wappen')
+      main.style.removeProperty('--wappen-rotate')
+      main.style.removeProperty('--wappen-size')
+      main.style.removeProperty('--wappen-pos-x')
+    }
+  }, [])
+
   return (
     <div style={{ position: 'relative', overflow: 'hidden', minHeight: 'calc(100vh - 160px)' }}>
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundImage: 'url(/assets/icons/wappen-outline-weiss.png)',
-        backgroundSize: '800px',
-        backgroundPosition: '75% 25%',
-        backgroundRepeat: 'no-repeat',
-        opacity: 0.06,
-        pointerEvents: 'none',
-        zIndex: 0,
-        transform: 'rotate(-45deg)'
-      }} />
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <h2>{t('services.title')}</h2>
         {groups.map((g, gi) => (

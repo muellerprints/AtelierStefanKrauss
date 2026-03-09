@@ -6,6 +6,15 @@
 header('Content-Type: application/json; charset=utf-8');
 
 $raw = file_get_contents('php://input');
+
+// Protect against extremely large POST bodies
+$max_post_bytes = (int)(getenv('MAX_POST_BYTES') ?: 10 * 1024 * 1024);
+if (isset($_SERVER['CONTENT_LENGTH']) && (int)$_SERVER['CONTENT_LENGTH'] > $max_post_bytes) {
+    http_response_code(413);
+    echo json_encode(['ok' => false, 'error' => 'request_too_large']);
+    exit;
+}
+
 $data = json_decode($raw, true);
 if (!is_array($data)) {
     // fallback to form-encoded POST
@@ -22,6 +31,12 @@ if (!empty($_FILES)) {
     $max_bytes = (int)(getenv('MAX_UPLOAD_BYTES') ?: 5 * 1024 * 1024);
     $rejected = [];
 
+    // Limit number of attachments and total attachments size for safety
+    $max_attachments = (int)(getenv('MAX_ATTACHMENTS') ?: 6);
+    $max_total_attachments_bytes = (int)(getenv('MAX_TOTAL_ATTACHMENTS_BYTES') ?: 15 * 1024 * 1024);
+    $attachments_count = 0;
+    $attachments_total = 0;
+
     foreach ($_FILES as $field) {
         // Handle both single-file and multiple-file inputs
         if (is_array($field['name'])) {
@@ -33,6 +48,16 @@ if (!empty($_FILES)) {
                 $size = isset($field['size'][$i]) ? (int)$field['size'][$i] : 0;
                 $type = $field['type'][$i] ?? (function_exists('mime_content_type') ? mime_content_type($tmp) : 'application/octet-stream');
 
+                // count/total limits
+                if ($attachments_count + 1 > $max_attachments) {
+                    $rejected[] = ['filename' => $name, 'reason' => 'too_many_attachments'];
+                    continue;
+                }
+                if ($attachments_total + $size > $max_total_attachments_bytes) {
+                    $rejected[] = ['filename' => $name, 'reason' => 'attachments_total_too_large'];
+                    continue;
+                }
+
                 if ($size > $max_bytes) {
                     $rejected[] = ['filename' => $name, 'reason' => 'too_large', 'size' => $size];
                     continue;
@@ -43,7 +68,11 @@ if (!empty($_FILES)) {
                 }
 
                 $content = base64_encode(file_get_contents($tmp));
-                $data['attachments'][] = ['filename' => $name, 'content' => $content, 'contentType' => $type];
+                // sanitize filename to prevent weird chars
+                $safe_name = preg_replace('/[^A-Za-z0-9._\- ]/', '_', basename($name));
+                $data['attachments'][] = ['filename' => $safe_name, 'content' => $content, 'contentType' => $type];
+                $attachments_count++;
+                $attachments_total += $size;
             }
         } else {
             if (!isset($field['tmp_name']) || $field['error'] !== UPLOAD_ERR_OK) continue;
@@ -52,13 +81,25 @@ if (!empty($_FILES)) {
             $size = isset($field['size']) ? (int)$field['size'] : 0;
             $type = $field['type'] ?? (function_exists('mime_content_type') ? mime_content_type($tmp) : 'application/octet-stream');
 
+            if ($attachments_count + 1 > $max_attachments) {
+                $rejected[] = ['filename' => $name, 'reason' => 'too_many_attachments'];
+                continue;
+            }
+            if ($attachments_total + $size > $max_total_attachments_bytes) {
+                $rejected[] = ['filename' => $name, 'reason' => 'attachments_total_too_large'];
+                continue;
+            }
+
             if ($size > $max_bytes) {
                 $rejected[] = ['filename' => $name, 'reason' => 'too_large', 'size' => $size];
             } elseif (!in_array($type, $allowed_types, true)) {
                 $rejected[] = ['filename' => $name, 'reason' => 'forbidden_type', 'type' => $type];
             } else {
                 $content = base64_encode(file_get_contents($tmp));
-                $data['attachments'][] = ['filename' => $name, 'content' => $content, 'contentType' => $type];
+                $safe_name = preg_replace('/[^A-Za-z0-9._\- ]/', '_', basename($name));
+                $data['attachments'][] = ['filename' => $safe_name, 'content' => $content, 'contentType' => $type];
+                $attachments_count++;
+                $attachments_total += $size;
             }
         }
     }
@@ -75,17 +116,39 @@ $name = trim((string)($data['name'] ?? ''));
 $email = trim((string)($data['email'] ?? ''));
 $message = trim((string)($data['message'] ?? ''));
 
+// Basic input limits and validation
+$max_name_len = (int)(getenv('MAX_NAME_LENGTH') ?: 120);
+$max_message_len = (int)(getenv('MAX_MESSAGE_LENGTH') ?: 10000);
+$name = mb_substr($name, 0, $max_name_len);
+$message = mb_substr($message, 0, $max_message_len);
+
+// Prevent header injection (newlines in header-relevant fields)
+function has_header_injection($str) {
+    return preg_match('/[\r\n%0a%0d]/i', $str);
+}
+
+if (has_header_injection($name) || has_header_injection($email)) {
+    http_response_code(400);
+    echo json_encode(['ok' => false, 'error' => 'invalid_input']);
+    exit;
+}
+
 if ($message === '' || $email === '') {
     http_response_code(400);
     echo json_encode(['ok' => false, 'error' => 'Missing fields']);
     exit;
 }
 
+// Strictly validate email
+$replyTo = filter_var($email, FILTER_VALIDATE_EMAIL) ? $email : null;
+if (!$replyTo) {
+    http_response_code(400);
+    echo json_encode(['ok' => false, 'error' => 'invalid_email']);
+    exit;
+}
+
 // Configure recipient here
 $TO_EMAIL = 'info@goldschmiedeatelier-krauss.de';
-
-// Ensure multibyte functions use UTF-8
-if (function_exists('mb_internal_encoding')) mb_internal_encoding('UTF-8');
 
 // If Composer autoload exists (PHPMailer installed), include it
 $composerAutoload = __DIR__ . '/../../../../vendor/autoload.php';
@@ -117,6 +180,33 @@ if ($projectRoot !== false) {
         }
     }
 }
+
+// Simple per-IP rate limit (protect from automated abuse)
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rate_limit_count = (int)(getenv('RATE_LIMIT_COUNT') ?: 20);
+$rate_limit_window = (int)(getenv('RATE_LIMIT_WINDOW') ?: 3600); // seconds
+$rate_file = sys_get_temp_dir() . '/contact_rate_' . preg_replace('/[^A-Za-z0-9_.-]/', '_', $ip) . '.json';
+$rates = [];
+if (file_exists($rate_file)) {
+    $content = @file_get_contents($rate_file);
+    $rates = $content ? json_decode($content, true) : [];
+    if (!is_array($rates)) $rates = [];
+}
+$now = time();
+$rates = array_filter($rates, function($ts) use ($now, $rate_limit_window){ return ($now - (int)$ts) <= $rate_limit_window; });
+if (count($rates) >= $rate_limit_count) {
+    http_response_code(429);
+    echo json_encode(['ok' => false, 'error' => 'rate_limited']);
+    exit;
+}
+
+// record this attempt (flush later)
+$rates[] = $now;
+
+
+
+// Ensure multibyte functions use UTF-8
+if (function_exists('mb_internal_encoding')) mb_internal_encoding('UTF-8');
 
 // Helper to encode MIME headers (names, filenames, subject)
 function encode_mime_header($str) {
@@ -181,11 +271,11 @@ $body .= "--{$boundary}--\r\n";
 $headers_str = implode("\r\n", $headers) . "\r\n";
 
 // SMTP configuration
-$smtp_host = 'smtp.ionos.de';
-$smtp_port = 587;
-$smtp_user = 'info@goldschmiedeatelier-krauss.de';
-$smtp_pass = 'juzcev-xlzryv-nygxu0';
-$smtp_secure = 'tls';
+$smtp_host = getenv('SMTP_HOST') ?: 'smtp.ionos.de';
+$smtp_port = getenv('SMTP_PORT') !== false ? (int)getenv('SMTP_PORT') : 587;
+$smtp_user = getenv('SMTP_USER') ?: getenv('SMTP_USERNAME') ?: '';
+$smtp_pass = getenv('SMTP_PASS') ?: getenv('SMTP_PASSWORD') ?: '';
+$smtp_secure = getenv('SMTP_SECURE') ?: 'tls';
 $smtp_from = $fromEmail;
 $smtp_from_name = $fromName;
 
@@ -235,6 +325,8 @@ if (!$ok) {
 }
 
 if ($ok) {
+    // persist rate log
+    @file_put_contents($rate_file, json_encode($rates), LOCK_EX);
     echo json_encode(['ok' => true]);
     exit;
 }
@@ -251,6 +343,9 @@ try {
 } catch (Exception $e) {
     // ignore
 }
+
+// persist rate log even on failure so attempts are counted
+@file_put_contents($rate_file, json_encode($rates), LOCK_EX);
 
 http_response_code(500);
 echo json_encode(['ok' => false, 'error' => 'mail_failed']);
