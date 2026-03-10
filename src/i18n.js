@@ -286,92 +286,92 @@ Qualität zeigt sich im Detail.`
   },
   en: {
     translation: {
-      siteTitle: 'Goldsmith Atelier',
-      brandWordmark: 'Goldsmith Atelier',
-      tagline: 'Craft precision · Made with dedication · From decades of experience',
+      siteTitle: 'Goldschmiedeatelier Krauss',
+      brandWordmark: 'Goldschmiedeatelier',
+      tagline: 'Handwerkliche Präzision · Mit Hingabe gearbeitet · Aus jahrzehntelanger Erfahrung',
       nav: {
-        home: 'Home',
+        home: 'Startseite',
         about: 'Stefan Krauss',
-        atelier: 'Atelier & Practice',
-        services: 'Services',
-        contact: 'Contact'
+        atelier: 'Atelier & Arbeitsweise',
+        services: 'Leistungen',
+        contact: 'Kontakt'
       },
-      contactCta: 'Get in touch',
+      contactCta: 'Kontakt aufnehmen',
       contact: {
-        name: 'Goldsmith Atelier',
+        name: 'Goldschmiedeatelier Stefan Krauss',
         street: 'Neuberg 11',
         zipcity: '75210 Keltern',
         email: 'info@goldschmiedeatelier-krauss.de',
         phone: '+49 151 52662000',
         phoneRaw: '+4915152662000'
       },
-      heroLead: 'Reduced material aesthetics — posture over action.',
+      heroLead: 'Reduzierte Materialästhetik — Haltung vor Aktion.',
       hero: {
         slides: [
           {
-            title: 'Goldsmith Atelier — Fine Craftsmanship',
-            lead: 'Precise, understated and enduring — jewellery with character.'
+            title: 'Willkommen im Goldschmiedeatelier Krauss',
+            lead: 'Handwerkliche Präzision · Mit Hingabe gearbeitet · Aus jahrzehntelanger Erfahrung'
           },
           {
-            title: 'Bespoke Pieces & Restoration',
-            lead: 'Unique pieces with personality; carefully crafted and expertly restored.'
+            title: 'Unikate & Restaurationen',
+            lead: 'Einzelstücke mit Persönlichkeit; sorgsame Anfertigung und fachgerechte Wiederherstellung.'
           },
           {
-            title: 'Consultation & Creation',
-            lead: 'Personal guidance from initial sketch to the finished piece.'
+            title: 'Beratung & Anfertigung',
+            lead: 'Persönliche Begleitung von der Skizze bis zum fertigen Schmuckstück.'
           },
           {
-            title: 'Workshop & Practice',
-            lead: 'Clear processes, considered material choices and timeless design.'
+            title: 'Werkstatt & Arbeitsweise',
+            lead: 'Klare Prozesse, durchdachte Materialwahl und zeitlose Gestaltung.'
           }
         ]
       },
       about: {
         title: 'Stefan Krauss',
-        intro1: 'For over four decades I have worked as a master goldsmith. My roots lie with the jeweller Günter Krauss Schmuck. My professional path has led me through different areas of the craft and the trade — from managing a workshop focused on pearls to roles in purchasing and sales and to direct customer interaction in the retail shop. This has given me a broad understanding of the craft and the complex demands of this special world. These varied experiences continue to shape my perspective. At the same time, Goldschmiedeatelier Krauss opens a new chapter: independent, connected to the past and with a clear view of the present.',
+        intro1: 'Seit über vier Jahrzehnten arbeite ich als Goldschmiedemeister. Meine Wurzeln liegen im Juwelierhaus Günter Krauss Schmuck. Mein beruflicher Weg führte mich durch unterschiedliche Bereiche des Handwerks und der Branche - von der Leitung einer Werkstatt mit Schwerpunkt auf Perlen über Tätigkeiten im Einkauf und Vertrieb bis hin zum direkten Austausch mit Kundinnen und Kunden im Ladengeschäft. So entwickelte sich ein breites Verständnis für das Handwerk und die vielschichtigen Anforderungen dieser besonderen Welt. Diese unterschiedlichen Erfahrungen prägen meinen Blick bis heute. Zugleich wird mit dem Goldschmiedeatelier Krauss ein neues Kapitel aufgeschlagen: eigenständig, verbunden mit der Vergangenheit und mit klarem Blick für das Heute.',
         portraitCaption: 'Stefan Krauss',
         vitaTitle: 'Vita – Stefan Krauss',
         vita: [
           {
             year: '1982–1986',
-            text: 'Training at the Pforzheim School of Goldsmithing'
+            text: 'Ausbildung an der Goldschmiedeschule Pforzheim'
           },
           {
             year: '1987–1990',
-            text: 'Goldsmith at Günter Krauss Schmuck GmbH'
+            text: 'Goldschmied bei Günter Krauss Schmuck GmbH'
           },
           {
             year: '1991',
-            text: 'Master craftsman (Goldsmith)'
+            text: 'Meisterprüfung zum Goldschmiedemeister'
           },
           {
             year: '1991–2000',
-            text: 'Workshop manager at Günter Krauss Schmuck GmbH'
+            text: 'Werkstattleiter bei Günter Krauss Schmuck GmbH'
           },
           {
             year: '2001–2019',
-            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — roles in production, sales and purchasing; international trade fair participation (e.g. Hong Kong, Kobe)'
+            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — Tätigkeiten in Produktion, Vertrieb und Einkauf; internationale Messeteilnahmen (u. a. Hongkong, Kobe)'
           },
           {
             year: '2019–2022',
-            text: 'Workshop and shop manager at Colleen B. Rosenblatt'
+            text: 'Werkstatt- und Shopleiter Colleen B. Rosenblatt'
           },
           {
             year: '2022–2026',
-            text: 'Managing Director, Günter Krauss Schmuck GmbH'
+            text: 'Geschäftsführer Günter Krauss Schmuck GmbH'
           },
           {
-            year: 'since 2026',
-            text: 'Founder, Goldschmiedeatelier Krauss'
+            year: 'seit 2026',
+            text: 'Gründung Goldschmiedeatelier Krauss'
           }
         ]
       },
       privacy: {
-        purposesTitle: 'Purposes',
-        purposes: 'Data processing serves to handle enquiries, process orders and fulfil legal obligations.',
-        rightsTitle: 'Your Rights',
-        rights: 'You have the right to access, correct, delete and object. To exercise your rights, please contact us by email.',
-        note: 'This page contains sample text. A full privacy policy should be tailored to your business and legally reviewed.',
+        purposesTitle: 'Zwecke',
+        purposes: 'Datenverarbeitung dient zur Bearbeitung von Anfragen, zur Auftragsabwicklung und zur Erfüllung gesetzlicher Pflichten.',
+        rightsTitle: 'Rechte',
+        rights: 'Sie haben Auskunfts-, Berichtigungs-, Löschungs- und Widerspruchsrechte. Zur Ausübung kontaktieren Sie uns bitte per E‑Mail.',
+        note: 'Diese Seite ist ein Muster. Eine vollständige Datenschutzerklärung sollte prüfbar und vollständig auf die Geschäftsprozesse abgestimmt werden.',
         title: 'Privacy Policy',
         intro: 'Protecting your personal data is important to us. This summary explains the types, scope and purpose of processing personal data.',
         responsibleTitle: 'Data Controller',
@@ -464,87 +464,87 @@ Qualität zeigt sich im Detail.`
         `
       },
       impressum: {
-        title: 'Imprint',
-        name: 'Goldsmith Atelier',
-        owner: 'Owner: Karla Krauss',
+        title: 'Impressum',
+        name: 'Goldschmiedeatelier',
+        owner: 'Inhaber: Karla Krauss',
         street: 'Neuberg 11',
         cityzip: '75210 Keltern',
-        vatId: 'VAT identification number according to § 27 a German VAT Act: DE 123456789',
-        odr: `EU Commission platform for online dispute resolution: <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>
-We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.`,
-        contactLabel: 'Contact',
-        registryTitle: 'Company register / Tax',
-        registry: 'Please insert company register details, VAT identification number and professional title where applicable.',
-        note: 'Note: This is a sample imprint. Please have texts legally reviewed before publication.'
+        vatId: 'Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE 123456789',
+        odr: `Plattform der EU-Kommission zur Online-Streitbeilegung: <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>
+Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.`,
+        contactLabel: 'Kontakt',
+        registryTitle: 'Handelsregister / Steuern',
+        registry: 'Angaben zum Handelsregister, Umsatzsteuer‑Identifikationsnummer und ggf. Berufsbezeichnung hier einfügen.',
+        note: 'Hinweis: Dies ist ein Muster‑Impressum. Bitte die Texte vor Veröffentlichung rechtlich prüfen lassen.'
       },
       terms: {
-        title: 'Terms & Conditions (T&C)',
-        intro: 'The following sample terms govern the contractual relationship between the Goldsmith Atelier and customers within the scope of work and service contracts. Please adapt individually.',
-        contractTitle: 'Contract Formation',
-        contract: 'Offers are non-binding. A contract is concluded upon our order confirmation.',
-        pricesTitle: 'Prices & Payment',
-        prices: 'All prices include statutory VAT unless stated otherwise.',
-        deliveryTitle: 'Delivery & Performance',
-        delivery: 'Delivery times are non-binding unless explicitly agreed as binding.',
-        warrantyTitle: 'Warranty',
-        warranty: 'Statutory warranty rights apply. For work contracts, the contractor is entitled to subsequent performance.',
-        note: 'This is sample text. For legally binding terms, we recommend legal review.'
+        title: 'Allgemeine Geschäftsbedingungen (AGB)',
+        intro: 'Die folgenden Muster‑AGB regeln die Vertragsbeziehungen zwischen dem Goldschmiedeatelier und Kundinnen/Kunden im Rahmen von Werkverträgen und Dienstleistungsaufträgen. Bitte individuell anpassen.',
+        contractTitle: 'Vertragsabschluss',
+        contract: 'Angebote sind freibleibend. Der Vertrag kommt mit unserer Auftragsbestätigung zustande.',
+        pricesTitle: 'Preise & Zahlung',
+        prices: 'Alle Preise verstehen sich einschließlich der gesetzlichen Mehrwertsteuer, sofern nicht anders angegeben.',
+        deliveryTitle: 'Lieferung & Leistungserbringung',
+        delivery: 'Lieferfristen sind unverbindlich, sofern nicht ausdrücklich als verbindlich vereinbart.',
+        warrantyTitle: 'Gewährleistung',
+        warranty: 'Es gelten die gesetzlichen Gewährleistungsrechte. Bei Werkverträgen ist der Unternehmer zur Nacherfüllung berechtigt.',
+        note: 'Dies ist ein Mustertext. Für rechtssichere AGB empfehlen wir eine juristische Prüfung.'
       },
       payment: {
-        title: 'Payment methods',
-        intro: 'We accept the following payment methods:',
+        title: 'Zahlungsarten',
+        intro: 'Wir akzeptieren folgende Zahlungsarten:',
         methods: [
           'Bank transfer (prepayment)',
           'Cash on collection',
           'SEPA direct debit (by arrangement)'
         ],
-        note: 'For bespoke commissions, payment terms will be specified in the quote / order confirmation.'
+        note: 'Bei individuellen Auftragsarbeiten werden Zahlungsmodalitäten im Angebot / der Auftragsbestätigung festgehalten.'
       },
       shipping: {
-        title: 'Shipping & Collection',
-        intro: 'How we deliver your pieces:',
+        title: 'Versand & Abholung',
+        intro: 'So liefern wir Ihre Stücke:',
         methods: [
           'Collection from the atelier by appointment (free of charge)',
           'Shipping via insured parcel (costs depend on destination)'
         ],
-        note: 'For high‑value items we recommend collection or prior arrangement. Delivery times are agreed individually.'
+        note: 'Bei Wertsendungen empfehlen wir die Abholung oder eine vorherige Absprache. Lieferzeiten werden individuell vereinbart.'
       },
       contactPage: {
-        title: 'Contact',
-        inquiryTitle: 'Enquiry',
+        title: 'Kontakt',
+        inquiryTitle: 'Anfrage',
         form: {
           name: 'Name',
           email: 'Email',
-          message: 'Message',
-          submit: 'Send'
+          message: 'Nachricht',
+          submit: 'Absenden'
         },
-        sending: 'Sending...',
-        uploadPrompt: 'Drag files here ({{types}})',
-        browse: 'browse',
-        or: 'or',
-        remove: 'Remove',
-        fileTooLarge: 'File {{filename}} is too large. Maximum {{max}} MB.',
-        sentOk: 'Thank you — your message was sent.',
-        sentError: 'An error occurred while sending. Please try again later or contact us at {{email}}.',
-        openingHoursTitle: 'Opening hours',
-        openingHoursText: `Mon–Fri: by appointment
-Sat: by appointment`
+        sending: 'Sende...',
+        uploadPrompt: 'Ziehe Dateien hierher ({{types}})',
+        browse: 'durchsuchen',
+        or: 'oder',
+        remove: 'Entfernen',
+        fileTooLarge: 'Die Datei {{filename}} ist zu groß. Maximal {{max}} MB.',
+        sentOk: 'Vielen Dank — Ihre Nachricht wurde versendet.',
+        sentError: 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später oder schreiben Sie direkt an {{email}}.',
+        openingHoursTitle: 'Öffnungszeiten',
+        openingHoursText: `Mo–Fr: nach Vereinbarung
+Sa: nach Vereinbarung`
       },
       opening: {
-        title: 'Opening hours',
-        text: `Mon–Fri: by appointment
-Sat: by appointment`,
-        openInMaps: 'Open in Google Maps'
+        title: 'Öffnungszeiten',
+        text: `Mo–Fr: nach Vereinbarung
+Sa: nach Vereinbarung`,
+        openInMaps: 'In Google Maps öffnen'
       },
       directions: {
-        title: 'Directions',
+        title: 'Anfahrt',
         text: `Neuberg 11
 75210 Keltern
-By car: parking nearby. By public transport: take bus X/Y to stop Z.`,
-        openInMaps: 'Open in Google Maps'
+Anfahrt mit dem Auto: Parkmöglichkeiten in der Nähe. Mit öffentlichen Verkehrsmitteln: Buslinien X/Y bis Haltestelle Z.`,
+        openInMaps: 'In Google Maps öffnen'
       },
       services: {
-        title: 'Services',
+        title: 'Leistungsspektrum',
         headings: [
           'Core Services',
           'Extended Capabilities'
@@ -571,68 +571,68 @@ By car: parking nearby. By public transport: take bus X/Y to stop Z.`,
         ]
       },
       atelier: {
-        title: 'Atelier & Practice',
-        description: `Good work starts with careful observation.
+        title: 'Atelier & Arbeitsweise',
+        description: `Gute Arbeit beginnt mit genauem Hinsehen.
 
-Craft precision, dedication to material and decades of experience guide my work. Each piece is created with care, personal responsibility and the aim of producing solutions that endure. I focus on work that convinces on a craft level and preserves value — whether in new commissions or in continuing existing jewellery.
+Handwerkliche Präzision, Hingabe zum Material und jahrzehntelange Erfahrung leiten mein Arbeiten. Jedes Stück entsteht mit Sorgfalt, persönlicher Verantwortung und dem Anspruch, Lösungen zu schaffen, die langfristig Bestand haben. Ich konzentriere mich auf Arbeiten, die handwerklich überzeugen und Wert erhalten — sei es in der Neuanfertigung oder in der Weiterführung bestehender Schmuckstücke.
 
-My working approach is characterised by calm, clarity and reliability. Agreements are made on equal terms and decisions are taken with a realistic view of feasibility and quality. Seriousness for me arises from experience, responsibility and a calm presence — not from volume.
+Meine Arbeitsweise ist geprägt von Ruhe, Klarheit und Verlässlichkeit. Absprachen erfolgen auf Augenhöhe, Entscheidungen mit einem realistischen Blick für Machbarkeit und Qualität. Seriosität entsteht für mich durch Erfahrung, Verantwortung und eine ruhige Präsenz — nicht durch Lautstärke.
 
-Quality shows in the detail.`,
-        positioningHeading: 'A strong network',
-        positioning: `A strong network expands possibilities. Over many years a resilient network has grown, providing short channels and close ties to the trade. It extends the craft capabilities and grants access to specialised techniques — always with the aim of realising the best possible solution for each task.
+Qualität zeigt sich im Detail.`,
+        positioningHeading: 'Ein starkes Netzwerk',
+        positioning: `Ein starkes Netzwerk erweitert die Möglichkeiten. Über viele Jahre hinweg ist ein tragfähiges Netzwerk gewachsen, das kurze Wege und unmittelbare Nähe zur Branche ermöglicht. Es erweitert die handwerklichen Möglichkeiten und schafft Zugriff auf spezialisierte Techniken — immer mit dem Ziel, für jede Aufgabe die bestmögliche Lösung zu realisieren.
 
-Quality shows in the detail.`
+Qualität zeigt sich im Detail.`
       },
       footer: {
-        aboutTitle: 'About us',
+        aboutTitle: 'Über uns',
         links: {
           about: 'About',
-          openingHours: 'Opening hours',
-          directions: 'Directions',
-          contact: 'Contact',
+          openingHours: 'Öffnungszeiten',
+          directions: 'Anfahrt',
+          contact: 'Kontakt',
           sitemap: 'Sitemap'
         },
-        legalTitle: 'Legal',
+        legalTitle: 'Rechtliches',
         legalLinks: {
-          impressum: 'Imprint',
-          privacy: 'Privacy Policy',
-          terms: 'Terms & Conditions',
-          payment: 'Payment methods',
-          shipping: 'Shipping methods'
+          impressum: 'Impressum',
+          privacy: 'Datenschutzerklärung',
+          terms: 'Allgemeine Geschäftsbedingungen (AGB)',
+          payment: 'Zahlungsarten',
+          shipping: 'Versandarten'
         },
-        copyright: '© {{year}} Goldsmith Atelier · All rights reserved'
+        copyright: '© {{year}} Goldschmiedeatelier · Alle Rechte vorbehalten'
       },
       home: {
         tiles: [
           {
-            title: 'Atelier & Practice',
-            text: 'Reduced material aesthetics, posture over action.',
+            title: 'Atelier & Arbeitsweise',
+            text: 'Reduzierte Materialästhetik · Haltung vor Aktion.',
             link: '/atelier'
           },
           {
-            title: 'Services',
-            text: 'Unique pieces, repairs, restorations, remodelling.',
+            title: 'Leistungen',
+            text: 'Unikate · Reparaturen · Restaurationen · Umarbeitungen',
             link: '/services'
           },
           {
-            title: 'About Stefan Kraussgap entfernen. ich möchte die fotos ',
-            text: 'Decades of craft, focused moments and refined details.',
+            title: 'Über Stefan Krauss',
+            text: 'Persönlich · Erfahren · Handwerklich präzise',
             link: '/about'
           }
         ],
         featurePhotos: [
           {
-            title: 'Fine Detail',
-            text: 'Delicate details, carefully crafted — a close look at material and finish.'
+            title: 'Feines Detail',
+            text: 'Filigrane Details, sorgfältig gefertigt — ein Blick auf Material, Oberfläche und Verarbeitung.'
           },
           {
-            title: 'Bespoke Piece in Progress',
-            text: 'A bespoke piece in progress — from sketch to form, craftsmanship made visible.'
+            title: 'Unikat in Arbeit',
+            text: 'Ein Unikat im Entstehungsprozess: von der Skizze zur Form, sichtbar in jeder Linie.'
           },
           {
-            title: 'Restoration & Conservation',
-            text: 'Careful restoration: bringing older pieces back to life with respect and expert skill.'
+            title: 'Restauration & Erhalt',
+            text: 'Sorgsame Restauration: alte Stücke werden mit Respekt und handwerklicher Expertise wiederbelebt.'
           }
         ],
         photoLabels: [

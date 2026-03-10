@@ -5,6 +5,7 @@ import process from 'process'
 
 const ROOT = process.cwd()
 const I18N_PATH = path.join(ROOT, 'src', 'i18n.js')
+const FORCE = process.argv.includes('--force') || process.env.TRANSLATE_FORCE === '1'
 
 function findResourcesBlock(src) {
   const marker = 'const resources ='
@@ -86,7 +87,7 @@ async function syncTranslate(deObj, enObj) {
     const dv = deObj[k]
     const ev = enObj && enObj[k]
     if (typeof dv === 'string') {
-      if (!ev || ev === dv) out[k] = await translateText(dv)
+      if (FORCE || !ev || ev === dv) out[k] = await translateText(dv)
       else out[k] = ev
     } else if (Array.isArray(dv) || isPlainObject(dv)) {
       out[k] = await syncTranslate(dv, ev || (Array.isArray(dv) ? [] : {}))
