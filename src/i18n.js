@@ -636,9 +636,9 @@ Quality shows in the detail.`
           }
         ],
         photoLabels: [
-          'Handcrafted Ring',
+          'Black Diamond Studs',
           'Silver Signet Ring',
-          'Tools & Craft',
+          'Handcrafted Necklace',
           'Bespoke Piece in Progress',
           'Noble Materials',
           'Detail Work',
