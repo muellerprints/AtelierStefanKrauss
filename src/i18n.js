@@ -206,7 +206,7 @@ const resources = {
         tiles: [
           { title: 'Atelier & Arbeitsweise', text: 'Reduzierte Materialästhetik · Haltung vor Aktion.', link: '/atelier' },
           { title: 'Leistungen', text: 'Unikate · Reparaturen · Restaurationen · Umarbeitungen', link: '/services' },
-          { title: 'Über Stefan', text: 'Persönlich · Erfahren · Handwerklich präzise', link: '/about' }
+          { title: 'Über Stefan Krauss', text: 'Persönlich · Erfahren · Handwerklich präzise', link: '/about' }
         ]
         ,
         featurePhotos: [
@@ -495,7 +495,7 @@ const resources = {
         tiles: [
           { title: 'Atelier & Practice', text: 'Reduced material aesthetics, posture over action.', link: '/atelier' },
           { title: 'Services', text: 'Unique pieces, repairs, restorations, remodelling.', link: '/services' },
-          { title: 'About Stefan', text: 'Decades of craft, focused moments and refined details.', link: '/about' }
+          { title: 'About Stefan Kraussgap entfernen. ich möchte die fotos ', text: 'Decades of craft, focused moments and refined details.', link: '/about' }
         ]
         ,
         featurePhotos: [

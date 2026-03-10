@@ -485,6 +485,7 @@ export default function Home(){
               <img src={src} alt={label} />
               <div className="photo-overlay" aria-hidden="true">
                 <div className="photo-overlay-content">
+                  <img src={`${import.meta.env.BASE_URL}assets/icons/wappen-outline-weiss.png`} alt="Wappen" className="overlay-wappen" />
                   <span className="overlay-title">{label}</span>
                 </div>
               </div>
@@ -510,7 +511,7 @@ export default function Home(){
                   <p>{item.text}</p>
                 </div>
                       <Link to={linkTarget} className="feature-link" aria-label={item.title} onClick={(e) => { e.preventDefault(); setLightboxSrc(item.src) }}>
-                        <div className={`feature-photo ${ (i === 1 || i === 2) ? 'feature-photo--large' : '' }`}>
+                        <div className={`feature-photo feature-photo--large`}>
                           <div className="feature-parallax" data-index={i} data-base-scale={i === 2 ? '1.10' : '1'}>
                             <img src={item.src} alt={item.title} className="feature-photo-img" />
                             <div className="feature-overlay" aria-hidden />

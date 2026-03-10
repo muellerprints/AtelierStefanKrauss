@@ -72,10 +72,8 @@ a:hover,a:focus{color:var(--accent)}
    and may override rotation/size via CSS variables. This keeps the
    emblem outside the content `.container` and full-bleed. */
 main[data-bg-wappen]::before{
-  /* make the emblem a fixed, decorative background so it continues
-     behind header and footer while remaining non-interactive */
   content: '';
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   width: 100vw;
@@ -92,18 +90,6 @@ main[data-bg-wappen]::before{
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%) rotate(var(--wappen-rotate, 30deg));
   will-change: transform, opacity;
-}
-
-/* Apply the wappen SVG as a direct background on the content element
-   for pages that opt-in via `data-bg-wappen="true"` (e.g. Services, Contact).
-   This ensures the SVG appears even if pseudo-elements are overridden. */
-main#content[data-bg-wappen="true"]{
-  background-image: url('/assets/icons/wappen-outline.svg');
-  background-repeat: no-repeat;
-  background-position: var(--wappen-pos-x, 50%) 50%;
-  background-size: var(--wappen-size, 80vw);
-  opacity: 1; /* background-image itself has no opacity; visual tone controlled via CSS variables */
-  pointer-events: none; /* ensure decorative only */
 }
 
 /* Desktop: slightly smaller, less intrusive emblem so it doesn't overlap content */
@@ -641,12 +627,51 @@ html, body { overflow-x: hidden; }
   .contact-form{padding:0 8px}
   .submit-btn{padding:10px;border-radius:6px}
 }
-/* Feature photo sections layout */
-.feature-photos .feature-photo-section{display:flex;align-items:center;gap:32px;margin:0;position:relative}
-.feature-photos .feature-photo{flex:1 1 55%;min-height:320px;display:flex;align-items:center;justify-content:center}
-.feature-photos .feature-content{flex:0 0 40%;max-width:46%}
-.feature-content.push-down{display:block}
-.feature-content.align-right{margin-left:auto;text-align:right}
+/* Feature photos container padding */
+.feature-photos{
+  padding-top:75px;
+  padding-bottom:75px;
+}
+/* Feature photo sections layout - using flexbox with column direction (1 "spalte") */
+.feature-photos .feature-photo-section{display:flex;flex-direction:column;align-items:center;gap:16px;margin:0 0 146px 0;position:relative}
+
+/* First feature photo (feature-7.jpg "Feines Detail"): text left, photo right, aligned */
+.feature-photos .feature-photo-section:first-child{
+  flex-direction:row;
+  align-items:flex-end;
+  gap:32px;
+}
+.feature-photos .feature-photo-section:first-child .feature-content{
+  flex-shrink:0;
+  align-self:flex-end;
+  max-height:250px;
+  overflow:hidden;
+}
+.feature-photos .feature-photo-section:first-child .feature-link{
+  flex:0 0 auto;
+}
+.feature-photos .feature-photo-section:first-child .feature-photo--large{
+  width:38vw !important;
+  max-width:38vw !important;
+}
+
+/* Third feature photo (feature-9.jpg "Restauration & Erhalt"): text left, photo right */
+.feature-photos .feature-photo-section:last-child{
+  flex-direction:row;
+  align-items:flex-end;
+  gap:32px;
+}
+.feature-photos .feature-photo-section:last-child .feature-content{
+  max-width:880px;
+  flex-shrink:0;
+}
+.feature-photos .feature-photo-section:last-child .feature-link{
+  flex:0 0 auto;
+}
+.feature-photos .feature-photo-section:last-child .feature-photo--large{
+  width:38vw !important;
+  max-width:38vw !important;
+}
   
   /* Mobile adjustments */
   @media (max-width:900px) {
@@ -669,9 +694,9 @@ html, body { overflow-x: hidden; }
   }
 
 @media (max-width:900px){
-  .feature-photos .feature-photo-section{flex-direction:column;gap:18px}
-  .feature-photos .feature-content{max-width:100%;flex:1 1 auto;text-align:left;margin-left:0}
-  .feature-content.align-right{text-align:left}
+  .feature-photos .feature-photo-section{flex-direction:column;gap:12px;margin-bottom:40px}
+  .feature-photos .feature-photo-section:first-child{flex-direction:column;align-items:center}
+  .feature-photos .feature-photo-section:last-child{flex-direction:column;align-items:center}
 }
 
 /* Ensure push-down content doesn't overflow on small screens */
@@ -760,44 +785,106 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
   .large-photo{height:220px}
 }
 
-/* Feature photo sections: image + text side-by-side */
-.feature-photo-section{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--photo-gap);row-gap:var(--photo-row-gap);align-items:center;padding:24px 0;margin-bottom:19px;position:relative}
+/* Feature photo sections: using flexbox layout from .feature-photos override */
+.feature-photo-section{column-gap:0;row-gap:0;align-items:center;padding:0;margin-bottom:0;position:relative;overflow:visible}
 .feature-photo-section + .feature-photo-section{border-top:0}
 .feature-photo{display:block}
-/* enforce a consistent visible height for all feature photos; image will fill this area */
-.feature-photo{height:640px}
-/* Larger presentation variant for the middle feature (photo 8) */
-.feature-photo--large{height:640px}
-/* Grid placement must target direct children of the section. The link is the grid child that wraps the photo. */
-.feature-link{grid-column:1}
-.feature-content{grid-column:2}
-.feature-photo-section.reverse .feature-link{grid-column:2;justify-self:end}
-.feature-photo-section.reverse .feature-content{grid-column:1}
+/* Make feature photos visually dominant:
+   - pull the photo out of the content column so it appears wider than the content
+   - increase height with viewport bounds so images are much larger on desktop
+   - keep object-fit:cover on the inner img to preserve aspect and avoid layout shift */
+.feature-photo{
+  /* keep photo full width of its grid cell; don't force negative margins here */
+  display:block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  height: min(1200px, 85vh);
+}
+/* Larger presentation variant for photos 7-9: wide landscape format */
+.feature-photo--large{
+  /* 50% smaller than previous - balanced landscape format */
+  width: 45vw !important;
+  max-width: 45vw !important;
+  height: 30vh !important;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+/* Override image height for landscape photos so they don't stretch vertically */
+.feature-photo--large .feature-photo-img,
+.feature-photo--large .feature-parallax,
+.feature-photo--large .feature-parallax .feature-photo-img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+/* Grid placement rules not needed for flexbox layout */
 /* stronger base shadow to match carousel visuals */
-  .feature-photo-img{width:100%;height:100%;object-fit:cover;border-radius:12px;box-shadow:0 12px 30px rgba(var(--shadow-rgb),0.08);display:block;filter:saturate(1.18) contrast(1.04);transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+  .feature-photo-img{width:100% !important;height:100% !important;object-fit:cover;border-radius:12px;box-shadow:0 12px 30px rgba(var(--shadow-rgb),0.08);display:block;filter:saturate(1.18) contrast(1.04);transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
 .feature-content{display:flex;flex-direction:column;justify-content:center;opacity:0;filter:blur(2px);transform:translateY(18px);transition:opacity 4s cubic-bezier(.16,.84,.3,1),transform 4s cubic-bezier(.16,.84,.3,1),filter 4s ease}
 .feature-content h2{margin:0 0 8px;font-size:36px;font-weight:700;display:flex;align-items:baseline;justify-content:flex-start;gap:12px}
 .feature-content .photo-title{display:inline}
 .feature-content .photo-number{display:inline-block;font-size:40px;color:rgba(47,58,61,0.95);font-weight:800;line-height:1}
-.feature-photo-section.reverse{grid-template-columns:1fr 1fr}
+/* Reverse order for flexbox layout */
+.feature-photo-section.reverse{flex-direction:column-reverse}
 /* When the photo is wrapped in a link, order must be applied to that link
   because grid children are the direct children of the section. */
 .feature-photo-section.reverse .feature-link{order:2}
 .feature-photo-section.reverse .feature-content{order:1}
 
 @media (max-width:900px){
-  .feature-photo-section{grid-template-columns:1fr;row-gap:12px;column-gap:var(--photo-gap);margin-bottom:10px}
+  .feature-photo-section{row-gap:12px;column-gap:0;margin-bottom:10px}
   /* increase mobile feature photo height for better visibility */
   .feature-photo-img{height:420px}
   .feature-content h2{font-size:22px}
+  /* Reset width expansion on mobile to prevent horizontal scroll */
+  .feature-photo--large{
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
-/* Remove bottom margin for feature sections inside the grouped feature list
-  (keeps spacing for standalone feature sections intact) */
-.feature-photos .feature-photo-section{margin-bottom:0}
+/* Last photo-text pair should not have bottom margin */
+.feature-photos .feature-photo-section:last-child{margin-bottom:0}
+
+/* Optional: show photos individually (no gap, single-column sections).
+   This removes the horizontal/vertical gaps and makes each feature-photo
+   occupy its own row. Remove or tweak if you want mixed layouts. */
+.feature-photos .feature-photo-section.single-view,
+.feature-photos.single-view .feature-photo-section {
+  grid-template-columns: 1fr; /* stack image + content vertically */
+  column-gap: 0 !important;
+  row-gap: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Enlarge the inner container for the feature-photos area only.
+   This increases the available width for photo presentation without
+   changing the global `--content-width`. Use a much larger max-width
+   and reduce side padding so photos can appear more prominent. */
+.feature-photos .container,
+.feature-photos-container {
+  max-width: calc(var(--content-width) + 800px);
+  padding-left: 24px;
+  padding-right: 24px;
+  overflow: visible;
+}
+
+@media (max-width:1200px){
+  .feature-photos .container,
+  .feature-photos-container { max-width: 100%; padding-left: 24px; padding-right:24px }
+}
+
+/* If you want this globally (immediately), uncomment the rule below. */
+/* .feature-photos .feature-photo-section { grid-template-columns:1fr; column-gap:0; row-gap:0; padding:0; margin-bottom:0 } */
 
 /* Parallax + overlay styles for feature images */
-.feature-parallax{position:relative;overflow:hidden;border-radius:12px}
+.feature-parallax{position:relative;overflow:hidden;border-radius:12px;height:100%;width:100%}
 /* ensure parallax wrapper does not override the shorter carousel-like transition */
 .feature-parallax .feature-photo-img{transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
 .feature-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:40px;color:white;pointer-events:none;text-shadow:0 6px 18px rgba(0,0,0,0.45);opacity:0;transform:translateY(10px);transition:opacity .9s ease,transform .9s ease,background .9s ease}
@@ -975,11 +1062,16 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
   .feature-link:focus-visible .feature-photo-img{transform:none;box-shadow:none;filter:none}
 
 
-/* stronger image sizes for large viewports */
+/* stronger image sizes for large viewports — landscape format for large photos */
 @media (min-width:1100px){
-  .feature-photo{height:640px}
+  .feature-photo{height: min(1200px, 85vh)}
   .feature-overlay h2{font-size:40px}
-  .feature-photo--large{height:640px}
+  /* Keep landscape format for photos 7-9 on desktop - 50% smaller */
+  .feature-photo--large{
+    height: 30vh !important;
+    max-height: 400px;
+    width: 45vw !important;
+  }
 }
 /* ensure content starts neutral */
 .feature-content{transform:translate3d(0,0,0)}
