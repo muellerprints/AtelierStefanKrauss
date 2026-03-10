@@ -6,11 +6,11 @@ export default function Atelier(){
 
   return (
     <div className="container atelier-page">
-      <div className="asset-preview" style={{marginTop:20, display:'flex', gap:'10px', justifyContent:'center'}}>
-        <img src="/assets/icons/ICONS1.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} style={{width:'10%', height:'auto'}} />
-        <img src="/assets/icons/ICONS2.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} style={{width:'10%', height:'auto'}} />
-        <img src="/assets/icons/ICONS3.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} style={{width:'10%', height:'auto'}} />
-        <img src="/assets/icons/ICONS4.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} style={{width:'10%', height:'auto'}} />
+      <div className="asset-preview icon-row mt-20">
+        <img src="/assets/icons/ICONS1.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} />
+        <img src="/assets/icons/ICONS2.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} />
+        <img src="/assets/icons/ICONS3.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} />
+        <img src="/assets/icons/ICONS4.png" alt={t('atelier.toolsAlt', 'Werkzeuge im Atelier')} />
       </div>
 
       <h2>{t('atelier.title')}</h2>

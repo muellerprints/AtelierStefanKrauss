@@ -14,7 +14,7 @@ export function AccentButton({children, ...props}){
 
 export default function ButtonsDemo(){
   return (
-    <div style={{display:'flex',gap:12,alignItems:'center'}}>
+    <div className="btn-row">
       <PrimaryButton>Kontakt</PrimaryButton>
       <SecondaryButton>Mehr erfahren</SecondaryButton>
       <AccentButton>Galerie</AccentButton>

@@ -89,11 +89,19 @@ const resources = {
       }
       ,
         contactPage: {
-          title: 'Kontakt',
-          inquiryTitle: 'Anfrage',
-          form: { name: 'Name', email: 'Email', message: 'Nachricht', submit: 'Absenden' },
-          openingHoursTitle: 'Öffnungszeiten',
-          openingHoursText: 'Mo–Fr: nach Vereinbarung\nSa: nach Vereinbarung'
+            title: 'Kontakt',
+            inquiryTitle: 'Anfrage',
+            form: { name: 'Name', email: 'Email', message: 'Nachricht', submit: 'Absenden' },
+            sending: 'Sende...',
+            uploadPrompt: 'Ziehe Dateien hierher ({{types}})',
+            browse: 'durchsuchen',
+            or: 'oder',
+            remove: 'Entfernen',
+            fileTooLarge: 'Die Datei {{filename}} ist zu groß. Maximal {{max}} MB.',
+            sentOk: 'Vielen Dank — Ihre Nachricht wurde versendet.',
+            sentError: 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später oder schreiben Sie direkt an {{email}}.',
+            openingHoursTitle: 'Öffnungszeiten',
+            openingHoursText: 'Mo–Fr: nach Vereinbarung\nSa: nach Vereinbarung'
         },
         opening: {
           title: 'Öffnungszeiten',
@@ -412,8 +420,16 @@ const resources = {
           title: 'Contact',
           inquiryTitle: 'Enquiry',
           form: { name: 'Name', email: 'Email', message: 'Message', submit: 'Send' },
+          sending: 'Sending...',
+          uploadPrompt: 'Drag files here ({{types}})',
+          browse: 'browse',
+          or: 'or',
+          remove: 'Remove',
+          fileTooLarge: 'File {{filename}} is too large. Maximum {{max}} MB.',
+          sentOk: 'Thank you — your message was sent.',
+          sentError: 'An error occurred while sending. Please try again later or contact us at {{email}}.',
           openingHoursTitle: 'Opening hours',
-          openingHoursText: 'Mon–Fri: by appointment\nSat: by appointment'
+          openingHoursText: 'Mon–Fri: by appointment\nSat: by appointment',
         },
         opening: {
           title: 'Opening hours',

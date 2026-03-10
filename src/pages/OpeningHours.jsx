@@ -6,8 +6,8 @@ export default function OpeningHours(){
   return (
     <div className="container">
       <h2>{t('opening.title')}</h2>
-      <div style={{maxWidth:720}}>
-        <p style={{whiteSpace:'pre-line'}}>{t('opening.text')}</p>
+      <div className="max-width-720">
+        <p className="pre-line">{t('opening.text')}</p>
       </div>
     </div>
   )

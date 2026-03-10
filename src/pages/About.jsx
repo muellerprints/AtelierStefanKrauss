@@ -7,15 +7,21 @@ export default function About(){
   const vita = t('about.vita', { returnObjects: true }) || []
 
   return (
-    <div className="container about-page">
-      <div className="about-grid">
+    <>
+      <div className="about-hero">
+        <div className="about-hero-inner">
+          <h1 className="about-hero-title">Stefan Krauss</h1>
+          <p className="about-toptext">{t('about.intro1')}</p>
+        </div>
+      </div>
+
+      <div className="container about-page">
+        <div className="about-grid">
         <div className="about-text">
-          <h2>{t('about.title')}</h2>
-          <p>{t('about.intro1')}</p>
-          <h3>{t('about.vitaTitle')}</h3>
+          <h3 className="vita-heading">Vita – Stefan Krauss</h3>
           <ul className="vita-list">
             {vita.map((item,i)=> (
-              <li key={i}><strong>{item.year}</strong> — {item.text}</li>
+              <li key={i}><strong>{item.year}</strong><span className="vita-desc">{item.text}</span></li>
             ))}
           </ul>
         </div>
@@ -25,5 +31,6 @@ export default function About(){
         </aside>
       </div>
     </div>
+    </>
   )
 }

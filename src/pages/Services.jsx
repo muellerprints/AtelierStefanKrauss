@@ -38,8 +38,8 @@ export default function Services(){
   }, [])
 
   return (
-    <div style={{ position: 'relative', overflow: 'hidden', minHeight: 'calc(100vh - 160px)' }}>
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+    <div className="page-viewport">
+      <div className="container relative-z1">
         <h2>{t('services.title')}</h2>
         {groups.map((g, gi) => (
           <section key={gi}>

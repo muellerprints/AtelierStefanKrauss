@@ -1,27 +1,36 @@
 :root{
-  /* Mittelton-Palette: leicht Richtung warmes Blau verschoben */
-  --neutral: #62676A; /* leicht in Richtung neutraler Mittelton verschoben */
-  --neutral-light: #D9D6E0; /* leicht violett getöntes Hellgrau */
-  --neutral-lighter: #ECEAF3; /* etwas dunkleres, zart violettes Grau für Header */
-  /* Pantone mark colors (mapped to header/footer usage) */
-  --pantone-1: var(--accent); /* primary accent (schönes Blau) */
-  --pantone-2: var(--accent-2); /* secondary accent (used in header/footer) */
-  --pantone-3: var(--accent-3); /* tertiary accent */
-  --bg: #DEDEDD; /* sehr heller, dezenter Mittelton (10% abgedunkelt) */
-  --text: #474545; /* minimal wärmeres Textgrau (10% aufgehellt) */
+  /* Canonical palette (simplified): primary blue, light gray, dark gray */
+  --primary-blue: #0066CC;
+  --light-gray: #D9D6E0;
+  --dark-gray: #474545;
+
+  /* Backwards-compatible aliases mapped to canonical colors */
+  --accent: var(--primary-blue);
+  --accent-2: #5F3B66; /* kept as secondary accent */
+  --accent-3: #004C99;
+  --neutral: #62676A;
+  --neutral-light: var(--light-gray);
+  --neutral-lighter: #ECEAF3;
+  --bg: var(--light-gray);
+  --text: var(--dark-gray);
+  --muted: #D1D2D3;
+
+  /* RGB helpers */
   --neutral-rgb: 114,118,121;
   --neutral-light-rgb: 217,214,224;
   --neutral-lighter-rgb: 236,234,243;
   --text-rgb: 71,69,69;
   --shadow-rgb: 48,48,49;
   --accent-rgb: 0,102,204;
-  --muted: #D1D2D3; /* dunkleres dezentes Grau für Flächen (10% abgedunkelt) */
-  --accent: #0066CC; /* kräftigeres Blau */
-  --accent-2: #5F3B66; /* sekundärer Akzent (belassen) */
-  --accent-3: #004C99; /* dunklere Blau-Variante */
-  --accent-aqua: var(--muted); /* kein Blau als Akzent, ersetzt durch neutrales Ton */
+
+  --accent-aqua: var(--muted);
   --content-gutter: 48px; /* horizontal offset used for hero/brand alignment */
   --content-width: 1148px; /* central content max width used across containers */
+  --white: #ffffff;
+  /* Photo spacing controls */
+  --photo-gap: 8px; /* horizontal gap between photos in carousels/grids (reduced) */
+  --photo-row-gap: 18px; /* vertical gap between rows/feature sections */
+  --photo-pad: 18px; /* vertical padding around photo grids */
 }
 .body-reset{margin:0}
 body{margin:0;font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; background:var(--neutral-light); color:var(--text)}
@@ -42,9 +51,10 @@ h1,h2,h3,h4,h5,h6{color:var(--accent) !important}
 /* Links: avoid any blue — default to text color, hover to accent */
 a{color:var(--text);text-decoration:none}
 a:hover,a:focus{color:var(--accent)}
-.container{max-width:var(--content-width);margin:0 auto;padding:24px 24px 24px 88px}
-.container.about-page{max-width:var(--content-width);margin:0 auto;padding:24px 24px 24px 88px}
-.container.contact-page{max-width:var(--content-width);margin:0 auto;padding:24px 24px 24px 88px}
+.container{max-width:var(--content-width);margin:0 auto;padding:24px;box-sizing:border-box}
+
+/* About page: reduce left padding to align content visually and avoid excessive left gutter */
+.container.about-page{max-width:var(--content-width);width:100%;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
 .site-root h1{font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; font-size:24px;font-weight:700;letter-spacing:0.02em}
 
 /* Large page-height decorative wappen that spans from header to footer
@@ -52,8 +62,6 @@ a:hover,a:focus{color:var(--accent)}
 .site-root{position:relative}
 
 /* Make header/footer sit above decorative emblems */
-.site-header{position:relative;z-index:90}
-.site-footer{position:relative;z-index:80}
 
 /* Decorative wappen bound to the main element so it runs exactly over the main area */
 .site-root main{position:relative;overflow:visible}
@@ -129,9 +137,8 @@ main[data-bg-wappen]::before{
 
 h2{font-weight:700;letter-spacing:0.015em}
 
-.site-header{background:var(--neutral-light);padding:18px 0;height:160px;box-sizing:border-box;display:flex;align-items:center}
+.site-header{background:var(--neutral-light);padding:18px 0;height:160px;box-sizing:border-box;display:flex;align-items:center;position:relative;z-index:70}
 .site-header .container{max-width:var(--content-width);margin:0 auto;padding:24px 24px 24px 0;display:flex;align-items:center;gap:40px}
-.site-header{position:relative;z-index:70}
 .brand{margin-left:0}
 .brand-link{display:flex;align-items:center;gap:2px;text-decoration:none;margin-left:0;position:relative}
 .brand-link::before{
@@ -211,7 +218,7 @@ h2{font-weight:700;letter-spacing:0.015em}
   :root{ --content-gutter: 24px }
 }
 
-.hero{position:relative;min-height:75vh;display:flex;align-items:flex-end}
+.hero{position:relative;min-height:75vh;display:flex;align-items:flex-end;padding-bottom:80px}
 .hero-slideshow{position:absolute;inset:0;overflow:hidden}
   .hero-slideshow::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(var(--neutral-light-rgb),0.24), rgba(var(--shadow-rgb),0.14));pointer-events:none}
 .hero-slideshow .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease, transform .9s ease;will-change:opacity,transform}
@@ -292,9 +299,8 @@ h2{font-weight:700;letter-spacing:0.015em}
 /* ensure hover doesn't change text-decoration/color */
 .tile:hover, .tile:hover:link, .tile:hover:visited{color:var(--text);text-decoration:none}
 
-.site-footer{padding:18px 0;border-top:1px solid var(--muted);text-align:center;margin-top:36px}
+.site-footer{background:var(--text);color:var(--bg);padding:20px 0;margin-top:36px;position:relative;z-index:50}
 /* Footer layout adapted to site design */
-.site-footer{background:var(--text);color:var(--bg);padding:20px 0;border-top:0;margin-top:36px;position:relative;z-index:50}
 .site-footer .footer-grid{display:flex;gap:48px;align-items:flex-start;justify-content:space-between;text-align:left}
 .site-footer .footer-col{min-width:180px}
 .site-footer h4{color:var(--bg);margin:0 0 12px;font-weight:700;text-transform:uppercase;font-size:13px}
@@ -308,9 +314,12 @@ h2{font-weight:700;letter-spacing:0.015em}
 .footer-opening .opening-text{color:var(--bg);font-size:14px}
 
 /* Make contact page links (email / phone) use the same visible hover as footer */
-.contact-page a{color:#000000;text-decoration:none;display:inline-block;transition:color .18s ease,transform .18s ease}
+.contact-page a{color:var(--dark-gray);text-decoration:none;display:inline-block;transition:color .18s ease,transform .18s ease}
 .contact-page a:hover{color:var(--accent);transform:translateX(6px);text-decoration:none}
   .footer-bottom{border-top:1px solid rgba(var(--neutral-light-rgb),0.06);padding-top:10px;margin-top:12px;color:rgba(var(--neutral-light-rgb),0.75);font-size:13px}
+
+/* Center footer bottom text site-wide (overrides smaller-screen left-align rules) */
+.site-footer .footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,0.08)}
 
 @media (max-width:800px){
   .site-footer .footer-grid{flex-direction:column;gap:20px}
@@ -318,16 +327,16 @@ h2{font-weight:700;letter-spacing:0.015em}
 }
 
 /* Carousel controls & drag state */
-.photo-carousel{position:relative;max-width:1100px;margin:0 auto;padding-top:18px;z-index:120}
+.photo-carousel{position:relative;max-width:1100px;margin:0 auto;padding-top:65px;z-index:120}
 /* Ensure container padding doesn't visually offset the centered carousel */
 .photo-carousel.container{padding-left:24px;padding-right:24px}
 
 /* Make carousel images larger on wide screens: show 3 bigger items */
-.photo-carousel.container .photo-grid{gap:14px}
+.photo-carousel.container .photo-grid{gap:var(--photo-gap)}
 @media (min-width:1100px){
   .photo-carousel.container .photo-grid .photo-item{
-    /* subtract 2 gaps (2 * 14px = 28px) then split remaining width into 3 items */
-    flex: 0 0 calc((100% - 28px) / 3);
+    /* subtract 2 gaps then split remaining width into 3 items */
+    flex: 0 0 calc((100% - (2 * var(--photo-gap))) / 3);
     min-width: 0; /* allow shrink to exact calc value */
     min-height: 280px; /* increase visible image height on desktop */
   }
@@ -351,9 +360,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 .contact-form{display:flex;flex-direction:column;gap:8px;max-width:500px}
 
-/* Photo grid on homepage */
-/* Photo grid: keep horizontal scrollable area but hide the scrollbar visually */
-.photo-grid{display:flex;flex-wrap:nowrap;gap:14px;padding:28px 0;overflow-x:auto;overflow-y:hidden}
+.photo-grid{display:flex;flex-wrap:nowrap;gap:var(--photo-gap);padding:var(--photo-pad) 0;overflow-x:auto;overflow-y:hidden}
 .photo-grid::-webkit-scrollbar{display:none}
 .photo-grid{-ms-overflow-style:none;scrollbar-width:none}
 /* Remove browser default blue focus ring on the photo grid; provide subtle site-focus instead */
@@ -398,11 +405,48 @@ h2{font-weight:700;letter-spacing:0.015em}
 /* Title: below the wappen */
 .photo-overlay .overlay-title{
   display:block;
-  font-weight:700;
-  margin:0;
-  white-space:nowrap;
-  text-align:center;
 }
+
+/* Project-specific utility classes to replace inline styles */
+.page-viewport{position:relative;overflow:hidden;min-height:calc(100vh - 160px)}
+.relative-z1{position:relative;z-index:1}
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+.center-column{display:flex;flex-direction:column;align-items:center;gap:8px}
+.mt-8{margin-top:8px}
+.link-button{border:0;background:transparent;color:var(--accent);cursor:pointer}
+
+/* Make the file-drop browse button less prominent and nudge it right */
+.file-drop .link-button{
+  background:transparent;
+  color:rgba(var(--text-rgb),0.85);
+  border:1px solid rgba(var(--shadow-rgb),0.06);
+  padding:6px 10px;
+  border-radius:8px;
+  margin-left:18px;
+  box-shadow:none;
+}
+.file-drop .link-button:hover{background:rgba(var(--shadow-rgb),0.02);color:var(--text)}
+.hidden-input{display:none}
+.error-msg{color:crimson;margin-top:8px}
+.file-list{list-style:none;padding:8px;margin:0}
+.file-list-item{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;background:var(--white);border-radius:4px;margin-top:6px;border:1px solid var(--muted)}
+.ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:360px;display:inline-block}
+.ml-8{margin-left:8px}
+.status-msg{margin-top:12px;padding:12px;border-radius:6px;display:inline-block}
+.status-ok{background:#e6ffed;border:1px solid #c7f0d1}
+.status-err{background:#fff3f3;border:1px solid #f2c2c2}
+.opening-hours{padding:18px;background:var(--white);border-radius:8px}
+
+/* Additional small utilities used when migrating inline styles */
+.max-width-720{max-width:720px}
+.pre-line{white-space:pre-line}
+.iframe-borderless{border:0}
+.mt-12{margin-top:12px}
+.mt-20{margin-top:20px}
+.icon-row{display:flex;gap:10px;justify-content:center}
+.icon-row img{width:10%;height:auto}
+.fs-15{font-size:15px}
+.btn-row{display:flex;gap:12px;align-items:center}
 
 @media (min-width:1100px){
   /* Desktop: wappen centered in image on hover */
@@ -498,8 +542,6 @@ html, body { overflow-x: hidden; }
   .site-header .container{padding:24px}
   .atelier-page{padding:24px}
   .container{padding:24px}
-  .container.about-page{padding:24px}
-  .container.contact-page{padding:24px}
 }
 
 @media (max-width:380px){
@@ -563,9 +605,9 @@ html, body { overflow-x: hidden; }
 /* Atelier page: overdimensioned decorative wappen top-right */
 .atelier-page{position:relative;overflow:visible;padding:24px 24px 24px 88px}
 .submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
-.file-drop{width:100%;padding:12px;border:2px dashed #ddd;border-radius:6px;text-align:center;background:#fafafa;box-sizing:border-box}
+.file-drop{width:100%;padding:12px;border:2px dashed var(--muted);border-radius:6px;text-align:center;background:var(--neutral-lighter);box-sizing:border-box}
 .file-list{width:100%;max-width:100%;box-sizing:border-box;padding:0;margin:8px 0 0}
-.file-list li{background:#fff}
+.file-list li{background:var(--white)}
 
 @media (max-width:900px){
   .contact-grid{grid-template-columns:1fr !important;padding:0 12px}
@@ -586,7 +628,7 @@ html, body { overflow-x: hidden; }
   .submit-btn{padding:10px;border-radius:6px}
 }
 /* Feature photo sections layout */
-.feature-photos .feature-photo-section{display:flex;align-items:center;gap:32px;margin:64px 0;position:relative}
+.feature-photos .feature-photo-section{display:flex;align-items:center;gap:32px;margin:0;position:relative}
 .feature-photos .feature-photo{flex:1 1 55%;min-height:320px;display:flex;align-items:center;justify-content:center}
 .feature-photos .feature-content{flex:0 0 40%;max-width:46%}
 .feature-content.push-down{display:block}
@@ -705,13 +747,13 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 }
 
 /* Feature photo sections: image + text side-by-side */
-.feature-photo-section{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;padding:36px 0;position:relative}
+.feature-photo-section{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--photo-gap);row-gap:var(--photo-row-gap);align-items:center;padding:24px 0;margin-bottom:19px;position:relative}
 .feature-photo-section + .feature-photo-section{border-top:0}
 .feature-photo{display:block}
 /* enforce a consistent visible height for all feature photos; image will fill this area */
-.feature-photo{height:620px}
+.feature-photo{height:640px}
 /* Larger presentation variant for the middle feature (photo 8) */
-.feature-photo--large{height:880px}
+.feature-photo--large{height:640px}
 /* Grid placement must target direct children of the section. The link is the grid child that wraps the photo. */
 .feature-link{grid-column:1}
 .feature-content{grid-column:2}
@@ -730,11 +772,15 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 .feature-photo-section.reverse .feature-content{order:1}
 
 @media (max-width:900px){
-  .feature-photo-section{grid-template-columns:1fr;gap:14px}
+  .feature-photo-section{grid-template-columns:1fr;row-gap:12px;column-gap:var(--photo-gap);margin-bottom:10px}
   /* increase mobile feature photo height for better visibility */
   .feature-photo-img{height:420px}
   .feature-content h2{font-size:22px}
 }
+
+/* Remove bottom margin for feature sections inside the grouped feature list
+  (keeps spacing for standalone feature sections intact) */
+.feature-photos .feature-photo-section{margin-bottom:0}
 
 /* Parallax + overlay styles for feature images */
 .feature-parallax{position:relative;overflow:hidden;border-radius:12px}
@@ -759,7 +805,7 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
   transform:none;
   width:auto;
   max-width:720px;
-  padding:28px 32px;
+  padding:20px 22px;
   background:#ffffff;
   border-radius:12px;
   box-shadow:0 22px 60px rgba(47,58,61,0.08);
@@ -781,6 +827,45 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
   margin-top:0;
   transform:none;
 }
+
+/* About page specific styles */
+/* Top area for About page: no blue band, show name + intro paragraph full-width */
+.about-hero{background:transparent;color:var(--text);display:block;padding:8px 0 20px;margin-bottom:18px}
+.about-hero-inner{max-width:var(--content-width);margin:0 auto;padding:0 24px;box-sizing:border-box}
+.about-hero-title{font-size:30px;font-weight:800;margin:0 0 10px;color:var(--accent);letter-spacing:0.01em}
+.about-toptext{margin:0;color:rgba(var(--text-rgb),0.95);font-size:16px;line-height:1.7;max-width:900px}
+
+.about-page .about-grid{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:stretch}
+.about-page .about-text{background:transparent;padding:8px 0 8px 0;display:flex;flex-direction:column}
+.about-page .about-intro{margin:0 0 18px;color:rgba(var(--text-rgb),0.95);font-size:16px;line-height:1.6}
+.about-page .vita-heading{margin:0 0 14px;font-size:18px;color:var(--accent);font-weight:700}
+.about-page .vita-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;flex:1;overflow:auto}
+.about-page .vita-list li{padding:12px 6px;background:transparent;border:0;border-bottom:0;border-radius:0;box-shadow:none;display:grid;grid-template-columns:88px 1fr;column-gap:12px;align-items:start}
+.about-page .vita-list li strong{grid-column:1;color:var(--dark-gray);font-weight:700}
+.about-page .vita-list li .vita-desc{grid-column:2}
+
+.about-portrait{display:flex;flex-direction:column;align-items:center;gap:12px;align-self:stretch}
+.about-portrait img{width:100%;max-width:360px;height:min(68vh,640px);border-radius:8px;object-fit:cover;box-shadow:0 18px 46px rgba(var(--shadow-rgb),0.10)}
+.about-portrait .caption{font-size:13px;color:rgba(var(--text-rgb),0.6);margin:6px 0 0}
+
+@media (max-width:900px){
+  .about-hero{padding:20px 16px;margin-bottom:18px}
+  .about-hero-title{font-size:26px}
+  .about-page .about-grid{grid-template-columns:1fr;gap:20px}
+  .about-portrait img{max-width:280px}
+  .about-page .vita-list li{padding:10px}
+}
+
+@media (min-width:900px){
+  /* lift the text column slightly so it sits a bit higher than the portrait */
+  .about-page .about-text{align-self:start;margin-top:-18px}
+}
+
+/* Ensure hero inner matches container padding on small screens */
+@media (max-width:900px){
+  .about-hero-inner{padding:0 24px}
+}
+
 
 /* Mobile: improve carousel / jewellery photo responsiveness
    - disable parallax on small screens to avoid awkward cropping
@@ -880,7 +965,7 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 @media (min-width:1100px){
   .feature-photo{height:640px}
   .feature-overlay h2{font-size:40px}
-  .feature-photo--large{height:880px}
+  .feature-photo--large{height:640px}
 }
 /* ensure content starts neutral */
 .feature-content{transform:translate3d(0,0,0)}
@@ -901,6 +986,7 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
   .feature-photo-section.in-view .feature-content.push-down.align-right .photo-number{
     transform:translateX(-56px);
   }
+}
 
 /* Lightbox for enlarged feature photos */
 .lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.78);display:flex;align-items:center;justify-content:center;z-index:99999;padding:24px}
@@ -939,8 +1025,6 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
   .lightbox-inner.zoomed .lightbox-image{transform:scale(1.2)}
 }
 
-}
-
 /* Google Maps embed styling */
   .map-container{margin-top:24px;border-radius:8px;overflow:hidden;box-shadow:0 10px 30px rgba(var(--shadow-rgb),0.08)}
 .map-container iframe{display:block;width:100%;height:420px;border:0}
@@ -953,9 +1037,9 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 }
 
 /* About page layout */
-.about-page .about-grid{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start;padding:48px 0;max-width:var(--content-width);margin:0 auto}
-  .about-portrait img{width:100%;max-width:240px;height:auto;border-radius:6px;box-shadow:0 6px 18px rgba(var(--shadow-rgb),0.08);display:block;margin:0 auto}
-.about-portrait .caption{font-size:13px;color:var(--text);margin:8px auto 0;max-width:240px;text-align:center}
+.about-page .about-grid{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:start;padding:48px 0;max-width:var(--content-width);margin:0 auto}
+  .about-portrait img{width:100%;max-width:360px;height:auto;border-radius:8px;box-shadow:0 12px 30px rgba(var(--shadow-rgb),0.08);display:block;margin:0 auto}
+.about-portrait .caption{font-size:13px;color:var(--text);margin:8px auto 0;max-width:360px;text-align:center}
 .vita-list{list-style:none;padding:0;margin:0}
 .vita-list li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
 

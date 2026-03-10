@@ -73,7 +73,7 @@ export default function Contact(){
     const files = Array.from(fileList)
     const oversized = files.filter(f => f.size > MAX_FILE_SIZE)
     if (oversized.length) {
-      setFileError(`Die Datei ${oversized[0].name} ist zu groß. Maximal ${Math.round(MAX_FILE_SIZE/1024/1024)} MB.`)
+      setFileError(t('contactPage.fileTooLarge', { filename: oversized[0].name, max: Math.round(MAX_FILE_SIZE/1024/1024) }))
       setReadingFiles(false)
       return
     }
@@ -85,10 +85,10 @@ export default function Contact(){
   }
 
   return (
-    <div style={{ position: 'relative', overflow: 'hidden', minHeight: 'calc(100vh - 160px)' }}>
-      <div className="container contact-page" style={{ position: 'relative', zIndex: 1 }}>
+    <div className="page-viewport">
+      <div className="container contact-page relative-z1">
         <h2>{t('contactPage.title')}</h2>
-        <div className="contact-grid" style={{display:'grid',gridTemplateColumns:'1fr 360px',gap:24,alignItems:'start'}}>
+        <div className="contact-grid">
           <div>
             <p>{t('contact.name')}</p>
           <p>{t('contact.street')}<br/>{t('contact.zipcity')}</p>
@@ -147,8 +147,8 @@ export default function Contact(){
             <label>{t('contactPage.form.name')}<input value={name} onChange={e => setName(e.target.value)} required /></label>
             <label>{t('contactPage.form.email')}<input value={email} onChange={e => setEmail(e.target.value)} type="email" required /></label>
             <label>{t('contactPage.form.message')}<textarea ref={messageRef} value={message} onChange={e => setMessage(e.target.value)} required /></label>
-            <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:8}}>
-              <button ref={btnRef} className="submit-btn" type="submit" disabled={sent === 'sending' || readingFiles}>{sent === 'sending' ? 'Sende...' : t('contactPage.form.submit')}</button>
+            <div className="center-column">
+              <button ref={btnRef} className="submit-btn" type="submit" disabled={sent === 'sending' || readingFiles}>{sent === 'sending' ? t('contactPage.sending') : t('contactPage.form.submit')}</button>
 
               <div
                 onDrop={async (ev) => {
@@ -157,21 +157,20 @@ export default function Contact(){
                   await handleFiles(ev.dataTransfer.files)
                 }}
                 onDragOver={(ev) => ev.preventDefault()}
-                className="file-drop"
-                style={{marginTop:8}}
+                className="file-drop mt-8"
               >
-                Ziehe Dateien hierher (PDF, JPG, PNG) oder <button type="button" onClick={() => fileInputRef.current && fileInputRef.current.click()} style={{border:'none',background:'transparent',color:'var(--accent)',cursor:'pointer'}}>durchsuchen</button>
-                <input ref={fileInputRef} type="file" multiple style={{display:'none'}} onChange={e => handleFiles(e.target.files)} />
+                {t('contactPage.uploadPrompt', { types: 'PDF, JPG, PNG' })} {t('contactPage.or')} <button type="button" onClick={() => fileInputRef.current && fileInputRef.current.click()} className="link-button">{t('contactPage.browse')}</button>
+                <input ref={fileInputRef} type="file" multiple className="hidden-input" onChange={e => handleFiles(e.target.files)} />
               </div>
 
-              {fileError && <div style={{color:'crimson',marginTop:8}}>{fileError}</div>}
+              {fileError && <div className="error-msg">{fileError}</div>}
 
               {attachments.length > 0 && (
-                <ul className="file-list" style={{listStyle:'none',padding:8,margin:0}}>
+                <ul className="file-list">
                   {attachments.map((f, i) => (
-                    <li key={i} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'6px 8px',background:'#fff',borderRadius:4,marginTop:6,border:'1px solid #eee'}}>
-                      <span style={{overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',maxWidth:360}}>{(f && (f.name || f.filename)) || 'attachment'}</span>
-                      <button type="button" onClick={() => setAttachments(prev => prev.filter((_, idx) => idx !== i))} style={{marginLeft:8}}>Entfernen</button>
+                    <li key={i} className="file-list-item">
+                      <span className="ellipsis">{(f && (f.name || f.filename)) || 'attachment'}</span>
+                      <button type="button" onClick={() => setAttachments(prev => prev.filter((_, idx) => idx !== i))} className="ml-8">{t('contactPage.remove')}</button>
                     </li>
                   ))}
                 </ul>
@@ -179,32 +178,20 @@ export default function Contact(){
             </div>
           </form>
           {sent === 'ok' && (
-            <div
-              role="status"
-              aria-live="polite"
-              style={{
-                marginTop: 12,
-                padding: 12,
-                background: '#e6ffed',
-                border: '1px solid #c7f0d1',
-                borderRadius: 6,
-                display: 'inline-block',
-                width: controlWidth || undefined
-              }}
-            >
-              Vielen Dank — Ihre Nachricht wurde versendet.
+            <div role="status" aria-live="polite" className="status-msg status-ok" style={{ width: controlWidth || undefined }}>
+              {t('contactPage.sentOk')}
             </div>
           )}
           {sent === 'error' && (
-            <div role="status" aria-live="polite" style={{marginTop:12,padding:12,background:'#fff3f3',border:'1px solid #f2c2c2',borderRadius:6}}>
-              Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später oder schreiben Sie direkt an {t('contact.email')}.
+            <div role="status" aria-live="polite" className="status-msg status-err">
+              {t('contactPage.sentError', { email: t('contact.email') })}
             </div>
           )}
         </div>
         <aside>
-          <div id="opening-hours" style={{padding:18,background:'#ffffff',borderRadius:8}}>
+          <div id="opening-hours" className="opening-hours">
             <strong>{t('contactPage.openingHoursTitle')}</strong>
-            <p style={{whiteSpace:'pre-line'}}>{t('contactPage.openingHoursText')}</p>
+            <p className="pre-line">{t('contactPage.openingHoursText')}</p>
           </div>
         </aside>
         </div>

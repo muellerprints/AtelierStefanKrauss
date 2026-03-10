@@ -158,7 +158,7 @@ export default function Privacy(){
             <li>Recht auf Beschwerde gemäß Art. 77 DSGVO</li>
           </ul>
           <br/>
-          <h4><span style={{fontSize: '15px'}}>8.2</span> Widerspruchsrecht</h4>
+          <h4><span className="fs-15">8.2</span> Widerspruchsrecht</h4>
           WENN WIR IM RAHMEN EINER INTERESSENABWÄGUNG IHRE PERSONENBEZOGENEN DATEN AUFGRUND UNSERES ÜBERWIEGENDEN BERECHTIGTEN INTERESSES VERARBEITEN, HABEN SIE DAS JEDERZEITIGE RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIESE VERARBEITUNG WIDERSPRUCH MIT WIRKUNG FÜR DIE ZUKUNFT EINZULEGEN.
           <br/>
           <br/>
