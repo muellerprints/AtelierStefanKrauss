@@ -72,8 +72,10 @@ a:hover,a:focus{color:var(--accent)}
    and may override rotation/size via CSS variables. This keeps the
    emblem outside the content `.container` and full-bleed. */
 main[data-bg-wappen]::before{
+  /* make the emblem a fixed, decorative background so it continues
+     behind header and footer while remaining non-interactive */
   content: '';
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 100vw;
@@ -90,6 +92,18 @@ main[data-bg-wappen]::before{
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%) rotate(var(--wappen-rotate, 30deg));
   will-change: transform, opacity;
+}
+
+/* Apply the wappen SVG as a direct background on the content element
+   for pages that opt-in via `data-bg-wappen="true"` (e.g. Services, Contact).
+   This ensures the SVG appears even if pseudo-elements are overridden. */
+main#content[data-bg-wappen="true"]{
+  background-image: url('/assets/icons/wappen-outline.svg');
+  background-repeat: no-repeat;
+  background-position: var(--wappen-pos-x, 50%) 50%;
+  background-size: var(--wappen-size, 80vw);
+  opacity: 1; /* background-image itself has no opacity; visual tone controlled via CSS variables */
+  pointer-events: none; /* ensure decorative only */
 }
 
 /* Desktop: slightly smaller, less intrusive emblem so it doesn't overlap content */
