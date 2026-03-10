@@ -32,11 +32,11 @@ const resources = {
           },
           {
             title: 'Unikate & Restaurationen',
-            lead: 'Einzelstücke mit Persönlichkeit; sorgsame Anfertigung und fachgerechte Wiederherstellung.'
+            lead: 'Einzelstücke mit Persönlichkeit, sorgsame Anfertigung und fachgerechte Wiederherstellung.'
           },
           {
             title: 'Beratung & Anfertigung',
-            lead: 'Persönliche Begleitung von der Skizze bis zum fertigen Schmuckstück.'
+            lead: '<span class="accent-blue">Persönliche Begleitung von der Skizze bis zum fertigen Schmuckstück.</span>'
           },
           {
             title: 'Werkstatt & Arbeitsweise',
@@ -314,11 +314,11 @@ Qualität zeigt sich im Detail.`
           },
           {
             title: 'Bespoke Pieces & Restoration',
-            lead: 'Unique pieces with personality; carefully crafted and expertly restored.'
+            lead: 'Unique pieces with personality, carefully crafted and expertly restored.'
           },
           {
             title: 'Consultation & Creation',
-            lead: 'Personal guidance from initial sketch to the finished piece.'
+            lead: '<span class="accent-blue">Personal guidance from initial sketch to the finished piece.</span>'
           },
           {
             title: 'Workshop & Practice',

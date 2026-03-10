@@ -95,16 +95,17 @@ export default function Hero({ maxImages } = {}){
     let mounted = true
     img.onload = () => {
       try {
-        const w = 80, h = 80
+        // larger sampling area for more robust luminance detection on busy images
+        const w = 160, h = 160
         const c = document.createElement('canvas')
         c.width = w
         c.height = h
         const ctx = c.getContext('2d')
         ctx.drawImage(img, 0, 0, w, h)
-        // sample a small central block for average luminance
-        const sx = Math.max(0, Math.floor(w / 2 - 6))
-        const sy = Math.max(0, Math.floor(h / 2 - 6))
-        const sw = 12, sh = 12
+        // sample a larger central block for average luminance (40x40)
+        const sx = Math.max(0, Math.floor(w / 2 - 20))
+        const sy = Math.max(0, Math.floor(h / 2 - 20))
+        const sw = 40, sh = 40
         const data = ctx.getImageData(sx, sy, sw, sh).data
         let total = 0
         for (let i = 0; i < data.length; i += 4) {
@@ -115,8 +116,11 @@ export default function Hero({ maxImages } = {}){
         }
         const avg = total / (data.length / 4)
         const normalized = avg / 255
-        // threshold: if background is darker than ~60% luminance, treat as dark
-        if (mounted) setLeadBg(normalized < 0.6 ? 'dark' : 'light')
+        // threshold: if background is darker than this luminance, treat as dark
+        // Raised from 0.60 -> 0.65 to make detection slightly more conservative
+        // (treats more mid-tones as "dark" so light text is used more often).
+        const LUMINANCE_THRESHOLD = 0.65
+        if (mounted) setLeadBg(normalized < LUMINANCE_THRESHOLD ? 'dark' : 'light')
       } catch (e) {
         if (mounted) setLeadBg('light')
       }
@@ -140,7 +144,7 @@ export default function Hero({ maxImages } = {}){
       <div className="hero-overlay" aria-hidden />
       <div className={`hero-content container ${index % 2 === 0 ? 'from-up' : 'from-left'} ${leadBg === 'dark' ? 'bg-dark' : 'bg-light'}`} key={index}>
         <h1>{slidesData[index]?.title || t('siteTitle')}</h1>
-        <p className="lead">{slidesData[index]?.lead || t('tagline')}</p>
+        <p className="lead" dangerouslySetInnerHTML={{ __html: slidesData[index]?.lead || t('tagline') }} />
       </div>
     </section>
   )
