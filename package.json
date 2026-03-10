@@ -8,8 +8,6 @@
     "dev": "vite --port 5174",
     "server": "node server/index.js",
     "prepare-dist": "sh scripts/prepare-dist.sh",
-    "translate:i18n": "node scripts/translate-i18n.js",
-    "watch:translate": "chokidar 'src/i18n.js' -c \"npm run translate:i18n\" --initial",
     "build": "vite build",
     "watch:dist": "chokidar \"src/**/*\" \"public/**/*\" -c \"npm run build && npm run prepare-dist\" --initial",
     "preview": "vite preview --port 5174",

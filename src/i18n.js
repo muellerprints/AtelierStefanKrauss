@@ -616,7 +616,7 @@ Quality shows in the detail.`
             link: '/services'
           },
           {
-            title: 'About Stefan Kraussgap entfernen. ich möchte die fotos ',
+            title: 'About Stefan Krauss',
             text: 'Decades of craft, focused moments and refined details.',
             link: '/about'
           }

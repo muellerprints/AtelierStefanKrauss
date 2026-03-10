@@ -225,6 +225,8 @@ h2{font-weight:700;letter-spacing:0.015em}
 .hero-slideshow .slide.active{opacity:1;z-index:1}
 .hero-content{position:relative;padding:var(--content-gutter) 24px;color:var(--text);z-index:2;overflow:visible}
 .hero-content h1{color:var(--accent);font-size:48px;line-height:1.05;margin:0 0 10px;font-weight:700;letter-spacing:0.02em}
+/* Force hero titles to remain on a single line where possible */
+.hero-content h1{white-space:nowrap;overflow:visible;text-overflow:clip}
   .lead{max-width:720px;font-family:'Source Sans 3',system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:22px;color:rgba(var(--text-rgb),0.9);margin:0;transition:color .18s ease,text-shadow .18s ease}
   /* Hero subtitle: force single line and allow it to overflow (no clipping) */
   .hero-content .lead{white-space:nowrap;overflow:visible;text-overflow:clip;display:inline-block}
@@ -826,6 +828,14 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 .feature-content{display:flex;flex-direction:column;justify-content:center;opacity:0;filter:blur(2px);transform:translateY(18px);transition:opacity 4s cubic-bezier(.16,.84,.3,1),transform 4s cubic-bezier(.16,.84,.3,1),filter 4s ease}
 .feature-content h2{margin:0 0 8px;font-size:36px;font-weight:700;display:flex;align-items:baseline;justify-content:flex-start;gap:12px}
 .feature-content .photo-title{display:inline}
+/* Keep feature titles on one line on larger screens */
+@media (min-width: 900px) {
+  .feature-content h2, .feature-content .photo-title {
+    white-space:nowrap;
+    overflow:visible;
+    text-overflow:clip;
+  }
+}
 .feature-content .photo-number{display:inline-block;font-size:40px;color:rgba(47,58,61,0.95);font-weight:800;line-height:1}
 /* Reverse order for flexbox layout */
 .feature-photo-section.reverse{flex-direction:column-reverse}
