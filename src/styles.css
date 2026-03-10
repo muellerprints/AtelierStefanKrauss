@@ -54,6 +54,17 @@ a{color:var(--text);text-decoration:none}
 a:hover,a:focus{color:var(--accent)}
 .container{max-width:var(--content-width);margin:0 auto;padding:24px;box-sizing:border-box}
 
+/* Responsive container padding */
+@media (max-width:1200px){
+  .container{padding:20px}
+}
+@media (max-width:768px){
+  .container{padding:16px}
+}
+@media (max-width:480px){
+  .container{padding:12px}
+}
+
 /* About page: reduce left padding to align content visually and avoid excessive left gutter */
 .container.about-page{max-width:var(--content-width);width:100%;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
 .site-root h1{font-family: 'Source Sans 3', system-ui, -apple-system, 'Helvetica Neue', Arial; font-size:24px;font-weight:700;letter-spacing:0.02em}
@@ -138,7 +149,32 @@ main[data-bg-wappen]::before{
 
 h2{font-weight:700;letter-spacing:0.015em}
 
+/* Responsive typography */
+@media (max-width:1200px){
+  h1{font-size:32px}
+  h2{font-size:28px}
+  h3{font-size:22px}
+}
+@media (max-width:768px){
+  h1{font-size:28px}
+  h2{font-size:24px}
+  h3{font-size:20px}
+}
+@media (max-width:480px){
+  h1{font-size:24px}
+  h2{font-size:20px}
+  h3{font-size:18px}
+}
+
 .site-header{background:var(--neutral-light);padding:18px 0;height:160px;box-sizing:border-box;display:flex;align-items:center;position:relative;z-index:70}
+
+/* Responsive header */
+@media (max-width:1200px){
+  .site-header{height:140px;padding:14px 0}
+}
+@media (max-width:768px){
+  .site-header{height:120px;padding:12px 0}
+}
 .site-header .container{max-width:var(--content-width);margin:0 auto;padding:24px 24px 24px 0;display:flex;align-items:center;gap:40px}
 .brand{margin-left:0}
 .brand-link{display:flex;align-items:center;gap:2px;text-decoration:none;margin-left:0;position:relative}
@@ -172,6 +208,15 @@ h2{font-weight:700;letter-spacing:0.015em}
 .brand-subtitle{font-size:24px;color:var(--accent);margin:0;font-weight:700;line-height:1;letter-spacing:0.01em;text-transform:uppercase}
 .main-nav{margin-left:auto;display:flex;gap:18px;align-items:center}
 .main-nav a{color:var(--text);text-decoration:none;transition:color .14s ease,transform .14s ease}
+
+/* Responsive navigation spacing */
+@media (max-width:1200px){
+  .main-nav{gap:14px}
+  .main-nav a{font-size:15px}
+}
+@media (max-width:1024px){
+  .main-nav{gap:12px}
+}
 .main-nav a[aria-current="page"]{position:relative}
 .main-nav a[aria-current="page"]::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;width:36px;height:3px;background:var(--accent);border-radius:2px}
 .main-nav .cta{color:white;background:var(--accent);padding:8px 14px;border-radius:6px;box-shadow:0 8px 22px rgba(var(--accent-rgb),0.14);font-weight:700}
@@ -220,17 +265,29 @@ h2{font-weight:700;letter-spacing:0.015em}
 }
 
 .hero{position:relative;min-height:75vh;display:flex;align-items:flex-end;padding-bottom:80px}
+
+/* Responsive hero heights */
+@media (max-width:1200px){
+  .hero{min-height:65vh;padding-bottom:60px}
+}
+@media (max-width:768px){
+  .hero{min-height:55vh;padding-bottom:40px}
+}
 .hero-slideshow{position:absolute;inset:0;overflow:hidden}
   .hero-slideshow::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(var(--neutral-light-rgb),0.24), rgba(var(--shadow-rgb),0.14));pointer-events:none}
 .hero-slideshow .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease, transform .9s ease;will-change:opacity,transform}
 .hero-slideshow .slide.active{opacity:1;z-index:1}
 .hero-content{position:relative;padding:var(--content-gutter) 24px;color:var(--text);z-index:2;overflow:visible}
 .hero-content h1{color:var(--accent);font-size:48px;line-height:1.05;margin:0 0 10px;font-weight:700;letter-spacing:0.02em}
-/* Force hero titles to remain on a single line where possible */
-.hero-content h1{white-space:nowrap;overflow:visible;text-overflow:clip}
+/* Force hero titles to remain on a single line where possible (desktop only) */
+@media (min-width:901px){
+  .hero-content h1{white-space:nowrap;overflow:visible;text-overflow:clip}
+}
   .lead{max-width:720px;font-family:'Source Sans 3',system-ui, -apple-system, 'Helvetica Neue', Arial;font-size:22px;color:rgba(var(--text-rgb),0.9);margin:0;transition:color .18s ease,text-shadow .18s ease}
-  /* Hero subtitle: force single line and allow it to overflow (no clipping) */
-  .hero-content .lead{white-space:nowrap;overflow:visible;text-overflow:clip;display:inline-block}
+  /* Hero subtitle: force single line and allow it to overflow (no clipping) - desktop only */
+  @media (min-width:901px){
+    .hero-content .lead{white-space:nowrap;overflow:visible;text-overflow:clip;display:inline-block}
+  }
 
 /* Default: use the site text grey */
 .hero-content .lead{color:var(--text)}
@@ -303,7 +360,26 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 
 .teasers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:48px 0}
+
+/* Responsive teasers grid */
+@media (max-width:1200px){
+  .teasers{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:36px 0}
+}
+@media (max-width:768px){
+  .teasers{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;padding:24px 0}
+}
+@media (max-width:480px){
+  .teasers{grid-template-columns:1fr;gap:14px;padding:20px 0}
+}
 .tile{display:block;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,246,241,0.6));padding:24px;border-radius:8px;transition:transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s cubic-bezier(.2,.9,.2,1)}
+
+/* Responsive tile padding */
+@media (max-width:768px){
+  .tile{padding:20px}
+}
+@media (max-width:480px){
+  .tile{padding:16px}
+}
 .tile, .tile:link, .tile:visited {
   text-decoration: none;
 }
@@ -334,15 +410,35 @@ h2{font-weight:700;letter-spacing:0.015em}
 /* Center footer bottom text site-wide (overrides smaller-screen left-align rules) */
 .site-footer .footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,0.08)}
 
+@media (max-width:1024px){
+  .site-footer .footer-grid{gap:32px}
+  .site-footer .footer-col{min-width:160px}
+}
 @media (max-width:800px){
   .site-footer .footer-grid{flex-direction:column;gap:20px}
   .footer-contact{order:3}
+}
+@media (max-width:480px){
+  .site-footer{padding:24px 0}
+  .site-footer .footer-grid{gap:24px}
+  .site-footer h4{font-size:14px;margin-bottom:14px}
 }
 
 /* Carousel controls & drag state */
 .photo-carousel{position:relative;max-width:1100px;margin:0 auto;padding-top:65px;z-index:120}
 /* Ensure container padding doesn't visually offset the centered carousel */
 .photo-carousel.container{padding-left:24px;padding-right:24px}
+
+/* Responsive carousel */
+@media (max-width:1200px){
+  .photo-carousel{padding-top:48px}
+  .carousel-button{width:36px;height:36px;font-size:18px}
+  .carousel-button.prev{left:-48px}
+  .carousel-button.next{right:-48px}
+}
+@media (max-width:768px){
+  .photo-carousel{padding-top:32px}
+}
 
 /* Make carousel images larger on wide screens: show 3 bigger items */
 .photo-carousel.container .photo-grid{gap:var(--photo-gap)}
@@ -553,6 +649,14 @@ h2{font-weight:700;letter-spacing:0.015em}
 .status-err{background:#fff3f3;border:1px solid #f2c2c2}
 .opening-hours{padding:18px;background:var(--white);border-radius:8px}
 
+/* Responsive opening hours */
+@media (max-width:768px){
+  .opening-hours{padding:16px}
+}
+@media (max-width:480px){
+  .opening-hours{padding:14px}
+}
+
 /* Additional small utilities used when migrating inline styles */
 .max-width-720{max-width:720px}
 .pre-line{white-space:pre-line}
@@ -601,11 +705,24 @@ h2{font-weight:700;letter-spacing:0.015em}
 }
 
 /* Responsive adjustments: improve typography and layout on small screens */
+@media (max-width:1200px){
+  .hero-content h1{font-size:38px}
+  .lead{font-size:20px}
+}
 @media (max-width:900px){
-  .hero-content h1{font-size:28px}
+  .hero-content h1{font-size:28px;white-space:normal !important}
   .lead{font-size:18px}
   /* Allow hero subtitle to wrap on smaller viewports */
   .hero-content .lead{white-space:normal;overflow:visible;text-overflow:clip;max-width:none}
+}
+@media (max-width:600px){
+  .hero-content{padding:24px 16px}
+  .hero-content h1{font-size:24px;white-space:normal !important}
+  .lead{font-size:16px}
+}
+@media (max-width:480px){
+  .hero-content h1{font-size:22px;white-space:normal !important;line-height:1.2}
+  .lead{font-size:15px;line-height:1.4}
 }
 
 /* Prevent occasional horizontal overflow on small screens while keeping
@@ -639,8 +756,9 @@ html, body { overflow-x: hidden; }
   .brand-link{flex-direction:row;gap:8px;padding-left:4px}
   .brand-link::before{display:none}
   .brand-mono{
-    width:99px;
-    height:99px;
+    /* reduce mono size on narrow phones to keep header compact */
+    width:62px;
+    height:62px;
     border-radius:0;
     position:relative;
     left:auto;
@@ -649,8 +767,61 @@ html, body { overflow-x: hidden; }
     background-size: 90%;
     z-index:3;
   }
-  .brand-wordmark{font-size:18px;max-width:calc(100% - 96px)}
-  .brand-subtitle{font-size:18px}
+  .brand-wordmark{font-size:16px;max-width:calc(100% - 72px)}
+  .brand-subtitle{font-size:14px}
+}
+
+/* Mobile feature image / layout: make photos much larger, cards much slimmer */
+@media (max-width:520px){
+  :root{
+    --feature-mobile-photo-height: 420px;
+    --feature-mobile-card-height: 120px;
+  }
+
+  /* photos become the dominant element */
+  .feature-photo--large,
+  .feature-photo--large .feature-photo-img,
+  .feature-photo-img {
+    min-height: var(--feature-mobile-photo-height);
+    height: var(--feature-mobile-photo-height);
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    object-fit: cover;
+    display:block;
+  }
+
+  /* Make the card narrow and low so it doesn't compete with the photo */
+  .feature-content.hero-content.container.push-down,
+  .feature-photos .feature-content.hero-content.container.push-down{
+    min-height: var(--feature-mobile-card-height);
+    max-height: var(--feature-mobile-card-height);
+    max-width: 80%;
+    margin: 6px auto;
+    padding:10px 12px;
+    display:block;
+    border-radius:12px;
+    box-sizing:border-box;
+  }
+
+  .feature-content.hero-content.container.push-down h2{
+    font-size:16px;
+    margin:0 0 6px 0;
+  }
+  .feature-content.hero-content.container.push-down p{
+    font-size:13px;
+    line-height:1.15;
+    margin:0;
+    opacity:.95;
+  }
+
+  /* Pull the photo up a bit so it visually dominates the card area */
+  .feature-photo--large{margin-top:-28px}
+  .feature-photo--large .feature-photo-img{border-radius:14px}
+
+  /* If multiple features stack, give breathing room below the photo */
+  .feature-photos > .feature{padding-bottom:28px}
 }
 
 @media (max-width:900px){
@@ -748,6 +919,17 @@ html, body { overflow-x: hidden; }
   padding-top:75px;
   padding-bottom:75px;
 }
+
+/* Responsive feature photos */
+@media (max-width:1200px){
+  .feature-photos{padding-top:60px;padding-bottom:60px}
+}
+@media (max-width:768px){
+  .feature-photos{padding-top:40px;padding-bottom:40px}
+}
+@media (max-width:480px){
+  .feature-photos{padding-top:32px;padding-bottom:32px;padding-left:0;padding-right:0}
+}
 /* Feature photo sections layout - using flexbox with column direction (1 "spalte") */
 .feature-photos .feature-photo-section{display:flex;flex-direction:column;align-items:center;gap:16px;margin:0 0 146px 0;position:relative}
 
@@ -766,9 +948,11 @@ html, body { overflow-x: hidden; }
 .feature-photos .feature-photo-section:first-child .feature-link{
   flex:0 0 auto;
 }
-.feature-photos .feature-photo-section:first-child .feature-photo--large{
-  width:38vw !important;
-  max-width:38vw !important;
+@media (min-width:901px){
+  .feature-photos .feature-photo-section:first-child .feature-photo--large{
+    width:38vw !important;
+    max-width:38vw !important;
+  }
 }
 
 /* Third feature photo (feature-9.jpg "Restauration & Erhalt"): text left, photo right */
@@ -784,9 +968,11 @@ html, body { overflow-x: hidden; }
 .feature-photos .feature-photo-section:last-child .feature-link{
   flex:0 0 auto;
 }
-.feature-photos .feature-photo-section:last-child .feature-photo--large{
-  width:38vw !important;
-  max-width:38vw !important;
+@media (min-width:901px){
+  .feature-photos .feature-photo-section:last-child .feature-photo--large{
+    width:38vw !important;
+    max-width:38vw !important;
+  }
 }
   
   /* Mobile adjustments */
@@ -810,25 +996,63 @@ html, body { overflow-x: hidden; }
   }
 
 @media (max-width:900px){
-  .feature-photos .feature-photo-section{flex-direction:column;gap:12px;margin-bottom:40px}
-  .feature-photos .feature-photo-section:first-child{flex-direction:column;align-items:center}
+  .feature-photos .feature-photo-section{flex-direction:column;gap:0;margin-bottom:10px;padding-left:0;padding-right:0}
+  .feature-photos .feature-photo-section:first-child{flex-direction:column;align-items:center;gap:0}
   .feature-photos .feature-photo-section:last-child{flex-direction:column;align-items:center}
+  /* Add margin to feature-link to match card width */
+  .feature-photos .feature-photo-section .feature-link{
+    margin-left:16px;
+    margin-right:16px;
+    width:calc(100% - 32px);
+  }
+  /* Ensure ALL feature photos have full width within their link container */
+  .feature-photos .feature-photo-section:first-child .feature-photo--large,
+  .feature-photos .feature-photo-section:last-child .feature-photo--large{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
 }
 
 /* Ensure push-down content doesn't overflow on small screens */
 @media (max-width:900px){
   .feature-content.hero-content.container.push-down,
   .feature-photos .feature-content.hero-content.container.push-down{
-    padding-left:24px !important;
-    padding-right:24px !important;
-    margin-left:0 !important;
-    margin-right:0 !important;
+    padding-left:20px !important;
+    padding-right:20px !important;
+    margin-left:16px !important;
+    margin-right:16px !important;
+    margin-top:-160px !important;
+    margin-bottom:140px !important;
     box-sizing:border-box !important;
-    width:100% !important;
-    max-width:100% !important;
+    width:calc(100% - 32px) !important;
+    max-width:calc(100% - 32px) !important;
     transform:none !important;
     left:auto !important;
     right:auto !important;
+    position:relative !important;
+    z-index:10 !important;
+  }
+}
+
+/* Make push-down feature cards noticeably smaller on narrow screens */
+@media (max-width:520px){
+  .feature-content.hero-content.container.push-down,
+  .feature-photos .feature-content.hero-content.container.push-down{
+    padding-left:12px !important;
+    padding-right:12px !important;
+    background: rgba(255,255,255,0.9) !important;
+  }
+  .feature-content.hero-content.container.push-down h2{
+    font-size:18px !important;
+    margin-bottom:6px !important;
+  }
+  .feature-content.hero-content.container.push-down p{
+    font-size:13px !important;
+    line-height:1.25 !important;
+    margin-bottom:8px !important;
+    max-width:340px !important;
   }
 }
 
@@ -839,6 +1063,9 @@ html, body { overflow-x: hidden; }
 @media (max-width:900px){
   .feature-photos .feature-photo-section.reverse{flex-direction:column}
   .feature-photos .feature-photo-section.reverse .feature-content{text-align:left;margin-right:0}
+  /* On mobile, ensure reverse sections also show photo first */
+  .feature-photos .feature-photo-section.reverse .feature-link{order:-1}
+  .feature-photos .feature-photo-section.reverse .feature-content{order:1}
 }
 
 /* Middle feature (Foto 8) — no background or shadow */
@@ -861,6 +1088,17 @@ html, body { overflow-x: hidden; }
 .contact-form input,.contact-form textarea{padding:8px;border:1px solid var(--muted);border-radius:4px}
 .contact-form button{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0}
 
+/* Responsive form elements - larger touch targets */
+@media (max-width:768px){
+  .contact-form input,.contact-form textarea{padding:12px;font-size:16px}
+  .contact-form button{padding:12px 16px;font-size:16px}
+  .contact-form label{font-size:15px}
+}
+@media (max-width:480px){
+  .contact-form input,.contact-form textarea{padding:14px;font-size:16px}
+  .contact-form button{padding:14px 18px;font-size:16px;min-height:48px}
+}
+
 /* Buttons */
 .btn{font-family:'Source Sans 3', Arial;border:0;padding:10px 14px;border-radius:6px;cursor:pointer}
 .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(var(--accent-rgb),0.12);font-weight:700}
@@ -868,12 +1106,32 @@ html, body { overflow-x: hidden; }
 .btn-secondary{background:transparent;border:1px solid var(--muted);color:var(--text);font-weight:600}
 .btn-accent{background:var(--accent-2);color:#fff;font-weight:700}
 
+/* Responsive buttons - better touch targets */
+@media (max-width:768px){
+  .btn{padding:12px 16px;font-size:15px}
+}
+@media (max-width:480px){
+  .btn{padding:14px 20px;font-size:16px;min-height:48px;width:100%}
+  .btn-row{flex-direction:column;width:100%}
+  .btn-row .btn{width:100%}
+}
+
 /* Form focus */
 input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-rgb),0.06);border-color:var(--accent)}
 
 /* Small helpers for logo/moodboard previews */
 .asset-preview{display:flex;gap:18px;align-items:center}
 .asset-preview img, .asset-preview svg{width:220px;height:auto;border-radius:6px}
+
+/* Responsive asset preview */
+@media (max-width:1024px){
+  .asset-preview{gap:14px}
+  .asset-preview img, .asset-preview svg{width:180px}
+}
+@media (max-width:768px){
+  .asset-preview{flex-direction:column;gap:12px}
+  .asset-preview img, .asset-preview svg{width:160px}
+}
 
 /* Desaturate icons in `.asset-preview.icon-row` to match the wappen emblem gray
    used on Services / Contact pages */
@@ -923,9 +1181,20 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 .large-photo-item{margin:0}
   .large-photo{width:100%;height:380px;object-fit:cover;border-radius:10px;box-shadow:0 12px 30px rgba(var(--shadow-rgb),0.08);display:block}
 
+/* Responsive large photos grid */
+@media (max-width:1200px){
+  .large-photos{padding:28px 0}
+  .large-photos-grid{gap:16px}
+  .large-photo{height:320px}
+}
 @media (max-width:900px){
-  .large-photos-grid{grid-template-columns:1fr}
-  .large-photo{height:220px}
+  .large-photos-grid{grid-template-columns:repeat(2,1fr)}
+  .large-photo{height:260px}
+}
+@media (max-width:600px){
+  .large-photos{padding:20px 0}
+  .large-photos-grid{grid-template-columns:1fr;gap:14px}
+  .large-photo{height:240px}
 }
 
 /* Feature photo sections: using flexbox layout from .feature-photos override */
@@ -986,21 +1255,33 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 .feature-photo-section.reverse .feature-content{order:1}
 
 @media (max-width:900px){
-  .feature-photo-section{row-gap:12px;column-gap:0;margin-bottom:10px}
-  /* increase mobile feature photo height for better visibility */
-  .feature-photo-img{height:420px}
-  .feature-content h2{font-size:22px}
-  /* Reset width expansion on mobile to prevent horizontal scroll */
-  .feature-photo--large{
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+  .feature-photo-section{row-gap:0;column-gap:0;margin-bottom:10px}
+  /* Add margin to all feature links to match card width */
+  .feature-photo-section .feature-link{
+    margin-left:16px;
+    margin-right:16px;
+    width:calc(100% - 32px);
   }
+  /* increase mobile feature photo height and force landscape aspect for better visibility */
+  .feature-photo--large{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    /* ensure landscape orientation and make them larger on mobile */
+    aspect-ratio: 16 / 9;
+    height: auto !important;
+    min-height: 380px;
+  }
+  .feature-photo-img{width:100% !important;height:100% !important;min-height:380px;object-fit:cover}
+  .feature-content h2{font-size:22px}
+  /* Ensure the image appears above the text on mobile for clearer layout */
+  .feature-photos .feature-photo-section{align-items:stretch}
+  .feature-photos .feature-photo-section .feature-link{order:-1}
 }
 
-/* Last photo-text pair should not have bottom margin */
-.feature-photos .feature-photo-section:last-child{margin-bottom:0}
+/* Last photo-text pair should have consistent bottom margin */
+.feature-photos .feature-photo-section:last-child{margin-bottom:10px}
 
 /* Optional: show photos individually (no gap, single-column sections).
    This removes the horizontal/vertical gaps and makes each feature-photo
@@ -1028,7 +1309,12 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 
 @media (max-width:1200px){
   .feature-photos .container,
-  .feature-photos-container { max-width: 100%; padding-left: 24px; padding-right:24px }
+  .feature-photos-container { max-width: 100%; padding-left: 0; padding-right:0 }
+}
+
+@media (max-width:900px){
+  .feature-photos .container,
+  .feature-photos-container { padding-left: 0; padding-right: 0; overflow: visible; max-width: 100%; }
 }
 
 /* If you want this globally (immediately), uncomment the rule below. */
