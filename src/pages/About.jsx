@@ -19,7 +19,7 @@ export default function About(){
       <PageContainer pageClass="about-page">
         <div className="about-grid">
         <div className="about-text">
-          <h3 className="vita-heading">Vita – Stefan Krauss</h3>
+          <h1 className="vita-heading">{t('about.vitaTitle')}</h1>
           <ul className="vita-list">
             {vita.map((item,i)=> (
               <li key={i}><strong>{item.year}</strong><span className="vita-desc">{item.text}</span></li>

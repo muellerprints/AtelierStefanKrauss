@@ -229,7 +229,17 @@ Qualität zeigt sich im Detail.`
           payment: 'Zahlungsarten',
           shipping: 'Versandarten'
         },
-        copyright: '© {{year}} Goldschmiedeatelier · Alle Rechte vorbehalten'
+        copyright: '© {{year}} Goldschmiedeatelier · Alle Rechte vorbehalten',
+        ticker: {
+          goldschmied: 'Goldschmied',
+          unikat: 'Unikat',
+          reparatur: 'Reparatur',
+          restauration: 'Restauration',
+          umarbeitung: 'Umarbeitung',
+          handwerk: 'Handwerk',
+          schmuck: 'Schmuck',
+          atelier: 'Atelier'
+        }
       },
       home: {
         tiles: [
@@ -330,7 +340,7 @@ Qualität zeigt sich im Detail.`
         title: 'Stefan Krauss',
         intro1: 'For over four decades I have worked as a master goldsmith. My roots lie with the jeweller Günter Krauss Schmuck. My professional path has led me through different areas of the craft and the trade — from managing a workshop focused on pearls to roles in purchasing and sales and to direct customer interaction in the retail shop. This has given me a broad understanding of the craft and the complex demands of this special world. These varied experiences continue to shape my perspective. At the same time, Goldschmiedeatelier Krauss opens a new chapter: independent, connected to the past and with a clear view of the present.',
         portraitCaption: 'Stefan Krauss',
-        vitaTitle: 'Vita – Stefan Krauss',
+        vitaTitle: 'Vita',
         vita: [
           {
             year: '1982–1986',
@@ -567,7 +577,7 @@ By car: parking nearby. By public transport: take bus X/Y to stop Z.`,
           'CNC technology',
           'Electroplating processes',
           'Sintering processes',
-          'Collaboration with a silversmith for small series and special commissions'
+          'Network to all goldsmith and silversmith techniques'
         ]
       },
       atelier: {
@@ -617,51 +627,51 @@ Quality shows in the detail.`
         tiles: [
           {
             title: 'Atelier & Practice',
-            text: 'Reduced material aesthetics, posture over action.',
+            text: 'Reduced material aesthetics · Posture over action.',
             link: '/atelier'
           },
           {
             title: 'Services',
-            text: 'Unique pieces, repairs, restorations, remodelling.',
+            text: 'Unique pieces · Repairs · Restorations · Remodelling',
             link: '/services'
           },
           {
             title: 'About Stefan Krauss',
-            text: 'Decades of craft, focused moments and refined details.',
+            text: 'Personal · Experienced · Craft precision',
             link: '/about'
           }
         ],
         featurePhotos: [
           {
             title: 'Fine Detail',
-            text: 'Delicate details, carefully crafted — a close look at material and finish.'
+            text: 'Delicate details, carefully crafted — a look at material, surface and finish.'
           },
           {
-            title: 'Bespoke Piece in Progress',
-            text: 'A bespoke piece in progress — from sketch to form, craftsmanship made visible.'
+            title: 'Unique Piece in Progress',
+            text: 'A unique piece in progress: from sketch to form, visible in every line.'
           },
           {
-            title: 'Restoration & Conservation',
-            text: 'Careful restoration: bringing older pieces back to life with respect and expert skill.'
+            title: 'Repair & Preservation',
+            text: 'Careful repair: jewellery is refurbished with respect and craft expertise.'
           }
         ],
         photoLabels: [
-          'Black Diamond Studs',
-          'Silver Signet Ring',
-          'Handcrafted Necklace',
-          'Bespoke Piece in Progress',
-          'Noble Materials',
-          'Detail Work',
-          'Traditional Technique',
-          'Master Craftsmanship',
-          'Fine Engraving',
-          'Timeless Design',
-          'Precision Craftsmanship',
-          'Original & Restoration',
-          'Precious Materials',
-          'Custom Made',
-          'Careful Setting',
-          'Unique Piece of Jewelry'
+          'Cufflinks, black diamond',
+          'Diamond ring in white gold',
+          'Handcrafted chain',
+          'Unique ring with sketch',
+          'Diamond rings, unique pieces',
+          'Earrings, morganite, rubies',
+          'Traditional technique',
+          'Master craftsmanship',
+          'Fine engraving',
+          'Timeless design',
+          'Craft precision',
+          'Original & restoration',
+          'Precious materials',
+          'Custom made',
+          'Careful setting',
+          'Unique jewellery piece'
         ]
       }
     }
