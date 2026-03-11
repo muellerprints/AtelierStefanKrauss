@@ -582,14 +582,50 @@ h2{font-weight:700;letter-spacing:0.015em}
 .photo-item img[src$="/assets/photos/feature-9.jpg"],
 .photo-item img[src$="feature-9.jpg"] {
   /* 40% larger -> scale(1.4) */
-  transform: scale(1.4);
+  /* crop right 30% and enlarge */
+  transform: translateX(-30%) scale(1.4);
   transition: transform .36s cubic-bezier(.2,.9,.2,1);
 }
 
 @media (max-width:900px) {
   .photo-item img[src$="/assets/photos/feature-9.jpg"],
   .photo-item img[src$="feature-9.jpg"] {
-    transform: scale(1.2);
+    /* reduced crop on mobile */
+    transform: translateX(-15%) scale(1.2);
+  }
+}
+
+/* Crop feature-7 on the right by 20% */
+.photo-item img[src$="/assets/photos/feature-7.jpg"],
+.photo-item img[src$="feature-7.jpg"] {
+  /* crop right 30% */
+  transform: translateX(-30%);
+  transition: transform .36s cubic-bezier(.2,.9,.2,1);
+}
+
+@media (max-width:900px) {
+  .photo-item img[src$="/assets/photos/feature-7.jpg"],
+  .photo-item img[src$="feature-7.jpg"] {
+    transform: translateX(-15%);
+  }
+}
+
+/* Show feature-8 fully inside its tile (no crop) */
+.feature-photo-img[src$="/assets/photos/feature-8.jpg"],
+.feature-photo-img[src$="feature-8.jpg"] {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  transform: none !important;
+}
+
+@media (max-width:900px) {
+  .feature-photo-img[src$="/assets/photos/feature-8.jpg"],
+  .feature-photo-img[src$="feature-8.jpg"] {
+    width: 100% !important;
+    height: var(--feature-mobile-photo-height);
+    object-fit: cover;
   }
 }
 
