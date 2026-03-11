@@ -48,7 +48,7 @@ const resources = {
         title: 'Stefan Krauss',
         intro1: 'Seit über vier Jahrzehnten arbeite ich als Goldschmiedemeister. Meine Wurzeln liegen im Juwelierhaus Günter Krauss Schmuck. Mein beruflicher Weg führte mich durch unterschiedliche Bereiche des Handwerks und der Branche - von der Leitung einer Werkstatt mit Schwerpunkt auf Perlen über Tätigkeiten im Einkauf und Vertrieb bis hin zum direkten Austausch mit Kundinnen und Kunden im Ladengeschäft. So entwickelte sich ein breites Verständnis für das Handwerk und die vielschichtigen Anforderungen dieser besonderen Welt. Diese unterschiedlichen Erfahrungen prägen meinen Blick bis heute. Zugleich wird mit dem Goldschmiedeatelier Krauss ein neues Kapitel aufgeschlagen: eigenständig, verbunden mit der Vergangenheit und mit klarem Blick für das Heute.',
         portraitCaption: 'Stefan Krauss',
-        vitaTitle: 'Vita',
+        vitaTitle: 'Vita - Tätigkeiten & Stationen',
         vita: [
           {
             year: '1982–1986',
@@ -68,7 +68,7 @@ const resources = {
           },
           {
             year: '2001–2019',
-            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — Tätigkeiten in Produktion (Produktionsleitung), Vertrieb und Einkauf; internationale Messeteilnahmen (u. a. Hongkong, Kobe)'
+            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — Produktionsleitung, Vertrieb und Einkauf · internationale Messeteilnahmen (u. a. Hongkong, Kobe)'
           },
           {
             year: '2019–2022',
@@ -338,13 +338,13 @@ Qualität zeigt sich im Detail.`
       },
       about: {
         title: 'Stefan Krauss',
-        intro1: 'For over four decades I have worked as a master goldsmith. My roots lie with the jeweller Günter Krauss Schmuck. My professional path has led me through different areas of the craft and the trade — from managing a workshop focused on pearls to roles in purchasing and sales and to direct customer interaction in the retail shop. This has given me a broad understanding of the craft and the complex demands of this special world. These varied experiences continue to shape my perspective. At the same time, Goldschmiedeatelier Krauss opens a new chapter: independent, connected to the past and with a clear view of the present.',
+        intro1: 'For more than four decades I have practised as a master goldsmith. My roots are in the jeweller Günter Krauss Schmuck. Throughout my career I have worked across many areas of the craft and the trade — from leading a workshop with a focus on pearls, through roles in purchasing and sales, to direct customer contact in retail. These experiences have given me a broad and nuanced understanding of the craft and its varied demands, which still shape my perspective today. With the founding of Goldschmiedeatelier Krauss a new chapter begins: independent, mindful of tradition and with a clear view of the present.',
         portraitCaption: 'Stefan Krauss',
-        vitaTitle: 'Vita',
+        vitaTitle: 'Vita — Roles & Stations',
         vita: [
           {
             year: '1982–1986',
-            text: 'Training at the Pforzheim School of Goldsmithing'
+            text: 'Apprenticeship at the Pforzheim School of Goldsmithing'
           },
           {
             year: '1987–1990',
@@ -352,7 +352,7 @@ Qualität zeigt sich im Detail.`
           },
           {
             year: '1991',
-            text: 'Master craftsman (Goldsmith)'
+            text: 'Master craftsman qualification (Goldsmith)'
           },
           {
             year: '1991–2000',
@@ -360,7 +360,7 @@ Qualität zeigt sich im Detail.`
           },
           {
             year: '2001–2019',
-            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — roles in production, sales and purchasing; international trade fair participation (e.g. Hong Kong, Kobe)'
+            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — production management, sales and purchasing; international trade fair participation (e.g. Hong Kong, Kobe)'
           },
           {
             year: '2019–2022',
@@ -372,7 +372,7 @@ Qualität zeigt sich im Detail.`
           },
           {
             year: 'since 2026',
-            text: 'Founder, Goldschmiedeatelier Krauss'
+            text: 'Founder of Goldschmiedeatelier Krauss'
           }
         ]
       },
