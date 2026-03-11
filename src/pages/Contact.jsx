@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import PageContainer from '../components/PageContainer'
 
 export default function Contact(){
   const { t } = useTranslation()
@@ -85,8 +86,7 @@ export default function Contact(){
   }
 
   return (
-    <div className="page-viewport">
-      <div className="container contact-page relative-z1">
+    <PageContainer withViewport pageClass="contact-page relative-z1">
         <h2>{t('contactPage.title')}</h2>
         <div className="contact-grid">
           <div>
@@ -195,7 +195,6 @@ export default function Contact(){
           </div>
         </aside>
         </div>
-      </div>
-    </div>
+      </PageContainer>
   )
 }

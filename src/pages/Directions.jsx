@@ -1,10 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import PageContainer from '../components/PageContainer'
 
 export default function Directions(){
   const { t } = useTranslation()
   return (
-    <div className="container">
+    <PageContainer pageClass="directions-page">
       <h2>{t('directions.title')}</h2>
       <div className="max-width-720">
         <p className="pre-line">{t('directions.text')}</p>
@@ -23,6 +24,6 @@ export default function Directions(){
         />
         <p className="mt-12"><a href="https://www.google.com/maps/search/?api=1&query=Neuberg+11+75210+Keltern" target="_blank" rel="noreferrer">{t('directions.openInMaps') || 'In Google Maps öffnen'}</a></p>
       </div>
-    </div>
+    </PageContainer>
   )
 }

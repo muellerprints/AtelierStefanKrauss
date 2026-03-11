@@ -525,6 +525,14 @@ export default function Home(){
       <section className="teasers container">
         {tiles.map((tile, i) => (
           <Link to={tile.link || '/'} className="tile" key={i}>
+            {/* Insert ICONS3.png into the first tile (Atelier & Arbeitsweise) */}
+            {i === 0 && (
+              <img src={`${import.meta.env.BASE_URL}assets/icons/ICONS3.png`} alt="Atelier Icon" className="tile-icon" />
+            )}
+            {/* Insert ICONS1.png into the second tile (Leistungen) */}
+            {i === 1 && (
+              <img src={`${import.meta.env.BASE_URL}assets/icons/ICONS1.png`} alt="Leistungen Icon" className="tile-icon" />
+            )}
             <h3>{tile.title}</h3>
             <p>{tile.text}</p>
           </Link>

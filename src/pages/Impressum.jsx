@@ -1,10 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import PageContainer from '../components/PageContainer'
 
 export default function Impressum(){
   const { t } = useTranslation()
   return (
-    <div className="container">
+    <PageContainer pageClass="impressum-page">
       <h2>{t('impressum.title')}</h2>
       <p>
         {t('impressum.name')}<br/>
@@ -26,6 +27,6 @@ export default function Impressum(){
       {t('impressum.odr') && (
         <div dangerouslySetInnerHTML={{ __html: t('impressum.odr').replace(/\n/g, '<br/>') }} />
       )}
-    </div>
+    </PageContainer>
   )
 }

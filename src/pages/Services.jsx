@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import PageContainer from '../components/PageContainer'
 
 export default function Services(){
   const { t } = useTranslation()
@@ -38,8 +39,7 @@ export default function Services(){
   }, [])
 
   return (
-    <div className="page-viewport">
-      <div className="container relative-z1">
+    <PageContainer withViewport pageClass="relative-z1">
         <h2>{t('services.title')}</h2>
         {groups.map((g, gi) => (
           <section key={gi}>
@@ -51,7 +51,6 @@ export default function Services(){
             )}
           </section>
         ))}
-      </div>
-    </div>
+      </PageContainer>
   )
 }

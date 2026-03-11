@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import portrait from '../assets/photos/Portrait.jpg'
+import PageContainer from '../components/PageContainer'
 
 export default function About(){
   const { t } = useTranslation()
@@ -9,13 +10,13 @@ export default function About(){
   return (
     <>
       <div className="about-hero">
-        <div className="about-hero-inner">
+        <PageContainer pageClass="about-hero-inner">
           <h1 className="about-hero-title">Stefan Krauss</h1>
           <p className="about-toptext">{t('about.intro1')}</p>
-        </div>
+        </PageContainer>
       </div>
 
-      <div className="container about-page">
+      <PageContainer pageClass="about-page">
         <div className="about-grid">
         <div className="about-text">
           <h3 className="vita-heading">Vita – Stefan Krauss</h3>
@@ -30,7 +31,7 @@ export default function About(){
           <p className="caption">{t('about.portraitCaption')}</p>
         </aside>
       </div>
-    </div>
+      </PageContainer>
     </>
   )
 }
