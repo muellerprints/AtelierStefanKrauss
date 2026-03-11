@@ -48,7 +48,7 @@ const resources = {
         title: 'Stefan Krauss',
         intro1: 'Seit über vier Jahrzehnten arbeite ich als Goldschmiedemeister. Meine Wurzeln liegen im Juwelierhaus Günter Krauss Schmuck. Mein beruflicher Weg führte mich durch unterschiedliche Bereiche des Handwerks und der Branche - von der Leitung einer Werkstatt mit Schwerpunkt auf Perlen über Tätigkeiten im Einkauf und Vertrieb bis hin zum direkten Austausch mit Kundinnen und Kunden im Ladengeschäft. So entwickelte sich ein breites Verständnis für das Handwerk und die vielschichtigen Anforderungen dieser besonderen Welt. Diese unterschiedlichen Erfahrungen prägen meinen Blick bis heute. Zugleich wird mit dem Goldschmiedeatelier Krauss ein neues Kapitel aufgeschlagen: eigenständig, verbunden mit der Vergangenheit und mit klarem Blick für das Heute.',
         portraitCaption: 'Stefan Krauss',
-        vitaTitle: 'Vita – Stefan Krauss',
+        vitaTitle: 'Vita',
         vita: [
           {
             year: '1982–1986',
@@ -68,7 +68,7 @@ const resources = {
           },
           {
             year: '2001–2019',
-            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — Tätigkeiten in Produktion, Vertrieb und Einkauf; internationale Messeteilnahmen (u. a. Hongkong, Kobe)'
+            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — Tätigkeiten in Produktion (Produktionsleitung), Vertrieb und Einkauf; internationale Messeteilnahmen (u. a. Hongkong, Kobe)'
           },
           {
             year: '2019–2022',
@@ -195,7 +195,7 @@ Anfahrt mit dem Auto: Parkmöglichkeiten in der Nähe. Mit öffentlichen Verkehr
           'CNC‑Technologie',
           'Galvanische Verfahren',
           'Sinterverfahren',
-          'Zusammenarbeit mit einer Silberschmiede für Kleinserien und Sonderanfertigungen'
+          'Netzwerk zu allen Gold- und Siberschmiedtechniken'
         ]
       },
       atelier: {
@@ -259,17 +259,17 @@ Qualität zeigt sich im Detail.`
             text: 'Ein Unikat im Entstehungsprozess: von der Skizze zur Form, sichtbar in jeder Linie.'
           },
           {
-            title: 'Restauration & Erhalt',
-            text: 'Sorgsame Restauration: alte Stücke werden mit Respekt und handwerklicher Expertise wiederbelebt.'
+            title: 'Reparatur & Erhalt',
+            text: 'Sorgsame Reparatur: Schmuckstücke werden mit Respekt und handwerklicher Expertise aufgearbeitet.'
           }
         ],
         photoLabels: [
-          'Ohrstecker,schwarzer Diamant',
-          'Siegelring in Silber',
+          'Manschettenknöpfe, schwarzer Diamant',
+          'Diamantring in Weißgold',
           'Handgefertigte Kette',
-          'Unikat in Entstehung',
-          'Edles Material',
-          'Detailarbeit',
+          'Unikatring mit Zeichnung',
+          'Diamantringe, Unikate',
+          'Ohrstecker, Morganit, Rubine',
           'Traditionelle Technik',
           'Meisterliche Verarbeitung',
           'Feine Gravur',
@@ -601,7 +601,17 @@ Quality shows in the detail.`
           payment: 'Payment methods',
           shipping: 'Shipping methods'
         },
-        copyright: '© {{year}} Goldsmith Atelier · All rights reserved'
+        copyright: '© {{year}} Goldsmith Atelier · All rights reserved',
+        ticker: {
+          goldschmied: 'Goldsmith',
+          unikat: 'Unique Piece',
+          reparatur: 'Repair',
+          restauration: 'Restoration',
+          umarbeitung: 'Remodelling',
+          handwerk: 'Craftsmanship',
+          schmuck: 'Jewellery',
+          atelier: 'Atelier'
+        }
       },
       home: {
         tiles: [

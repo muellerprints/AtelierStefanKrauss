@@ -5,7 +5,7 @@ import PageContainer from '../components/PageContainer'
 export default function OpeningHours(){
   const { t } = useTranslation()
   return (
-    <PageContainer pageClass="opening-page">
+    <PageContainer>
       <h2>{t('opening.title')}</h2>
       <div className="max-width-720">
         <p className="pre-line">{t('opening.text')}</p>

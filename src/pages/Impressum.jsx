@@ -5,7 +5,7 @@ import PageContainer from '../components/PageContainer'
 export default function Impressum(){
   const { t } = useTranslation()
   return (
-    <PageContainer pageClass="impressum-page">
+    <PageContainer>
       <h2>{t('impressum.title')}</h2>
       <p>
         {t('impressum.name')}<br/>

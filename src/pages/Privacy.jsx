@@ -8,7 +8,7 @@ export default function Privacy(){
   // If language is English and we have the pre-rendered HTML, render it directly
   if (i18n && i18n.language === 'en' && t('privacy.fullHtml')) {
     return (
-      <PageContainer pageClass="privacy-page">
+      <PageContainer>
         <div className="col-md-12">
           <div className="flowing-text-footer" dangerouslySetInnerHTML={{ __html: t('privacy.fullHtml') }} />
         </div>
@@ -18,7 +18,7 @@ export default function Privacy(){
 
   // Default: render the existing German content (unchanged)
   return (
-    <PageContainer pageClass="privacy-page">
+    <PageContainer>
       <div className="col-md-12">
         <div className="flowing-text-footer">
           <h2>Datenschutzerklärung</h2>

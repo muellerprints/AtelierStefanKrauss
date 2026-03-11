@@ -21,7 +21,7 @@ export default function Atelier(){
   }, [])
 
   return (
-    <PageContainer pageClass="atelier-page">
+    <PageContainer pageClass="atelier-page relative-z1">
       <h2>{t('atelier.title')}</h2>
       {t('atelier.description').split(/\n{2,}/).map((para, i) => (
         <p key={i}>{para}</p>

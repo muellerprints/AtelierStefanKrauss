@@ -5,7 +5,7 @@ import PageContainer from '../components/PageContainer'
 export default function Payment(){
   const { t } = useTranslation()
   return (
-    <PageContainer pageClass="payment-page">
+    <PageContainer>
       <h2>{t('payment.title')}</h2>
       <p>{t('payment.intro')}</p>
       <ul>

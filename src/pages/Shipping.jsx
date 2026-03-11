@@ -5,7 +5,7 @@ import PageContainer from '../components/PageContainer'
 export default function Shipping(){
   const { t } = useTranslation()
   return (
-    <PageContainer pageClass="shipping-page">
+    <PageContainer>
       <h2>{t('shipping.title')}</h2>
       <p>{t('shipping.intro')}</p>
       <ul>

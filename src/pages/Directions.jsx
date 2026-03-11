@@ -5,7 +5,7 @@ import PageContainer from '../components/PageContainer'
 export default function Directions(){
   const { t } = useTranslation()
   return (
-    <PageContainer pageClass="directions-page">
+    <PageContainer>
       <h2>{t('directions.title')}</h2>
       <div className="max-width-720">
         <p className="pre-line">{t('directions.text')}</p>

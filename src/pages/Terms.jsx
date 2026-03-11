@@ -5,7 +5,7 @@ import PageContainer from '../components/PageContainer'
 export default function Terms(){
   const { t } = useTranslation()
   return (
-    <PageContainer pageClass="terms-page">
+    <PageContainer>
       <h2>{t('terms.title')}</h2>
       <p>{t('terms.intro')}</p>
       <h3>{t('terms.contractTitle')}</h3>
