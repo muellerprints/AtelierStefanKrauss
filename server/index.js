@@ -58,7 +58,12 @@ async function handleSendEmail(req, res) {
     res.type('application/json')
 
     const { name, email, message } = req.body || {}
-    if (!message || !email) return res.status(400).json({ ok: false, error: 'Missing fields' })
+    console.log('📧 Form submission received:', { name, email, message: message ? message.substring(0, 50) + '...' : 'empty' })
+    
+    if (!message || !email) {
+      console.log('❌ Missing fields:', { message: !!message, email: !!email })
+      return res.status(400).json({ ok: false, error: 'Missing fields' })
+    }
     const transporter = getTransport()
 
     const to = process.env.TO_EMAIL || process.env.CONTACT_EMAIL || 'local-dev@localhost'

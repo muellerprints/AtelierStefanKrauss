@@ -124,7 +124,8 @@ $message = mb_substr($message, 0, $max_message_len);
 
 // Prevent header injection (newlines in header-relevant fields)
 function has_header_injection($str) {
-    return preg_match('/[\r\n%0a%0d]/i', $str);
+    // Check for actual newlines OR url-encoded newlines (%0a, %0d, %0A, %0D)
+    return preg_match('/[\r\n]|%0[ad]/i', $str);
 }
 
 if (has_header_injection($name) || has_header_injection($email)) {

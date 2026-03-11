@@ -13,3 +13,33 @@ Error: PayloadTooLargeError: request entity too large
     at next (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/express/lib/router/index.js:280:10)
     at cors (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/cors/lib/index.js:188:7)
 ---
+[2026-03-11T12:20:07.105Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"67","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {"name":"max","email":"muellerprints@t-online.de","message":"test"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-11T12:20:09.381Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"67","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {"name":"max","email":"muellerprints@t-online.de","message":"test"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-11T12:20:25.329Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"71","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {"name":"fghjkl","email":"muellerprints@t-online.de","message":"fghjk"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-11T12:20:50.944Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"70","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {"name":"dfhj","email":"muellerprints@t-online.de","message":"sdfghj"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-11T12:22:59.708Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"localhost:4000","user-agent":"curl/8.7.1","accept":"*/*","content-type":"application/json","content-length":"69"}
+Body: {"name":"Test","email":"test@example.com","message":"Test-Nachricht"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
