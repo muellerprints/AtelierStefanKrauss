@@ -8,9 +8,10 @@ export default function Atelier(){
     const main = document.getElementById('content')
     if (!main) return undefined
     main.setAttribute('data-bg-wappen', 'true')
-    /* Match services page: large but not full-bleed, offset to left; no rotation */
-    main.style.setProperty('--wappen-rotate', '0deg')
-    main.style.setProperty('--wappen-size', '64vw')
+    // Use maximal emblem size on Atelier page to increase coverage
+    main.style.setProperty('--wappen-rotate', '120deg')
+    // Increased by 10% from 62.4vw to 68.64vw
+    main.style.setProperty('--wappen-size', '68.64vw')
     main.style.setProperty('--wappen-pos-x', '35%')
     return () => {
       main.removeAttribute('data-bg-wappen')

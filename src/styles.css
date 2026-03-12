@@ -1,7 +1,7 @@
 :root{
   /* Canonical palette (simplified): primary blue, light gray, dark gray */
   --primary-blue: #0066CC;
-  --light-gray: #D9D6E0;
+  --light-gray: #E3E0EA;
   --dark-gray: #474545;
 
   /* Backwards-compatible aliases mapped to canonical colors */
@@ -17,7 +17,7 @@
 
   /* RGB helpers */
   --neutral-rgb: 114,118,121;
-  --neutral-light-rgb: 217,214,224;
+  --neutral-light-rgb: 227,224,234;
   --neutral-lighter-rgb: 236,234,243;
   --text-rgb: 71,69,69;
   --shadow-rgb: 48,48,49;
@@ -110,6 +110,15 @@ main[data-bg-wappen]::before{
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%) rotate(var(--wappen-rotate, 30deg));
   will-change: transform, opacity;
+
+  /* Apply a vertical alpha mask so the emblem fades from 20%->100% opacity
+     while keeping its original color. Use -webkit- prefix for Safari support. */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 /* Desktop: slightly smaller, less intrusive emblem so it doesn't overlap content */
@@ -135,7 +144,6 @@ main[data-bg-wappen]::before{
    remains readable. */
 @media (max-width: 420px) {
   .site-header{height:110px;padding:10px 0}
-  .site-header .container{padding-left:12px;padding-right:12px}
   .brand-mono{width:48px;height:48px;background-size:78%}
   .brand-wordmark{font-size:18px}
   .hamburger{left:6px;top:6px}
@@ -174,7 +182,7 @@ h2{font-weight:700;letter-spacing:0.015em}
   h3{font-size:18px}
 }
 
-.site-header{background:transparent;padding:0 0;height:160px;box-sizing:border-box;display:flex;align-items:center;position:relative;z-index:70}
+.site-header{background:var(--bg);padding:0 0;height:160px;box-sizing:border-box;display:flex;align-items:center;position:relative;z-index:70}
 
 /* Responsive header */
 @media (max-width:1200px){
@@ -183,7 +191,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 @media (max-width:768px){
   .site-header{height:120px;padding:12px 0}
 }
-.site-header .container{max-width:var(--content-width);margin:0 auto;padding:24px 24px 24px 0;display:flex;align-items:center;gap:40px}
+.site-header .container{width:100%;display:flex;align-items:center;gap:40px}
 .brand{margin-left:0}
 .brand-link{display:flex;align-items:center;gap:2px;text-decoration:none;margin-left:0;position:relative}
 .brand-link::before{
@@ -293,8 +301,8 @@ h2{font-weight:700;letter-spacing:0.015em}
   .hero-content .lead{white-space:nowrap;overflow:visible;text-overflow:clip;display:inline-block}
 }
 
-/* Default: use the site text grey */
-.hero-content .lead{color:var(--text)}
+/* Default: use the site text grey and set a larger base size for hero lead */
+.hero-content .lead{color:var(--text);font-size:24px}
 
 /* When the background image is dark, brighten the lead text for readability */
 .hero-content.bg-dark .lead{color:rgba(255,255,255,0.94);text-shadow:0 8px 22px rgba(0,0,0,0.45)}
@@ -729,7 +737,7 @@ h2{font-weight:700;letter-spacing:0.015em}
 .file-list-item{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;background:var(--white);border-radius:4px;margin-top:6px;border:1px solid var(--muted)}
 .ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:360px;display:inline-block}
 .ml-8{margin-left:8px}
-.status-msg{margin-top:12px;padding:12px;border-radius:6px;display:inline-block}
+.status-msg{margin-top:12px;padding:12px;border-radius:6px;display:block;width:100%;max-width:500px;box-sizing:border-box}
 .status-ok{background:#e6ffed;border:1px solid #c7f0d1}
 .status-err{background:#fff3f3;border:1px solid #f2c2c2}
 .opening-hours{padding:18px;background:var(--white);border-radius:8px}
@@ -792,22 +800,22 @@ h2{font-weight:700;letter-spacing:0.015em}
 /* Responsive adjustments: improve typography and layout on small screens */
 @media (max-width:1200px){
   .hero-content h1{font-size:38px}
-  .lead{font-size:20px}
+  .hero-content .lead{font-size:22px}
 }
 @media (max-width:900px){
   .hero-content h1{font-size:28px;white-space:normal !important}
-  .lead{font-size:18px}
+  .hero-content .lead{font-size:20px}
   /* Allow hero subtitle to wrap on smaller viewports */
   .hero-content .lead{white-space:normal;overflow:visible;text-overflow:clip;max-width:none}
 }
 @media (max-width:600px){
   .hero-content{padding:24px 16px}
   .hero-content h1{font-size:24px;white-space:normal !important}
-  .lead{font-size:16px}
+  .hero-content .lead{font-size:18px}
 }
 @media (max-width:480px){
   .hero-content h1{font-size:22px;white-space:normal !important;line-height:1.2}
-  .lead{font-size:15px;line-height:1.4}
+  .hero-content .lead{font-size:16px;line-height:1.4}
 }
 
 /* Prevent occasional horizontal overflow on small screens while keeping
@@ -911,7 +919,6 @@ html, body { overflow-x: hidden; }
 
 @media (max-width:900px){
   /* On smaller screens restore left padding so header items fit */
-  .site-header .container{padding:24px}
   .container{padding:24px}
 }
 
@@ -959,7 +966,6 @@ html, body { overflow-x: hidden; }
 /* Asset preview images scale down on small viewports */
 @media (max-width:600px){
   .asset-preview img, .asset-preview svg{width:120px}
-  .site-header .container{padding:12px}
 }
 
 /* Ensure contact form max-width adapts */
@@ -975,10 +981,45 @@ html, body { overflow-x: hidden; }
 .contact-grid{display:grid;grid-template-columns:1fr 360px !important;gap:24px;align-items:start}
 .contact-form{max-width:500px;width:100%}
 
+/* Ensure contact info paragraph behaves as normal flowing text */
+.contact-info{font-size:16px;color:var(--text);line-height:1.4;margin:0 0 12px 0}
+
+/* Inquiry heading in contact page: blue H1 */
+/* inquiry-title removed to inherit default H2 styles from container */
+
+/* Make opening-hours card match the contact form width on desktop */
+.opening-hours{max-width:500px;width:100%;box-sizing:border-box;padding:0;background:transparent;color:inherit;font-size:inherit;line-height:inherit}
+/* Opening-hours heading uses accent color and heading semantics */
+.opening-hours h2{
+  color:var(--accent) !important;
+  margin-top:24px;
+  padding-top:20px;
+  margin-bottom:12px;
+  font-weight:700;
+  letter-spacing:0.015em;
+}
+
+@media (max-width:768px){
+  .opening-hours h2{font-size:24px}
+}
+@media (max-width:480px){
+  .opening-hours h2{font-size:20px}
+}
+/* Keep paragraph margins standard inside opening-hours */
+.opening-hours .pre-line{margin:0}
+
+/* Increase spacing between the opening-hours card (above) and the Contact page H2 */
+.contact-page h2{margin-top:24px;padding-top:20px}
+
 /* Atelier page: overdimensioned decorative wappen top-right */
 .atelier-page{position:relative;overflow:visible}
 .submit-btn{background:var(--accent);color:white;padding:10px 14px;border-radius:6px;border:0;cursor:pointer;width:100%;max-width:100%;box-sizing:border-box}
 .file-drop{width:100%;padding:12px;border:2px dashed var(--muted);border-radius:6px;text-align:center;background:var(--neutral-lighter);box-sizing:border-box}
+
+/* Make the file-drop on the contact page transparent when the component uses the
+  `mt-8` helper class (matches the markup in Contact.jsx) so only the dashed
+  border remains visible. */
+.contact-page .file-drop.mt-8{background:var(--bg)}
 .file-list{width:100%;max-width:100%;box-sizing:border-box;padding:0;margin:8px 0 0}
 .file-list li{background:var(--white)}
 
@@ -1036,8 +1077,8 @@ html, body { overflow-x: hidden; }
 }
 @media (min-width:901px){
   .feature-photos .feature-photo-section:first-child .feature-photo--large{
-    width:32vw !important;
-    max-width:32vw !important;
+    width:38.4vw !important;
+    max-width:38.4vw !important;
   }
 }
 
@@ -1058,8 +1099,8 @@ html, body { overflow-x: hidden; }
 }
 @media (min-width:901px){
   .feature-photos .feature-photo-section:nth-child(2) .feature-photo--large{
-    width:32vw !important;
-    max-width:32vw !important;
+    width:38.4vw !important;
+    max-width:38.4vw !important;
   }
 }
 
@@ -1077,8 +1118,8 @@ html, body { overflow-x: hidden; }
 }
 @media (min-width:901px){
   .feature-photos .feature-photo-section:last-child .feature-photo--large{
-    width:32vw !important;
-    max-width:32vw !important;
+    width:38.4vw !important;
+    max-width:38.4vw !important;
   }
 }
   
@@ -1642,7 +1683,7 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 .lightbox-inner{max-width:calc(100% - 48px);max-height:calc(100% - 48px);display:inline-flex;align-items:center;justify-content:center;position:relative}
 .lightbox-image{display:block;max-width:100%;max-height:100%;height:auto;width:auto;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,0.6);transition:transform .28s ease}
 .lightbox-inner.zoomed .lightbox-image{transform:scale(1.6)}
-.lightbox-close{position:absolute;top:12px;right:220px;background:transparent;border:0;color:#fff;font-size:26px;padding:6px 8px;border-radius:6px;cursor:pointer;z-index:100000;transform:none;transition:color .18s ease,transform .18s ease}
+.lightbox-close{position:absolute;top:4px;right:54px;background:transparent;border:0;color:#fff;font-size:26px;padding:6px 8px;border-radius:6px;cursor:pointer;z-index:100000;transform:none;transition:color .18s ease,transform .18s ease}
 .lightbox-close:focus{outline:3px solid rgba(255,255,255,0.12)}
 
 .lightbox-close{display:flex;align-items:center;gap:8px}
@@ -1659,7 +1700,7 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 .lightbox-close-icon{transition:color .12s ease,transform .12s ease}
 .lightbox-close-text{transition:color .12s ease,opacity .12s ease}
 .lightbox-close:hover{background:transparent;transform:translateX(6px)}
-.lightbox-close:hover .lightbox-close-icon{color:#fff;transform:scale(1.08)}
+.lightbox-close:hover .lightbox-close-icon{color:var(--accent);transform:scale(1.08)}
 .lightbox-close:hover .lightbox-close-text{color:var(--accent)}
 .lightbox-close:focus{outline:none;box-shadow:0 0 0 6px rgba(var(--accent-rgb),0.12);border-radius:8px}
 

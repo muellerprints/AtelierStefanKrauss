@@ -17,11 +17,11 @@ export default function Lightbox({ src, onClose }){
 
   return (
     <div className="lightbox-overlay" role="dialog" aria-modal="true" onClick={(e) => { if (e.target === e.currentTarget) onClose?.() }}>
-      <button className="lightbox-close" aria-label="Schließen" onClick={() => onClose?.()}>
-        <span aria-hidden className="lightbox-close-icon">✕</span>
-        <span className="lightbox-close-text">close</span>
-      </button>
       <div className={`lightbox-inner ${zoomed ? 'zoomed' : ''}`} onDoubleClick={() => setZoomed(z => !z)}>
+        <button className="lightbox-close" aria-label="Schließen" onClick={() => onClose?.()}>
+          <span aria-hidden className="lightbox-close-icon">✕</span>
+          <span className="lightbox-close-text">close</span>
+        </button>
         <img src={src} alt="Vergrößertes Foto" className="lightbox-image" />
       </div>
     </div>

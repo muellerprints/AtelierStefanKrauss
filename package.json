@@ -8,6 +8,8 @@
     "dev": "vite --port 5174",
     "server": "node server/index.js",
     "prepare-dist": "sh scripts/prepare-dist.sh",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "prebuild": "npm run generate-sitemap",
     "build": "vite build",
     "watch:dist": "chokidar \"src/**/*\" \"public/**/*\" -c \"npm run build && npm run prepare-dist\" --initial",
     "preview": "vite preview --port 5174",

@@ -26,10 +26,11 @@ export default function Services(){
   useEffect(() => {
     const main = document.getElementById('content')
     if (!main) return undefined
-    main.setAttribute('data-bg-wappen', 'true')
-    main.style.setProperty('--wappen-rotate', '30deg')
-    main.style.setProperty('--wappen-size', '64vw')
-    main.style.setProperty('--wappen-pos-x', '35%')
+       main.setAttribute('data-bg-wappen', 'true')
+      main.style.setProperty('--wappen-rotate', '-45deg')
+      // Increased by 10% from 62.4vw to 68.64vw
+      main.style.setProperty('--wappen-size', '68.64vw')
+       main.style.setProperty('--wappen-pos-x', '35%')
     return () => {
       main.removeAttribute('data-bg-wappen')
       main.style.removeProperty('--wappen-rotate')

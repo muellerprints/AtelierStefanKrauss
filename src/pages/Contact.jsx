@@ -25,8 +25,9 @@ export default function Contact(){
     const main = document.getElementById('content')
     if (!main) return undefined
     main.setAttribute('data-bg-wappen', 'true')
-    main.style.setProperty('--wappen-rotate', '-45deg')
-    main.style.setProperty('--wappen-size', '64vw')
+    main.style.setProperty('--wappen-rotate', '45deg')
+      // Increased by 10% from 62.4vw to 68.64vw
+      main.style.setProperty('--wappen-size', '68.64vw')
     main.style.setProperty('--wappen-pos-x', '35%')
     return () => {
       main.removeAttribute('data-bg-wappen')
@@ -87,14 +88,27 @@ export default function Contact(){
 
   return (
     <PageContainer withViewport pageClass="contact-page relative-z1">
+        <aside>
+          <div id="opening-hours" className="opening-hours">
+            <h2>{t('contactPage.openingHoursTitle')}</h2>
+            <p className="pre-line">{t('contactPage.openingHoursText')}</p>
+          </div>
+        </aside>
         <h2>{t('contactPage.title')}</h2>
         <div className="contact-grid">
           <div>
-            <p>{t('contact.name')}</p>
-          <p>{t('contact.street')}<br/>{t('contact.zipcity')}</p>
-          <p><a href={`mailto:${t('contact.email')}`}>{t('contact.email')}</a></p>
-          <p>{t('contactCta')}: <a href={`tel:${t('contact.phoneRaw')}`}>{t('contact.phone')}</a></p>
-          <h3>{t('contactPage.inquiryTitle')}</h3>
+            <p className="contact-info pre-line">
+              {t('contact.name')}
+              {"\n"}
+              {t('contact.street')}
+              {"\n"}
+              {t('contact.zipcity')}
+              {"\n\n"}
+              <a href={`mailto:${t('contact.email')}`}>{t('contact.email')}</a>
+              {"\n\n"}
+              {t('contactCta')}:{"\u00A0"}<a href={`tel:${t('contact.phoneRaw')}`}>{t('contact.phone')}</a>
+            </p>
+            <h2>{t('contactPage.inquiryTitle')}</h2>
           <form className="contact-form" onSubmit={async (e) => {
             e.preventDefault()
             setSent('sending')
@@ -188,12 +202,6 @@ export default function Contact(){
             </div>
           )}
         </div>
-        <aside>
-          <div id="opening-hours" className="opening-hours">
-            <strong>{t('contactPage.openingHoursTitle')}</strong>
-            <p className="pre-line">{t('contactPage.openingHoursText')}</p>
-          </div>
-        </aside>
         </div>
       </PageContainer>
   )

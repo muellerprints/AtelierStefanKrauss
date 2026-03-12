@@ -20,7 +20,7 @@ export default function Home(){
 
   useEffect(() => {
     // detect grid-N.jpg files in public/assets/photos by probing a small range
-    const maxCandidates = 16
+    const maxCandidates = 6
     const arr = new Array(maxCandidates)
     let pending = maxCandidates
     let mounted = true

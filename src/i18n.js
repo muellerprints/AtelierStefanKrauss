@@ -10,7 +10,7 @@ const resources = {
       nav: {
         home: 'Startseite',
         about: 'Stefan Krauss',
-        atelier: 'Atelier & Arbeitsweise',
+        atelier: 'Atelier',
         services: 'Leistungen',
         contact: 'Kontakt'
       },
@@ -68,7 +68,7 @@ const resources = {
           },
           {
             year: '2001–2019',
-            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — Produktionsleitung, Vertrieb und Einkauf · internationale Messeteilnahmen (u. a. Hongkong, Kobe)'
+            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — Produktionsleitung, Vertrieb und Einkauf, internationale Messeteilnahmen (u. a. Hongkong, Kobe)'
           },
           {
             year: '2019–2022',
@@ -302,7 +302,7 @@ Qualität zeigt sich im Detail.`
       nav: {
         home: 'Home',
         about: 'Stefan Krauss',
-        atelier: 'Atelier & Practice',
+        atelier: 'Atelier',
         services: 'Services',
         contact: 'Contact'
       },
@@ -360,7 +360,7 @@ Qualität zeigt sich im Detail.`
           },
           {
             year: '2001–2019',
-            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — production management, sales and purchasing; international trade fair participation (e.g. Hong Kong, Kobe)'
+            text: 'Gellner Schmuckmanufaktur GmbH & Co. KG — production management, sales and purchasing, international trade fair participation (e.g. Hong Kong, Kobe)'
           },
           {
             year: '2019–2022',
