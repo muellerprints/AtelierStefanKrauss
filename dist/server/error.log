@@ -1,0 +1,60 @@
+[2026-02-03T13:43:48.848Z] GLOBAL ERROR POST /api/send-email
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.2 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"2796103","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {}
+Error: PayloadTooLargeError: request entity too large
+    at readStream (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/raw-body/index.js:163:17)
+    at getRawBody (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/raw-body/index.js:116:12)
+    at read (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/body-parser/lib/read.js:79:3)
+    at jsonParser (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/body-parser/lib/types/json.js:138:5)
+    at Layer.handle [as handle_request] (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/express/lib/router/index.js:328:13)
+    at /Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/express/lib/router/index.js:280:10)
+    at cors (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/cors/lib/index.js:188:7)
+---
+[2026-03-11T12:20:07.105Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"67","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {"name":"max","email":"muellerprints@t-online.de","message":"test"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-11T12:20:09.381Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"67","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {"name":"max","email":"muellerprints@t-online.de","message":"test"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-11T12:20:25.329Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"71","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {"name":"fghjkl","email":"muellerprints@t-online.de","message":"fghjk"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-11T12:20:50.944Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"127.0.0.1:4000","accept":"*/*","content-type":"application/json","origin":"http://localhost:5174","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.3 Safari/605.1.15","referer":"http://localhost:5174/contact","sec-fetch-dest":"empty","content-length":"70","accept-language":"de-DE,de;q=0.9","priority":"u=3, i","accept-encoding":"gzip, deflate","connection":"close"}
+Body: {"name":"dfhj","email":"muellerprints@t-online.de","message":"sdfghj"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-11T12:22:59.708Z] ERROR POST /api/send-email/index.php
+Headers: {"host":"localhost:4000","user-agent":"curl/8.7.1","accept":"*/*","content-type":"application/json","content-length":"69"}
+Body: {"name":"Test","email":"test@example.com","message":"Test-Nachricht"}
+Error: Error: getaddrinfo ENOTFOUND smtp.example.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26)
+---
+[2026-03-12T10:27:25.464Z] GLOBAL ERROR POST /api/send-email
+Headers: {"host":"127.0.0.1:4000","user-agent":"curl/8.7.1","accept":"*/*","content-type":"application/json","content-length":"22"}
+Body: {}
+Error: SyntaxError: Unexpected token 'e', "email:test"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at createStrictSyntaxError (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/body-parser/lib/types/json.js:169:10)
+    at parse (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/body-parser/lib/types/json.js:86:15)
+    at /Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at invokeCallback (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/raw-body/index.js:238:16)
+    at done (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/Users/maxmuller/Coding/AtelierStefanKrauss/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+---
