@@ -97,7 +97,7 @@ const resources = {
           <ol>
             <li>
               <h4>Verantwortlicher</h4>
-              <p>Verantwortlich für die Datenverarbeitung im Sinne der DSGVO ist: Max Müller, Rotenbergstraße 39, 70190 Stuttgart, Deutschland. Tel.: +49 (0)711 / 262 49 64, Fax: +49 (0)711 / 262 48 60, E‑Mail: <a href="mailto:muellerprints@t-online.de">muellerprints@t-online.de</a>.</p>
+              <p>Verantwortlich für die Datenverarbeitung im Sinne der DSGVO ist: Goldschmiedeatelier, Inhaber: Karla Krauss — Neuberg 11, 75210 Keltern, Deutschland. Tel.: +49 151 52662000, E‑Mail: <a href="mailto:info@goldschmiedeatelier-krauss.de">info@goldschmiedeatelier-krauss.de</a>.</p>
               <p>Der für die Verarbeitung Verantwortliche ist diejenige natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
               <p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung personenbezogener Daten eine SSL‑ bzw. TLS‑Verschlüsselung. Sie erkennen eine verschlüsselte Verbindung an der Zeichenfolge „https://“ und dem Schloss‑Symbol in der Browserzeile.</p>
             </li>
@@ -444,7 +444,7 @@ Qualität zeigt sich im Detail.`
           <ol>
             <li>
               <h4>Data controller</h4>
-              <p>The data controller in the sense of the GDPR is: Max Müller, Rotenbergstraße 39, 70190 Stuttgart, Germany. Tel.: +49 (0)711 262 49 64, Fax: +49 (0)711 262 48 60, Email: <a href="mailto:muellerprints@t-online.de">muellerprints@t-online.de</a>.</p>
+              <p>The data controller in the sense of the GDPR is: Goldsmith Atelier — Owner: Karla Krauss — Neuberg 11, 75210 Keltern, Germany. Tel.: +49 151 52662000, Email: <a href="mailto:info@goldschmiedeatelier-krauss.de">info@goldschmiedeatelier-krauss.de</a>.</p>
               <p>The data controller is the natural or legal person which alone or jointly with others determines the purposes and means of the processing of personal data.</p>
               <p>This website uses SSL/TLS encryption to protect the transmission of personal data. You can identify an encrypted connection by the "https://" prefix and the padlock symbol in your browser's address bar.</p>
             </li>
