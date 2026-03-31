@@ -94,19 +94,52 @@ const resources = {
         fullHtml: `
           <h2>Datenschutzerklärung</h2>
           <br/>
-          <h4>Zusätzliche Hinweise</h4>
-          <p>Wir verwenden keine Cookies, Tracking‑Skripte oder Drittanbieter‑Webanalysen auf dieser Website. Dennoch können beim Laden externer Inhalte Verbindungen zu Drittanbietern entstehen, die dort Cookies oder ähnliche Technologien setzen können. Beispiele in unserem Angebot:</p>
-          <ul>
-            <li><b>Google Fonts:</b> Schriftarten werden von fonts.googleapis.com geladen; dabei findet eine Anfrage an Google‑Server statt. Google setzt hierfür in der Regel keine Cookies, es erfolgt jedoch eine Verbindung zu einer externen Domain.</li>
-            <li><b>Google Maps‑Embed:</b> Die Einbettung von Google Maps erfolgt über einen iframe. Google kann bei Nutzung des Embeds Daten verarbeiten und Cookies unter der Domain google.com setzen. Bitte prüfen Sie die Datenschutzhinweise von Google für Details.</li>
-          </ul>
-          <h4>Verarbeitung von Kontaktanfragen und E‑Mails</h4>
-          <p>Nachrichtentexte, Absenderadresse und Anhänge, die Sie über das Kontaktformular senden, werden verarbeitet, um Ihre Anfrage zu beantworten. Wir nutzen für den Versand von E‑Mails einen SMTP‑Dienst (konfigurierbar über Umgebungsvariablen). Anbieter: <strong>IONOS</strong>. Kontaktmails werden standardmäßig für <strong>6 Monate</strong> gespeichert und anschließend gelöscht, sofern keine gesetzlichen Aufbewahrungsfristen entgegenstehen. In Entwicklungsumgebungen können Nachrichten vorübergehend in server/mail-dev.log geschrieben werden; auf Produktivsystemen sollte dies vermieden werden.</p>
-          <h4>Protokollierung, Sicherheit und Aufbewahrung</h4>
-          <p>Server‑Logfiles (z. B. Zugriffs‑ und Fehlerprotokolle) werden aus Sicherheits‑ und Debugging‑Gründen erzeugt. Diese Logs können IP‑Adressen, Zeitstempel und Metadaten von Anfragen enthalten. Standardaufbewahrungsfrist für solche Serverlogs: <strong>90 Tage</strong>. Logs werden danach rotiert bzw. überschrieben/gelöscht. Wir begrenzen die gespeicherten Daten auf das notwendige Minimum und schützen sie durch technische und organisatorische Maßnahmen.</p>
-          <h4>Ihre Rechte und Kontakt</h4>
-          <p>Sie haben Auskunfts‑, Berichtigungs‑ und Löschungsrechte sowie das Recht auf Einschränkung der Verarbeitung. Für Anfragen nutzen Sie bitte die im Impressum angegebene E‑Mail‑Adresse.</p>
-          <br/>
+          <ol>
+            <li>
+              <h4>Verantwortlicher</h4>
+              <p>Verantwortlich für die Datenverarbeitung im Sinne der DSGVO ist die im Impressum genannte Stelle.</p>
+            </li>
+            <li>
+              <h4>Rechtsgrundlagen der Verarbeitung</h4>
+              <p>Die Datenverarbeitung erfolgt auf Basis der Datenschutz‑Grundverordnung (DSGVO). Relevante Rechtsgrundlagen sind insbesondere:</p>
+              <ul>
+                <li>Art. 6 Abs. 1 lit. b DSGVO — Verarbeitung zur Erfüllung eines Vertrags bzw. zur Durchführung vorvertraglicher Maßnahmen (z. B. Bearbeitung von Anfragen, Auftragsabwicklung),</li>
+                <li>Art. 6 Abs. 1 lit. f DSGVO — berechtigtes Interesse (z. B. Server‑ und IT‑Sicherheit, Protokollierung),</li>
+                <li>Art. 6 Abs. 1 lit. a DSGVO — Einwilligung, wenn diese im Einzelfall eingeholt wurde.</li>
+              </ul>
+            </li>
+            <li>
+              <h4>Zwecke der Verarbeitung</h4>
+              <p>Die Datenverarbeitung dient der Beantwortung von Kontaktanfragen, der Abwicklung von Aufträgen, der Erfüllung rechtlicher Pflichten und der Gewährleistung der IT‑Sicherheit.</p>
+            </li>
+            <li>
+              <h4>Externe Inhalte und Drittanbieter</h4>
+              <p>Wir verwenden keine eigenen Tracking‑Cookies oder Web‑Analysen. Beim Laden externer Inhalte können jedoch Verbindungen zu Drittanbietern entstehen, die dort Daten verarbeiten oder Cookies setzen. Beispiele:</p>
+              <ul>
+                <li><b>Google Fonts:</b> Schriftarten werden von fonts.googleapis.com geladen; hierfür wird eine Anfrage an Google‑Server gesendet.</li>
+                <li><b>Google Maps‑Embed:</b> Die Einbettung von Google Maps erfolgt über einen iframe. Bei Nutzung des Embeds können Daten an Google übermittelt werden und Cookies unter der Domain google.com gesetzt werden.</li>
+              </ul>
+            </li>
+            <li>
+              <h4>Verarbeitung von Kontaktanfragen und E‑Mails</h4>
+              <p>Nachrichtentexte, Absenderadresse und Anhänge, die Sie über das Kontaktformular senden, werden verarbeitet, um Ihre Anfrage zu beantworten. Wir nutzen für den Versand von E‑Mails einen SMTP‑Dienst (konfigurierbar über Umgebungsvariablen). Anbieter: <strong>IONOS</strong>. Wir haben mit IONOS einen Auftragsverarbeitungsvertrag (AVV / Data Processing Agreement) abgeschlossen.</p>
+              <p>Kontaktmails werden standardmäßig für <strong>6 Monate</strong> gespeichert und anschließend gelöscht, sofern keine gesetzlichen Aufbewahrungsfristen (z. B. steuerrechtliche Fristen) entgegenstehen. In Entwicklungsumgebungen können Nachrichten vorübergehend in server/mail-dev.log geschrieben werden; auf Produktivsystemen wird dies nicht verwendet.</p>
+            </li>
+            <li>
+              <h4>Protokollierung, Sicherheit und Aufbewahrung</h4>
+              <p>Server‑Logfiles (z. B. Zugriffs‑ und Fehlerprotokolle) können IP‑Adressen, Zeitstempel und Metadaten von Anfragen enthalten. Standardaufbewahrungsfrist für Serverlogs: <strong>90 Tage</strong>. Logs werden danach rotiert, gelöscht oder anonymisiert. Soweit steuer‑ oder handelsrechtliche Aufbewahrungspflichten bestehen, gelten die gesetzlichen Fristen (z. B. in der Regel bis zu <strong>10 Jahre</strong> für steuerrelevante Unterlagen).</p>
+            </li>
+            <li>
+              <h4>Ihre Rechte und Aufsichtsbehörde</h4>
+              <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Widerspruch und Datenübertragbarkeit gemäß der DSGVO. Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte über die im Impressum angegebene E‑Mail‑Adresse.</p>
+              <p>Sie haben außerdem das Recht, eine Beschwerde bei der zuständigen Aufsichtsbehörde einzureichen. Zuständige Aufsichtsbehörde in Baden‑Württemberg:</p>
+              <p><b>Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden‑Württemberg</b> — <a href="https://www.baden-wuerttemberg.datenschutz.de/">https://www.baden-wuerttemberg.datenschutz.de/</a></p>
+            </li>
+            <li>
+              <h4>Änderungen dieser Datenschutzerklärung</h4>
+              <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen. Die jeweils aktuelle Version finden Sie auf dieser Website.</p>
+            </li>
+          </ol>
         `
       },
       impressum: {
@@ -406,65 +439,52 @@ Qualität zeigt sich im Detail.`
         fullHtml: `
           <h2>Privacy Policy</h2>
           <br/>
-          <h4>1) Information about the collection of personal data and contact details of the controller</h4>
-
-          <b>1.1</b> We appreciate your visit to our website and thank you for your interest. Below we inform you about how we handle your personal data when you use our website. Personal data means any data that can be used to personally identify you.
-          <br/>
-          <b>1.2</b> The controller for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is Goldsmith Atelier — Owner: Karla Krauss — Neuberg 11, 75210 Keltern — info@goldschmiedeatelier-krauss.de, Tel.: +49 151 52662000. The controller is the natural or legal person who, alone or jointly with others, determines the purposes and means of processing personal data.
-          <br/>
-          <b>1.3</b> For security reasons and to protect the transmission of personal data and other confidential content (e.g. orders or enquiries to the controller), this website uses SSL/TLS encryption. You can recognize a secure connection by the string "https://" and the lock icon in your browser address bar.
-          <br/><br/>
-          <h4>2) Data collected when visiting our website</h4>
-          When using our website for informational purposes only — i.e. if you do not register or transmit other information to us — we only collect the data that your browser transmits to our server (so-called "server log files"). When you access our website, we collect the following data that is technically necessary for us to display the website:
-          <br/><br/>
-          <ul>
-            <li>The website you visited</li>
-            <li>Date and time of access</li>
-            <li>Amount of data transferred in bytes</li>
-            <li>Referrer URL</li>
-            <li>Browser used</li>
-            <li>Operating system used</li>
-            <li>IP address used (possibly in anonymised form)</li>
-          </ul>
-          The processing is carried out pursuant to Art. 6(1)(f) GDPR on the basis of our legitimate interest in improving the stability and functionality of our website. The data will not be passed on or used otherwise. However, we reserve the right to retrospectively check server log files if there are concrete indications of unlawful use.
-          <br/><br/>
-          <h4>3) Cookies</h4>
-          <p>We do not use cookies, tracking scripts or third‑party web analytics on this website.</p>
-          <br/>
-          <h4>External resources</h4>
-          <p>Some content is loaded from third parties and may result in requests to external domains that process data independently. Examples:</p>
-          <ul>
-            <li><b>Google Fonts:</b> Fonts are loaded from fonts.googleapis.com; this causes requests to Google's servers. Google typically does not set cookies for fonts, but external requests occur.</li>
-            <li><b>Google Maps embed:</b> If you view the embedded map, data may be processed by Google and cookies may be set under the google.com domain. Please refer to Google's privacy documentation for details.</li>
-          </ul>
-          <h4>Email handling and logs</h4>
-          <p>Contact form messages, sender addresses and attachments are processed to respond to enquiries. We use an SMTP service for delivery (configured via environment variables). Provider: <strong>IONOS</strong>. Contact messages are retained for <strong>6 months</strong> by default and then deleted unless legal retention obligations apply. In development, messages may be written to server/mail-dev.log; avoid persistent storage of sensitive content on production systems.</p>
-          <h4>Logging, security and retention</h4>
-          <p>Server logs (access, error logs) may contain IP addresses and request metadata. Standard retention for such server logs is <strong>90 days</strong>; logs are rotated and then deleted or anonymised. We keep logs to the minimum required and apply appropriate technical and organisational safeguards.</p>
-          <h4>Your rights & contact</h4>
-          <p>You have rights to access, correction and deletion of your personal data. Contact us using the email address in the imprint.</p>
-          <br/>
-          <h4>8) Data subject rights</h4>
-          <b>8.1</b> Under applicable data protection law you have extensive rights with respect to the processing of your personal data by the controller (rights of access and intervention). These include:
-          <ul>
-            <li>Right of access pursuant to Art. 15 GDPR</li>
-            <li>Right to rectification pursuant to Art. 16 GDPR</li>
-            <li>Right to erasure pursuant to Art. 17 GDPR</li>
-            <li>Right to restriction of processing pursuant to Art. 18 GDPR</li>
-            <li>Right to be informed pursuant to Art. 19 GDPR</li>
-            <li>Right to data portability pursuant to Art. 20 GDPR</li>
-            <li>Right to withdraw consent pursuant to Art. 7(3) GDPR</li>
-            <li>Right to lodge a complaint pursuant to Art. 77 GDPR</li>
-          </ul>
-          <br/>
-          <h4><span style="font-size:15px">8.2</span> Right to object</h4>
-          If we process your personal data on the basis of a balancing of interests for our overriding legitimate interests, you have the right to object to this processing at any time for reasons arising from your particular situation. If you object, we will stop processing the data unless we can demonstrate compelling legitimate grounds for the processing which override your interests, rights and freedoms, or the processing is for the assertion, exercise or defence of legal claims.
-          <br/><br/>
-          If your personal data are processed by us for direct marketing purposes, you have the right to object to the processing of your personal data for such marketing at any time.
-          <br/><br/>
-          <h4>9) Retention periods for personal data</h4>
-          The length of time personal data are stored depends on the legal basis, the purpose of processing and, where applicable, statutory retention periods (e.g. commercial and tax retention periods). Contact messages: <strong>6 months</strong>. Server logs: <strong>90 days</strong>. Otherwise data is deleted when it is no longer necessary for the purposes for which it was collected, unless legal obligations require longer storage.
-          <br/><br/>
+          <ol>
+            <li>
+              <h4>Data controller</h4>
+              <p>The data controller in the sense of the GDPR is the entity named in the imprint.</p>
+            </li>
+            <li>
+              <h4>Legal bases for processing</h4>
+              <p>Processing is based on the EU General Data Protection Regulation (GDPR). Relevant legal bases include:</p>
+              <ul>
+                <li>Article 6(1)(b) GDPR — processing necessary for the performance of a contract or to take steps prior to entering into a contract (e.g. handling enquiries, order processing),</li>
+                <li>Article 6(1)(f) GDPR — legitimate interests (e.g. IT security, logging),</li>
+                <li>Article 6(1)(a) GDPR — consent, where obtained.</li>
+              </ul>
+            </li>
+            <li>
+              <h4>Purposes of processing</h4>
+              <p>Data are processed to respond to contact enquiries, to fulfil orders, to meet legal obligations and to ensure IT security.</p>
+            </li>
+            <li>
+              <h4>External content and third parties</h4>
+              <p>We do not operate our own tracking cookies or web analytics. When loading external content, connections to third parties may occur and those parties may process data or set cookies. Examples:</p>
+              <ul>
+                <li><b>Google Fonts:</b> Fonts are loaded from fonts.googleapis.com; this causes requests to Google's servers.</li>
+                <li><b>Google Maps embed:</b> The Google Maps embed is provided via an iframe. Using the embed may transmit data to Google and cookies may be set under the google.com domain.</li>
+              </ul>
+            </li>
+            <li>
+              <h4>Email handling and data processors</h4>
+              <p>Contact form messages, sender addresses and attachments are processed to respond to enquiries. We use an SMTP service for delivery (configured via environment variables). Provider: <strong>IONOS</strong>. We have concluded a data processing agreement (DPA) with IONOS.</p>
+              <p>Contact messages are retained for <strong>6 months</strong> by default and then deleted unless statutory retention obligations apply. In development, messages may be written to server/mail-dev.log; on production systems this is not used.</p>
+            </li>
+            <li>
+              <h4>Logging, security and retention</h4>
+              <p>Server logs (access and error logs) may contain IP addresses, timestamps and request metadata. Standard retention for server logs is <strong>90 days</strong>; logs are then rotated, deleted or anonymised. Where tax or commercial retention obligations apply, statutory retention periods apply (e.g. up to <strong>10 years</strong> for tax‑relevant documents in Germany).</p>
+            </li>
+            <li>
+              <h4>Your rights & supervisory authority</h4>
+              <p>You have the right to access, correct, delete and object to processing of your personal data. To exercise your rights, please contact us using the email address in the imprint.</p>
+              <p>You also have the right to lodge a complaint with the competent supervisory authority. Competent authority in Baden‑Württemberg:</p>
+              <p><b>Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden‑Württemberg</b> — <a href="https://www.baden-wuerttemberg.datenschutz.de/">https://www.baden-wuerttemberg.datenschutz.de/</a></p>
+            </li>
+            <li>
+              <h4>Changes to this privacy policy</h4>
+              <p>We may update this privacy policy from time to time. The current version will always be available on this website.</p>
+            </li>
+          </ol>
         `
       },
       impressum: {
