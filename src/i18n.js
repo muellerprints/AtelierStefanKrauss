@@ -115,12 +115,31 @@ const resources = {
               <p>Die Datenverarbeitung dient der Beantwortung von Kontaktanfragen, der Abwicklung von Aufträgen, der Erfüllung rechtlicher Pflichten und der Gewährleistung der IT‑Sicherheit.</p>
             </li>
             <li>
-              <h4>Externe Inhalte und Drittanbieter</h4>
+              <h4>Externe Inhalte, Drittanbieter und Empfänger</h4>
               <p>Wir verwenden keine eigenen Tracking‑Cookies oder Web‑Analysen. Beim Laden externer Inhalte können jedoch Verbindungen zu Drittanbietern entstehen, die dort Daten verarbeiten oder Cookies setzen. Beispiele:</p>
               <ul>
-                <li><b>Google Fonts:</b> Schriftarten werden von fonts.googleapis.com geladen; hierfür wird eine Anfrage an Google‑Server gesendet.</li>
-                <li><b>Google Maps‑Embed:</b> Die Einbettung von Google Maps erfolgt über einen iframe. Bei Nutzung des Embeds können Daten an Google übermittelt werden und Cookies unter der Domain google.com gesetzt werden.</li>
+                <li><b>Google Fonts:</b> Schriftarten werden von <a href="https://fonts.googleapis.com">fonts.googleapis.com</a> geladen; hierfür wird eine Anfrage an Google‑Server gesendet. Weitere Informationen: <a href="https://policies.google.com/privacy">Google Privacy</a>.</li>
+                <li><b>Google Maps‑Embed:</b> Die Einbettung von Google Maps erfolgt über einen iframe. Bei Nutzung des Embeds können Daten an Google übermittelt werden und Cookies unter der Domain google.com gesetzt werden. Weitere Informationen: <a href="https://policies.google.com/privacy">Google Privacy</a>.</li>
               </ul>
+              <p><b>Empfänger / Kategorien von Empfängern:</b> Soweit Empfänger involviert sind, sind dies insbesondere technische Dienstleister wie der E‑Mail‑Provider <a href="https://www.ionos.de/legal/terms-privacy/">IONOS (Datenschutz)</a> sowie gegebenenfalls Google (siehe oben) oder Zahlungs‑/Versanddienstleister, sofern diese zur Vertragsabwicklung erforderlich sind. Eine Weitergabe an andere Dritte erfolgt nicht, außer wir sind hierzu gesetzlich verpflichtet.</p>
+            </li>
+            <li>
+              <h4>Cookies</h4>
+              <p>Wir verwenden auf dieser Website nur solche Cookies, die für den Betrieb erforderlich sind oder die Sie freiwillig akzeptieren. Es gibt:</p>
+              <ul>
+                <li><b>Sitzungs‑Cookies:</b> Werden nach Ende der Browser‑Sitzung gelöscht.</li>
+                <li><b>Persistente Cookies:</b> Bleiben auf Ihrem Gerät und ermöglichen z. B. das Wiedererkennen des Browsers.</li>
+                <li><b>Drittanbieter‑Cookies:</b> Können von eingebetteten Diensten (z. B. Google Maps) gesetzt werden.</li>
+              </ul>
+              <p>Sie können Cookies in Ihrem Browser deaktivieren oder löschen. Hinweise zur Konfiguration finden Sie hier:</p>
+              <ul>
+                <li><a href="https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies">Internet Explorer</a></li>
+                <li><a href="https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen">Firefox</a></li>
+                <li><a href="https://support.google.com/chrome/answer/95647?hl=de">Chrome</a></li>
+                <li><a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac">Safari</a></li>
+                <li><a href="https://help.opera.com/en/latest/web-preferences/#cookies">Opera</a></li>
+              </ul>
+              <p>Bitte beachten Sie, dass die Nichtannahme von Cookies die Funktionalität der Website einschränken kann.</p>
             </li>
             <li>
               <h4>Verarbeitung von Kontaktanfragen und E‑Mails</h4>
@@ -129,11 +148,33 @@ const resources = {
             </li>
             <li>
               <h4>Protokollierung, Sicherheit und Aufbewahrung</h4>
-              <p>Server‑Logfiles (z. B. Zugriffs‑ und Fehlerprotokolle) können IP‑Adressen, Zeitstempel und Metadaten von Anfragen enthalten. Standardaufbewahrungsfrist für Serverlogs: <strong>90 Tage</strong>. Logs werden danach rotiert, gelöscht oder anonymisiert. Soweit steuer‑ oder handelsrechtliche Aufbewahrungspflichten bestehen, gelten die gesetzlichen Fristen (z. B. in der Regel bis zu <strong>10 Jahre</strong> für steuerrelevante Unterlagen).</p>
+              <p>Beim Besuch unserer Website werden in sogenannten Server‑Logfiles technische Daten erfasst. Dazu gehören insbesondere:</p>
+              <ul>
+                <li>Die von Ihnen besuchte URL / Ressource der Website</li>
+                <li>Datum und Uhrzeit des Zugriffs</li>
+                <li>Menge der gesendeten Daten in Byte</li>
+                <li>Quelle/Referrer, von welcher Seite Sie gekommen sind</li>
+                <li>Verwendeter Browser und Browserversion</li>
+                <li>Verwendetes Betriebssystem</li>
+                <li>Verwendete IP‑Adresse (ggf. anonymisiert)</li>
+              </ul>
+              <p>Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website. Eine Weitergabe oder anderweitige Verwendung der Daten findet nicht statt. Wir behalten uns jedoch vor, Server‑Logfiles nachträglich zu prüfen, sollten konkrete Anhaltspunkte auf eine rechtswidrige Nutzung hinweisen.</p>
+              <p>Standardaufbewahrungsfrist für Serverlogs: <strong>90 Tage</strong>. Logs werden danach rotiert, gelöscht oder anonymisiert. Soweit steuer‑ oder handelsrechtliche Aufbewahrungspflichten bestehen, gelten die gesetzlichen Fristen (z. B. §257 HGB, §147 AO — in der Regel bis zu <strong>10 Jahre</strong> für steuerrelevante Unterlagen).</p>
             </li>
             <li>
               <h4>Ihre Rechte und Aufsichtsbehörde</h4>
-              <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Widerspruch und Datenübertragbarkeit gemäß der DSGVO. Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte über die im Impressum angegebene E‑Mail‑Adresse.</p>
+              <p>Sie haben umfangreiche Rechte als betroffene Person. Kurzüberblick (vollständige Angaben in den jeweiligen Artikeln der DSGVO):</p>
+              <ul>
+                <li><b>Auskunft (Art.15 DSGVO):</b> Recht auf Auskunft über die von uns verarbeiteten personenbezogenen Daten, Verarbeitungszwecke, Empfänger, Speicherdauer u. a.</li>
+                <li><b>Berichtigung (Art.16 DSGVO):</b> Recht auf Berichtigung unrichtiger Daten.</li>
+                <li><b>Löschung (Art.17 DSGVO):</b> Recht auf Löschung, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</li>
+                <li><b>Einschränkung der Verarbeitung (Art.18 DSGVO):</b> Recht auf Einschränkung unter bestimmten Voraussetzungen.</li>
+                <li><b>Datenübertragbarkeit (Art.20 DSGVO):</b> Recht, die bereitgestellten Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.</li>
+                <li><b>Widerruf von Einwilligungen (Art.7 DSGVO):</b> Widerruf mit Wirkung für die Zukunft.</li>
+                <li><b>Widerspruch (Art.21 DSGVO):</b> Sie können aus Gründen, die sich aus Ihrer besonderen Situation ergeben, gegen die Verarbeitung, die auf Art.6 Abs.1 lit. f DSGVO beruht, Widerspruch einlegen.</li>
+                <li><b>Beschwerde (Art.77 DSGVO):</b> Recht auf Beschwerde bei einer Aufsichtsbehörde.</li>
+              </ul>
+              <p>Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte per E‑Mail an die im Impressum angegebene Adresse oder schriftlich an die dort genannte Postanschrift.</p>
               <p>Sie haben außerdem das Recht, eine Beschwerde bei der zuständigen Aufsichtsbehörde einzureichen. Zuständige Aufsichtsbehörde in Baden‑Württemberg:</p>
               <p><b>Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden‑Württemberg</b> — <a href="https://www.baden-wuerttemberg.datenschutz.de/">https://www.baden-wuerttemberg.datenschutz.de/</a></p>
             </li>
