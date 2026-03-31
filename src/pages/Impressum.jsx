@@ -21,9 +21,6 @@ export default function Impressum(){
         <a href={`mailto:${t('contact.email')}`}>{t('contact.email')}</a><br/>
         <a href={`tel:${t('contact.phoneRaw')}`}>{t('contact.phone')}</a>
       </p>
-      <h3>{t('impressum.registryTitle')}</h3>
-      <p>{t('impressum.registry')}</p>
-      <p><em>{t('impressum.note')}</em></p>
       {t('impressum.odr') && (
         <div dangerouslySetInnerHTML={{ __html: t('impressum.odr').replace(/\n/g, '<br/>') }} />
       )}
