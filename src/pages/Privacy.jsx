@@ -130,16 +130,7 @@ export default function Privacy(){
           <br/>
           <br/>
           <h4>7) Webanalysedienste</h4>
-          <p>Matomo (ehemals Piwik)</p>
-          <p>Auf dieser Website werden unter Einsatz der Webanalysedienst-Software Matomo (www.matomo.org), einem Dienst des
-            Anbieters InnoCraft Ltd., 150 Willis St, 6011 Wellington, Neuseeland, ("Matomo") auf Basis unseres
-            berechtigten Interesses an der statistischen Analyse des Nutzerverhaltens zu Optimierungs- und Marketingzwecken
-            gemäß Art. 6 Abs. 1 lit. f DSGVO Daten gesammelt und gespeichert. Aus diesen Daten können zum
-            selben Zweck pseudonymisierte Nutzungsprofile erstellt und ausgewertet werden. Hierzu können Cookies
-            eingesetzt werden. Bei Cookies handelt es sich um kleine Textdateien, die lokal im Zwischenspeicher des
-            Internet-Browsers des Seitenbesuchers gespeichert werden. Die Cookies ermöglichen unter anderem die
-            Wiedererkennung des Internet-Browsers. Die mit der Matomo-Technologie erhobenen Daten (einschließlich Ihrer
-            pseudonymisierten IP-Adresse) werden auf unseren Servern verarbeitet.</p>
+          <p>Wir verwenden auf dieser Website keine Cookies, Tracking‑Skripte oder Drittanbieter‑Webanalysen.</p>
           <br/>
           <h4>8) Rechte des Betroffenen</h4>
 
