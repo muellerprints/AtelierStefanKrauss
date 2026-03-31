@@ -503,12 +503,31 @@ Qualität zeigt sich im Detail.`
               <p>Data are processed to respond to contact enquiries, to fulfil orders, to meet legal obligations and to ensure IT security.</p>
             </li>
             <li>
-              <h4>External content and third parties</h4>
+              <h4>External content, third parties and recipients</h4>
               <p>We do not operate our own tracking cookies or web analytics. When loading external content, connections to third parties may occur and those parties may process data or set cookies. Examples:</p>
               <ul>
-                <li><b>Google Fonts:</b> Fonts are loaded from fonts.googleapis.com; this causes requests to Google's servers.</li>
-                <li><b>Google Maps embed:</b> The Google Maps embed is provided via an iframe. Using the embed may transmit data to Google and cookies may be set under the google.com domain.</li>
+                <li><b>Google Fonts:</b> Fonts are loaded from <a href="https://fonts.googleapis.com">fonts.googleapis.com</a>; this causes requests to Google's servers. More information: <a href="https://policies.google.com/privacy">Google Privacy</a>.</li>
+                <li><b>Google Maps embed:</b> The Google Maps embed is provided via an iframe. Using the embed may transmit data to Google and cookies may be set under the google.com domain. More information: <a href="https://policies.google.com/privacy">Google Privacy</a>.</li>
               </ul>
+              <p><b>Recipients / categories of recipients:</b> If recipients are involved, these are primarily technical service providers such as the e‑mail provider <a href="https://www.ionos.de/legal/terms-privacy/">IONOS (privacy)</a>, and potentially Google (see above) or payment/shipping providers where required for contract fulfilment. We do not disclose data to other third parties unless legally obliged to do so.</p>
+            </li>
+            <li>
+              <h4>Cookies</h4>
+              <p>On this website we only use cookies that are necessary for operation or that you voluntarily accept. Types of cookies:</p>
+              <ul>
+                <li><b>Session cookies:</b> Deleted after the browser session ends.</li>
+                <li><b>Persistent cookies:</b> Remain on your device and can e.g. recognise the browser.</li>
+                <li><b>Third‑party cookies:</b> May be set by embedded services (e.g. Google Maps).</li>
+              </ul>
+              <p>You can disable or delete cookies in your browser. Guidance on configuration:</p>
+              <ul>
+                <li><a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies">Internet Explorer</a></li>
+                <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences">Firefox</a></li>
+                <li><a href="https://support.google.com/chrome/answer/95647?hl=en">Chrome</a></li>
+                <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac">Safari</a></li>
+                <li><a href="https://help.opera.com/en/latest/web-preferences/#cookies">Opera</a></li>
+              </ul>
+              <p>Please note that refusing cookies may limit the functionality of the website.</p>
             </li>
             <li>
               <h4>Email handling and data processors</h4>
@@ -517,11 +536,33 @@ Qualität zeigt sich im Detail.`
             </li>
             <li>
               <h4>Logging, security and retention</h4>
-              <p>Server logs (access and error logs) may contain IP addresses, timestamps and request metadata. Standard retention for server logs is <strong>90 days</strong>; logs are then rotated, deleted or anonymised. Where tax or commercial retention obligations apply, statutory retention periods apply (e.g. up to <strong>10 years</strong> for tax‑relevant documents in Germany).</p>
+              <p>When visiting our website technical data are recorded in server log files. These typically include:</p>
+              <ul>
+                <li>The requested URL / resource</li>
+                <li>Date and time of access</li>
+                <li>Amount of data transferred in bytes</li>
+                <li>Referrer / source page</li>
+                <li>Browser and browser version</li>
+                <li>Operating system</li>
+                <li>IP address used (possibly anonymised)</li>
+              </ul>
+              <p>Processing is carried out under Art. 6(1)(f) GDPR on the basis of our legitimate interest in improving the stability and functionality of our website. Data will not be shared or otherwise used. We reserve the right to inspect server logs retrospectively if there are concrete indications of unlawful use.</p>
+              <p>Standard retention period for server logs: <strong>90 days</strong>. Logs are then rotated, deleted or anonymised. Where tax or commercial retention obligations apply, statutory retention periods apply (e.g. §257 HGB, §147 AO — generally up to <strong>10 years</strong> for tax‑relevant documents in Germany).</p>
             </li>
             <li>
               <h4>Your rights & supervisory authority</h4>
-              <p>You have the right to access, correct, delete and object to processing of your personal data. To exercise your rights, please contact us using the email address in the imprint.</p>
+              <p>You have extensive rights as a data subject. Short overview (see respective GDPR articles for full details):</p>
+              <ul>
+                <li><b>Access (Art.15 GDPR):</b> Right to obtain information about the personal data we process, purposes, recipients, storage period etc.</li>
+                <li><b>Rectification (Art.16 GDPR):</b> Right to rectification of inaccurate data.</li>
+                <li><b>Erasure (Art.17 GDPR):</b> Right to erasure unless statutory retention obligations prevent deletion.</li>
+                <li><b>Restriction (Art.18 GDPR):</b> Right to restrict processing under certain conditions.</li>
+                <li><b>Data portability (Art.20 GDPR):</b> Right to receive data in a structured, commonly used and machine‑readable format.</li>
+                <li><b>Withdrawal of consent (Art.7 GDPR):</b> Withdrawal with effect for the future.</li>
+                <li><b>Objection (Art.21 GDPR):</b> You may object to processing based on Art.6(1)(f) GDPR for reasons arising from your particular situation.</li>
+                <li><b>Complaint (Art.77 GDPR):</b> Right to lodge a complaint with a supervisory authority.</li>
+              </ul>
+              <p>To exercise your rights please contact us by e‑mail at the address provided in the imprint or in writing at the postal address given there.</p>
               <p>You also have the right to lodge a complaint with the competent supervisory authority. Competent authority in Baden‑Württemberg:</p>
               <p><b>Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden‑Württemberg</b> — <a href="https://www.baden-wuerttemberg.datenschutz.de/">https://www.baden-wuerttemberg.datenschutz.de/</a></p>
             </li>
