@@ -133,11 +133,11 @@ const resources = {
               </ul>
               <p>Sie können Cookies in Ihrem Browser deaktivieren oder löschen. Hinweise zur Konfiguration finden Sie hier:</p>
               <ul>
-                <li><a href="https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies">Internet Explorer</a></li>
-                <li><a href="https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen">Firefox</a></li>
-                <li><a href="https://support.google.com/chrome/answer/95647?hl=de&hlrm=en">Chrome</a></li>
-                <li><a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac">Safari</a></li>
-                <li><a href="https://help.opera.com/en/latest/web-preferences/#cookies">Opera</a></li>
+                <li>Internet Explorer: <a href="https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies">https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies</a></li>
+                <li>Firefox: <a href="https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen">https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen</a></li>
+                <li>Chrome: <a href="https://support.google.com/chrome/answer/95647?hl=de&hlrm=en">https://support.google.com/chrome/answer/95647?hl=de&hlrm=en</a></li>
+                <li>Safari: <a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac">https://support.apple.com/de-de/guide/safari/sfri11471/mac</a></li>
+                <li>Opera: <a href="https://help.opera.com/en/latest/web-preferences/#cookies">https://help.opera.com/en/latest/web-preferences/#cookies</a></li>
               </ul>
               <p>Bitte beachten Sie, dass die Nichtannahme von Cookies die Funktionalität der Website einschränken kann.</p>
             </li>
@@ -521,11 +521,11 @@ Qualität zeigt sich im Detail.`
               </ul>
               <p>You can disable or delete cookies in your browser. Guidance on configuration:</p>
               <ul>
-                <li><a href="https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies">Internet Explorer</a></li>
-                <li><a href="https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen">Firefox</a></li>
-                <li><a href="https://support.google.com/chrome/answer/95647?hl=de&hlrm=en">Chrome</a></li>
-                <li><a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac">Safari</a></li>
-                <li><a href="https://help.opera.com/en/latest/web-preferences/#cookies">Opera</a></li>
+                <li>Internet Explorer: <a href="https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies">https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies</a></li>
+                <li>Firefox: <a href="https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen">https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen</a></li>
+                <li>Chrome: <a href="https://support.google.com/chrome/answer/95647?hl=de&hlrm=en">https://support.google.com/chrome/answer/95647?hl=de&hlrm=en</a></li>
+                <li>Safari: <a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac">https://support.apple.com/de-de/guide/safari/sfri11471/mac</a></li>
+                <li>Opera: <a href="https://help.opera.com/en/latest/web-preferences/#cookies">https://help.opera.com/en/latest/web-preferences/#cookies</a></li>
               </ul>
               <p>Please note that refusing cookies may limit the functionality of the website.</p>
             </li>
