@@ -121,6 +121,7 @@ const resources = {
                 <li><b>Google Fonts:</b> Schriftarten werden von <a href="https://fonts.googleapis.com">fonts.googleapis.com</a> geladen; hierfür wird eine Anfrage an Google‑Server gesendet. Weitere Informationen: <a href="https://policies.google.com/privacy">Google Privacy</a>.</li>
                 <li><b>Google Maps‑Embed:</b> Die Einbettung von Google Maps erfolgt über einen iframe. Bei Nutzung des Embeds können Daten an Google übermittelt werden und Cookies unter der Domain google.com gesetzt werden. Weitere Informationen: <a href="https://policies.google.com/privacy">Google Privacy</a>.</li>
               </ul>
+              <p><b>Hinweis zu Google Fonts:</b> Beim Laden der Schriftarten werden Anfragen an Google‑Server gesendet; dabei können IP‑Adressen und technische Metadaten übermittelt werden. Wenn Sie dies vermeiden möchten, empfehlen wir, die verwendeten Schriftarten lokal zu hosten.</p>
               <p><b>Empfänger / Kategorien von Empfängern:</b> Soweit Empfänger involviert sind, sind dies insbesondere technische Dienstleister wie der E‑Mail‑Provider <a href="https://www.ionos.de/legal/terms-privacy/">IONOS (Datenschutz)</a> sowie gegebenenfalls Google (siehe oben) oder Zahlungs‑/Versanddienstleister, sofern diese zur Vertragsabwicklung erforderlich sind. Eine Weitergabe an andere Dritte erfolgt nicht, außer wir sind hierzu gesetzlich verpflichtet.</p>
             </li>
             <li>
@@ -509,6 +510,7 @@ Qualität zeigt sich im Detail.`
                 <li><b>Google Fonts:</b> Fonts are loaded from <a href="https://fonts.googleapis.com">fonts.googleapis.com</a>; this causes requests to Google's servers. More information: <a href="https://policies.google.com/privacy">Google Privacy</a>.</li>
                 <li><b>Google Maps embed:</b> The Google Maps embed is provided via an iframe. Using the embed may transmit data to Google and cookies may be set under the google.com domain. More information: <a href="https://policies.google.com/privacy">Google Privacy</a>.</li>
               </ul>
+              <p><b>Note on Google Fonts:</b> When fonts are loaded from Google's servers, requests (including IP address and technical metadata) are sent to Google. To prevent this data transfer, consider self‑hosting the fonts used on this site.</p>
               <p><b>Recipients / categories of recipients:</b> If recipients are involved, these are primarily technical service providers such as the e‑mail provider <a href="https://www.ionos.de/legal/terms-privacy/">IONOS (privacy)</a>, and potentially Google (see above) or payment/shipping providers where required for contract fulfilment. We do not disclose data to other third parties unless legally obliged to do so.</p>
             </li>
             <li>
