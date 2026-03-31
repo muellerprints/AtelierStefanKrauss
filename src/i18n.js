@@ -101,9 +101,9 @@ const resources = {
             <li><b>Google Maps‑Embed:</b> Die Einbettung von Google Maps erfolgt über einen iframe. Google kann bei Nutzung des Embeds Daten verarbeiten und Cookies unter der Domain google.com setzen. Bitte prüfen Sie die Datenschutzhinweise von Google für Details.</li>
           </ul>
           <h4>Verarbeitung von Kontaktanfragen und E‑Mails</h4>
-          <p>Nachrichtentexte, Absenderadresse und Anhänge, die Sie über das Kontaktformular senden, werden verarbeitet, um Ihre Anfrage zu beantworten. Wir nutzen für den Versand von E‑Mails einen SMTP‑Dienst (konfigurierbar über Umgebungsvariablen). In Entwicklungsumgebungen werden Nachrichten in eine lokale Logdatei (<code>server/mail-dev.log</code>) geschrieben, um Zustellungsfehler zu vermeiden. In Produktionsumgebungen werden diese Logdateien nicht empfohlen; sensible Inhalte sollten dort nicht dauerhaft gespeichert werden.</p>
+          <p>Nachrichtentexte, Absenderadresse und Anhänge, die Sie über das Kontaktformular senden, werden verarbeitet, um Ihre Anfrage zu beantworten. Wir nutzen für den Versand von E‑Mails einen SMTP‑Dienst (konfigurierbar über Umgebungsvariablen). Anbieter: <strong>[SMTP_PROVIDER]</strong> (Platzhalter — bitte durch den tatsächlichen Anbieter ersetzen, z. B. Mailgun, Sendinblue, Gmail SMTP). Kontaktmails werden standardmäßig für <strong>6 Monate</strong> gespeichert und anschließend gelöscht, sofern keine gesetzlichen Aufbewahrungsfristen entgegenstehen. In Entwicklungsumgebungen können Nachrichten vorübergehend in <code>server/mail-dev.log</code> geschrieben werden; auf Produktivsystemen sollte dies vermieden werden.</p>
           <h4>Protokollierung, Sicherheit und Aufbewahrung</h4>
-          <p>Server‑Logfiles (z. B. Zugriffslogs, Fehlerprotokolle) werden aus Sicherheits‑ und Debugging‑Gründen erzeugt. Dort können IP‑Adressen, Zeitstempel und Ausschnitte von Anfragen gespeichert werden. Wir beschränken gespeicherte Daten auf das notwendige Minimum und rotieren/loggen gemäß interner Richtlinien.</p>
+          <p>Server‑Logfiles (z. B. Zugriffs‑ und Fehlerprotokolle) werden aus Sicherheits‑ und Debugging‑Gründen erzeugt. Diese Logs können IP‑Adressen, Zeitstempel und Metadaten von Anfragen enthalten. Standardaufbewahrungsfrist für solche Serverlogs: <strong>90 Tage</strong>. Logs werden danach rotiert bzw. überschrieben/gelöscht. Wir begrenzen die gespeicherten Daten auf das notwendige Minimum und schützen sie durch technische und organisatorische Maßnahmen.</p>
           <h4>Ihre Rechte und Kontakt</h4>
           <p>Sie haben Auskunfts‑, Berichtigungs‑ und Löschungsrechte sowie das Recht auf Einschränkung der Verarbeitung. Für Anfragen nutzen Sie bitte die im Impressum angegebene E‑Mail‑Adresse.</p>
           <br/>
@@ -429,34 +429,6 @@ Qualität zeigt sich im Detail.`
           The processing is carried out pursuant to Art. 6(1)(f) GDPR on the basis of our legitimate interest in improving the stability and functionality of our website. The data will not be passed on or used otherwise. However, we reserve the right to retrospectively check server log files if there are concrete indications of unlawful use.
           <br/><br/>
           <h4>3) Cookies</h4>
-          To make your visit to our website attractive and to enable the use of certain functions, we use so-called cookies on various pages. These are small text files that are stored on your device. Some of the cookies we use are deleted after the end of your browser session (session cookies). Other cookies remain on your device and enable us or our partner companies (third‑party cookies) to recognise your browser on your next visit (persistent cookies). Cookies may store information such as browser and location data and IP address values. Persistent cookies are deleted automatically after a predefined period, which depends on the individual cookie.
-          <br/>
-          Some cookies are used to simplify the ordering process by saving settings (e.g. remembering the contents of a virtual shopping cart for a later visit). If cookies used by us also process personal data, the processing is based either on Art. 6(1)(b) GDPR for contract performance or Art. 6(1)(f) GDPR for our legitimate interest in a well‑functioning and customer‑friendly website.
-          <br/>
-          We may work with advertising partners who help make our online offering more interesting. In such cases, cookies from partner companies may be stored on your device. If we work with such partners, we inform you individually below about the use of these cookies and the information collected.
-          <br/>
-          You can set your browser to inform you about cookies and to accept or reject them individually or in general. Each browser handles cookie settings differently; please consult your browser's help menu for instructions. Links for common browsers:
-          <br/>
-          <br/>Internet Explorer: <a href="https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies">https://support.microsoft.com/de-de/help/17442/windows-internet-explorer-delete-manage-cookies</a>
-          <br/>Firefox: <a href="https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen">https://support.mozilla.org/de/kb/cookies-erlauben-und-ablehnen</a>
-          <br/>Chrome: <a href="https://support.google.com/chrome/answer/95647?hl=de&hlrm=en">https://support.google.com/chrome/answer/95647?hl=de&hlrm=en</a>
-          <br/>Safari: <a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac">https://support.apple.com/de-de/guide/safari/sfri11471/mac</a>
-          <br/>Opera: <a href="https://help.opera.com/en/latest/web-preferences/#cookies">https://help.opera.com/en/latest/web-preferences/#cookies</a>
-          <br/><br/>
-          Please note that disabling cookies may restrict the functionality of our website.
-          <br/><br/>
-          <h4>4) Contact</h4>
-          When you contact us (e.g. by contact form or e‑mail), personal data is collected. Which data is collected in a contact form is evident from the form itself. These data are stored and used exclusively for the purpose of answering your request and for the associated technical administration. The legal basis for processing is our legitimate interest in answering your enquiry pursuant to Art. 6(1)(f) GDPR. If your contact aims at concluding a contract, Art. 6(1)(b) GDPR additionally applies. Your data will be deleted after completion of processing, insofar as no statutory retention obligations prevent deletion.
-          <br/><br/>
-          <h4>5) Data processing for account creation and contract processing</h4>
-          Pursuant to Art. 6(1)(b) GDPR, personal data is also collected and processed if you provide it for the purpose of performing a contract or opening a customer account. Which data are collected is evident from the respective input forms. You may request deletion of your account at any time by notifying the controller at the address above. We store and use the data provided by you for contract processing. After full performance of the contract or deletion of the account, data will be blocked and deleted in accordance with tax and commercial retention periods unless you have consented to further use or another lawful processing is permitted.
-          <br/><br/>
-          <h4>6) Data processing for order handling</h4>
-          For the fulfilment of your order we work with the service providers named below who support us in whole or in part. Certain personal data required for contract performance will be passed on to these service providers.
-          <br/>
-          Personal data collected in the course of contract processing will be passed on to the carrier commissioned to deliver the goods insofar as this is necessary for delivery. Payment data will be transmitted to the financial institution commissioned to process payments, if required. Where payment service providers are used, we will inform you explicitly below. The legal basis for disclosure is Art. 6(1)(b) GDPR.
-          <br/><br/>
-          <h4>7) Web analytics services</h4>
           <p>We do not use cookies, tracking scripts or third‑party web analytics on this website.</p>
           <br/>
           <h4>External resources</h4>
@@ -466,9 +438,9 @@ Qualität zeigt sich im Detail.`
             <li><b>Google Maps embed:</b> If you view the embedded map, data may be processed by Google and cookies may be set under the google.com domain. Please refer to Google's privacy documentation for details.</li>
           </ul>
           <h4>Email handling and logs</h4>
-          <p>Contact form messages, sender addresses and attachments are processed to respond to enquiries. We use an SMTP service for delivery (configured via environment variables). In development, messages may be written to <code>server/mail-dev.log</code> to avoid losing mails; avoid persistent storage of sensitive content in logs on production systems.</p>
+          <p>Contact form messages, sender addresses and attachments are processed to respond to enquiries. We use an SMTP service for delivery (configured via environment variables). Provider: <strong>[SMTP_PROVIDER]</strong> (placeholder — replace with actual provider, e.g. Mailgun, Sendinblue, Gmail SMTP). Contact messages are retained for <strong>6 months</strong> by default and then deleted unless legal retention obligations apply. In development, messages may be written to <code>server/mail-dev.log</code>; avoid persistent storage of sensitive content on production systems.</p>
           <h4>Logging, security and retention</h4>
-          <p>Server logs (access, error logs) may contain IP addresses and request metadata. We keep logs to the minimum required and apply retention/rotation practices.</p>
+          <p>Server logs (access, error logs) may contain IP addresses and request metadata. Standard retention for such server logs is <strong>90 days</strong>; logs are rotated and then deleted or anonymised. We keep logs to the minimum required and apply appropriate technical and organisational safeguards.</p>
           <h4>Your rights & contact</h4>
           <p>You have rights to access, correction and deletion of your personal data. Contact us using the email address in the imprint.</p>
           <br/>
@@ -491,11 +463,8 @@ Qualität zeigt sich im Detail.`
           If your personal data are processed by us for direct marketing purposes, you have the right to object to the processing of your personal data for such marketing at any time.
           <br/><br/>
           <h4>9) Retention periods for personal data</h4>
-          The length of time personal data are stored depends on the legal basis, the purpose of processing and, where applicable, statutory retention periods (e.g. commercial and tax retention periods).
+          The length of time personal data are stored depends on the legal basis, the purpose of processing and, where applicable, statutory retention periods (e.g. commercial and tax retention periods). Contact messages: <strong>6 months</strong>. Server logs: <strong>90 days</strong>. Otherwise data is deleted when it is no longer necessary for the purposes for which it was collected, unless legal obligations require longer storage.
           <br/><br/>
-          Where processing is based on consent (Art. 6(1)(a) GDPR), data are retained until consent is revoked. Where statutory retention periods apply for data processed in connection with contractual obligations, data will be deleted after expiry of those retention periods unless required for contract fulfilment or a legitimate interest in continued storage exists. For data processed on the basis of Art. 6(1)(f) GDPR, data are stored until you exercise your right to object unless we can demonstrate overriding legitimate grounds or the processing serves the assertion, exercise or defence of legal claims.
-          <br/><br/>
-          Unless otherwise specified in this statement for specific processing operations, personal data will otherwise be deleted when they are no longer needed for the purposes for which they were collected or otherwise processed.
         `
       },
       impressum: {
