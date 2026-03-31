@@ -106,7 +106,7 @@ const resources = {
               <p>Die Datenverarbeitung erfolgt auf Basis der Datenschutz‑Grundverordnung (DSGVO). Relevante Rechtsgrundlagen sind insbesondere:</p>
               <ul>
                 <li>Art. 6 Abs. 1 lit. b DSGVO — Verarbeitung zur Erfüllung eines Vertrags bzw. zur Durchführung vorvertraglicher Maßnahmen (z. B. Bearbeitung von Anfragen, Auftragsabwicklung),</li>
-                <li>Art. 6 Abs. 1 lit. f DSGVO — berechtigtes Interesse (z. B. Server‑ und IT‑Sicherheit, Protokollierung),</li>
+                <li>Art. 6 Abs. 1 lit. f DSGVO — berechtigtes Interesse (z. B. Server‑ und IT‑Sicherheit, Protokollierung). Die Verarbeitung erfolgt auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website. Eine Weitergabe oder anderweitige Verwendung der Daten findet nicht statt. Wir behalten uns jedoch vor, Server‑Logfiles nachträglich zu prüfen, sollten konkrete Anhaltspunkte auf eine rechtswidrige Nutzung hinweisen.</li>
                 <li>Art. 6 Abs. 1 lit. a DSGVO — Einwilligung, wenn diese im Einzelfall eingeholt wurde.</li>
               </ul>
             </li>
@@ -453,7 +453,7 @@ Qualität zeigt sich im Detail.`
               <p>Processing is based on the EU General Data Protection Regulation (GDPR). Relevant legal bases include:</p>
               <ul>
                 <li>Article 6(1)(b) GDPR — processing necessary for the performance of a contract or to take steps prior to entering into a contract (e.g. handling enquiries, order processing),</li>
-                <li>Article 6(1)(f) GDPR — legitimate interests (e.g. IT security, logging),</li>
+                <li>Article 6(1)(f) GDPR — legitimate interests (e.g. IT security, logging). Processing is based on our legitimate interest in improving the stability and functionality of our website. Data will not be shared or otherwise used. However, we reserve the right to inspect server logs retrospectively if there are concrete indications of unlawful use.</li>
                 <li>Article 6(1)(a) GDPR — consent, where obtained.</li>
               </ul>
             </li>
