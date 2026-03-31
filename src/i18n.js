@@ -90,6 +90,24 @@ const resources = {
         rightsTitle: 'Rechte',
         rights: 'Sie haben Auskunfts-, Berichtigungs-, Löschungs- und Widerspruchsrechte. Zur Ausübung kontaktieren Sie uns bitte per E‑Mail.',
         note: 'Diese Seite ist ein Muster. Eine vollständige Datenschutzerklärung sollte prüfbar und vollständig auf die Geschäftsprozesse abgestimmt werden.'
+        ,
+        fullHtml: `
+          <h2>Datenschutzerklärung</h2>
+          <br/>
+          <h4>Zusätzliche Hinweise</h4>
+          <p>Wir verwenden keine Cookies, Tracking‑Skripte oder Drittanbieter‑Webanalysen auf dieser Website. Dennoch können beim Laden externer Inhalte Verbindungen zu Drittanbietern entstehen, die dort Cookies oder ähnliche Technologien setzen können. Beispiele in unserem Angebot:</p>
+          <ul>
+            <li><b>Google Fonts:</b> Schriftarten werden von fonts.googleapis.com geladen; dabei findet eine Anfrage an Google‑Server statt. Google setzt hierfür in der Regel keine Cookies, es erfolgt jedoch eine Verbindung zu einer externen Domain.</li>
+            <li><b>Google Maps‑Embed:</b> Die Einbettung von Google Maps erfolgt über einen iframe. Google kann bei Nutzung des Embeds Daten verarbeiten und Cookies unter der Domain google.com setzen. Bitte prüfen Sie die Datenschutzhinweise von Google für Details.</li>
+          </ul>
+          <h4>Verarbeitung von Kontaktanfragen und E‑Mails</h4>
+          <p>Nachrichtentexte, Absenderadresse und Anhänge, die Sie über das Kontaktformular senden, werden verarbeitet, um Ihre Anfrage zu beantworten. Wir nutzen für den Versand von E‑Mails einen SMTP‑Dienst (konfigurierbar über Umgebungsvariablen). In Entwicklungsumgebungen werden Nachrichten in eine lokale Logdatei (<code>server/mail-dev.log</code>) geschrieben, um Zustellungsfehler zu vermeiden. In Produktionsumgebungen werden diese Logdateien nicht empfohlen; sensible Inhalte sollten dort nicht dauerhaft gespeichert werden.</p>
+          <h4>Protokollierung, Sicherheit und Aufbewahrung</h4>
+          <p>Server‑Logfiles (z. B. Zugriffslogs, Fehlerprotokolle) werden aus Sicherheits‑ und Debugging‑Gründen erzeugt. Dort können IP‑Adressen, Zeitstempel und Ausschnitte von Anfragen gespeichert werden. Wir beschränken gespeicherte Daten auf das notwendige Minimum und rotieren/loggen gemäß interner Richtlinien.</p>
+          <h4>Ihre Rechte und Kontakt</h4>
+          <p>Sie haben Auskunfts‑, Berichtigungs‑ und Löschungsrechte sowie das Recht auf Einschränkung der Verarbeitung. Für Anfragen nutzen Sie bitte die im Impressum angegebene E‑Mail‑Adresse.</p>
+          <br/>
+        `
       },
       impressum: {
         title: 'Impressum',
@@ -440,6 +458,19 @@ Qualität zeigt sich im Detail.`
           <br/><br/>
           <h4>7) Web analytics services</h4>
           <p>We do not use cookies, tracking scripts or third‑party web analytics on this website.</p>
+          <br/>
+          <h4>External resources</h4>
+          <p>Some content is loaded from third parties and may result in requests to external domains that process data independently. Examples:</p>
+          <ul>
+            <li><b>Google Fonts:</b> Fonts are loaded from fonts.googleapis.com; this causes requests to Google's servers. Google typically does not set cookies for fonts, but external requests occur.</li>
+            <li><b>Google Maps embed:</b> If you view the embedded map, data may be processed by Google and cookies may be set under the google.com domain. Please refer to Google's privacy documentation for details.</li>
+          </ul>
+          <h4>Email handling and logs</h4>
+          <p>Contact form messages, sender addresses and attachments are processed to respond to enquiries. We use an SMTP service for delivery (configured via environment variables). In development, messages may be written to <code>server/mail-dev.log</code> to avoid losing mails; avoid persistent storage of sensitive content in logs on production systems.</p>
+          <h4>Logging, security and retention</h4>
+          <p>Server logs (access, error logs) may contain IP addresses and request metadata. We keep logs to the minimum required and apply retention/rotation practices.</p>
+          <h4>Your rights & contact</h4>
+          <p>You have rights to access, correction and deletion of your personal data. Contact us using the email address in the imprint.</p>
           <br/>
           <h4>8) Data subject rights</h4>
           <b>8.1</b> Under applicable data protection law you have extensive rights with respect to the processing of your personal data by the controller (rights of access and intervention). These include:

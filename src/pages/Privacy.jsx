@@ -5,8 +5,8 @@ import PageContainer from '../components/PageContainer'
 export default function Privacy(){
   const { t, i18n } = useTranslation()
 
-  // If language is English and we have the pre-rendered HTML, render it directly
-  if (i18n && i18n.language === 'en' && t('privacy.fullHtml')) {
+  // If a pre-rendered HTML privacy text exists for the current language, render it directly
+  if (i18n && t('privacy.fullHtml')) {
     return (
       <PageContainer>
         <div className="col-md-12">
