@@ -19,7 +19,7 @@ export default function Contact(){
   const [readingFiles, setReadingFiles] = useState(false)
   const fileInputRef = useRef(null)
   const [fileError, setFileError] = useState(null)
-  const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5 MB per file
+  const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10 MB per file
 
   useEffect(() => {
     const main = document.getElementById('content')

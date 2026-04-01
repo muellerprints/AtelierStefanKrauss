@@ -28,12 +28,13 @@ if (!empty($_FILES)) {
 
     // Security: allowed MIME types and max upload size (bytes)
     $allowed_types = array('image/png', 'image/jpeg', 'application/pdf');
-    $max_bytes = (int)(getenv('MAX_UPLOAD_BYTES') ?: 5 * 1024 * 1024);
+    $max_bytes = (int)(getenv('MAX_UPLOAD_BYTES') ?: 10 * 1024 * 1024);
     $rejected = [];
 
     // Limit number of attachments and total attachments size for safety
     $max_attachments = (int)(getenv('MAX_ATTACHMENTS') ?: 6);
-    $max_total_attachments_bytes = (int)(getenv('MAX_TOTAL_ATTACHMENTS_BYTES') ?: 15 * 1024 * 1024);
+    // Limit total attachments size to 10 MB by default
+    $max_total_attachments_bytes = (int)(getenv('MAX_TOTAL_ATTACHMENTS_BYTES') ?: 10 * 1024 * 1024);
     $attachments_count = 0;
     $attachments_total = 0;
 

@@ -1,0 +1,52 @@
+name: Build and publish dist
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Prepare dist (project script)
+        run: npm run prepare-dist || true
+
+      - name: Push `dist` to branch `dist`
+        if: github.ref != 'refs/heads/dist'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+          git fetch origin
+          if git rev-parse --verify dist >/dev/null 2>&1; then
+            git checkout dist
+            git rm -rf .
+          else
+            git checkout --orphan dist
+            git rm -rf .
+          fi
+          cp -R dist/* .
+          touch .nojekyll
+          git add --all
+          git commit -m "Publish dist via CI" || echo "No changes to commit"
+          git push --force origin HEAD:dist
