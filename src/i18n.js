@@ -197,7 +197,7 @@ const resources = {
 Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.`,
         contactLabel: 'Kontakt',
       },
-      /* terms: {
+      terms: {
         title: 'Allgemeine Geschäftsbedingungen (AGB)',
         intro: 'Die folgenden Muster‑AGB regeln die Vertragsbeziehungen zwischen dem Goldschmiedeatelier und Kundinnen/Kunden im Rahmen von Werkverträgen und Dienstleistungsaufträgen. Bitte individuell anpassen.',
         contractTitle: 'Vertragsabschluss',
@@ -209,7 +209,7 @@ Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbrauchers
         warrantyTitle: 'Gewährleistung',
         warranty: 'Es gelten die gesetzlichen Gewährleistungsrechte. Bei Werkverträgen ist der Unternehmer zur Nacherfüllung berechtigt.',
         note: 'Dies ist ein Mustertext. Für rechtssichere AGB empfehlen wir eine juristische Prüfung.'
-      }, */
+      },
       payment: {
         title: 'Zahlungsarten',
         intro: 'Wir akzeptieren folgende Zahlungsarten:',
@@ -586,7 +586,7 @@ Qualität zeigt sich im Detail.`
 We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.`,
         contactLabel: 'Contact',
       },
-      /* terms: {
+      terms: {
         title: 'Terms & Conditions (T&C)',
         intro: 'The following sample terms govern the contractual relationship between the Goldsmith Atelier and customers within the scope of work and service contracts. Please adapt individually.',
         contractTitle: 'Contract Formation',
@@ -598,7 +598,7 @@ We are neither obliged nor willing to participate in dispute resolution proceedi
         warrantyTitle: 'Warranty',
         warranty: 'Statutory warranty rights apply. For work contracts, the contractor is entitled to subsequent performance.',
         note: 'This is sample text. For legally binding terms, we recommend legal review.'
-      }, */
+      },
       payment: {
         title: 'Payment methods',
         intro: 'We accept the following payment methods:',
