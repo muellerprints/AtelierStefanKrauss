@@ -52,9 +52,10 @@ if [ -d "$DIST/privacy" ]; then
   cp -R "$DIST/privacy" "$UPLOAD/"
 fi
 
-if [ -d "$DIST/api" ]; then
+# Copy API folder from deploy/ionos/api (PHP email handler)
+if [ -d "$ROOT/deploy/ionos/api" ]; then
   echo "  → api/"
-  cp -R "$DIST/api" "$UPLOAD/"
+  cp -R "$ROOT/deploy/ionos/api" "$UPLOAD/"
 fi
 
 # Remove any .DS_Store files that might have been copied
