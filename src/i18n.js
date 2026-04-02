@@ -194,7 +194,9 @@ const resources = {
         cityzip: '75210 Keltern',
         vatId: 'Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE 460812502',
         odr: `Plattform der EU-Kommission zur Online-Streitbeilegung: <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>
-Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.`,
+Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
+
+© Goldschmiedeatelier Krauss 2026`,
         contactLabel: 'Kontakt',
       },
       terms: {
@@ -583,7 +585,9 @@ Qualität zeigt sich im Detail.`
         cityzip: '75210 Keltern',
         vatId: 'VAT identification number according to § 27 a German VAT Act: DE 460812502',
         odr: `EU Commission platform for online dispute resolution: <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>
-We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.`,
+We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.
+
+© Goldschmiedeatelier Krauss 2026`,
         contactLabel: 'Contact',
       },
       terms: {
