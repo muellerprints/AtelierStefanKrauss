@@ -20,6 +20,7 @@ npm-debug.log*
 dist/
 dist.zip
 upload-ready/
+ionos-upload/
 
 # Dreamweaver sync files
 _notes/

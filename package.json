@@ -8,10 +8,13 @@
     "dev": "vite --port 5174",
     "server": "node server/index.js",
     "prepare-dist": "sh scripts/prepare-dist.sh",
+    "prepare-ionos": "sh scripts/prepare-ionos-upload.sh",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "prebuild": "npm run generate-sitemap",
     "build": "vite build",
+    "build:ionos": "npm run build && npm run prepare-ionos",
     "watch:dist": "chokidar \"src/**/*\" \"public/**/*\" -c \"npm run build && npm run prepare-dist\" --initial",
+    "watch:ionos": "chokidar \"src/**/*\" \"public/**/*\" -c \"npm run build && npm run prepare-ionos\" --initial",
     "preview": "vite preview --port 5174",
     "generate-favicons": "node scripts/generate-favicons.js"
   },
