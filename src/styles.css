@@ -47,7 +47,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* Headline color: use accent for all headings */
-h1,h2,h3,h4,h5,h6{color:var(--accent) !important}
+h1,h2,h3,h4,h5,h6{color:var(--accent)}
 
 /* Links: avoid any blue — default to text color, hover to accent */
 a{color:var(--text);text-decoration:none}
@@ -333,10 +333,10 @@ h2{font-weight:700;letter-spacing:0.015em}
    (slide index 2 corresponds to the 'Beratung & Anfertigung' /
    'Consultation & Creation' slide). */
 .hero-content[data-slide-index="2"] .lead{
-  color: rgba(var(--text-rgb), 1) !important;
+  color: rgba(var(--text-rgb), 1);
 }
 .hero-content[data-slide-index="2"].bg-dark .lead{
-  color: rgba(255,255,255,0.98) !important;
+  color: rgba(255,255,255,0.98);
 }
 @keyframes heroLeadInLeft{to{opacity:1;transform:none}}
 
@@ -351,9 +351,9 @@ h2{font-weight:700;letter-spacing:0.015em}
 
 /* push-down feature content: semi-transparent white background */
 .feature-content.hero-content.container.push-down{
-  background: rgba(255,255,255,0.82) !important;
-  background-color: rgba(255,255,255,0.82) !important;
-  box-shadow: none !important;
+  background: rgba(255,255,255,0.82);
+  background-color: rgba(255,255,255,0.82);
+  box-shadow: none;
 }
 
 /* improve slideshow crossfade timing */
@@ -395,10 +395,11 @@ h2{font-weight:700;letter-spacing:0.015em}
 .tile, .tile:link, .tile:visited {
   text-decoration: none;
 }
-.tile h3, .tile p{color:inherit}
+.tile h3{color:var(--accent)}
+.tile p{color:var(--text)}
   .tile:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(var(--shadow-rgb),0.12)}
-/* ensure hover doesn't change text-decoration/color */
-.tile:hover, .tile:hover:link, .tile:hover:visited{color:var(--text);text-decoration:none}
+/* ensure hover doesn't change text-decoration */
+.tile:hover, .tile:hover:link, .tile:hover:visited{text-decoration:none}
 
   /* Icon inside the first teaser tile */
   .tile .tile-icon{
@@ -803,18 +804,18 @@ h2{font-weight:700;letter-spacing:0.015em}
   .hero-content .lead{font-size:22px}
 }
 @media (max-width:900px){
-  .hero-content h1{font-size:28px;white-space:normal !important}
+  .hero-content h1{font-size:28px;white-space:normal}
   .hero-content .lead{font-size:20px}
   /* Allow hero subtitle to wrap on smaller viewports */
   .hero-content .lead{white-space:normal;overflow:visible;text-overflow:clip;max-width:none}
 }
 @media (max-width:600px){
   .hero-content{padding:24px 16px}
-  .hero-content h1{font-size:24px;white-space:normal !important}
+  .hero-content h1{font-size:24px;white-space:normal}
   .hero-content .lead{font-size:18px}
 }
 @media (max-width:480px){
-  .hero-content h1{font-size:22px;white-space:normal !important;line-height:1.2}
+  .hero-content h1{font-size:22px;white-space:normal;line-height:1.2}
   .hero-content .lead{font-size:16px;line-height:1.4}
 }
 
@@ -877,10 +878,10 @@ html, body { overflow-x: hidden; }
   .feature-photo-img {
     min-height: var(--feature-mobile-photo-height);
     height: var(--feature-mobile-photo-height);
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     object-fit: cover;
     display:block;
   }
@@ -978,7 +979,7 @@ html, body { overflow-x: hidden; }
   .photo-item{min-height:180px}
 }
 /* Contact page responsive tweaks */
-.contact-grid{display:grid;grid-template-columns:1fr 360px !important;gap:24px;align-items:start}
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
 .contact-form{max-width:500px;width:100%}
 
 /* Ensure contact info paragraph behaves as normal flowing text */
@@ -991,7 +992,7 @@ html, body { overflow-x: hidden; }
 .opening-hours{max-width:500px;width:100%;box-sizing:border-box;padding:0;background:transparent;color:inherit;font-size:inherit;line-height:inherit}
 /* Opening-hours heading uses accent color and heading semantics */
 .opening-hours h2{
-  color:var(--accent) !important;
+  color:var(--accent);
   margin-top:24px;
   padding-top:20px;
   margin-bottom:12px;
@@ -1024,7 +1025,7 @@ html, body { overflow-x: hidden; }
 .file-list li{background:var(--white)}
 
 @media (max-width:900px){
-  .contact-grid{grid-template-columns:1fr !important;padding:0 12px}
+  .contact-grid{grid-template-columns:1fr;padding:0 12px}
   /* Make contact form and opening-hours card share the same width on mobile */
   /* Make contact form and opening-hours card share the same width + padding on mobile */
   .contact-form, aside #opening-hours{width:100%;max-width:100%;padding:18px;box-sizing:border-box}
@@ -1077,8 +1078,8 @@ html, body { overflow-x: hidden; }
 }
 @media (min-width:901px){
   .feature-photos .feature-photo-section:first-child .feature-photo--large{
-    width:38.4vw !important;
-    max-width:38.4vw !important;
+    width:38.4vw;
+    max-width:38.4vw;
   }
 }
 
@@ -1099,8 +1100,8 @@ html, body { overflow-x: hidden; }
 }
 @media (min-width:901px){
   .feature-photos .feature-photo-section:nth-child(2) .feature-photo--large{
-    width:38.4vw !important;
-    max-width:38.4vw !important;
+    width:38.4vw;
+    max-width:38.4vw;
   }
 }
 
@@ -1118,8 +1119,8 @@ html, body { overflow-x: hidden; }
 }
 @media (min-width:901px){
   .feature-photos .feature-photo-section:last-child .feature-photo--large{
-    width:38.4vw !important;
-    max-width:38.4vw !important;
+    width:38.4vw;
+    max-width:38.4vw;
   }
 }
   
@@ -1138,7 +1139,7 @@ html, body { overflow-x: hidden; }
     /* Disable horizontal number offset on mobile so it never overlaps the image */
     .feature-content.push-down.align-right .photo-number,
     .feature-photo-section.in-view .feature-content.push-down.align-right .photo-number {
-      transform: translateX(0) !important;
+      transform: translateX(0);
       opacity: 1;
     }
   }
@@ -1158,10 +1159,10 @@ html, body { overflow-x: hidden; }
   .feature-photos .feature-photo-section:first-child .feature-photo--large,
   .feature-photos .feature-photo-section:nth-child(2) .feature-photo--large,
   .feature-photos .feature-photo-section:last-child .feature-photo--large{
-    width:100% !important;
-    max-width:100% !important;
-    margin-left:0 !important;
-    margin-right:0 !important;
+    width:100%;
+    max-width:100%;
+    margin-left:0;
+    margin-right:0;
   }
 }
 
@@ -1169,20 +1170,20 @@ html, body { overflow-x: hidden; }
 @media (max-width:900px){
   .feature-content.hero-content.container.push-down,
   .feature-photos .feature-content.hero-content.container.push-down{
-    padding-left:17px !important;
-    padding-right:17px !important;
-    margin-left:14px !important;
-    margin-right:14px !important;
-    margin-top:-136px !important;
-    margin-bottom:119px !important;
-    box-sizing:border-box !important;
-    width:calc(100% - 28px) !important;
-    max-width:calc(100% - 28px) !important;
-    transform:none !important;
-    left:auto !important;
-    right:auto !important;
-    position:relative !important;
-    z-index:10 !important;
+    padding-left:17px;
+    padding-right:17px;
+    margin-left:14px;
+    margin-right:14px;
+    margin-top:-136px;
+    margin-bottom:119px;
+    box-sizing:border-box;
+    width:calc(100% - 28px);
+    max-width:calc(100% - 28px);
+    transform:none;
+    left:auto;
+    right:auto;
+    position:relative;
+    z-index:10;
   }
 }
 
@@ -1190,19 +1191,19 @@ html, body { overflow-x: hidden; }
 @media (max-width:520px){
   .feature-content.hero-content.container.push-down,
   .feature-photos .feature-content.hero-content.container.push-down{
-    padding-left:10px !important;
-    padding-right:10px !important;
-    background: rgba(255,255,255,0.9) !important;
+    padding-left:10px;
+    padding-right:10px;
+    background: rgba(255,255,255,0.9);
   }
   .feature-content.hero-content.container.push-down h2{
-    font-size:15px !important;
-    margin-bottom:6px !important;
+    font-size:15px;
+    margin-bottom:6px;
   }
   .feature-content.hero-content.container.push-down p{
-    font-size:11px !important;
-    line-height:1.25 !important;
-    margin-bottom:8px !important;
-    max-width:289px !important;
+    font-size:11px;
+    line-height:1.25;
+    margin-bottom:8px;
+    max-width:289px;
   }
 }
 
@@ -1220,19 +1221,19 @@ html, body { overflow-x: hidden; }
 
 /* Middle feature (Foto 8) — no background or shadow */
 .feature-photos .feature-photo-section.reverse .feature-content.hero-content.container{
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
+  background: transparent;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 /* Override: keep white semi-transparent background for push-down items
    even inside reversed sections (e.g. Schmuckfoto 8). Increases z-index
    so the card sits above the image. */
 .feature-photos .feature-photo-section.reverse .feature-content.hero-content.container.push-down{
-  background: rgba(255,255,255,0.82) !important;
-  background-color: rgba(255,255,255,0.82) !important;
-  box-shadow: none !important;
-  z-index: 6 !important;
+  background: rgba(255,255,255,0.82);
+  background-color: rgba(255,255,255,0.82);
+  box-shadow: none;
+  z-index: 6;
 }
 .contact-form label{display:flex;flex-direction:column;font-size:14px}
 .contact-form input,.contact-form textarea{padding:8px;border:1px solid var(--muted);border-radius:4px}
@@ -1366,9 +1367,9 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 /* Larger presentation variant for photos 7-9: wide landscape format */
 .feature-photo--large{
   /* 50% smaller than previous - balanced landscape format */
-  width: 45vw !important;
-  max-width: 45vw !important;
-  height: 38vh !important;
+  width: 45vw;
+  max-width: 45vw;
+  height: 38vh;
   max-height: 506px;
   margin-left: auto;
   margin-right: auto;
@@ -1378,13 +1379,13 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 .feature-photo--large .feature-photo-img,
 .feature-photo--large .feature-parallax,
 .feature-photo--large .feature-parallax .feature-photo-img {
-  height: 100% !important;
-  width: 100% !important;
-  object-fit: cover !important;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 /* Grid placement rules not needed for flexbox layout */
 /* stronger base shadow to match carousel visuals */
-  .feature-photo-img{width:100% !important;height:100% !important;object-fit:cover;border-radius:12px;box-shadow:0 12px 30px rgba(var(--shadow-rgb),0.08);display:block;filter:saturate(1.18) contrast(1.04);transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+  .feature-photo-img{width:100%;height:100%;object-fit:cover;border-radius:12px;box-shadow:0 12px 30px rgba(var(--shadow-rgb),0.08);display:block;filter:saturate(1.18) contrast(1.04);transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
 .feature-content{display:flex;flex-direction:column;justify-content:center;opacity:0;filter:blur(2px);transform:translateY(18px);transition:opacity 4s cubic-bezier(.16,.84,.3,1),transform 4s cubic-bezier(.16,.84,.3,1),filter 4s ease}
 .feature-content h2{margin:0 0 8px;font-size:31px;font-weight:700;display:flex;align-items:baseline;justify-content:flex-start;gap:12px}
 .feature-content .photo-title{display:inline}
@@ -1414,16 +1415,16 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
   }
   /* increase mobile feature photo height and force landscape aspect for better visibility */
   .feature-photo--large{
-    width:100% !important;
-    max-width:100% !important;
-    margin-left:0 !important;
-    margin-right:0 !important;
+    width:100%;
+    max-width:100%;
+    margin-left:0;
+    margin-right:0;
     /* ensure landscape orientation and make them larger on mobile */
     aspect-ratio: 16 / 9;
-    height: auto !important;
+    height: auto;
     min-height: 481px;
   }
-  .feature-photo-img{width:100% !important;height:100% !important;min-height:481px;object-fit:cover}
+  .feature-photo-img{width:100%;height:100%;min-height:481px;object-fit:cover}
   .feature-content h2{font-size:19px}
   /* Ensure the image appears above the text on mobile for clearer layout */
   .feature-photos .feature-photo-section{align-items:stretch}
@@ -1439,10 +1440,10 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 .feature-photos .feature-photo-section.single-view,
 .feature-photos.single-view .feature-photo-section {
   grid-template-columns: 1fr; /* stack image + content vertically */
-  column-gap: 0 !important;
-  row-gap: 0 !important;
-  padding: 0 !important;
-  margin-bottom: 0 !important;
+  column-gap: 0;
+  row-gap: 0;
+  padding: 0;
+  margin-bottom: 0;
 }
 
 /* Enlarge the inner container for the feature-photos area only.
@@ -1559,10 +1560,10 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
 */
 @media (max-width:900px){
   /* turn off parallax transforms in hero to keep images stable */
-  .hero .parallax, .hero .parallax-layer{display:none !important;transform:none !important}
+  .hero .parallax, .hero .parallax-layer{display:none;transform:none}
 
   /* keep hero slides centred and ensure the image covers the area without extreme crop */
-  .hero-slideshow .slide{background-position:center center !important;background-size:cover !important}
+  .hero-slideshow .slide{background-position:center center;background-size:cover}
   .hero{min-height:48vh}
 
   /* photo carousel/grid: give more vertical space and stronger snap for touch */
@@ -1652,9 +1653,9 @@ input:focus, textarea:focus{outline:none;box-shadow:0 0 0 4px rgba(var(--accent-
   .feature-overlay h2{font-size:40px}
   /* Keep landscape format for photos 7-9 on desktop - 50% smaller */
   .feature-photo--large{
-    height: 38vh !important;
+    height: 38vh;
     max-height: 506px;
-    width: 45vw !important;
+    width: 45vw;
   }
 }
 /* ensure content starts neutral */
