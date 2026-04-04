@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './i18n'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+import ScrollToTopButton from './components/ScrollToTopButton'
 import Home from './pages/Home'
 import About from './pages/About'
 import Atelier from './pages/Atelier'
@@ -19,6 +21,7 @@ import Shipping from './pages/Shipping'
 export default function App(){
   return (
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <ScrollToTop />
       <Header />
       <main id="content" tabIndex="-1" role="main">
         <Routes>
@@ -37,6 +40,7 @@ export default function App(){
         </Routes>
       </main>
       <Footer />
+      <ScrollToTopButton />
     </BrowserRouter>
   )
 }
